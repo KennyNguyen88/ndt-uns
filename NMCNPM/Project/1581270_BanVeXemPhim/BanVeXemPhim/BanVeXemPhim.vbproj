@@ -75,46 +75,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Cap_nhat_Nhan_vien.designer.vb">
-      <DependentUpon>MH_Cap_nhat_Nhan_vien.vb</DependentUpon>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_Cuu_Suat_Chieu.Designer.vb">
+      <DependentUpon>MH_Tra_Cuu_Suat_Chieu.vb</DependentUpon>
     </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Cap_nhat_Nhan_vien.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Chon_Nhan_vien.designer.vb">
-      <DependentUpon>MH_Chon_Nhan_vien.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Chon_Nhan_vien.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ghi_moi_Nhan_vien.designer.vb">
-      <DependentUpon>MH_Ghi_moi_Nhan_vien.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ghi_moi_Nhan_vien.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Thong_ke_Nhan_vien_Don_vi.Designer.vb">
-      <DependentUpon>MH_Thong_ke_Nhan_vien_Don_vi.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Thong_ke_Nhan_vien_Don_vi.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_Don_vi.designer.vb">
-      <DependentUpon>MH_Tra_cuu_Nhan_vien_Don_vi.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_Don_vi.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_Muc_luong.designer.vb">
-      <DependentUpon>MH_Tra_cuu_Nhan_vien_Muc_luong.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_Muc_luong.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_theo_Ho_ten.designer.vb">
-      <DependentUpon>MH_Tra_cuu_Nhan_vien_theo_Ho_ten.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_theo_Ho_ten.vb">
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_Cuu_Suat_Chieu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ung_dung.designer.vb">
@@ -123,29 +87,18 @@
     <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ung_dung.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Xoa_Nhan_vien.designer.vb">
-      <DependentUpon>MH_Xoa_Nhan_vien.vb</DependentUpon>
-    </Compile>
-    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Xoa_Nhan_vien.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="1_Thanh_phan_Giao_dien\Xu_ly_The_hien\XL_THE_HIEN.vb" />
-    <Compile Include="1_Thanh_phan_Giao_dien\Xu_ly_The_hien\XL_THE_HIEN_Nhan_vien.vb" />
     <Compile Include="1_Thanh_phan_Giao_dien\Xu_ly_The_hien\XL_THE_HIEN_Ung_dung.vb" />
-    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_CHI_NHANH.vb" />
-    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_CONG_TY.vb" />
-    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_DON_VI.vb" />
-    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_GIOI_TINH.vb" />
-    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_NHAN_VIEN.vb" />
+    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_CA_CHIEU.vb" />
+    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_GHE.vb" />
+    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_LOAI_PHONG.vb" />
+    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_PHIM.vb" />
+    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_PHONG.vb" />
+    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_RAP_CHIEU_PHIM.vb" />
     <Compile Include="2_Thanh_phan_Nghiep_vu\XL_UNG_DUNG.vb" />
+    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_VE.vb" />
+    <Compile Include="2_Thanh_phan_Nghiep_vu\XL_XUAT_CHIEU.vb" />
     <Compile Include="3_Thanh_phan_Luu_tru\XL_LUU_TRU.vb" />
-    <Compile Include="Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -164,32 +117,11 @@
     <Compile Include="XL_DONG_HO_PET.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Cap_nhat_Nhan_vien.resx">
-      <DependentUpon>MH_Cap_nhat_Nhan_vien.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Chon_Nhan_vien.resx">
-      <DependentUpon>MH_Chon_Nhan_vien.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ghi_moi_Nhan_vien.resx">
-      <DependentUpon>MH_Ghi_moi_Nhan_vien.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Thong_ke_Nhan_vien_Don_vi.resx">
-      <DependentUpon>MH_Thong_ke_Nhan_vien_Don_vi.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_Don_vi.resx">
-      <DependentUpon>MH_Tra_cuu_Nhan_vien_Don_vi.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_Muc_luong.resx">
-      <DependentUpon>MH_Tra_cuu_Nhan_vien_Muc_luong.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_cuu_Nhan_vien_theo_Ho_ten.resx">
-      <DependentUpon>MH_Tra_cuu_Nhan_vien_theo_Ho_ten.vb</DependentUpon>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_Cuu_Suat_Chieu.resx">
+      <DependentUpon>MH_Tra_Cuu_Suat_Chieu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ung_dung.resx">
       <DependentUpon>MH_Ung_dung.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Xoa_Nhan_vien.resx">
-      <DependentUpon>MH_Xoa_Nhan_vien.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
