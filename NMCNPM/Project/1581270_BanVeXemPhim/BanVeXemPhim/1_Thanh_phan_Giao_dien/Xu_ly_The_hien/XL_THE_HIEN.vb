@@ -134,6 +134,8 @@
         Next
     End Sub
 
+
+
     Sub Xuat_Danh_sach_Chon_Doi_tuong(Danh_sach_Doi_tuong As IList,
                                                                Danh_sach_Chuoi_Tom_tat As List(Of String),
                                  Danh_sach_Chuoi_Thong_tin As List(Of String),

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MH_Tra_Cuu_Suat_Chieu
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class MH_Tra_Cuu_Suat_Chieu
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Th_Tieu_de = New System.Windows.Forms.Label()
         Me.Th_Thong_bao = New System.Windows.Forms.Label()
@@ -50,10 +50,11 @@ Partial Class MH_Tra_Cuu_Suat_Chieu
         'Th_Thong_bao
         '
         Me.Th_Thong_bao.AutoSize = True
-        Me.Th_Thong_bao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Th_Thong_bao.Location = New System.Drawing.Point(12, 432)
+        Me.Th_Thong_bao.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Th_Thong_bao.ForeColor = System.Drawing.SystemColors.Control
+        Me.Th_Thong_bao.Location = New System.Drawing.Point(377, 63)
         Me.Th_Thong_bao.Name = "Th_Thong_bao"
-        Me.Th_Thong_bao.Size = New System.Drawing.Size(49, 16)
+        Me.Th_Thong_bao.Size = New System.Drawing.Size(66, 24)
         Me.Th_Thong_bao.TabIndex = 1
         Me.Th_Thong_bao.Text = "Label1"
         '
@@ -145,7 +146,8 @@ Partial Class MH_Tra_Cuu_Suat_Chieu
         '
         'flResult
         '
-        Me.flResult.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.flResult.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.Location = New System.Drawing.Point(16, 179)

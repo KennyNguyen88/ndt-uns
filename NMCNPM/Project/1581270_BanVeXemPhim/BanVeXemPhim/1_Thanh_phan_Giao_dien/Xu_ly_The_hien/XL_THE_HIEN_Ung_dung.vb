@@ -42,7 +42,7 @@ Partial Public Class XL_THE_HIEN
 
 #End Region
 
-#Region "Chứng năng con theo từng loại đối tượng "
+#Region "Chức năng con theo từng loại đối tượng "
 
     Protected Sub Xuat_Chuc_nang_Con_cua_Tra_Cuu(Chuc_nang As ToolStripMenuItem,
                                                               XL_Chon_Chuc_nang As EventHandler)

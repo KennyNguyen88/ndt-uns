@@ -46,7 +46,7 @@
     End Property
     Public Property Ngay As DateTime
         Get
-            Return Dong("ID_PHIM")
+            Return Dong("Ngay")
         End Get
         Set(value As DateTime)
             Dong("Ngay") = value

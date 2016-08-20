@@ -190,9 +190,9 @@ Partial Public Class XL_UNG_DUNG
 
 #Region "Trích rút Danh sách theo thuộc tính"
     '==== Trích rút Danh sách Xuất Chiếu theo các thuộc tính====
-    Public Function Danh_sach_Xuat_Chieu_Theo_Ten_Phim(Chuoi As String) As List(Of XL_XUAT_CHIEU)
+    Public Function Danh_sach_Xuat_Chieu_Theo_Ten_Phim(TenPhim As String) As List(Of XL_XUAT_CHIEU)
         Dim Kq As List(Of XL_XUAT_CHIEU) = Danh_sach_Xuat_Chieu()
-        Dim dsPhim As List(Of XL_PHIM) = Danh_sach_Phim_Theo_Ten(Chuoi)
+        Dim dsPhim As List(Of XL_PHIM) = Danh_sach_Phim_Theo_Ten(TenPhim)
         For Each objPhim In dsPhim
             Kq.AddRange(Kq.FindAll(Function(x) x.ID_PHIM.Equals(objPhim.ID)))
         Next
@@ -217,9 +217,25 @@ Partial Public Class XL_UNG_DUNG
         Return Kq
     End Function
 
-    Public Function Danh_sach_Xuat_Chieu_Theo_Ngay(NgayChieu As DateTime) As List(Of XL_XUAT_CHIEU)
+    Public Function Danh_sach_Xuat_Chieu_Theo_Ngay(NgayChieu As Date) As List(Of XL_XUAT_CHIEU)
         Dim Kq As List(Of XL_XUAT_CHIEU) = Danh_sach_Xuat_Chieu()
         Kq = Kq.FindAll(Function(x) x.Ngay.Equals(NgayChieu))
+        Return Kq
+    End Function
+
+    Public Function Danh_sach_Xuat_Chieu_Theo_Ngay_From_To(fromDate As Date) As List(Of XL_XUAT_CHIEU)
+        Return Danh_sach_Xuat_Chieu_Theo_Ngay_From_To(fromDate, fromDate.AddDays(7))
+    End Function
+
+    Public Function Danh_sach_Xuat_Chieu_Theo_Ngay_From_To(fromDate As Date, toDate As Date) As List(Of XL_XUAT_CHIEU)
+        Dim Kq As List(Of XL_XUAT_CHIEU) = Danh_sach_Xuat_Chieu()
+        Kq = Kq.FindAll(Function(x) x.Ngay >= fromDate.Date And x.Ngay <= toDate.Date)
+        Return Kq
+    End Function
+
+    Public Function Danh_sach_Xuat_Chieu_Theo_Phim_Ca_Ngay(ID_PHIM As Integer, ID_Ca_Chieu As Integer, Ngay As Date) As List(Of XL_XUAT_CHIEU)
+        Dim Kq As List(Of XL_XUAT_CHIEU) = Danh_sach_Xuat_Chieu()
+        Kq = Kq.FindAll(Function(x) x.ID_PHIM = ID_PHIM And x.ID_CA_CHIEU = ID_Ca_Chieu And x.Ngay = Ngay)
         Return Kq
     End Function
 
@@ -231,9 +247,9 @@ Partial Public Class XL_UNG_DUNG
         Return Kq
     End Function
 
-    Public Function Danh_Sach_Phim_Xuat_Chieu_Sau_Ngay(Ngay As DateTime) As List(Of XL_PHIM)
+    Public Function Danh_Sach_Phim_Xuat_Chieu_Sau_Ngay(Ngay As Date) As List(Of XL_PHIM)
         Dim Kq As List(Of XL_PHIM) = Danh_sach_Phim()
-        Kq = Kq.FindAll(Function(x) x.Danh_sach_Xuat_Chieu.FindAll(Function(y) y.Ngay >= Ngay).Count > 0)
+        Kq = Kq.FindAll(Function(x) x.Danh_sach_Xuat_Chieu.FindAll(Function(y) y.Ngay >= Ngay.Date).Count > 0)
         Return Kq
     End Function
 
