@@ -90,13 +90,13 @@
         Next
         If Danh_Sach_Xuat_Chieu.Count > 0 Then
             lbThongBao.Text = "Tìm thấy " & Danh_Sach_Xuat_Chieu.Count & " suất chiếu phù hợp"
-            The_hien.Xuat_Danh_sach_Xuat_Chieu_Beta(Danh_Sach_Xuat_Chieu, flResults, AddressOf XL_Chon_Xuat_Chieu)
+            The_hien.Xuat_Danh_sach_Xuat_Chieu_Beta(Danh_Sach_Xuat_Chieu, flResults, AddressOf XL_Chon_Xuat_Chieu_Chi_Tiet, AddressOf XL_Chon_Xuat_Chieu_Xoa, AddressOf XL_Chon_Xuat_Chieu_CapNhat)
         Else
             lbThongBao.Text = "Không tìm thấy kết quả phù hợp"
         End If
     End Sub
-#Region "Xử lý Biến cố chính - Chọn Suất Chiếu"
-    Sub XL_Chon_Xuat_Chieu(btnXuatChieu As Button, Bc As EventArgs)
+#Region "Xử lý Biến cố chính - Chi Tiết Suất Chiếu"
+    Sub XL_Chon_Xuat_Chieu_Chi_Tiet(btnXuatChieu As Button, Bc As EventArgs)
         flDetail.Controls.Clear()
         Dim xuatchieu As XL_XUAT_CHIEU = btnXuatChieu.Tag
         Dim lbThongTin As Label = New Label
@@ -104,6 +104,14 @@
         lbThongTin.AutoSize = True
         lbThongTin.Font = New Font(lbThongTin.Font.Name, 14, lbThongTin.Font.Style)
         flDetail.Controls.Add(lbThongTin)
+
+    End Sub
+    Sub XL_Chon_Xuat_Chieu_Xoa(btnXuatChieu As Button, Bc As EventArgs)
+
+
+    End Sub
+    Sub XL_Chon_Xuat_Chieu_CapNhat(btnXuatChieu As Button, Bc As EventArgs)
+
 
     End Sub
 #End Region

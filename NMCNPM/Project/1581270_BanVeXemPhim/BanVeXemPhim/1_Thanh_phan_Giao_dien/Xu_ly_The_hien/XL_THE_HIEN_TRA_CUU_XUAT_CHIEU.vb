@@ -23,22 +23,47 @@
     End Sub
 
     Sub Xuat_Danh_sach_Xuat_Chieu_Beta(Danh_sach_Doi_tuong As List(Of XL_XUAT_CHIEU),
-                              Th_Danh_sach_Doi_tuong As FlowLayoutPanel, XL_Chon_Doi_tuong As EventHandler)
+                              Th_Danh_sach_Doi_tuong As FlowLayoutPanel, XL_Chon_Doi_tuong_Chi_Tiet As EventHandler, XL_Chon_Doi_tuong_Xoa As EventHandler, XL_Chon_Doi_tuong_CapNhat As EventHandler)
         For Each xuatchieu In Danh_sach_Doi_tuong
-            '==== Tạo thể hiện đối tượng 
-            Dim Th_Doi_tuong As New Button
-            Th_Doi_tuong.BackColor = Color.White
-            Th_Doi_tuong.ForeColor = Color.Black
-            Th_Doi_tuong.FlatStyle = FlatStyle.Flat
-            Th_Doi_tuong.Font = New Font(Th_Doi_tuong.Font.Name, 14, Th_Doi_tuong.Font.Style)
-            Th_Doi_tuong.TextAlign = ContentAlignment.MiddleLeft
-            Th_Doi_tuong.AutoSize = True
-            '=== Xuất Tóm tắt
-            Th_Doi_tuong.Text = xuatchieu.Tao_Chuoi_Tom_tat
-            Th_Doi_tuong.Tag = xuatchieu
-            Th_Danh_sach_Doi_tuong.Controls.Add(Th_Doi_tuong)
-            AddHandler Th_Doi_tuong.Click, XL_Chon_Doi_tuong
+            'Panel
+            Dim pnel As New FlowLayoutPanel
+            pnel.FlowDirection = FlowDirection.LeftToRight
+            pnel.AutoSize = True
+            '==== Tạo thể hiện chi tiết
+            Dim Th_Doi_tuong_Chi_Tiet As New Button
+            Th_Doi_tuong_Chi_Tiet.Text = xuatchieu.Tao_Chuoi_Tom_tat
+            Th_Doi_tuong_Chi_Tiet.Tag = xuatchieu
+            Dinh_Dang_Button(Th_Doi_tuong_Chi_Tiet)
+            AddHandler Th_Doi_tuong_Chi_Tiet.Click, XL_Chon_Doi_tuong_Chi_Tiet
+            pnel.Controls.Add(Th_Doi_tuong_Chi_Tiet)
+
+            '==== Tạo thể hiện xóa
+            Dim Th_Doi_tuong_Xoa As New Button
+            Th_Doi_tuong_Xoa.Text = "Xóa"
+            Th_Doi_tuong_Xoa.Tag = xuatchieu
+            Dinh_Dang_Button(Th_Doi_tuong_Xoa)
+            AddHandler Th_Doi_tuong_Xoa.Click, XL_Chon_Doi_tuong_Xoa
+            pnel.Controls.Add(Th_Doi_tuong_Xoa)
+
+            '==== Tạo thể hiện cập nhật
+            Dim Th_Doi_tuong_CapNhat As New Button
+            Th_Doi_tuong_CapNhat.Text = "Cập Nhật"
+            Th_Doi_tuong_CapNhat.Tag = xuatchieu
+            Dinh_Dang_Button(Th_Doi_tuong_CapNhat)
+            AddHandler Th_Doi_tuong_CapNhat.Click, XL_Chon_Doi_tuong_CapNhat
+            pnel.Controls.Add(Th_Doi_tuong_CapNhat)
+
+            Th_Danh_sach_Doi_tuong.Controls.Add(pnel)
         Next
+    End Sub
+
+    Sub Dinh_Dang_Button(_button As Button)
+        _button.BackColor = Color.White
+        _button.ForeColor = Color.Black
+        _button.FlatStyle = FlatStyle.Flat
+        _button.Font = New Font(_button.Font.Name, 14, _button.Font.Style)
+        _button.TextAlign = ContentAlignment.MiddleLeft
+        _button.AutoSize = True
     End Sub
 
     Sub Xuat_Chi_Tiet_Suat_Chieu(suatChieu As XL_XUAT_CHIEU, Th_Chi_Tiet As FlowLayoutPanel, XL_Chon_Doi_tuong As EventHandler)
