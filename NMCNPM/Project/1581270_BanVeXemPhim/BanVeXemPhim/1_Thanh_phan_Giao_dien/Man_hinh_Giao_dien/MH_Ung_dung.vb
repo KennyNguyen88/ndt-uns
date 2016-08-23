@@ -63,6 +63,9 @@ Public Class MH_Ung_dung
         ElseIf Ma_so_Chon = "TRA_CUU_SUAT_CHIEU" Then
             Dim Mh As New MH_Tra_Cuu_Suat_Chieu(Ung_dung)
             Mh.ShowDialog()
+        ElseIf Ma_so_Chon = "TRA_CUU_SUAT_CHIEU_BETA" Then
+            Dim Mh As New MH_Tra_Cuu_Suat_Chieu_Beta(Ung_dung)
+            Mh.ShowDialog()
             '=== Chức năng Quản Lý
         ElseIf Ma_so_Chon = "QUAN_LY_RAP_CHIEU_PHIM" Then
             'Dim Mh As New MH_Tra_cuu_Nhan_vien_theo_Ho_ten(Ung_dung)

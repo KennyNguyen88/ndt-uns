@@ -9,8 +9,6 @@ Partial Public Class XL_THE_HIEN
 
 
 #Region "Thực đơn của ứng dụng"
-    ' Câu hỏi PET : Tại sao Xuat_Thuc_don_tinh nhưng lại Tao_thuc_don_dong ? 
-    ' Có nên bổ sung hàm Hàm Tao_Thuc_don_tinh , Xuat_Thuc_don_dong  không ? khi nào nên bổ sung ?
     Public Sub Xuat_Thuc_don_Ttnh_cua_Ung_dung(
                                                Thuc_don As MenuStrip, XL_Chon_Chuc_nang As EventHandler)
         Dim Danh_sach_Ten_Chuc_nang As List(Of String) = New String() {
@@ -47,8 +45,8 @@ Partial Public Class XL_THE_HIEN
     Protected Sub Xuat_Chuc_nang_Con_cua_Tra_Cuu(Chuc_nang As ToolStripMenuItem,
                                                               XL_Chon_Chuc_nang As EventHandler)
         'Dim Loai_doi_tuong As String = "TRA_CUU" ' Loại đối tượng Tổ chức cấp 0 ( Cấp cao nhất của ứng dụng )
-        Dim Danh_sach_Ten As List(Of String) = New String() {"Tra cứu suất chiếu"}.ToList
-        Dim Danh_sach_Ma_so As List(Of String) = New String() {"TRA_CUU_SUAT_CHIEU"}.ToList
+        Dim Danh_sach_Ten As List(Of String) = New String() {"Tra cứu suất chiếu", "Tra cứu suất chiếu Beta"}.ToList
+        Dim Danh_sach_Ma_so As List(Of String) = New String() {"TRA_CUU_SUAT_CHIEU", "TRA_CUU_SUAT_CHIEU_BETA"}.ToList
         Xuat_Chuc_nang_con_cua_Chuc_nang(Danh_sach_Ten, Danh_sach_Ma_so, Chuc_nang, XL_Chon_Chuc_nang)
     End Sub
     Protected Sub Xuat_Chuc_nang_Con_cua_Quan_Ly(Chuc_nang As ToolStripMenuItem,

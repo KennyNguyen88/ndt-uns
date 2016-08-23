@@ -29,21 +29,26 @@ Partial Class MH_Ung_dung
         '
         'Th_Tieu_de
         '
-        Me.Th_Tieu_de.AutoSize = True
+        Me.Th_Tieu_de.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Th_Tieu_de.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Th_Tieu_de.Location = New System.Drawing.Point(56, 18)
+        Me.Th_Tieu_de.Location = New System.Drawing.Point(11, 67)
         Me.Th_Tieu_de.Name = "Th_Tieu_de"
-        Me.Th_Tieu_de.Size = New System.Drawing.Size(102, 33)
+        Me.Th_Tieu_de.Size = New System.Drawing.Size(639, 33)
         Me.Th_Tieu_de.TabIndex = 0
         Me.Th_Tieu_de.Text = "Label1"
+        Me.Th_Tieu_de.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Thuc_don
         '
+        Me.Thuc_don.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Thuc_don.AutoSize = False
         Me.Thuc_don.BackColor = System.Drawing.Color.White
         Me.Thuc_don.Dock = System.Windows.Forms.DockStyle.None
-        Me.Thuc_don.Location = New System.Drawing.Point(9, 71)
+        Me.Thuc_don.Location = New System.Drawing.Point(9, 9)
         Me.Thuc_don.Name = "Thuc_don"
-        Me.Thuc_don.Size = New System.Drawing.Size(202, 24)
+        Me.Thuc_don.Size = New System.Drawing.Size(645, 48)
         Me.Thuc_don.TabIndex = 1
         Me.Thuc_don.Text = "MenuStrip1"
         '
@@ -57,7 +62,7 @@ Partial Class MH_Ung_dung
         Me.Th_Thong_bao.TabIndex = 2
         Me.Th_Thong_bao.Text = "Label1"
         '
-        'MH_Chinh
+        'MH_Ung_dung
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
