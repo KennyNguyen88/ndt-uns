@@ -75,6 +75,60 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Chon_Suat_Chieu.Designer.vb">
+      <DependentUpon>MH_Chon_Suat_Chieu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Chon_Suat_Chieu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Ca_Chieu.Designer.vb">
+      <DependentUpon>MH_Quan_Ly_Ca_Chieu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Ca_Chieu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_ly_Ghe.Designer.vb">
+      <DependentUpon>MH_Quan_ly_Ghe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_ly_Ghe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Loai_Phong.Designer.vb">
+      <DependentUpon>MH_Quan_Ly_Loai_Phong.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Loai_Phong.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Phim.Designer.vb">
+      <DependentUpon>MH_Quan_Ly_Phim.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Phim.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Phong.Designer.vb">
+      <DependentUpon>MH_Quan_Ly_Phong.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Phong.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Rap.Designer.vb">
+      <DependentUpon>MH_Quan_Ly_Rap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Rap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Suat_Chieu.Designer.vb">
+      <DependentUpon>MH_Quan_Ly_Suat_Chieu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Suat_Chieu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Ve.Designer.vb">
+      <DependentUpon>MH_Quan_Ly_Ve.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Ve.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_Cuu_Suat_Chieu.Designer.vb">
       <DependentUpon>MH_Tra_Cuu_Suat_Chieu.vb</DependentUpon>
     </Compile>
@@ -124,6 +178,33 @@
     <Compile Include="XL_DONG_HO_PET.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Chon_Suat_Chieu.resx">
+      <DependentUpon>MH_Chon_Suat_Chieu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Ca_Chieu.resx">
+      <DependentUpon>MH_Quan_Ly_Ca_Chieu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_ly_Ghe.resx">
+      <DependentUpon>MH_Quan_ly_Ghe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Loai_Phong.resx">
+      <DependentUpon>MH_Quan_Ly_Loai_Phong.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Phim.resx">
+      <DependentUpon>MH_Quan_Ly_Phim.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Phong.resx">
+      <DependentUpon>MH_Quan_Ly_Phong.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Rap.resx">
+      <DependentUpon>MH_Quan_Ly_Rap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Suat_Chieu.resx">
+      <DependentUpon>MH_Quan_Ly_Suat_Chieu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Ve.resx">
+      <DependentUpon>MH_Quan_Ly_Ve.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_Cuu_Suat_Chieu.resx">
       <DependentUpon>MH_Tra_Cuu_Suat_Chieu.vb</DependentUpon>
     </EmbeddedResource>

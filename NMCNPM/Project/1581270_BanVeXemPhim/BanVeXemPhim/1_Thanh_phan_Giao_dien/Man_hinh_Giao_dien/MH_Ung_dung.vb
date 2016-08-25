@@ -68,46 +68,46 @@ Public Class MH_Ung_dung
             Mh.ShowDialog()
             '=== Chức năng Quản Lý
         ElseIf Ma_so_Chon = "QUAN_LY_RAP_CHIEU_PHIM" Then
-            'Dim Mh As New MH_Tra_cuu_Nhan_vien_theo_Ho_ten(Ung_dung)
-            'Mh.ShowDialog()
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
-            Th_Thong_bao.Text = Thong_bao
+            Dim Mh As New MH_Quan_Ly_Rap(Ung_dung)
+            Mh.ShowDialog()
+            'Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
+            'Th_Thong_bao.Text = Thong_bao
         ElseIf Ma_so_Chon = "QUAN_LY_PHIM" Then
-            'Dim Mh As New MH_Tra_cuu_Nhan_vien_Muc_luong(Ung_dung)
-            'Mh.ShowDialog()
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
-            Th_Thong_bao.Text = Thong_bao
+            Dim Mh As New MH_Quan_Ly_Phim(Ung_dung)
+            Mh.ShowDialog()
+            'Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
+            'Th_Thong_bao.Text = Thong_bao
         ElseIf Ma_so_Chon = "QUAN_LY_CA_CHIEU" Then
-            'Dim Mh As New MH_Ghi_moi_Nhan_vien(Ung_dung)
-            'Mh.ShowDialog()
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
-            Th_Thong_bao.Text = Thong_bao
+            Dim Mh As New MH_Quan_Ly_Ca_Chieu(Ung_dung)
+            Mh.ShowDialog()
+            'Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
+            'Th_Thong_bao.Text = Thong_bao
         ElseIf Ma_so_Chon = "QUAN_LY_XUAT_CHIEU" Then
-            'Dim Mh As New MH_Cap_nhat_Nhan_vien(Ung_dung)
-            'Mh.ShowDialog()
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
-            Th_Thong_bao.Text = Thong_bao
+            Dim Mh As New MH_Quan_Ly_Suat_Chieu(Ung_dung)
+            Mh.ShowDialog()
+            'Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
+            'Th_Thong_bao.Text = Thong_bao
         ElseIf Ma_so_Chon = "QUAN_LY_PHONG" Then
-            'Dim Mh As New MH_Xoa_Nhan_vien(Ung_dung)
-            'Mh.ShowDialog()
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
-            Th_Thong_bao.Text = Thong_bao
+            Dim Mh As New MH_Quan_Ly_Phong(Ung_dung)
+            Mh.ShowDialog()
+            'Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
+            'Th_Thong_bao.Text = Thong_bao
         ElseIf Ma_so_Chon = "QUAN_LY_LOAI_PHONG" Then
-            'Dim Mh As New MH_Thong_ke_Nhan_vien_Don_vi(Ung_dung)
-            'Mh.ShowDialog()
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
+            Dim Mh As New MH_Quan_Ly_Loai_Phong(Ung_dung)
+            Mh.ShowDialog()
+            'Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
 
-            Th_Thong_bao.Text = Thong_bao
+            'Th_Thong_bao.Text = Thong_bao
         ElseIf Ma_so_Chon = "QUAN_LY_VE" Then
-            'Dim Mh As New MH_Thong_ke_Nhan_vien_Don_vi(Ung_dung)
-            'Mh.ShowDialog()
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
-            Th_Thong_bao.Text = Thong_bao
+            Dim Mh As New MH_Chon_Suat_Chieu(Ung_dung)
+            Mh.ShowDialog()
+            'Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
+            'Th_Thong_bao.Text = Thong_bao
         ElseIf Ma_so_Chon = "QUAN_LY_GHE" Then
-            'Dim Mh As New MH_Thong_ke_Nhan_vien_Don_vi(Ung_dung)
-            'Mh.ShowDialog()
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
-            Th_Thong_bao.Text = Thong_bao
+            Dim Mh As New MH_Quan_ly_Ghe(Ung_dung)
+            Mh.ShowDialog()
+            'Dim Thong_bao As String = "Sẽ thực hiện chức năng" & Ma_so_Chon & " ở lần nâng cấp sau" & vbCrLf
+            'Th_Thong_bao.Text = Thong_bao
         End If
 
     End Sub
