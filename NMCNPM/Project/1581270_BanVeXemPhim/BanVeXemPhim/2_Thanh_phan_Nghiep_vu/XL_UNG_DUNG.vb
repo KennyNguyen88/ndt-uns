@@ -119,6 +119,62 @@ Partial Public Class XL_UNG_DUNG
 #End Region
 
 #Region "Tạo Đối tượng mới"
+
+    Public Function Tao_Loai_Phong_Moi() As XL_LOAI_PHONG
+        Dim LoaiPhong As XL_LOAI_PHONG
+        Dim Dong As DataRow = Du_lieu.Tables("LOAI_PHONG").NewRow
+        LoaiPhong = New XL_LOAI_PHONG(Me, Dong)
+        Return LoaiPhong
+    End Function
+
+    Public Function Tao_Phim_Moi() As XL_PHIM
+        Dim Phim As XL_PHIM
+        Dim Dong As DataRow = Du_lieu.Tables("PHIM").NewRow
+        Phim = New XL_PHIM(Me, Dong)
+        Return Phim
+    End Function
+
+    Public Function Tao_Ca_Chieu_Moi() As XL_CA_CHIEU
+        Dim Ca_Chieu As XL_CA_CHIEU
+        Dim Dong As DataRow = Du_lieu.Tables("CA_CHIEU").NewRow
+        Ca_Chieu = New XL_CA_CHIEU(Me, Dong)
+        Return Ca_Chieu
+    End Function
+
+    Public Function Tao_Rap_Moi() As XL_RAP_CHIEU_PHIM
+        Dim Rap As XL_RAP_CHIEU_PHIM
+        Dim Dong As DataRow = Du_lieu.Tables("RAP_CHIEU_PHIM").NewRow
+        Rap = New XL_RAP_CHIEU_PHIM(Me, Dong)
+        Return Rap
+    End Function
+
+    Public Function Tao_Phong_Moi() As XL_PHONG
+        Dim Phong As XL_PHONG
+        Dim Dong As DataRow = Du_lieu.Tables("PHONG").NewRow
+        Phong = New XL_PHONG(Me, Dong)
+        Return Phong
+    End Function
+
+    Public Function Tao_Ghe_Moi() As XL_GHE
+        Dim Ghe As XL_GHE
+        Dim Dong As DataRow = Du_lieu.Tables("GHE").NewRow
+        Ghe = New XL_GHE(Me, Dong)
+        Return Ghe
+    End Function
+
+    Public Function Tao_Suat_Chieu_Moi() As XL_XUAT_CHIEU
+        Dim SuatChieu As XL_XUAT_CHIEU
+        Dim Dong As DataRow = Du_lieu.Tables("XUAT_CHIEU").NewRow
+        SuatChieu = New XL_XUAT_CHIEU(Me, Dong)
+        Return SuatChieu
+    End Function
+
+    Public Function Tao_Ve_Moi() As XL_VE
+        Dim Ve As XL_VE
+        Dim Dong As DataRow = Du_lieu.Tables("VE").NewRow
+        Ve = New XL_VE(Me, Dong)
+        Return Ve
+    End Function
     'Public Function Tao_Xuat_Chieu_moi() As XL_XUAT_CHIEU
     '    Dim Xuat_Chieu As XL_XUAT_CHIEU
     '    Dim Dong As DataRow = Du_lieu.Tables("XUAT_CHIEU").NewRow
@@ -267,8 +323,16 @@ Partial Public Class XL_UNG_DUNG
         Return Kq
     End Function
 
-    'TODO trich rut danh sach theo cac thuoc tinh rap chieu phim, loai phong, ve, ghe    
+    '==== Trích rút Danh sách Loại Phòng theo các thuộc tính====
+    Public Function Danh_sach_Loai_Phong_Theo_Ten(Chuoi As String) As List(Of XL_LOAI_PHONG)
+        Dim kq As List(Of XL_LOAI_PHONG) = Danh_sach_Loai_Phong()
+        kq = kq.FindAll(Function(x) x.Ten.ToUpper.Contains(Chuoi.ToUpper))
+        Return kq
+    End Function
+
+    'TODO trich rut danh sach theo cac thuoc tinh rap chieu phim, loai phong, ve, ghe
+
+
 
 #End Region
-
 End Class

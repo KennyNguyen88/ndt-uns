@@ -150,8 +150,8 @@ Public Class XL_LUU_TRU
             ' Gán ID vào cột đầu tiên của dòng vừa thêm vào 
             Bc.Row(0) = ID
         End If
-
     End Sub
+
 #End Region
 
 

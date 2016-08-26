@@ -57,6 +57,14 @@
             Return Kq
         End Get
     End Property
+    Public ReadOnly Property Danh_sach_Ghe As List(Of XL_GHE)
+        Get
+            Dim Kq As New List(Of XL_GHE)
+            Kq = Ung_dung.Danh_sach_Ghe.FindAll(Function(x) x.ID_PHONG = ID)
+            Return Kq
+        End Get
+    End Property
+
 #End Region
 #Region "Tạo Chuỗi"
     '======  Xem Thông tin =====

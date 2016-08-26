@@ -212,7 +212,64 @@
 
 #End Region
 
+#Region "Dinh Dang"
+    Public Sub dinhDangTextBox(txt As TextBox, w As Integer)
+        txt.TextAlign = HorizontalAlignment.Left
+        txt.Font = New Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Regular)
+        txt.Width = w
+    End Sub
+    Public Sub dinhDang_ID(txtID As TextBox)
+        txtID.ReadOnly = True
+        txtID.BackColor = Color.Gray
+        txtID.ForeColor = Color.Black
+        txtID.TextAlign = HorizontalAlignment.Center
+        txtID.Width = 50
+        txtID.Font = New Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Regular)
+    End Sub
+    Public Sub dinhDangNumBox(numbox As NumericUpDown, w As Integer, max As Integer, min As Integer)
+        numbox.Font = New Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Regular)
+        'numbox.Width = 66
+        'numbox.Maximum = 999
+        'numbox.Minimum = 1
+    End Sub
+    Public Sub dinhDangButton(btn As Button)
+        btn.FlatStyle = FlatStyle.Flat
+        btn.FlatAppearance.BorderSize = 0
+        btn.BackColor = Color.Blue
+        btn.ForeColor = Color.White
+        btn.Font = New Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Regular)
+        btn.Height = 30
+    End Sub
+    Public Sub dinhDang_item(item As FlowLayoutPanel, w As Integer, h As Integer)
+        item.BackColor = Color.White
+        item.ForeColor = Color.Black
+        item.FlowDirection = FlowDirection.LeftToRight
+        item.Width = w
+        item.Height = h
+        item.AutoSize = False
+        Dim old As Padding = item.Margin
+        item.Margin = New Padding(25, 5, old.Right, old.Bottom)
+        For Each subItem As Control In item.Controls
+            Dim _old As Padding = subItem.Margin
+            subItem.Margin = New Padding(_old.Left, 10, 10, _old.Bottom)
+        Next
+    End Sub
 
+    Public Sub dinhDangCombobox(cb As ComboBox, w As Integer)
+        cb.Font = New Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Regular)
+        cb.Width = w
 
+    End Sub
+    Public Sub dinhDangTimePick(dt As DateTimePicker, w As Integer, t As String)
+        dt.Font = New Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Regular)
+        dt.Width = w
+        dt.ShowUpDown = True
+        If (t.ToUpper.Equals("TIME")) Then
+            dt.Format = DateTimePickerFormat.Time
+        ElseIf (t.ToUpper.Equals("DATE")) Then
+            dt.Format = DateTimePickerFormat.Short
+        End If
 
+    End Sub
+#End Region
 End Class

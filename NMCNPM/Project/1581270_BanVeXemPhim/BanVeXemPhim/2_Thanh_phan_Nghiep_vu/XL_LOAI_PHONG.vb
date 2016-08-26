@@ -59,39 +59,42 @@
         End Get
     End Property
 #End Region
-#Region "Tạo Chuỗi"
-    '======  Xem Thông tin =====
-    Public Function Tao_Chuoi_Tom_tat() As String
-        Dim Kq As String = ""
-        Kq &= Ten
-        Return Kq
-    End Function
-    Public Function Tao_Chuoi_Thong_tin(Optional Co_ID As Boolean = False) As String
-        Dim Kq As String = ""
-        If Co_ID Then
-            Kq &= "ID :" & ID & vbCrLf  '=== Chỉ phục vụ thử nghiệm
-        End If
-        Kq &= "Tên Loại Phòng : " & Ten & vbCrLf
-        Kq &= "Số ghế : " & So_Ghe & vbCrLf
-        Kq &= "Số dãy : " & So_Day & vbCrLf
-        Return Kq
-    End Function
 
-    '====== Nhập liệu ======
-    Public Function Tao_Chuoi_Thong_bao_Luu_y_Ghi_moi() As String
+#Region "Kiểm tra"
+    Public Function Kiem_Tra_Ghi_Moi() As String
         Dim Kq As String = ""
-        'TODO Tao_Chuoi_Thong_bao_Luu_y_Ghi_moi
+        Dim Hop_le As Boolean
+        '===Tên Loại Phòng khác trống
+        Hop_le = Not "".Equals(Ten)
+        If Not Hop_le Then
+            Kq = "Tên Loại Phòng không được rỗng" & vbCrLf
+        End If
         Return Kq
     End Function
-    Public Function Tao_Chuoi_Thong_bao_Luu_y_Cap_nhat() As String
-        Dim Kq As String = ""
-        'TODO Tao_Chuoi_Thong_bao_Luu_y_Cap_nhat
-        Return Kq
+    Public Function Kiem_Tra_Xoa() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean
+        '===Có phòng tham chiếu tới loại phòng ?
+        If (Danh_sach_Phong.Count > 0) Then
+            'Có
+            Hop_le = False
+            kq = "Có phòng tham chiếu đến. Vui lòng hủy (các) phòng trước khi tiến hành xóa !"
+        Else
+            'Không
+            Hop_le = True
+        End If
+        Return kq
     End Function
-    Public Function Tao_Chuoi_Thong_bao_Luu_y_Xoa() As String
-        Dim Kq As String = ""
-        'TODO Tao_Chuoi_Thong_bao_Luu_y_Xoa
-        Return Kq
+    Public Function Kiem_Tra_Sua() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean
+        If Not Kiem_Tra_Ghi_Moi().Equals("") Then 'Fail
+            Hop_le = False
+            kq = Kiem_Tra_Ghi_Moi()
+        Else 'Success
+            Hop_le = True
+        End If
+        Return kq
     End Function
 #End Region
 End Class

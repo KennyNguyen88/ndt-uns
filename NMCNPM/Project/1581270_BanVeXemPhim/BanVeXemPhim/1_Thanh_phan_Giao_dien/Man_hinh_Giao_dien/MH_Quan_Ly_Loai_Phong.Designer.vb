@@ -35,8 +35,6 @@ Partial Class MH_Quan_Ly_Loai_Phong
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtTen_Them = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtID_Them = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lbThongBao = New System.Windows.Forms.Label()
         Me.flResult = New System.Windows.Forms.FlowLayoutPanel()
@@ -117,8 +115,6 @@ Partial Class MH_Quan_Ly_Loai_Phong
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.txtTen_Them)
         Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.txtID_Them)
-        Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Location = New System.Drawing.Point(18, 106)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(754, 50)
@@ -194,27 +190,6 @@ Partial Class MH_Quan_Ly_Loai_Phong
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Tên"
         '
-        'txtID_Them
-        '
-        Me.txtID_Them.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.txtID_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtID_Them.Enabled = False
-        Me.txtID_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID_Them.Location = New System.Drawing.Point(31, 12)
-        Me.txtID_Them.Name = "txtID_Them"
-        Me.txtID_Them.Size = New System.Drawing.Size(49, 26)
-        Me.txtID_Them.TabIndex = 4
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(4, 17)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(21, 16)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "ID"
-        '
         'Panel3
         '
         Me.Panel3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -243,6 +218,7 @@ Partial Class MH_Quan_Ly_Loai_Phong
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.flResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flResult.Location = New System.Drawing.Point(18, 218)
         Me.flResult.Name = "flResult"
         Me.flResult.Size = New System.Drawing.Size(754, 331)
@@ -288,8 +264,6 @@ Partial Class MH_Quan_Ly_Loai_Phong
     Friend WithEvents Label4 As Label
     Friend WithEvents txtTen_Them As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtID_Them As TextBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents btnThem As Button
     Friend WithEvents numSoDay_Them As NumericUpDown
     Friend WithEvents Label5 As Label
