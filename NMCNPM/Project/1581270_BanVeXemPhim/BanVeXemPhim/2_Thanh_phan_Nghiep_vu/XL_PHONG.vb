@@ -100,4 +100,62 @@
         Return Kq
     End Function
 #End Region
+
+#Region "Kiểm tra"
+    Public Function Kiem_Tra_Ghi_Moi() As String
+        Dim Kq As String = ""
+        Dim Hop_le As Boolean
+        '===Tên Phòng khác trống
+        Hop_le = Not "".Equals(Ten)
+        If Not Hop_le Then
+            Kq = "Tên Rạp Chiếu không được rỗng" & vbCrLf
+        End If
+
+        Return Kq
+    End Function
+    Public Function Kiem_Tra_Xoa() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean = True
+        ''===Có ghế tham chiếu tới ?
+        If (Danh_sach_Ghe.Count > 0) Then
+            'Có
+            Hop_le = False
+            kq = "Có ghế tham chiếu đến. Vui lòng hủy (các) ghế trước khi tiến hành xóa !"
+        Else
+            'Không
+            '==Có suất chiếu tham chiếu tới ?
+            If (Danh_sach_Xuat_Chieu.Count > 0) Then
+                'Có
+                Hop_le = False
+                kq &= "Có suất chiếu tham chiếu đến. Vui lòng hủy (các) suất chiếu trước khi tiến hành xóa !"
+            Else
+                'Không
+                Hop_le = True
+            End If
+        End If
+        Return kq
+    End Function
+    Public Function Kiem_Tra_Sua() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean
+        If Not Kiem_Tra_Ghi_Moi().Equals("") Then 'Fail
+            Hop_le = False
+            kq = Kiem_Tra_Ghi_Moi()
+        Else 'Success
+            Hop_le = True
+        End If
+        ''===Có ghế tham chiếu tới ?
+        If (Danh_sach_Ghe.Count > 0) Then
+            'Có
+            'TODO upgrade kiem tra X,Y co vi pham so hang so day
+            Hop_le = False
+            kq &= "Có ghế tham chiếu đến. Vui lòng hủy (các) ghế trước khi tiến hành xóa !"
+        Else
+            'Không
+            Hop_le = True
+        End If
+
+        Return kq
+    End Function
+#End Region
 End Class

@@ -89,4 +89,48 @@
         Return Kq
     End Function
 #End Region
+
+#Region "Kiểm tra"
+    Public Function Kiem_Tra_Ghi_Moi() As String
+        Dim Kq As String = ""
+        Dim Hop_le As Boolean
+        '===Tên Rạp Chiếu khác trống
+        Hop_le = Not "".Equals(Ten)
+        If Not Hop_le Then
+            Kq = "Tên Rạp Chiếu không được rỗng" & vbCrLf
+        End If
+
+        '===Địa chỉ khác trống
+        Hop_le = Not "".Equals(Dia_Chi)
+        If Not Hop_le Then
+            Kq = "Địa chỉ không được rỗng" & vbCrLf
+        End If
+        Return Kq
+    End Function
+    Public Function Kiem_Tra_Xoa() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean = True
+        ''===Có suất chiếu tham chiếu tới ?
+        'If (Danh_sach_Xuat_Chieu.Count > 0) Then
+        '    'Có
+        '    Hop_le = False
+        '    kq = "Có suất chiếu tham chiếu đến. Vui lòng hủy (các) suất chiếu trước khi tiến hành xóa !"
+        'Else
+        '    'Không
+        '    Hop_le = True
+        'End If
+        Return kq
+    End Function
+    Public Function Kiem_Tra_Sua() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean
+        If Not Kiem_Tra_Ghi_Moi().Equals("") Then 'Fail
+            Hop_le = False
+            kq = Kiem_Tra_Ghi_Moi()
+        Else 'Success
+            Hop_le = True
+        End If
+        Return kq
+    End Function
+#End Region
 End Class

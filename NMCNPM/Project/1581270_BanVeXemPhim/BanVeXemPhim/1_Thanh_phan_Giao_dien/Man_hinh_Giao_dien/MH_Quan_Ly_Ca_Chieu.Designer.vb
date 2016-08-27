@@ -27,9 +27,7 @@ Partial Class MH_Quan_Ly_Ca_Chieu
         Me.lbThongBao = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtID_Them = New System.Windows.Forms.TextBox()
         Me.dtKetThuc_Them = New System.Windows.Forms.DateTimePicker()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnThem = New System.Windows.Forms.Button()
         Me.dtBatDau_Them = New System.Windows.Forms.DateTimePicker()
@@ -38,10 +36,6 @@ Partial Class MH_Quan_Ly_Ca_Chieu
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbBuoi_Them = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.dtKetThuc_Tim = New System.Windows.Forms.DateTimePicker()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.dtBatDau_Tim = New System.Windows.Forms.DateTimePicker()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbBuoi_Tim = New System.Windows.Forms.ComboBox()
         Me.btnTim = New System.Windows.Forms.Button()
@@ -60,6 +54,7 @@ Partial Class MH_Quan_Ly_Ca_Chieu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.flResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flResult.Location = New System.Drawing.Point(18, 216)
         Me.flResult.Name = "flResult"
         Me.flResult.Size = New System.Drawing.Size(954, 331)
@@ -93,9 +88,7 @@ Partial Class MH_Quan_Ly_Ca_Chieu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.SystemColors.Control
         Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.txtID_Them)
         Me.Panel2.Controls.Add(Me.dtKetThuc_Them)
-        Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.btnThem)
         Me.Panel2.Controls.Add(Me.dtBatDau_Them)
@@ -118,17 +111,6 @@ Partial Class MH_Quan_Ly_Ca_Chieu
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Kết Thúc"
         '
-        'txtID_Them
-        '
-        Me.txtID_Them.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.txtID_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtID_Them.Enabled = False
-        Me.txtID_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID_Them.Location = New System.Drawing.Point(31, 9)
-        Me.txtID_Them.Name = "txtID_Them"
-        Me.txtID_Them.Size = New System.Drawing.Size(49, 26)
-        Me.txtID_Them.TabIndex = 6
-        '
         'dtKetThuc_Them
         '
         Me.dtKetThuc_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -137,16 +119,6 @@ Partial Class MH_Quan_Ly_Ca_Chieu
         Me.dtKetThuc_Them.Name = "dtKetThuc_Them"
         Me.dtKetThuc_Them.Size = New System.Drawing.Size(109, 26)
         Me.dtKetThuc_Them.TabIndex = 13
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(4, 14)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(21, 16)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "ID"
         '
         'Label8
         '
@@ -223,10 +195,6 @@ Partial Class MH_Quan_Ly_Ca_Chieu
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.SystemColors.Control
-        Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.dtKetThuc_Tim)
-        Me.Panel1.Controls.Add(Me.Label5)
-        Me.Panel1.Controls.Add(Me.dtBatDau_Tim)
         Me.Panel1.Controls.Add(Me.Label4)
         Me.Panel1.Controls.Add(Me.cbBuoi_Tim)
         Me.Panel1.Controls.Add(Me.btnTim)
@@ -236,44 +204,6 @@ Partial Class MH_Quan_Ly_Ca_Chieu
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(954, 50)
         Me.Panel1.TabIndex = 6
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(596, 14)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(60, 16)
-        Me.Label6.TabIndex = 8
-        Me.Label6.Text = "Kết Thúc"
-        '
-        'dtKetThuc_Tim
-        '
-        Me.dtKetThuc_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtKetThuc_Tim.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtKetThuc_Tim.Location = New System.Drawing.Point(662, 9)
-        Me.dtKetThuc_Tim.Name = "dtKetThuc_Tim"
-        Me.dtKetThuc_Tim.Size = New System.Drawing.Size(109, 26)
-        Me.dtKetThuc_Tim.TabIndex = 7
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(421, 14)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(55, 16)
-        Me.Label5.TabIndex = 6
-        Me.Label5.Text = "Bắt Đầu"
-        '
-        'dtBatDau_Tim
-        '
-        Me.dtBatDau_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtBatDau_Tim.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtBatDau_Tim.Location = New System.Drawing.Point(481, 9)
-        Me.dtBatDau_Tim.Name = "dtBatDau_Tim"
-        Me.dtBatDau_Tim.Size = New System.Drawing.Size(109, 26)
-        Me.dtBatDau_Tim.TabIndex = 5
         '
         'Label4
         '
@@ -368,16 +298,10 @@ Partial Class MH_Quan_Ly_Ca_Chieu
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lbThongBao As Label
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents txtID_Them As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents btnThem As Button
     Friend WithEvents txtTen_Them As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label6 As Label
-    Friend WithEvents dtKetThuc_Tim As DateTimePicker
-    Friend WithEvents Label5 As Label
-    Friend WithEvents dtBatDau_Tim As DateTimePicker
     Friend WithEvents Label4 As Label
     Friend WithEvents cbBuoi_Tim As ComboBox
     Friend WithEvents btnTim As Button

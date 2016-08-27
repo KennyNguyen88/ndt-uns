@@ -15,6 +15,7 @@ Public Enum LOAI_GHI
     Cap_nhat
     Xoa
 End Enum
+
 Public Class XL_LUU_TRU
 
 #Region "Biến/Đối tượng toàn cục"

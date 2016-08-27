@@ -26,20 +26,18 @@ Partial Class MH_Quan_Ly_Phong
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lbThongBao = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.txtID_Them = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cbLoaiPhong_Them = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.btnThem = New System.Windows.Forms.Button()
         Me.txtTen_Them = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.cbLoaiPhong_Tim = New System.Windows.Forms.ComboBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.btnTim = New System.Windows.Forms.Button()
         Me.txtTen_Tim = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbTieuDe = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cbLoaiPhong_Tim = New System.Windows.Forms.ComboBox()
-        Me.cbLoaiPhong_Them = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -52,6 +50,7 @@ Partial Class MH_Quan_Ly_Phong
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.flResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flResult.Location = New System.Drawing.Point(18, 216)
         Me.flResult.Name = "flResult"
         Me.flResult.Size = New System.Drawing.Size(754, 331)
@@ -86,8 +85,6 @@ Partial Class MH_Quan_Ly_Phong
         Me.Panel2.BackColor = System.Drawing.SystemColors.Control
         Me.Panel2.Controls.Add(Me.cbLoaiPhong_Them)
         Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Controls.Add(Me.txtID_Them)
-        Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.btnThem)
         Me.Panel2.Controls.Add(Me.txtTen_Them)
         Me.Panel2.Controls.Add(Me.Label2)
@@ -96,26 +93,24 @@ Partial Class MH_Quan_Ly_Phong
         Me.Panel2.Size = New System.Drawing.Size(754, 50)
         Me.Panel2.TabIndex = 8
         '
-        'txtID_Them
+        'cbLoaiPhong_Them
         '
-        Me.txtID_Them.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.txtID_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtID_Them.Enabled = False
-        Me.txtID_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID_Them.Location = New System.Drawing.Point(31, 9)
-        Me.txtID_Them.Name = "txtID_Them"
-        Me.txtID_Them.Size = New System.Drawing.Size(49, 26)
-        Me.txtID_Them.TabIndex = 6
+        Me.cbLoaiPhong_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbLoaiPhong_Them.FormattingEnabled = True
+        Me.cbLoaiPhong_Them.Location = New System.Drawing.Point(411, 9)
+        Me.cbLoaiPhong_Them.Name = "cbLoaiPhong_Them"
+        Me.cbLoaiPhong_Them.Size = New System.Drawing.Size(170, 28)
+        Me.cbLoaiPhong_Them.TabIndex = 6
         '
-        'Label3
+        'Label5
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(4, 14)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(21, 16)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "ID"
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(329, 13)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(76, 16)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "Loại Phòng"
         '
         'btnThem
         '
@@ -164,6 +159,25 @@ Partial Class MH_Quan_Ly_Phong
         Me.Panel1.Size = New System.Drawing.Size(754, 50)
         Me.Panel1.TabIndex = 6
         '
+        'cbLoaiPhong_Tim
+        '
+        Me.cbLoaiPhong_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbLoaiPhong_Tim.FormattingEnabled = True
+        Me.cbLoaiPhong_Tim.Location = New System.Drawing.Point(411, 8)
+        Me.cbLoaiPhong_Tim.Name = "cbLoaiPhong_Tim"
+        Me.cbLoaiPhong_Tim.Size = New System.Drawing.Size(170, 28)
+        Me.cbLoaiPhong_Tim.TabIndex = 4
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(329, 12)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(76, 16)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Loại Phòng"
+        '
         'btnTim
         '
         Me.btnTim.BackColor = System.Drawing.SystemColors.ActiveCaption
@@ -210,44 +224,6 @@ Partial Class MH_Quan_Ly_Phong
         Me.lbTieuDe.Text = "Label1"
         Me.lbTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(329, 12)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(76, 16)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Loại Phòng"
-        '
-        'cbLoaiPhong_Tim
-        '
-        Me.cbLoaiPhong_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbLoaiPhong_Tim.FormattingEnabled = True
-        Me.cbLoaiPhong_Tim.Location = New System.Drawing.Point(411, 8)
-        Me.cbLoaiPhong_Tim.Name = "cbLoaiPhong_Tim"
-        Me.cbLoaiPhong_Tim.Size = New System.Drawing.Size(170, 28)
-        Me.cbLoaiPhong_Tim.TabIndex = 4
-        '
-        'cbLoaiPhong_Them
-        '
-        Me.cbLoaiPhong_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbLoaiPhong_Them.FormattingEnabled = True
-        Me.cbLoaiPhong_Them.Location = New System.Drawing.Point(411, 9)
-        Me.cbLoaiPhong_Them.Name = "cbLoaiPhong_Them"
-        Me.cbLoaiPhong_Them.Size = New System.Drawing.Size(170, 28)
-        Me.cbLoaiPhong_Them.TabIndex = 6
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(329, 13)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(76, 16)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Loại Phòng"
-        '
         'MH_Quan_Ly_Phong
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -278,8 +254,6 @@ Partial Class MH_Quan_Ly_Phong
     Friend WithEvents Panel2 As Panel
     Friend WithEvents cbLoaiPhong_Them As ComboBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents txtID_Them As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents btnThem As Button
     Friend WithEvents txtTen_Them As TextBox
     Friend WithEvents Label2 As Label

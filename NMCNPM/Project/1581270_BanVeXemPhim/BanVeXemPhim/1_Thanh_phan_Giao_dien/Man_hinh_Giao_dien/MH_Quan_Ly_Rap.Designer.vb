@@ -27,23 +27,21 @@ Partial Class MH_Quan_Ly_Rap
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lbThongBao = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.txtID_Them = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtDiaChi_Them = New System.Windows.Forms.TextBox()
+        Me.txtDienThoai_Them = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.btnThem = New System.Windows.Forms.Button()
         Me.txtTen_Them = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtDiaChi_Tim = New System.Windows.Forms.TextBox()
+        Me.txtDienThoai_Tim = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnTim = New System.Windows.Forms.Button()
         Me.txtTen_Tim = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtDienThoai_Tim = New System.Windows.Forms.TextBox()
-        Me.txtDiaChi_Tim = New System.Windows.Forms.TextBox()
-        Me.txtDiaChi_Them = New System.Windows.Forms.TextBox()
-        Me.txtDienThoai_Them = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -70,6 +68,7 @@ Partial Class MH_Quan_Ly_Rap
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.flResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flResult.Location = New System.Drawing.Point(12, 211)
         Me.flResult.Name = "flResult"
         Me.flResult.Size = New System.Drawing.Size(954, 331)
@@ -103,10 +102,8 @@ Partial Class MH_Quan_Ly_Rap
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel2.BackColor = System.Drawing.SystemColors.Control
         Me.Panel2.Controls.Add(Me.txtDiaChi_Them)
-        Me.Panel2.Controls.Add(Me.txtID_Them)
         Me.Panel2.Controls.Add(Me.txtDienThoai_Them)
         Me.Panel2.Controls.Add(Me.Label6)
-        Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.btnThem)
         Me.Panel2.Controls.Add(Me.txtTen_Them)
@@ -116,26 +113,43 @@ Partial Class MH_Quan_Ly_Rap
         Me.Panel2.Size = New System.Drawing.Size(954, 50)
         Me.Panel2.TabIndex = 12
         '
-        'txtID_Them
+        'txtDiaChi_Them
         '
-        Me.txtID_Them.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.txtID_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtID_Them.Enabled = False
-        Me.txtID_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID_Them.Location = New System.Drawing.Point(31, 9)
-        Me.txtID_Them.Name = "txtID_Them"
-        Me.txtID_Them.Size = New System.Drawing.Size(49, 26)
-        Me.txtID_Them.TabIndex = 6
+        Me.txtDiaChi_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDiaChi_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiaChi_Them.Location = New System.Drawing.Point(594, 10)
+        Me.txtDiaChi_Them.Name = "txtDiaChi_Them"
+        Me.txtDiaChi_Them.Size = New System.Drawing.Size(177, 26)
+        Me.txtDiaChi_Them.TabIndex = 12
         '
-        'Label3
+        'txtDienThoai_Them
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(4, 14)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(21, 16)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "ID"
+        Me.txtDienThoai_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDienThoai_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDienThoai_Them.Location = New System.Drawing.Point(386, 10)
+        Me.txtDienThoai_Them.Name = "txtDienThoai_Them"
+        Me.txtDienThoai_Them.Size = New System.Drawing.Size(146, 26)
+        Me.txtDienThoai_Them.TabIndex = 11
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(538, 15)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(50, 16)
+        Me.Label6.TabIndex = 10
+        Me.Label6.Text = "Địa Chỉ"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(307, 15)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(73, 16)
+        Me.Label7.TabIndex = 9
+        Me.Label7.Text = "Điện Thoại"
         '
         'btnThem
         '
@@ -185,6 +199,24 @@ Partial Class MH_Quan_Ly_Rap
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(954, 50)
         Me.Panel1.TabIndex = 10
+        '
+        'txtDiaChi_Tim
+        '
+        Me.txtDiaChi_Tim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDiaChi_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiaChi_Tim.Location = New System.Drawing.Point(594, 9)
+        Me.txtDiaChi_Tim.Name = "txtDiaChi_Tim"
+        Me.txtDiaChi_Tim.Size = New System.Drawing.Size(177, 26)
+        Me.txtDiaChi_Tim.TabIndex = 8
+        '
+        'txtDienThoai_Tim
+        '
+        Me.txtDienThoai_Tim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtDienThoai_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDienThoai_Tim.Location = New System.Drawing.Point(386, 9)
+        Me.txtDienThoai_Tim.Name = "txtDienThoai_Tim"
+        Me.txtDienThoai_Tim.Size = New System.Drawing.Size(146, 26)
+        Me.txtDienThoai_Tim.TabIndex = 7
         '
         'Label5
         '
@@ -238,62 +270,6 @@ Partial Class MH_Quan_Ly_Rap
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Tên"
         '
-        'txtDienThoai_Tim
-        '
-        Me.txtDienThoai_Tim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDienThoai_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDienThoai_Tim.Location = New System.Drawing.Point(386, 9)
-        Me.txtDienThoai_Tim.Name = "txtDienThoai_Tim"
-        Me.txtDienThoai_Tim.Size = New System.Drawing.Size(146, 26)
-        Me.txtDienThoai_Tim.TabIndex = 7
-        '
-        'txtDiaChi_Tim
-        '
-        Me.txtDiaChi_Tim.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDiaChi_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDiaChi_Tim.Location = New System.Drawing.Point(594, 9)
-        Me.txtDiaChi_Tim.Name = "txtDiaChi_Tim"
-        Me.txtDiaChi_Tim.Size = New System.Drawing.Size(177, 26)
-        Me.txtDiaChi_Tim.TabIndex = 8
-        '
-        'txtDiaChi_Them
-        '
-        Me.txtDiaChi_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDiaChi_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDiaChi_Them.Location = New System.Drawing.Point(594, 10)
-        Me.txtDiaChi_Them.Name = "txtDiaChi_Them"
-        Me.txtDiaChi_Them.Size = New System.Drawing.Size(177, 26)
-        Me.txtDiaChi_Them.TabIndex = 12
-        '
-        'txtDienThoai_Them
-        '
-        Me.txtDienThoai_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtDienThoai_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDienThoai_Them.Location = New System.Drawing.Point(386, 10)
-        Me.txtDienThoai_Them.Name = "txtDienThoai_Them"
-        Me.txtDienThoai_Them.Size = New System.Drawing.Size(146, 26)
-        Me.txtDienThoai_Them.TabIndex = 11
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(538, 15)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(50, 16)
-        Me.Label6.TabIndex = 10
-        Me.Label6.Text = "Địa Chỉ"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(307, 15)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(73, 16)
-        Me.Label7.TabIndex = 9
-        Me.Label7.Text = "Điện Thoại"
-        '
         'MH_Quan_Ly_Rap
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -323,8 +299,6 @@ Partial Class MH_Quan_Ly_Rap
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lbThongBao As Label
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents txtID_Them As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents btnThem As Button
     Friend WithEvents txtTen_Them As TextBox
     Friend WithEvents Label2 As Label

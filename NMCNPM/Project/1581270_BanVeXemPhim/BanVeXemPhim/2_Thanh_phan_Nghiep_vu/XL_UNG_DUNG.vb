@@ -316,10 +316,22 @@ Partial Public Class XL_UNG_DUNG
         Return Kq
     End Function
 
+    Public Function Danh_sach_Phong_Theo_Ten_LoaiPhong(ten As String, idLoaiPhong As Integer) As List(Of XL_PHONG)
+        Dim Kq As List(Of XL_PHONG) = Danh_sach_Phong()
+        Kq = Kq.FindAll(Function(x) x.Ten.ToUpper.Contains(ten.ToUpper) And x.ID_LOAI_PHONG = idLoaiPhong)
+        Return Kq
+    End Function
+
     '==== Trích rút Danh sách Ca Chiếu theo các thuộc tính====
     Public Function Danh_sach_Ca_Chieu_Theo_Ten(Chuoi As String) As List(Of XL_CA_CHIEU)
         Dim Kq As List(Of XL_CA_CHIEU) = Danh_sach_Ca_Chieu()
         Kq = Kq.FindAll(Function(x) x.Ten.ToUpper.Contains(Chuoi.ToUpper))
+        Return Kq
+    End Function
+
+    Public Function Danh_sach_Ca_Chieu_Theo_Ten_Buoi(Ten As String, Buoi As String) As List(Of XL_CA_CHIEU)
+        Dim Kq As List(Of XL_CA_CHIEU) = Danh_sach_Ca_Chieu()
+        Kq = Kq.FindAll(Function(x) x.Ten.ToUpper.Contains(Ten.ToUpper) And x.Buoi.Equals(Buoi))
         Return Kq
     End Function
 
@@ -329,6 +341,14 @@ Partial Public Class XL_UNG_DUNG
         kq = kq.FindAll(Function(x) x.Ten.ToUpper.Contains(Chuoi.ToUpper))
         Return kq
     End Function
+
+    '==== Trích rút Danh sách Rạp chiếu theo các thuộc tính====
+    Public Function Danh_sach_Rap_Theo_Ten_DienThoai_DiaChi(ten As String, dienthoai As String, diachi As String)
+        Dim kq As List(Of XL_RAP_CHIEU_PHIM) = Danh_sach_Rap_Chieu()
+        kq = kq.FindAll(Function(x) x.Ten.ToUpper.Contains(ten.ToUpper) And x.Dien_Thoai.ToUpper.Contains(dienthoai.ToUpper) And x.Dia_Chi.ToUpper.Contains(diachi.ToUpper))
+        Return kq
+    End Function
+
 
     'TODO trich rut danh sach theo cac thuoc tinh rap chieu phim, loai phong, ve, ghe
 
