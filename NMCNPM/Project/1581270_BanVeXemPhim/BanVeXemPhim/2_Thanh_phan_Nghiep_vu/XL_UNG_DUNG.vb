@@ -343,9 +343,16 @@ Partial Public Class XL_UNG_DUNG
     End Function
 
     '==== Trích rút Danh sách Rạp chiếu theo các thuộc tính====
-    Public Function Danh_sach_Rap_Theo_Ten_DienThoai_DiaChi(ten As String, dienthoai As String, diachi As String)
+    Public Function Danh_sach_Rap_Theo_Ten_DienThoai_DiaChi(ten As String, dienthoai As String, diachi As String) As List(Of XL_RAP_CHIEU_PHIM)
         Dim kq As List(Of XL_RAP_CHIEU_PHIM) = Danh_sach_Rap_Chieu()
         kq = kq.FindAll(Function(x) x.Ten.ToUpper.Contains(ten.ToUpper) And x.Dien_Thoai.ToUpper.Contains(dienthoai.ToUpper) And x.Dia_Chi.ToUpper.Contains(diachi.ToUpper))
+        Return kq
+    End Function
+
+    '==== Trích rút Danh sách Ghế theo các thuộc tính====
+    Public Function Danh_sach_Ghe_Theo_Ten_Phong(ten As String, phong As Integer) As List(Of XL_GHE)
+        Dim kq As List(Of XL_GHE) = Danh_sach_Ghe()
+        kq = kq.FindAll(Function(x) x.Ten.ToUpper.Contains(ten.ToUpper) And x.ID_PHONG = phong)
         Return kq
     End Function
 

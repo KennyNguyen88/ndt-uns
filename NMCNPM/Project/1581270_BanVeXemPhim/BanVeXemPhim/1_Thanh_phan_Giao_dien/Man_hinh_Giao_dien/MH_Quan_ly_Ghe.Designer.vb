@@ -26,24 +26,22 @@ Partial Class MH_Quan_ly_Ghe
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lbThongBao = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.btnThem = New System.Windows.Forms.Button()
+        Me.cbPhong_Them = New System.Windows.Forms.ComboBox()
         Me.Y_Them = New System.Windows.Forms.NumericUpDown()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.X_Them = New System.Windows.Forms.NumericUpDown()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtTen_Them = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtID_Them = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cbPhong_Tim = New System.Windows.Forms.ComboBox()
         Me.btnTim = New System.Windows.Forms.Button()
         Me.txtTen_Tim = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbTieuDe = New System.Windows.Forms.Label()
-        Me.cbLoaiPhong_Tim = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cbLoaiPhong_Them = New System.Windows.Forms.ComboBox()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.Y_Them, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,6 +56,7 @@ Partial Class MH_Quan_ly_Ghe
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.flResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flResult.Location = New System.Drawing.Point(18, 219)
         Me.flResult.Name = "flResult"
         Me.flResult.Size = New System.Drawing.Size(954, 331)
@@ -92,19 +91,27 @@ Partial Class MH_Quan_ly_Ghe
         Me.Panel2.BackColor = System.Drawing.SystemColors.Control
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.btnThem)
-        Me.Panel2.Controls.Add(Me.cbLoaiPhong_Them)
+        Me.Panel2.Controls.Add(Me.cbPhong_Them)
         Me.Panel2.Controls.Add(Me.Y_Them)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.X_Them)
         Me.Panel2.Controls.Add(Me.Label4)
         Me.Panel2.Controls.Add(Me.txtTen_Them)
         Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.txtID_Them)
-        Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Location = New System.Drawing.Point(18, 107)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(954, 50)
         Me.Panel2.TabIndex = 7
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(329, 18)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(47, 16)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "Phòng"
         '
         'btnThem
         '
@@ -118,6 +125,15 @@ Partial Class MH_Quan_ly_Ghe
         Me.btnThem.TabIndex = 3
         Me.btnThem.Text = "Thêm"
         Me.btnThem.UseVisualStyleBackColor = False
+        '
+        'cbPhong_Them
+        '
+        Me.cbPhong_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPhong_Them.FormattingEnabled = True
+        Me.cbPhong_Them.Location = New System.Drawing.Point(411, 12)
+        Me.cbPhong_Them.Name = "cbPhong_Them"
+        Me.cbPhong_Them.Size = New System.Drawing.Size(136, 28)
+        Me.cbPhong_Them.TabIndex = 5
         '
         'Y_Them
         '
@@ -176,34 +192,13 @@ Partial Class MH_Quan_ly_Ghe
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Tên"
         '
-        'txtID_Them
-        '
-        Me.txtID_Them.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.txtID_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtID_Them.Enabled = False
-        Me.txtID_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID_Them.Location = New System.Drawing.Point(31, 12)
-        Me.txtID_Them.Name = "txtID_Them"
-        Me.txtID_Them.Size = New System.Drawing.Size(49, 26)
-        Me.txtID_Them.TabIndex = 4
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(4, 17)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(21, 16)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "ID"
-        '
         'Panel1
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.SystemColors.Control
         Me.Panel1.Controls.Add(Me.Label6)
-        Me.Panel1.Controls.Add(Me.cbLoaiPhong_Tim)
+        Me.Panel1.Controls.Add(Me.cbPhong_Tim)
         Me.Panel1.Controls.Add(Me.btnTim)
         Me.Panel1.Controls.Add(Me.txtTen_Tim)
         Me.Panel1.Controls.Add(Me.Label1)
@@ -211,6 +206,25 @@ Partial Class MH_Quan_ly_Ghe
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(954, 50)
         Me.Panel1.TabIndex = 5
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(329, 14)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(47, 16)
+        Me.Label6.TabIndex = 4
+        Me.Label6.Text = "Phòng"
+        '
+        'cbPhong_Tim
+        '
+        Me.cbPhong_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPhong_Tim.FormattingEnabled = True
+        Me.cbPhong_Tim.Location = New System.Drawing.Point(411, 8)
+        Me.cbPhong_Tim.Name = "cbPhong_Tim"
+        Me.cbPhong_Tim.Size = New System.Drawing.Size(136, 28)
+        Me.cbPhong_Tim.TabIndex = 3
         '
         'btnTim
         '
@@ -257,44 +271,6 @@ Partial Class MH_Quan_ly_Ghe
         Me.lbTieuDe.Text = "Label1"
         Me.lbTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'cbLoaiPhong_Tim
-        '
-        Me.cbLoaiPhong_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbLoaiPhong_Tim.FormattingEnabled = True
-        Me.cbLoaiPhong_Tim.Location = New System.Drawing.Point(411, 8)
-        Me.cbLoaiPhong_Tim.Name = "cbLoaiPhong_Tim"
-        Me.cbLoaiPhong_Tim.Size = New System.Drawing.Size(136, 28)
-        Me.cbLoaiPhong_Tim.TabIndex = 3
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(329, 14)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(76, 16)
-        Me.Label6.TabIndex = 4
-        Me.Label6.Text = "Loại Phòng"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(329, 18)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(76, 16)
-        Me.Label7.TabIndex = 6
-        Me.Label7.Text = "Loại Phòng"
-        '
-        'cbLoaiPhong_Them
-        '
-        Me.cbLoaiPhong_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbLoaiPhong_Them.FormattingEnabled = True
-        Me.cbLoaiPhong_Them.Location = New System.Drawing.Point(411, 12)
-        Me.cbLoaiPhong_Them.Name = "cbLoaiPhong_Them"
-        Me.cbLoaiPhong_Them.Size = New System.Drawing.Size(136, 28)
-        Me.cbLoaiPhong_Them.TabIndex = 5
-        '
         'MH_Quan_ly_Ghe
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -332,15 +308,13 @@ Partial Class MH_Quan_ly_Ghe
     Friend WithEvents Label4 As Label
     Friend WithEvents txtTen_Them As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents txtID_Them As TextBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnTim As Button
     Friend WithEvents txtTen_Tim As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents lbTieuDe As Label
     Friend WithEvents Label7 As Label
-    Friend WithEvents cbLoaiPhong_Them As ComboBox
+    Friend WithEvents cbPhong_Them As ComboBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents cbLoaiPhong_Tim As ComboBox
+    Friend WithEvents cbPhong_Tim As ComboBox
 End Class
