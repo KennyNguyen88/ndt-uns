@@ -130,4 +130,55 @@
         Return Kq
     End Function
 #End Region
+#Region "Kiểm tra"
+    Public Function Kiem_Tra_Ghi_Moi() As String
+        Dim Kq As String = ""
+        Dim Hop_le As Boolean
+        '===[Phong, Phim, Ca, Ngay] la duy nhat
+        Dim existedSuatChieu As List(Of XL_XUAT_CHIEU)
+        existedSuatChieu = Ung_dung.Danh_sach_Xuat_Chieu_Theo_Phong_Phim_Ca_Ngay(ID_PHONG, ID_PHIM, ID_CA_CHIEU, Ngay)
+        If existedSuatChieu.Count > 0 Then
+            Hop_le = False
+            Kq = "Suất chiếu đã tồn tại" & vbCrLf
+        Else
+            Hop_le = True
+        End If
+        Return Kq
+    End Function
+    Public Function Kiem_Tra_Xoa() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean = True
+        ''===Có vé đã bán tham chiếu tới ?
+        If (Ung_dung.Danh_sach_Ve_Da_Dat(Danh_sach_Ve) > 0) Then
+            'Có
+            Hop_le = False
+            kq = "Có vé đã đặt tham chiếu đến. Vui lòng hủy (các) vé trước khi tiến hành xóa !"
+        Else
+            'Không
+            Hop_le = True
+        End If
+        Return kq
+    End Function
+    Public Function Kiem_Tra_Sua() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean
+        ''===Có vé đã bán tham chiếu tới ?
+        If (Ung_dung.Danh_sach_Ve_Da_Dat(Danh_sach_Ve) > 0) Then
+            'Có
+            Hop_le = False
+            kq = "Có vé đã đặt tham chiếu đến. Vui lòng hủy (các) vé trước khi tiến hành sửa !"
+        Else
+            'Không
+            Hop_le = True
+        End If
+
+        If Not Kiem_Tra_Ghi_Moi().Equals("") Then 'Fail
+            Hop_le = False
+            kq &= Kiem_Tra_Ghi_Moi()
+        Else 'Success
+            Hop_le = True
+        End If
+        Return kq
+    End Function
+#End Region
 End Class

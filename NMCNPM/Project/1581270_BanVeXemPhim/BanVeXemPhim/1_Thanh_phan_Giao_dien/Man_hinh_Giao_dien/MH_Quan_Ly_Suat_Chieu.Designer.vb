@@ -26,28 +26,26 @@ Partial Class MH_Quan_Ly_Suat_Chieu
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lbThongBao = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.txtID_Them = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtNgay_Them = New System.Windows.Forms.DateTimePicker()
+        Me.btnThem = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cbCaChieu_Them = New System.Windows.Forms.ComboBox()
+        Me.cbPhong_Them = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.cbPhim_Them = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.dtNgay_Tim = New System.Windows.Forms.DateTimePicker()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cbCaChieu_Tim = New System.Windows.Forms.ComboBox()
+        Me.cbPhong_Tim = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cbPhim_Tim = New System.Windows.Forms.ComboBox()
         Me.btnTim = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbTieuDe = New System.Windows.Forms.Label()
-        Me.cbPhong_Tim = New System.Windows.Forms.ComboBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.cbCaChieu_Tim = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.dtNgay_Tim = New System.Windows.Forms.DateTimePicker()
-        Me.btnThem = New System.Windows.Forms.Button()
-        Me.dtNgay_Them = New System.Windows.Forms.DateTimePicker()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.cbCaChieu_Them = New System.Windows.Forms.ComboBox()
-        Me.cbPhong_Them = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.cbPhim_Them = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Panel3.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -60,6 +58,7 @@ Partial Class MH_Quan_Ly_Suat_Chieu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.flResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flResult.Location = New System.Drawing.Point(18, 219)
         Me.flResult.Name = "flResult"
         Me.flResult.Size = New System.Drawing.Size(954, 331)
@@ -95,9 +94,7 @@ Partial Class MH_Quan_Ly_Suat_Chieu
         Me.Panel2.Controls.Add(Me.dtNgay_Them)
         Me.Panel2.Controls.Add(Me.btnThem)
         Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.txtID_Them)
         Me.Panel2.Controls.Add(Me.Label4)
-        Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.cbCaChieu_Them)
         Me.Panel2.Controls.Add(Me.cbPhong_Them)
         Me.Panel2.Controls.Add(Me.Label7)
@@ -108,26 +105,94 @@ Partial Class MH_Quan_Ly_Suat_Chieu
         Me.Panel2.Size = New System.Drawing.Size(954, 50)
         Me.Panel2.TabIndex = 12
         '
-        'txtID_Them
+        'dtNgay_Them
         '
-        Me.txtID_Them.BackColor = System.Drawing.SystemColors.ScrollBar
-        Me.txtID_Them.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtID_Them.Enabled = False
-        Me.txtID_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID_Them.Location = New System.Drawing.Point(31, 12)
-        Me.txtID_Them.Name = "txtID_Them"
-        Me.txtID_Them.Size = New System.Drawing.Size(49, 26)
-        Me.txtID_Them.TabIndex = 4
+        Me.dtNgay_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtNgay_Them.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtNgay_Them.Location = New System.Drawing.Point(663, 11)
+        Me.dtNgay_Them.Name = "dtNgay_Them"
+        Me.dtNgay_Them.Size = New System.Drawing.Size(118, 26)
+        Me.dtNgay_Them.TabIndex = 17
         '
-        'Label2
+        'btnThem
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(4, 17)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(21, 16)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "ID"
+        Me.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.btnThem.FlatAppearance.BorderSize = 0
+        Me.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnThem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnThem.Location = New System.Drawing.Point(787, 11)
+        Me.btnThem.Name = "btnThem"
+        Me.btnThem.Size = New System.Drawing.Size(75, 29)
+        Me.btnThem.TabIndex = 3
+        Me.btnThem.Text = "Thêm"
+        Me.btnThem.UseVisualStyleBackColor = False
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(618, 17)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(41, 16)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "Ngày"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(427, 17)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(62, 16)
+        Me.Label4.TabIndex = 15
+        Me.Label4.Text = "Ca Chiếu"
+        '
+        'cbCaChieu_Them
+        '
+        Me.cbCaChieu_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCaChieu_Them.FormattingEnabled = True
+        Me.cbCaChieu_Them.Location = New System.Drawing.Point(495, 11)
+        Me.cbCaChieu_Them.Name = "cbCaChieu_Them"
+        Me.cbCaChieu_Them.Size = New System.Drawing.Size(117, 28)
+        Me.cbCaChieu_Them.TabIndex = 14
+        '
+        'cbPhong_Them
+        '
+        Me.cbPhong_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPhong_Them.FormattingEnabled = True
+        Me.cbPhong_Them.Location = New System.Drawing.Point(139, 11)
+        Me.cbPhong_Them.Name = "cbPhong_Them"
+        Me.cbPhong_Them.Size = New System.Drawing.Size(96, 28)
+        Me.cbPhong_Them.TabIndex = 13
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(86, 17)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(47, 16)
+        Me.Label7.TabIndex = 10
+        Me.Label7.Text = "Phòng"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(241, 17)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(38, 16)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "Phim"
+        '
+        'cbPhim_Them
+        '
+        Me.cbPhim_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPhim_Them.FormattingEnabled = True
+        Me.cbPhim_Them.Location = New System.Drawing.Point(285, 11)
+        Me.cbPhim_Them.Name = "cbPhim_Them"
+        Me.cbPhim_Them.Size = New System.Drawing.Size(136, 28)
+        Me.cbPhim_Them.TabIndex = 11
         '
         'Panel1
         '
@@ -147,6 +212,53 @@ Partial Class MH_Quan_Ly_Suat_Chieu
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(954, 50)
         Me.Panel1.TabIndex = 10
+        '
+        'dtNgay_Tim
+        '
+        Me.dtNgay_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtNgay_Tim.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtNgay_Tim.Location = New System.Drawing.Point(663, 8)
+        Me.dtNgay_Tim.Name = "dtNgay_Tim"
+        Me.dtNgay_Tim.Size = New System.Drawing.Size(118, 26)
+        Me.dtNgay_Tim.TabIndex = 9
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(618, 14)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(41, 16)
+        Me.Label9.TabIndex = 8
+        Me.Label9.Text = "Ngày"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(427, 14)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(62, 16)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "Ca Chiếu"
+        '
+        'cbCaChieu_Tim
+        '
+        Me.cbCaChieu_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCaChieu_Tim.FormattingEnabled = True
+        Me.cbCaChieu_Tim.Location = New System.Drawing.Point(495, 8)
+        Me.cbCaChieu_Tim.Name = "cbCaChieu_Tim"
+        Me.cbCaChieu_Tim.Size = New System.Drawing.Size(117, 28)
+        Me.cbCaChieu_Tim.TabIndex = 6
+        '
+        'cbPhong_Tim
+        '
+        Me.cbPhong_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbPhong_Tim.FormattingEnabled = True
+        Me.cbPhong_Tim.Location = New System.Drawing.Point(139, 8)
+        Me.cbPhong_Tim.Name = "cbPhong_Tim"
+        Me.cbPhong_Tim.Size = New System.Drawing.Size(96, 28)
+        Me.cbPhong_Tim.TabIndex = 5
         '
         'Label6
         '
@@ -203,142 +315,6 @@ Partial Class MH_Quan_Ly_Suat_Chieu
         Me.lbTieuDe.Text = "Label1"
         Me.lbTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'cbPhong_Tim
-        '
-        Me.cbPhong_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbPhong_Tim.FormattingEnabled = True
-        Me.cbPhong_Tim.Location = New System.Drawing.Point(139, 8)
-        Me.cbPhong_Tim.Name = "cbPhong_Tim"
-        Me.cbPhong_Tim.Size = New System.Drawing.Size(96, 28)
-        Me.cbPhong_Tim.TabIndex = 5
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(427, 14)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(62, 16)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Ca Chiếu"
-        '
-        'cbCaChieu_Tim
-        '
-        Me.cbCaChieu_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCaChieu_Tim.FormattingEnabled = True
-        Me.cbCaChieu_Tim.Location = New System.Drawing.Point(495, 8)
-        Me.cbCaChieu_Tim.Name = "cbCaChieu_Tim"
-        Me.cbCaChieu_Tim.Size = New System.Drawing.Size(117, 28)
-        Me.cbCaChieu_Tim.TabIndex = 6
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(618, 14)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(41, 16)
-        Me.Label9.TabIndex = 8
-        Me.Label9.Text = "Ngày"
-        '
-        'dtNgay_Tim
-        '
-        Me.dtNgay_Tim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtNgay_Tim.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtNgay_Tim.Location = New System.Drawing.Point(663, 8)
-        Me.dtNgay_Tim.Name = "dtNgay_Tim"
-        Me.dtNgay_Tim.Size = New System.Drawing.Size(118, 26)
-        Me.dtNgay_Tim.TabIndex = 9
-        '
-        'btnThem
-        '
-        Me.btnThem.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.btnThem.FlatAppearance.BorderSize = 0
-        Me.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnThem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnThem.Location = New System.Drawing.Point(787, 11)
-        Me.btnThem.Name = "btnThem"
-        Me.btnThem.Size = New System.Drawing.Size(75, 29)
-        Me.btnThem.TabIndex = 3
-        Me.btnThem.Text = "Thêm"
-        Me.btnThem.UseVisualStyleBackColor = False
-        '
-        'dtNgay_Them
-        '
-        Me.dtNgay_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtNgay_Them.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtNgay_Them.Location = New System.Drawing.Point(663, 11)
-        Me.dtNgay_Them.Name = "dtNgay_Them"
-        Me.dtNgay_Them.Size = New System.Drawing.Size(118, 26)
-        Me.dtNgay_Them.TabIndex = 17
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(618, 17)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(41, 16)
-        Me.Label3.TabIndex = 16
-        Me.Label3.Text = "Ngày"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(427, 17)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(62, 16)
-        Me.Label4.TabIndex = 15
-        Me.Label4.Text = "Ca Chiếu"
-        '
-        'cbCaChieu_Them
-        '
-        Me.cbCaChieu_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCaChieu_Them.FormattingEnabled = True
-        Me.cbCaChieu_Them.Location = New System.Drawing.Point(495, 11)
-        Me.cbCaChieu_Them.Name = "cbCaChieu_Them"
-        Me.cbCaChieu_Them.Size = New System.Drawing.Size(117, 28)
-        Me.cbCaChieu_Them.TabIndex = 14
-        '
-        'cbPhong_Them
-        '
-        Me.cbPhong_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbPhong_Them.FormattingEnabled = True
-        Me.cbPhong_Them.Location = New System.Drawing.Point(139, 11)
-        Me.cbPhong_Them.Name = "cbPhong_Them"
-        Me.cbPhong_Them.Size = New System.Drawing.Size(96, 28)
-        Me.cbPhong_Them.TabIndex = 13
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(241, 17)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(38, 16)
-        Me.Label5.TabIndex = 12
-        Me.Label5.Text = "Phim"
-        '
-        'cbPhim_Them
-        '
-        Me.cbPhim_Them.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbPhim_Them.FormattingEnabled = True
-        Me.cbPhim_Them.Location = New System.Drawing.Point(285, 11)
-        Me.cbPhim_Them.Name = "cbPhim_Them"
-        Me.cbPhim_Them.Size = New System.Drawing.Size(136, 28)
-        Me.cbPhim_Them.TabIndex = 11
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(86, 17)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(47, 16)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Phòng"
-        '
         'MH_Quan_Ly_Suat_Chieu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -368,8 +344,6 @@ Partial Class MH_Quan_Ly_Suat_Chieu
     Friend WithEvents lbThongBao As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnThem As Button
-    Friend WithEvents txtID_Them As TextBox
-    Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents dtNgay_Tim As DateTimePicker
     Friend WithEvents Label9 As Label

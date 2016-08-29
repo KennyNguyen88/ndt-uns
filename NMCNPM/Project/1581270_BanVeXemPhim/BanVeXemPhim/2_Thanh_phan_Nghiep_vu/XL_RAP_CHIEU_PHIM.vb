@@ -110,15 +110,6 @@
     Public Function Kiem_Tra_Xoa() As String
         Dim kq As String = ""
         Dim Hop_le As Boolean = True
-        ''===Có suất chiếu tham chiếu tới ?
-        'If (Danh_sach_Xuat_Chieu.Count > 0) Then
-        '    'Có
-        '    Hop_le = False
-        '    kq = "Có suất chiếu tham chiếu đến. Vui lòng hủy (các) suất chiếu trước khi tiến hành xóa !"
-        'Else
-        '    'Không
-        '    Hop_le = True
-        'End If
         Return kq
     End Function
     Public Function Kiem_Tra_Sua() As String

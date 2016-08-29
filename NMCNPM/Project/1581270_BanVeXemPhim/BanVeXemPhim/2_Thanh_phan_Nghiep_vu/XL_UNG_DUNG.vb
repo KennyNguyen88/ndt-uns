@@ -295,6 +295,12 @@ Partial Public Class XL_UNG_DUNG
         Return Kq
     End Function
 
+    Public Function Danh_sach_Xuat_Chieu_Theo_Phong_Phim_Ca_Ngay(ID_PHONG As Integer, ID_PHIM As Integer, ID_CA As Integer, Ngay As Date) As List(Of XL_XUAT_CHIEU)
+        Dim Kq As List(Of XL_XUAT_CHIEU) = Danh_sach_Xuat_Chieu()
+        Kq = Kq.FindAll(Function(x) x.ID_PHONG = ID_PHONG And x.ID_PHIM = ID_PHIM And x.ID_CA_CHIEU = ID_CA And x.Ngay = Ngay)
+        Return Kq
+    End Function
+
 
     '==== Trích rút Danh sách Phim theo các thuộc tính====
     Public Function Danh_sach_Phim_Theo_Ten(Chuoi As String) As List(Of XL_PHIM)
@@ -356,6 +362,12 @@ Partial Public Class XL_UNG_DUNG
         Return kq
     End Function
 
+    '==== Trích rút Danh sách Vé theo các thuộc tính
+    Public Function Danh_sach_Ve_Da_Dat(danhSachVe As List(Of XL_VE)) As Integer
+        Dim kq As Integer
+        kq = danhSachVe.LongCount(Function(x) x.TRANG_THAI = "Y")
+        Return kq
+    End Function
 
     'TODO trich rut danh sach theo cac thuoc tinh rap chieu phim, loai phong, ve, ghe
 
