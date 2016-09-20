@@ -16,7 +16,7 @@
     End Sub
     Public Sub Khoi_dong()
         ''===Tiêu đề 
-        Dim Tieu_de As String = "Quản Lý Loại Phòng"
+        Dim Tieu_de As String = "Quản Lý Phim"
         lbTieuDe.Text = Tieu_de.ToUpper
         ''==Tìm
         The_hien.dinhDangTextBox(txtTen_Tim, 199)

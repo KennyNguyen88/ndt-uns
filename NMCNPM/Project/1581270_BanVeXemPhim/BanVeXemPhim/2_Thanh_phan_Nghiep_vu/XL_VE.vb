@@ -111,4 +111,36 @@
         Return Kq
     End Function
 #End Region
+#Region "Kiểm tra"
+    Public Function Kiem_Tra_Ghi_Moi() As String
+        Dim Kq As String = ""
+        Dim Hop_le As Boolean
+        '[Ghe, Xuat Chieu] duy nhất
+        Dim existedVe As List(Of XL_VE)
+        existedVe = Ung_dung.Danh_Sach_Ve_Ghe_Suat_Chieu(ID_GHE, ID_XUAT_CHIEU)
+        If existedVe.Count > 0 Then
+            Hop_le = False
+            Kq = "Vé đã tồn tại" & vbCrLf
+        Else
+            Hop_le = True
+        End If
+        Return Kq
+    End Function
+    Public Function Kiem_Tra_Xoa() As String
+        Dim kq As String = ""
+        Dim Hop_le As Boolean
+        '===Vé đã bán không được xóa ?
+        If TRANG_THAI.ToUpper.Equals("YES") Then
+            Hop_le = False
+            kq = "Vé đã bán, không được xóa !"
+        Else
+            Hop_le = True
+        End If
+        Return kq
+    End Function
+    Public Function Kiem_Tra_Sua() As String
+        Dim kq As String = ""
+        Return kq
+    End Function
+#End Region
 End Class

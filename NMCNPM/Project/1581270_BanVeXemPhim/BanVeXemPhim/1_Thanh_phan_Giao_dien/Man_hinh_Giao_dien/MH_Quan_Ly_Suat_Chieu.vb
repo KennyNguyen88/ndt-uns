@@ -229,7 +229,22 @@
     End Function
     Public Function Phat_Sinh_Ve() As String
         'TODO PhatSinhVe
-        Return ""
+        Dim kq = ""
+        Dim ID_Phong = cbPhong_Them.SelectedItem.ID
+        Dim dsGhe As List(Of XL_GHE) = Ung_dung.Danh_sach_Ghe_Theo_Phong(ID_Phong)
+        For Each objGhe As XL_GHE In dsGhe
+            Dim objVe = Ung_dung.Tao_Ve_Moi
+            objVe.ID_GHE = objGhe.ID
+            objVe.ID_XUAT_CHIEU = SuatChieuMoi.ID
+            objVe.TRANG_THAI = "Chưa bán"
+            If objVe.Kiem_Tra_Ghi_Moi().Equals("") Then
+                Luu_tru.Ghi(objVe.Dong, LOAI_GHI.Ghi_moi)
+            Else
+                kq = objVe.Kiem_Tra_Ghi_Moi()
+                Return kq
+            End If
+        Next
+        Return kq
     End Function
 #End Region
 #Region "Xử lý biến cố chính - Xóa"

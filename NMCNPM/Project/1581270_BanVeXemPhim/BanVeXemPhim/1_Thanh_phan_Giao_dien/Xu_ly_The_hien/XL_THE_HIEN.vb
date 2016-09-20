@@ -271,5 +271,14 @@
         End If
 
     End Sub
+    Public Sub dinhDangLabel(lb As Label)
+        lb.Font = New Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Regular)
+        lb.AutoSize = True
+    End Sub
+
+    Public Sub dinhDangradio(rd As RadioButton)
+        rd.Font = New Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Regular)
+        rd.AutoSize = True
+    End Sub
 #End Region
 End Class

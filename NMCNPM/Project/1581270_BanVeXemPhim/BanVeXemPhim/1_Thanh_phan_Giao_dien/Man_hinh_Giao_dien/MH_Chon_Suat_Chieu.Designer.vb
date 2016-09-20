@@ -47,6 +47,7 @@ Partial Class MH_Chon_Suat_Chieu
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.flResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flResult.Location = New System.Drawing.Point(18, 163)
         Me.flResult.Name = "flResult"
         Me.flResult.Size = New System.Drawing.Size(954, 386)

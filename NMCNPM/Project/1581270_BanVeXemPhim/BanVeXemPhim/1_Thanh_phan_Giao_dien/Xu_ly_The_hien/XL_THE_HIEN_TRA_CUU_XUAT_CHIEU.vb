@@ -23,7 +23,7 @@
     End Sub
 
     Sub Xuat_Danh_sach_Xuat_Chieu_Beta(Danh_sach_Doi_tuong As List(Of XL_XUAT_CHIEU),
-                              Th_Danh_sach_Doi_tuong As FlowLayoutPanel, XL_Chon_Doi_tuong_Chi_Tiet As EventHandler, XL_Chon_Doi_tuong_Xoa As EventHandler, XL_Chon_Doi_tuong_CapNhat As EventHandler)
+                              Th_Danh_sach_Doi_tuong As FlowLayoutPanel, XL_Chon_Doi_tuong_Chi_Tiet As EventHandler)
         For Each xuatchieu In Danh_sach_Doi_tuong
             'Panel
             Dim pnel As New FlowLayoutPanel
@@ -37,21 +37,21 @@
             AddHandler Th_Doi_tuong_Chi_Tiet.Click, XL_Chon_Doi_tuong_Chi_Tiet
             pnel.Controls.Add(Th_Doi_tuong_Chi_Tiet)
 
-            '==== Tạo thể hiện xóa
-            Dim Th_Doi_tuong_Xoa As New Button
-            Th_Doi_tuong_Xoa.Text = "Xóa"
-            Th_Doi_tuong_Xoa.Tag = xuatchieu
-            Dinh_Dang_Button(Th_Doi_tuong_Xoa)
-            AddHandler Th_Doi_tuong_Xoa.Click, XL_Chon_Doi_tuong_Xoa
-            pnel.Controls.Add(Th_Doi_tuong_Xoa)
+            ''==== Tạo thể hiện xóa
+            'Dim Th_Doi_tuong_Xoa As New Button
+            'Th_Doi_tuong_Xoa.Text = "Xóa"
+            'Th_Doi_tuong_Xoa.Tag = xuatchieu
+            'Dinh_Dang_Button(Th_Doi_tuong_Xoa)
+            'AddHandler Th_Doi_tuong_Xoa.Click, XL_Chon_Doi_tuong_Xoa
+            'pnel.Controls.Add(Th_Doi_tuong_Xoa)
 
-            '==== Tạo thể hiện cập nhật
-            Dim Th_Doi_tuong_CapNhat As New Button
-            Th_Doi_tuong_CapNhat.Text = "Cập Nhật"
-            Th_Doi_tuong_CapNhat.Tag = xuatchieu
-            Dinh_Dang_Button(Th_Doi_tuong_CapNhat)
-            AddHandler Th_Doi_tuong_CapNhat.Click, XL_Chon_Doi_tuong_CapNhat
-            pnel.Controls.Add(Th_Doi_tuong_CapNhat)
+            ''==== Tạo thể hiện cập nhật
+            'Dim Th_Doi_tuong_CapNhat As New Button
+            'Th_Doi_tuong_CapNhat.Text = "Cập Nhật"
+            'Th_Doi_tuong_CapNhat.Tag = xuatchieu
+            'Dinh_Dang_Button(Th_Doi_tuong_CapNhat)
+            'AddHandler Th_Doi_tuong_CapNhat.Click, XL_Chon_Doi_tuong_CapNhat
+            'pnel.Controls.Add(Th_Doi_tuong_CapNhat)
 
             Th_Danh_sach_Doi_tuong.Controls.Add(pnel)
         Next

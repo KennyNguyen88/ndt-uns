@@ -36,8 +36,6 @@
         ''===Tiêu đề 
         Dim Tieu_de As String = "Tra cứu suất chiếu"
         lbTieuDe.Text = Tieu_de.ToUpper
-        'Order
-        ' flDetail.BringToFront()
     End Sub
     Sub Khoi_Dong_Phim()
         'Du lieu: Phim co suat chieu >= today
@@ -90,7 +88,7 @@
         Next
         If Danh_Sach_Xuat_Chieu.Count > 0 Then
             lbThongBao.Text = "Tìm thấy " & Danh_Sach_Xuat_Chieu.Count & " suất chiếu phù hợp"
-            The_hien.Xuat_Danh_sach_Xuat_Chieu_Beta(Danh_Sach_Xuat_Chieu, flResults, AddressOf XL_Chon_Xuat_Chieu_Chi_Tiet, AddressOf XL_Chon_Xuat_Chieu_Xoa, AddressOf XL_Chon_Xuat_Chieu_CapNhat)
+            The_hien.Xuat_Danh_sach_Xuat_Chieu_Beta(Danh_Sach_Xuat_Chieu, flResults, AddressOf XL_Chon_Xuat_Chieu_Chi_Tiet)
         Else
             lbThongBao.Text = "Không tìm thấy kết quả phù hợp"
         End If
@@ -104,14 +102,6 @@
         lbThongTin.AutoSize = True
         lbThongTin.Font = New Font(lbThongTin.Font.Name, 14, lbThongTin.Font.Style)
         flDetail.Controls.Add(lbThongTin)
-
-    End Sub
-    Sub XL_Chon_Xuat_Chieu_Xoa(btnXuatChieu As Button, Bc As EventArgs)
-
-
-    End Sub
-    Sub XL_Chon_Xuat_Chieu_CapNhat(btnXuatChieu As Button, Bc As EventArgs)
-
 
     End Sub
 #End Region

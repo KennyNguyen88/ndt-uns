@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MH_Quan_Ly_Ve
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,21 +20,21 @@ Partial Class MH_Quan_Ly_Ve
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.flResult = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lbThongBao = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtNgay = New System.Windows.Forms.TextBox()
+        Me.txtCaChieu = New System.Windows.Forms.TextBox()
+        Me.txtPhim = New System.Windows.Forms.TextBox()
+        Me.txtPhong = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbTieuDe = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Panel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -46,6 +46,7 @@ Partial Class MH_Quan_Ly_Ve
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.flResult.AutoScroll = True
         Me.flResult.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.flResult.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flResult.Location = New System.Drawing.Point(18, 163)
         Me.flResult.Name = "flResult"
         Me.flResult.Size = New System.Drawing.Size(954, 386)
@@ -69,19 +70,18 @@ Partial Class MH_Quan_Ly_Ve
         Me.lbThongBao.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbThongBao.Location = New System.Drawing.Point(21, 17)
         Me.lbThongBao.Name = "lbThongBao"
-        Me.lbThongBao.Size = New System.Drawing.Size(74, 16)
+        Me.lbThongBao.Size = New System.Drawing.Size(0, 16)
         Me.lbThongBao.TabIndex = 0
-        Me.lbThongBao.Text = "Thông báo"
         '
         'Panel1
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.BackColor = System.Drawing.SystemColors.Control
-        Me.Panel1.Controls.Add(Me.TextBox4)
-        Me.Panel1.Controls.Add(Me.TextBox3)
-        Me.Panel1.Controls.Add(Me.TextBox2)
-        Me.Panel1.Controls.Add(Me.TextBox1)
+        Me.Panel1.Controls.Add(Me.txtNgay)
+        Me.Panel1.Controls.Add(Me.txtCaChieu)
+        Me.Panel1.Controls.Add(Me.txtPhim)
+        Me.Panel1.Controls.Add(Me.txtPhong)
         Me.Panel1.Controls.Add(Me.Label9)
         Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.Label6)
@@ -90,6 +90,46 @@ Partial Class MH_Quan_Ly_Ve
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(954, 50)
         Me.Panel1.TabIndex = 15
+        '
+        'txtNgay
+        '
+        Me.txtNgay.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.txtNgay.Enabled = False
+        Me.txtNgay.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNgay.Location = New System.Drawing.Point(665, 8)
+        Me.txtNgay.Name = "txtNgay"
+        Me.txtNgay.Size = New System.Drawing.Size(100, 26)
+        Me.txtNgay.TabIndex = 12
+        '
+        'txtCaChieu
+        '
+        Me.txtCaChieu.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.txtCaChieu.Enabled = False
+        Me.txtCaChieu.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCaChieu.Location = New System.Drawing.Point(495, 8)
+        Me.txtCaChieu.Name = "txtCaChieu"
+        Me.txtCaChieu.Size = New System.Drawing.Size(117, 26)
+        Me.txtCaChieu.TabIndex = 11
+        '
+        'txtPhim
+        '
+        Me.txtPhim.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.txtPhim.Enabled = False
+        Me.txtPhim.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPhim.Location = New System.Drawing.Point(285, 8)
+        Me.txtPhim.Name = "txtPhim"
+        Me.txtPhim.Size = New System.Drawing.Size(136, 26)
+        Me.txtPhim.TabIndex = 10
+        '
+        'txtPhong
+        '
+        Me.txtPhong.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Me.txtPhong.Enabled = False
+        Me.txtPhong.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPhong.Location = New System.Drawing.Point(139, 8)
+        Me.txtPhong.Name = "txtPhong"
+        Me.txtPhong.Size = New System.Drawing.Size(100, 26)
+        Me.txtPhong.TabIndex = 9
         '
         'Label9
         '
@@ -144,46 +184,6 @@ Partial Class MH_Quan_Ly_Ve
         Me.lbTieuDe.Text = "Label1"
         Me.lbTieuDe.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TextBox1
-        '
-        Me.TextBox1.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(139, 8)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 26)
-        Me.TextBox1.TabIndex = 9
-        '
-        'TextBox2
-        '
-        Me.TextBox2.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(285, 8)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(136, 26)
-        Me.TextBox2.TabIndex = 10
-        '
-        'TextBox3
-        '
-        Me.TextBox3.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(495, 8)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(117, 26)
-        Me.TextBox3.TabIndex = 11
-        '
-        'TextBox4
-        '
-        Me.TextBox4.BackColor = System.Drawing.SystemColors.ActiveBorder
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox4.Location = New System.Drawing.Point(665, 8)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 26)
-        Me.TextBox4.TabIndex = 12
-        '
         'MH_Quan_Ly_Ve
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -214,8 +214,8 @@ Partial Class MH_Quan_Ly_Ve
     Friend WithEvents Label6 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents lbTieuDe As Label
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtNgay As TextBox
+    Friend WithEvents txtCaChieu As TextBox
+    Friend WithEvents txtPhim As TextBox
+    Friend WithEvents txtPhong As TextBox
 End Class
