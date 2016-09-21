@@ -129,6 +129,12 @@
     <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Ve.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Thong_Ke.Designer.vb">
+      <DependentUpon>MH_Thong_Ke.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Thong_Ke.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_Cuu_Suat_Chieu.Designer.vb">
       <DependentUpon>MH_Tra_Cuu_Suat_Chieu.vb</DependentUpon>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Quan_Ly_Ve.resx">
       <DependentUpon>MH_Quan_Ly_Ve.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Thong_Ke.resx">
+      <DependentUpon>MH_Thong_Ke.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Tra_Cuu_Suat_Chieu.resx">
       <DependentUpon>MH_Tra_Cuu_Suat_Chieu.vb</DependentUpon>

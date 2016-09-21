@@ -301,7 +301,6 @@ Partial Public Class XL_UNG_DUNG
         Return Kq
     End Function
 
-
     '==== Trích rút Danh sách Phim theo các thuộc tính====
     Public Function Danh_sach_Phim_Theo_Ten(Chuoi As String) As List(Of XL_PHIM)
         Dim Kq As List(Of XL_PHIM) = Danh_sach_Phim()
@@ -315,6 +314,8 @@ Partial Public Class XL_UNG_DUNG
         Return Kq
     End Function
 
+
+
     '==== Trích rút Danh sách Phòng theo các thuộc tính====
     Public Function Danh_sach_Phong_Theo_Ten(Chuoi As String) As List(Of XL_PHONG)
         Dim Kq As List(Of XL_PHONG) = Danh_sach_Phong()
@@ -327,6 +328,8 @@ Partial Public Class XL_UNG_DUNG
         Kq = Kq.FindAll(Function(x) x.Ten.ToUpper.Contains(ten.ToUpper) And x.ID_LOAI_PHONG = idLoaiPhong)
         Return Kq
     End Function
+
+
 
     '==== Trích rút Danh sách Ca Chiếu theo các thuộc tính====
     Public Function Danh_sach_Ca_Chieu_Theo_Ten(Chuoi As String) As List(Of XL_CA_CHIEU)
@@ -368,9 +371,9 @@ Partial Public Class XL_UNG_DUNG
         Return kq
     End Function
     '==== Trích rút Danh sách Vé theo các thuộc tính
-    Public Function Danh_sach_Ve_Da_Dat(danhSachVe As List(Of XL_VE)) As Integer
-        Dim kq As Integer
-        kq = danhSachVe.LongCount(Function(x) x.TRANG_THAI = "Y")
+    Public Function Danh_sach_Ve_Da_Dat(danhSachVe As List(Of XL_VE)) As List(Of XL_VE)
+        Dim kq As List(Of XL_VE)
+        kq = danhSachVe.FindAll(Function(x) x.TRANG_THAI.ToUpper.Equals("ĐÃ BÁN"))
         Return kq
     End Function
     Public Function Danh_Sach_Ve_Ghe_Suat_Chieu(ghe As Integer, suatChieu As Integer) As List(Of XL_VE)
@@ -384,6 +387,11 @@ Partial Public Class XL_UNG_DUNG
         Return kq
     End Function
 
+    Public Function Danh_Sach_Ve_Theo_Thang_Nam(thang As Integer, nam As Integer) As List(Of XL_VE)
+        Dim kq As List(Of XL_VE) = Danh_sach_Ve()
+        kq = kq.FindAll(Function(x) x.Xuat_Chieu.Ngay.Year = nam And x.Xuat_Chieu.Ngay.Month = thang)
+        Return kq
+    End Function
 
 
 #End Region

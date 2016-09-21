@@ -149,7 +149,7 @@
         Dim kq As String = ""
         Dim Hop_le As Boolean = True
         ''===Có vé đã bán tham chiếu tới ?
-        If (Ung_dung.Danh_sach_Ve_Da_Dat(Danh_sach_Ve) > 0) Then
+        If (Ung_dung.Danh_sach_Ve_Da_Dat(Danh_sach_Ve).Count > 0) Then
             'Có
             Hop_le = False
             kq = "Có vé đã đặt tham chiếu đến. Vui lòng hủy (các) vé trước khi tiến hành xóa !"
@@ -163,7 +163,7 @@
         Dim kq As String = ""
         Dim Hop_le As Boolean
         ''===Có vé đã bán tham chiếu tới ?
-        If (Ung_dung.Danh_sach_Ve_Da_Dat(Danh_sach_Ve) > 0) Then
+        If (Ung_dung.Danh_sach_Ve_Da_Dat(Danh_sach_Ve).Count > 0) Then
             'Có
             Hop_le = False
             kq = "Có vé đã đặt tham chiếu đến. Vui lòng hủy (các) vé trước khi tiến hành sửa !"

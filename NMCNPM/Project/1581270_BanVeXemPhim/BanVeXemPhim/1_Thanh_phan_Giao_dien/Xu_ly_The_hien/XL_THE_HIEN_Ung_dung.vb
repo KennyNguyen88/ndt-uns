@@ -12,29 +12,31 @@ Partial Public Class XL_THE_HIEN
     Public Sub Xuat_Thuc_don_Ttnh_cua_Ung_dung(
                                                Thuc_don As MenuStrip, XL_Chon_Chuc_nang As EventHandler)
         Dim Danh_sach_Ten_Chuc_nang As List(Of String) = New String() {
-                                     "Tra cứu", "Quản lý", "Kết thúc"}.ToList
+                                     "Tra cứu", "Quản lý", "Thống kê", "Kết thúc"}.ToList
         Dim Danh_sach_Ma_so_Chuc_nang As List(Of String) = New String() {
-                                      "TRA_CUU", "QUAN_LY", "KET_THUC"}.ToList
+                                      "TRA_CUU", "QUAN_LY", "THONG_KE", "KET_THUC"}.ToList
         Xuat_Thuc_don_tinh(Danh_sach_Ten_Chuc_nang, Danh_sach_Ma_so_Chuc_nang,
                            Thuc_don, XL_Chon_Chuc_nang)
 
         Xuat_Chuc_nang_Con_cua_Tra_Cuu(Thuc_don.Items("TRA_CUU"), XL_Chon_Chuc_nang)
         Xuat_Chuc_nang_Con_cua_Quan_Ly(Thuc_don.Items("QUAN_LY"), XL_Chon_Chuc_nang)
+        Xuat_Chuc_nang_Con_cua_Thong_Ke(Thuc_don.Items("THONG_KE"), XL_Chon_Chuc_nang)
     End Sub
 
     Public Function Tao_Thuc_don_dong_cua_Ung_dung(
                                                    Th_Lien_ket As Control,
                                                    XL_Chon_Chuc_nang As EventHandler) As ContextMenuStrip
         Dim Danh_sach_Ten_Chuc_nang As List(Of String) = New String() {
-                                     "Tra cứu", "Quản lý", "Kết thúc"}.ToList
+                                     "Tra cứu", "Quản lý", "Thống kê", "Kết thúc"}.ToList
         Dim Danh_sach_Ma_so_Chuc_nang As List(Of String) = New String() {
-                                      "TRA_CUU", "QUAN_LY", "KET_THUC"}.ToList
+                                      "TRA_CUU", "QUAN_LY", "THONG_KE", "KET_THUC"}.ToList
         Dim Thuc_don_dong As ContextMenuStrip = Tao_Thuc_don_dong(Danh_sach_Ten_Chuc_nang,
                                                                                     Danh_sach_Ma_so_Chuc_nang,
                                                                                       Th_Lien_ket, XL_Chon_Chuc_nang)
 
         Xuat_Chuc_nang_Con_cua_Tra_Cuu(Thuc_don_dong.Items("TRA_CUU"), XL_Chon_Chuc_nang)
         Xuat_Chuc_nang_Con_cua_Quan_Ly(Thuc_don_dong.Items("QUAN_LY"), XL_Chon_Chuc_nang)
+        Xuat_Chuc_nang_Con_cua_Thong_Ke(Thuc_don_dong.Items("THONG_KE"), XL_Chon_Chuc_nang)
         Return Thuc_don_dong
     End Function
 
@@ -45,8 +47,8 @@ Partial Public Class XL_THE_HIEN
     Protected Sub Xuat_Chuc_nang_Con_cua_Tra_Cuu(Chuc_nang As ToolStripMenuItem,
                                                               XL_Chon_Chuc_nang As EventHandler)
         'Dim Loai_doi_tuong As String = "TRA_CUU" ' Loại đối tượng Tổ chức cấp 0 ( Cấp cao nhất của ứng dụng )
-        Dim Danh_sach_Ten As List(Of String) = New String() {"Tra cứu suất chiếu", "Tra cứu suất chiếu Beta"}.ToList
-        Dim Danh_sach_Ma_so As List(Of String) = New String() {"TRA_CUU_SUAT_CHIEU", "TRA_CUU_SUAT_CHIEU_BETA"}.ToList
+        Dim Danh_sach_Ten As List(Of String) = New String() {"Tra cứu suất chiếu"}.ToList
+        Dim Danh_sach_Ma_so As List(Of String) = New String() {"TRA_CUU_SUAT_CHIEU"}.ToList
         Xuat_Chuc_nang_con_cua_Chuc_nang(Danh_sach_Ten, Danh_sach_Ma_so, Chuc_nang, XL_Chon_Chuc_nang)
     End Sub
     Protected Sub Xuat_Chuc_nang_Con_cua_Quan_Ly(Chuc_nang As ToolStripMenuItem,
@@ -57,6 +59,13 @@ Partial Public Class XL_THE_HIEN
                                       "QUAN_LY_RAP_CHIEU_PHIM", "QUAN_LY_PHIM", "QUAN_LY_CA_CHIEU", "QUAN_LY_XUAT_CHIEU", "QUAN_LY_PHONG", "QUAN_LY_LOAI_PHONG", "QUAN_LY_VE", "QUAN_LY_GHE"}.ToList
         Xuat_Chuc_nang_con_cua_Chuc_nang(Danh_sach_Ten, Danh_sach_Ma_so,
                            Chuc_nang, XL_Chon_Chuc_nang)
+    End Sub
+    Protected Sub Xuat_Chuc_nang_Con_cua_Thong_Ke(Chuc_nang As ToolStripMenuItem,
+                                                              XL_Chon_Chuc_nang As EventHandler)
+        'Dim Loai_doi_tuong As String = "THONG_KE" ' Loại đối tượng Tổ chức cấp 0 ( Cấp cao nhất của ứng dụng )
+        Dim Danh_sach_Ten As List(Of String) = New String() {"Thống kê số vé bán"}.ToList
+        Dim Danh_sach_Ma_so As List(Of String) = New String() {"THONG_KE"}.ToList
+        Xuat_Chuc_nang_con_cua_Chuc_nang(Danh_sach_Ten, Danh_sach_Ma_so, Chuc_nang, XL_Chon_Chuc_nang)
     End Sub
 #End Region
 
