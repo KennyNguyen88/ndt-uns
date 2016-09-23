@@ -98,6 +98,7 @@
                 The_hien.dinhDangButton(btnSua_result)
                 btnSua_result.Text = "Cập Nhật"
                 btnSua_result.Tag = ketqua
+                btnSua_result.Width = 200
                 AddHandler btnSua_result.Click, AddressOf XL_Sua
                 item.Controls.Add(btnSua_result)
 
