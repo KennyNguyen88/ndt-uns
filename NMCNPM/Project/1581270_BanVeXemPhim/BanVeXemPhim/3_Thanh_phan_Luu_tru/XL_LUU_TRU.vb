@@ -15,6 +15,7 @@ Public Enum LOAI_GHI
     Cap_nhat
     Xoa
 End Enum
+
 Public Class XL_LUU_TRU
 
 #Region "Biến/Đối tượng toàn cục"
@@ -28,7 +29,7 @@ Public Class XL_LUU_TRU
     Protected Thu_muc_Am_Thanh As String = Thu_muc_Media & "\Am_thanh"
     Protected Thu_muc_Phim As String = Thu_muc_Media & "\Phim"
 
-    Protected Ten_Ung_dung As String = "QLNV_1"
+    Protected Ten_Ung_dung As String = "BVXP_1"
     Protected Ten_CSDL As String
     Protected Duong_dan_Tap_tin_Access As String
     Protected Chuoi_ket_noi_Access As String
@@ -47,11 +48,14 @@ Public Class XL_LUU_TRU
     '===== Khi thay đổi CSDL chỉ cần thay đổi hàm xử lý này
     Public Function Doc_Du_lieu() As DataSet
         Dim Kq As New DataSet
-        Doc_Bang("CONG_TY", "", Kq)
-        Doc_Bang("DON_VI", "", Kq)
-        Doc_Bang("NHAN_VIEN", "", Kq)
-        Doc_Bang("CHI_NHANH", "", Kq)
-        Doc_Bang("GIOI_TINH", "", Kq)
+        Doc_Bang("RAP_CHIEU_PHIM", "", Kq)
+        Doc_Bang("PHIM", "", Kq)
+        Doc_Bang("CA_CHIEU", "", Kq)
+        Doc_Bang("XUAT_CHIEU", "", Kq)
+        Doc_Bang("PHONG", "", Kq)
+        Doc_Bang("LOAI_PHONG", "", Kq)
+        Doc_Bang("VE", "", Kq)
+        Doc_Bang("GHE", "", Kq)
         Return Kq
     End Function
     Public Function Ghi(Dong As DataRow, Loai As LOAI_GHI) As String
@@ -130,6 +134,7 @@ Public Class XL_LUU_TRU
             Bo_thich_ung.Update(Bang)
         Catch ex As Exception
             Kq = ex.Message
+            'TODO: disable when on production
             MsgBox(ex.Message)
         End Try
         Return Kq
@@ -146,8 +151,8 @@ Public Class XL_LUU_TRU
             ' Gán ID vào cột đầu tiên của dòng vừa thêm vào 
             Bc.Row(0) = ID
         End If
-
     End Sub
+
 #End Region
 
 

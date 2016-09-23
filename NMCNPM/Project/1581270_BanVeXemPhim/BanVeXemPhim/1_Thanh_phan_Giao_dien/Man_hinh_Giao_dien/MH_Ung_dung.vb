@@ -20,14 +20,14 @@ Public Class MH_Ung_dung
         InitializeComponent()
         ' Add any initialization after the InitializeComponent() call.
         Dim Dong_ho As New XL_DONG_HO_PET
-        Luu_tru = New XL_LUU_TRU
+        Luu_tru = New XL_LUU_TRU("DO_AN")
         Dim Du_lieu As DataSet = Luu_tru.Doc_Du_lieu
         Ung_dung = New XL_UNG_DUNG(Du_lieu)
         The_hien = New XL_THE_HIEN(Ung_dung)
 
         Dong_ho.Tao_Chuoi_Thoi_gian_do("Đọc dữ liệu :")
         Khoi_dong()
-        Th_Thong_bao.Text &= Dong_ho.Tao_Chuoi_Thoi_gian_do("Khởi động màn hình:")
+        'Th_Thong_bao.Text &= Dong_ho.Tao_Chuoi_Thoi_gian_do("Khởi động màn hình:")
 
 
     End Sub
@@ -41,7 +41,7 @@ Public Class MH_Ung_dung
         Me.BackColor = Color.Black
         Me.ForeColor = Color.White
         '===Tiêu đề 
-        Dim Tieu_de As String = "Quản lý nhân viên 1 - UDO -  Ứng dụng minh họa theo Công nghệ giảng dạy PET  2.2"
+        Dim Tieu_de As String = "Quản lý Bán Vé"
         Th_Tieu_de.Text = Tieu_de
         '===Thực đơn tỉnh
         The_hien.Xuat_Thuc_don_Ttnh_cua_Ung_dung(Thuc_don, AddressOf XL_Chon_Chuc_nang)
@@ -50,17 +50,6 @@ Public Class MH_Ung_dung
         '=== Thông báo 
         Th_Thong_bao.Padding = New Padding(10)
         Dim Thong_bao As String = ""
-        Thong_bao &= "Thông báo PET : Đây vẫn là phiên bản 1 nhưng với công nghệ UDO " & vbCrLf
-        Thong_bao &= " - Cải tiến quan trọng của phiên bản là việc sử dụng các hàm  class XL_X cho loại đối tượng X" & vbCrLf
-        Thong_bao &= "  == > Lập trình đơn giản,dễ mở rộng  hợn rất nhiều so với ADO " & vbCrLf
-        Thong_bao &= " - Phiên bản này chỉ là phiên bản mở đầu về UDO và còn rất thô sơ" & vbCrLf
-        Thong_bao &= " == > Sẽ còn tiếp tục cải tiến đến phiên bản 2   " & vbCrLf
-        Thong_bao &= "   Cải tiến XL_THE_HIEN, bổ sung XL_CHUC_NANG   " & vbCrLf
-        Thong_bao &= " Kết thúc thông báo PET  " & vbCrLf & vbCrLf & vbCrLf
-
-        Thong_bao &= "Có thể chọn chức năng của ứng dụng theo 2 cách " & vbCrLf
-        Thong_bao &= "1. Sử dụng thực đơn tỉnh " & vbCrLf
-        Thong_bao &= "2. Sử dụng thực đơn động " & vbCrLf
         Th_Thong_bao.Text = Thong_bao
     End Sub
 #End Region
@@ -70,75 +59,45 @@ Public Class MH_Ung_dung
         Dim Ma_so_Chon As String = Th_Chuc_nang.Tag
         If Ma_so_Chon = "KET_THUC" Then
             Me.Close()
-
-
-
-        ElseIf Ma_so_Chon = "TRA_CUU_NHAN_VIEN_DON_VI" Then
-            Dim Mh As New MH_Tra_cuu_Nhan_vien_Don_vi(Ung_dung)
+            '=== Chức năng Tra Cứu
+        ElseIf Ma_so_Chon = "TRA_CUU_SUAT_CHIEU" Then
+            Dim Mh As New MH_Tra_Cuu_Suat_Chieu_Beta(Ung_dung)
             Mh.ShowDialog()
-        ElseIf Ma_so_Chon = "TRA_CUU_NHAN_VIEN_HO_TEN" Then
-            Dim Mh As New MH_Tra_cuu_Nhan_vien_theo_Ho_ten(Ung_dung)
-            Mh.ShowDialog()
-        ElseIf Ma_so_Chon = "TRA_CUU_NHAN_VIEN_MUC_LUONG" Then
-            Dim Mh As New MH_Tra_cuu_Nhan_vien_Muc_luong(Ung_dung)
-            Mh.ShowDialog()
-        ElseIf Ma_so_Chon = "GHI_MOI_NHAN_VIEN" Then
-            Dim Mh As New MH_Ghi_moi_Nhan_vien(Ung_dung)
-            Mh.ShowDialog()
-        ElseIf Ma_so_Chon = "CAP_NHAT_NHAN_VIEN" Then
-            Dim Mh As New MH_Cap_nhat_Nhan_vien(Ung_dung)
-            Mh.ShowDialog()
-        ElseIf Ma_so_Chon = "XOA_NHAN_VIEN" Then
-            Dim Mh As New MH_Xoa_Nhan_vien(Ung_dung)
-            Mh.ShowDialog()
-        ElseIf Ma_so_Chon = "THONG_KE_NHAN_VIEN_DON_VI" Then
-            Dim Mh As New MH_Thong_ke_Nhan_vien_Don_vi(Ung_dung)
+            '=== Chức năng Quản Lý
+        ElseIf Ma_so_Chon = "QUAN_LY_RAP_CHIEU_PHIM" Then
+            Dim Mh As New MH_Quan_Ly_Rap(Ung_dung)
             Mh.ShowDialog()
 
-            '=== Chức năng của Loại đối tượng Giới tính 
-        ElseIf Ma_so_Chon = "GHI_MOI_GIOI_TINH" Then
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "Thông báo PET : Khi nào ?"
-            Th_Thong_bao.Text = Thong_bao
-        ElseIf Ma_so_Chon = "CAP_NHAT_GIOI_TINH" Then
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "Thông báo PET : Khi nào ?"
-            Th_Thong_bao.Text = Thong_bao
-        ElseIf Ma_so_Chon = "XOA_GIOI_TINH" Then
-            Dim Thong_bao As String = "Sẽ thực hiện chức năng " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "Thông báo PET : Khi nào ?"
-            Th_Thong_bao.Text = Thong_bao
-            '=== Chức năng của Loại đối tượng Công ty
-        ElseIf Ma_so_Chon = "CAP_NHAT_CONG_TY" Then
-            Dim Thong_bao As String = "Chắc chắn sẽ phải thực hiện chức năng " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "Thông báo PET : Khi nào ?"
-            Th_Thong_bao.Text = Thong_bao
-            '=== Chức năng của Loại đối tượng Chi nhánh
-        ElseIf Ma_so_Chon = "GHI_MOI_CHI_NHANH" Then
-            Dim Thong_bao As String = "Thông báo PET :  Lập trình chức năng  " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "tương tự như ghi mới nhân viên nhưng dễ hơn rất nhiều"
-            Th_Thong_bao.Text = Thong_bao
-        ElseIf Ma_so_Chon = "CAP_NHAT_CHI_NHANH" Then
-            Dim Thong_bao As String = "Thông báo PET :  Lập trình chức năng  " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "tương tự như cập nhật nhân viên nhưng dễ hơn rất nhiều"
-            Th_Thong_bao.Text = Thong_bao
-        ElseIf Ma_so_Chon = "XOA_CHI_NHANH" Then
-            Dim Thong_bao As String = "Thông báo PET :  Lập trình chức năng  " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "tương tự như xóa  nhân viên nhưng phải kiểm tra xóa "
-            Th_Thong_bao.Text = Thong_bao
-            '=== Chức năng của Loại đối tượng Đơn vị
-        ElseIf Ma_so_Chon = "GHI_MOI_DON_VI" Then
-            Dim Thong_bao As String = "Thông báo PET :  Lập trình chức năng  " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "tương tự như ghi mới nhân viên nhưng dễ hơn rất nhiều"
-            Th_Thong_bao.Text = Thong_bao
-        ElseIf Ma_so_Chon = "CAP_NHAT_DON_VI" Then
-            Dim Thong_bao As String = "Thông báo PET :  Lập trình chức năng  " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "tương tự như cập nhật nhân viên nhưng dễ hơn rất nhiều"
-            Th_Thong_bao.Text = Thong_bao
-        ElseIf Ma_so_Chon = "XOA_DON_VI" Then
-            Dim Thong_bao As String = "Thông báo PET :  Lập trình chức năng  " & Th_Chuc_nang.Text & vbCrLf
-            Thong_bao &= "tương tự như xóa  nhân viên nhưng phải kiểm tra xóa "
-            Th_Thong_bao.Text = Thong_bao
+        ElseIf Ma_so_Chon = "QUAN_LY_PHIM" Then
+            Dim Mh As New MH_Quan_Ly_Phim(Ung_dung)
+            Mh.ShowDialog()
+
+        ElseIf Ma_so_Chon = "QUAN_LY_CA_CHIEU" Then
+            Dim Mh As New MH_Quan_Ly_Ca_Chieu(Ung_dung)
+            Mh.ShowDialog()
+
+        ElseIf Ma_so_Chon = "QUAN_LY_XUAT_CHIEU" Then
+            Dim Mh As New MH_Quan_Ly_Suat_Chieu(Ung_dung)
+            Mh.ShowDialog()
+
+        ElseIf Ma_so_Chon = "QUAN_LY_PHONG" Then
+            Dim Mh As New MH_Quan_Ly_Phong(Ung_dung)
+            Mh.ShowDialog()
+
+        ElseIf Ma_so_Chon = "QUAN_LY_LOAI_PHONG" Then
+            Dim Mh As New MH_Quan_Ly_Loai_Phong(Ung_dung)
+            Mh.ShowDialog()
+
+        ElseIf Ma_so_Chon = "QUAN_LY_VE" Then
+            Dim Mh As New MH_Chon_Suat_Chieu(Ung_dung)
+            Mh.ShowDialog()
+
+        ElseIf Ma_so_Chon = "QUAN_LY_GHE" Then
+            Dim Mh As New MH_Quan_ly_Ghe(Ung_dung)
+            Mh.ShowDialog()
+        ElseIf Ma_so_Chon = "THONG_KE" Then
+            Dim Mh As New MH_Thong_Ke(Ung_dung)
+            Mh.ShowDialog()
         End If
 
     End Sub
