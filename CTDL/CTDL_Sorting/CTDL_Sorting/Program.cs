@@ -105,19 +105,14 @@ namespace CTDL_Sorting
         }
         static void request_01()
         {
-            int[] a = new int[] { };
-            int n = 0;
+            Sorting sorting = new Sorting();            
             Console.WriteLine("Yeu cau 01 - Cho biet trang thai ban dau cua day so trong tap du lieu dau vao");
-            String filename = "input_10000.txt";
-            //String filename = "selectionsort.txt";
-            Console.WriteLine("===Doc du lieu dau vao...");
-            if (Util.ReadFile(filename,ref a,ref n) == 1)
-            {
-                Console.WriteLine("So luong phan tu: " + n);
-                Console.WriteLine("===Hoan thanh doc du lieu dau vao...");
-                if (!isOneOnly(n))
+            String input = "input_10000.txt";            
+            if (sorting.DocDuLieu(input) == 1)
+            {                
+                if (!isOneOnly(sorting.size))
                 {
-                    doRequest_01(ref a, ref n);
+                    doRequest_01(sorting.iarr, sorting.size);
                 }               
             }
             else //error
@@ -126,7 +121,7 @@ namespace CTDL_Sorting
             }
             anotherRequest();
         }
-        static void doRequest_01(ref int[] a, ref int n)
+        static void doRequest_01(int[] a, int n)
         {
             Console.WriteLine("===Tien hanh yeu cau 01...");
             Boolean daySoGiongNhau = true;
@@ -167,19 +162,15 @@ namespace CTDL_Sorting
         }
         static void request_02()
         {
-            int[] a = new int[] { };
-            int n = 0;            
+            SelectionSort sorting = new SelectionSort();
             String input = "input_10000.txt";
             Console.WriteLine("Yeu cau 02 - Sap xep chon - Selection sort");
-            Console.WriteLine("===Doc du lieu dau vao...");
-            if (Util.ReadFile(input, ref a, ref n) == 1)
+            if (sorting.DocDuLieu(input) == 1)
             {
-                Console.WriteLine("So luong phan tu: " + n);
-                Console.WriteLine("===Hoan thanh doc du lieu dau vao...");
-                if (!isOneOnly(n))
+                if (!isOneOnly(sorting.size))
                 {
-                    doRequest_02(ref a, ref n);
-                }                
+                    doRequest_02(sorting);
+                }
             }
             else //error
             {
@@ -188,68 +179,138 @@ namespace CTDL_Sorting
             anotherRequest();
 
         }
-        static void doRequest_02(ref int[] a, ref int n)
+        static void doRequest_02(SelectionSort sortObj)
         {
             String output = "selectionsort.txt";
             Console.WriteLine("===Tien hanh yeu cau 02...");
-            Console.WriteLine("===Dang sap xep du lieu...");
-            Console.WriteLine("So lan swap: " + selectionSort(0, ref a, ref n));
-            Console.WriteLine("===Hoan Thanh sap xep du lieu...");
-            Console.WriteLine("===Dang ghi du lieu...");
-            Util.WriteFile(output, a, n);
-            Console.WriteLine("===Hoan thanh ghi du lieu...");
-            //code
+            sortObj.sort(0);
+            Console.WriteLine("So lan swap: " + sortObj.swapcnt);
+            sortObj.GhiDuLieu(output);
             Console.WriteLine("===Hoan thanh yeu cau 02...");
-        }
-        static void swap(ref int a, ref int b)
-        {
-            int temp = a;
-            a = b;
-            b = temp;
-        }
-        static int selectionSort(int sort, ref int[] a, ref int n)
-        {
-            int swapcnt = 0;
-            if (sort == 0) //Sap xep tang dan
-            {
-                
-                for (int i = 0; i < n - 1; i++)
-                {
-                    for (int j = i + 1; j < n; j++)
-                    {
-                        if (a[i] > a[j])
-                        {
-                            swap(ref a[i], ref a[j]);
-                            swapcnt++;
-                        }
-                    }
-                }                
-            }
-            else //Sap xep giam dan
-            {
-                for (int i = 0; i < n - 1; i++)
-                {
-                    for (int j = i + 1; j < n; j++)
-                    {
-                        if (a[i] < a[j])
-                        {
-                            swap(ref a[i], ref a[j]);
-                            swapcnt++;
-                        }
-                    }
-                }
-            }
-            return swapcnt;
-        }
-
-
+        }                
         static void request_03()
         {
-
+            HeapSort sorting = new HeapSort();
+            String input = "input_10000.txt";
+            Console.WriteLine("Yeu cau 03 - Sap xep vun dong - Heap sort");
+            if (sorting.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(sorting.size))
+                {
+                    doRequest_03(sorting);
+                }
+            }
+            else //error
+            {
+                Console.WriteLine("Hay kiem tra lại file du lieu dau vao !!!");
+            }
+            anotherRequest();
         }
+        static void doRequest_03(HeapSort sortObj)
+        {
+            String output = "heapsort.txt";
+            Console.WriteLine("===Tien hanh yeu cau 03...");
+            Console.WriteLine("===Dang sap xep du lieu...");
+            sortObj.sort();
+            Console.WriteLine("So lan swap: " + sortObj.swapcnt);
+            Console.WriteLine("===Hoan Thanh sap xep du lieu...");
+            sortObj.GhiDuLieu(output);
+            Console.WriteLine("===Hoan thanh yeu cau 03...");
+        }
+        //public static void quickSort(int[] a,ref int swapcnt, int left, int right, int isort)
+        //{
+        //    int i = left;
+        //    int j = right;
+        //    int mid = (i + j) / 2;
+        //    if (isort == 0) //sap xep tang dan
+        //    {
+        //        while (i <= j)
+        //        {
+        //            while (a[i] < a[mid])
+        //            {
+        //                i++;
+        //            }
+        //            while (a[j] > a[mid])
+        //            {
+        //                j--;
+        //            }
+        //            if (i <= j)
+        //            {
+        //                swap(ref a[i], ref a[j]);
+        //                swapcnt++;
+        //                i++;
+        //                j--;
+        //            }
+        //        }
+        //        if (left < j)
+        //        {
+        //            quickSort(a,ref swapcnt,  left, j, isort);
+        //        }
+        //        if (i < right)
+        //        {
+        //            quickSort(a,ref swapcnt, i, right, isort);
+        //        }
+        //    }
+        //    else if (isort == 1) //sap xep giam dan
+        //    {
+        //        while (i <= j)
+        //        {
+        //            while (a[i] > a[mid])
+        //            {
+        //                i++;
+        //            }
+        //            while (a[j] < a[mid])
+        //            {
+        //                j--;
+        //            }
+        //            if (i <= j)
+        //            {
+        //                swap(ref a[i],ref a[j]);
+        //                i++;
+        //                j--;
+        //            }
+        //        }
+        //        if (left < j)
+        //        {
+        //            quickSort(a,ref swapcnt, left, j, isort);
+        //        }
+        //        if (i < right)
+        //        {
+        //            quickSort(a,ref swapcnt, i, right, isort);
+        //        }
+        //    }
+
+        //}
+
         static void request_04()
         {
-
+            QuickSort sorting = new QuickSort();
+            String input = "input_10000.txt";
+            Console.WriteLine("Yeu cau 04 - Sap xep nhanh - Quick sort");            
+            if (sorting.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(sorting.size))
+                {
+                    doRequest_04(sorting);
+                }
+            }
+            else //error
+            {
+                Console.WriteLine("Hay kiem tra lại file du lieu dau vao !!!");
+            }
+            anotherRequest();
+        }
+        static void doRequest_04(QuickSort sortObj)
+        {
+            String output = "quicksort.txt";
+            Console.WriteLine("===Tien hanh yeu cau 04...");
+            Console.WriteLine("===Dang sap xep du lieu...");
+            //quickSort(a, ref swapcnt, 0, n - 1, 0);
+            sortObj.sort(0, sortObj.size - 1, 0);
+            Console.WriteLine("So lan swap: " + sortObj.swapcnt);
+            Console.WriteLine("===Hoan Thanh sap xep du lieu...");
+            sortObj.GhiDuLieu(output);
+            Console.WriteLine("===Hoan thanh yeu cau 04...");
         }
         static void request_05()
         {
