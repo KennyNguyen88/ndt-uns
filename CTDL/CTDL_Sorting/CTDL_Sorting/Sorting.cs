@@ -10,9 +10,11 @@ namespace CTDL_Sorting
     {
         public int[] iarr;
         public int size;
+        public int swapcnt;
         public Sorting()
         {
             size = 0;
+            swapcnt = 0;
             iarr = new int[] { };
         }
         public Sorting(int[] a, int n)

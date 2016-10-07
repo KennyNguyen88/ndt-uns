@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 namespace CTDL_Sorting
 {
     class HeapSort: Sorting
-    {
-        public int swapcnt;
-        public HeapSort() : base()
-        {
-            swapcnt = 0;
-        }        
+    {      
         public void sort()
         {
             int i, temp;

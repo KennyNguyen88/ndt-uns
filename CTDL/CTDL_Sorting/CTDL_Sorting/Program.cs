@@ -216,72 +216,7 @@ namespace CTDL_Sorting
             Console.WriteLine("===Hoan Thanh sap xep du lieu...");
             sortObj.GhiDuLieu(output);
             Console.WriteLine("===Hoan thanh yeu cau 03...");
-        }
-        //public static void quickSort(int[] a,ref int swapcnt, int left, int right, int isort)
-        //{
-        //    int i = left;
-        //    int j = right;
-        //    int mid = (i + j) / 2;
-        //    if (isort == 0) //sap xep tang dan
-        //    {
-        //        while (i <= j)
-        //        {
-        //            while (a[i] < a[mid])
-        //            {
-        //                i++;
-        //            }
-        //            while (a[j] > a[mid])
-        //            {
-        //                j--;
-        //            }
-        //            if (i <= j)
-        //            {
-        //                swap(ref a[i], ref a[j]);
-        //                swapcnt++;
-        //                i++;
-        //                j--;
-        //            }
-        //        }
-        //        if (left < j)
-        //        {
-        //            quickSort(a,ref swapcnt,  left, j, isort);
-        //        }
-        //        if (i < right)
-        //        {
-        //            quickSort(a,ref swapcnt, i, right, isort);
-        //        }
-        //    }
-        //    else if (isort == 1) //sap xep giam dan
-        //    {
-        //        while (i <= j)
-        //        {
-        //            while (a[i] > a[mid])
-        //            {
-        //                i++;
-        //            }
-        //            while (a[j] < a[mid])
-        //            {
-        //                j--;
-        //            }
-        //            if (i <= j)
-        //            {
-        //                swap(ref a[i],ref a[j]);
-        //                i++;
-        //                j--;
-        //            }
-        //        }
-        //        if (left < j)
-        //        {
-        //            quickSort(a,ref swapcnt, left, j, isort);
-        //        }
-        //        if (i < right)
-        //        {
-        //            quickSort(a,ref swapcnt, i, right, isort);
-        //        }
-        //    }
-
-        //}
-
+        }       
         static void request_04()
         {
             QuickSort sorting = new QuickSort();
@@ -314,8 +249,34 @@ namespace CTDL_Sorting
         }
         static void request_05()
         {
-
+            MergeSort sorting = new MergeSort();
+            String input = "input_10000.txt";
+            Console.WriteLine("Yeu cau 05 - Sap xep tron - Merge sort");
+            if (sorting.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(sorting.size))
+                {
+                    doRequest_05(sorting);
+                }
+            }
+            else //error
+            {
+                Console.WriteLine("Hay kiem tra lại file du lieu dau vao !!!");
+            }
+            anotherRequest();
         }
+        static void doRequest_05(MergeSort sortObj)
+        {
+            String output = "mergesort.txt";
+            Console.WriteLine("===Tien hanh yeu cau 05...");
+            Console.WriteLine("===Dang sap xep du lieu...");
+            sortObj.iarr = sortObj.sort(sortObj.iarr, sortObj.size, 0);
+            Console.WriteLine("So lan swap: " + sortObj.swapcnt);
+            Console.WriteLine("===Hoan Thanh sap xep du lieu...");
+            sortObj.GhiDuLieu(output);
+            Console.WriteLine("===Hoan thanh yeu cau 05...");
+        }
+
         static void request_06()
         {
 

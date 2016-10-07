@@ -8,11 +8,6 @@ namespace CTDL_Sorting
 {
     class SelectionSort: Sorting
     {
-        public int swapcnt;
-        public SelectionSort() : base()
-        {
-            swapcnt = 0;
-        }
         public void sort(int sort)
         {
             Console.WriteLine("===Dang sap xep du lieu...");

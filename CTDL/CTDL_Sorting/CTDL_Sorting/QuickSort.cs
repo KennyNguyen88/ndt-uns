@@ -8,19 +8,12 @@ namespace CTDL_Sorting
 {
     class QuickSort : Sorting
     {
-        //sort = 0: sap xep tang dan
-        //sort = 1: sap xep giam dan
-        public int swapcnt;
-        public QuickSort() : base()
-        {
-            swapcnt = 0;
-        }
         public void sort(int left, int right, int isort)
         {
             int i = left;
             int j = right;
             int mid = (i + j) / 2;
-            if (isort == 0)
+            if (isort == 0) //sap xep tang dan
             {
                 while (i <= j)
                 {
@@ -35,6 +28,7 @@ namespace CTDL_Sorting
                     if (i <= j)
                     {
                         swap(i, j);
+                        swapcnt++;
                         i++;
                         j--;
                     }
@@ -48,7 +42,7 @@ namespace CTDL_Sorting
                     sort(i, right, isort);
                 }
             }
-            else if(isort == 1)
+            else if(isort == 1) //sap xep giam dan
             {
                 while (i <= j)
                 {
@@ -63,6 +57,7 @@ namespace CTDL_Sorting
                     if (i <= j)
                     {
                         swap(i, j);
+                        swapcnt++;
                         i++;
                         j--;
                     }
