@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTDL_Sorting", "CTDL_Sorting\CTDL_Sorting.csproj", "{E0562604-192F-4D23-8BB5-7B30D8B69D49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SapXep", "..\..\..\..\CauTrucDuLieu_Cay\SapXep\SapXep.csproj", "{393BCF37-057A-4317-9236-237F7409DFAD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{E0562604-192F-4D23-8BB5-7B30D8B69D49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0562604-192F-4D23-8BB5-7B30D8B69D49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0562604-192F-4D23-8BB5-7B30D8B69D49}.Release|Any CPU.Build.0 = Release|Any CPU
-		{393BCF37-057A-4317-9236-237F7409DFAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{393BCF37-057A-4317-9236-237F7409DFAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{393BCF37-057A-4317-9236-237F7409DFAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{393BCF37-057A-4317-9236-237F7409DFAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
