@@ -13,8 +13,7 @@ namespace CTDL_Sorting
             int i = left;
             int j = right;
             int pivotindex = (i + j) / 2;
-            int pivotval = iarr[pivotindex];
-            Console.WriteLine("pivot: " + pivotval);
+            int pivotval = iarr[pivotindex];            
             if (isort == 0) //sap xep tang dan
             {
                 while (i <= j)
@@ -28,9 +27,7 @@ namespace CTDL_Sorting
                         j--;
                     }
                     if (i <= j)
-                    {
-                        Console.WriteLine("i= " + i + " j= " + j);
-                        Console.WriteLine("Doi cho " + iarr[i] + " va " + iarr[j]);
+                    {                        
                         swap(i, j);
                         swapcnt++;
                         i++;

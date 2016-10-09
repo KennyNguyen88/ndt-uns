@@ -220,8 +220,7 @@ namespace CTDL_Sorting
         static void request_04()
         {
             QuickSort sorting = new QuickSort();
-            //String input = "input_10000.txt";
-            String input = "input_test_quicksort.txt";
+            String input = "input_10000.txt";            
             Console.WriteLine("Yeu cau 04 - Sap xep nhanh - Quick sort");            
             if (sorting.DocDuLieu(input) == 1)
             {
@@ -238,11 +237,9 @@ namespace CTDL_Sorting
         }
         static void doRequest_04(QuickSort sortObj)
         {
-            //String output = "quicksort.txt";
-            String output = "test_quicksort.txt";
+            String output = "quicksort.txt";            
             Console.WriteLine("===Tien hanh yeu cau 04...");
-            Console.WriteLine("===Dang sap xep du lieu...");
-            //quickSort(a, ref swapcnt, 0, n - 1, 0);
+            Console.WriteLine("===Dang sap xep du lieu...");            
             sortObj.sort(0, sortObj.size - 1, 0);
             Console.WriteLine("So lan swap: " + sortObj.swapcnt);
             Console.WriteLine("===Hoan Thanh sap xep du lieu...");
@@ -272,7 +269,8 @@ namespace CTDL_Sorting
             String output = "mergesort.txt";
             Console.WriteLine("===Tien hanh yeu cau 05...");
             Console.WriteLine("===Dang sap xep du lieu...");
-            sortObj.iarr = sortObj.sort(sortObj.iarr, sortObj.size, 0);
+            //sortObj.iarr = sortObj.sort(sortObj.iarr, sortObj.size, 0);
+            sortObj.sort(0, sortObj.size - 1);
             Console.WriteLine("So lan swap: " + sortObj.swapcnt);
             Console.WriteLine("===Hoan Thanh sap xep du lieu...");
             sortObj.GhiDuLieu(output);
