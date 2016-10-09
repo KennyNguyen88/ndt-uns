@@ -20,35 +20,25 @@ namespace CTDL_Sorting
             switch (request)
             {
                 case 1:
-                    request_01();                    
-                    break;
+                    request_01(); break;
                 case 2:
-                    request_02();
-                    break;
+                    request_02(); break;
                 case 3:
-                    request_03();
-                    break;
+                    request_03(); break;
                 case 4:
-                    request_04();
-                    break;
+                    request_04(); break;
                 case 5:
-                    request_05();
-                    break;
+                    request_05(); break;
                 case 6:
-                    request_06();
-                    break;
+                    request_06(); break;
                 case 7:
-                    request_07();
-                    break;
+                    request_07(); break;
                 case 8:
-                    request_08();
-                    break;
+                    request_08(); break;
                 case 9:
-                    request_09();
-                    break;
+                    request_09(); break;
                 case 10:
-                    request_10();
-                    break;
+                    request_10(); break;
                 default:
                     break;
             }
@@ -279,7 +269,31 @@ namespace CTDL_Sorting
 
         static void request_06()
         {
-
+            RadixSort sorting = new RadixSort();
+            String input = "input_10000.txt";
+            Console.WriteLine("Yeu cau 06 - Sap xep theo co so - Radix sort");
+            if (sorting.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(sorting.size))
+                {
+                    doRequest_06(sorting);
+                }
+            }
+            else //error
+            {
+                Console.WriteLine("Hay kiem tra lại file du lieu dau vao !!!");
+            }
+            anotherRequest();
+        }
+        static void doRequest_06(RadixSort sortObj)
+        {
+            String output = "radixsort.txt";
+            Console.WriteLine("===Tien hanh yeu cau 06...");
+            Console.WriteLine("===Dang sap xep du lieu...");            
+            sortObj.sort();            
+            Console.WriteLine("===Hoan Thanh sap xep du lieu...");
+            sortObj.GhiDuLieu(output);
+            Console.WriteLine("===Hoan thanh yeu cau 06...");
         }
         static void request_07()
         {
