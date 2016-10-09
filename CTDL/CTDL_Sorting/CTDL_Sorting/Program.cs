@@ -201,7 +201,7 @@ namespace CTDL_Sorting
             String output = "heapsort.txt";
             Console.WriteLine("===Tien hanh yeu cau 03...");
             Console.WriteLine("===Dang sap xep du lieu...");
-            sortObj.sort();
+            sortObj.sort(0);
             Console.WriteLine("So lan swap: " + sortObj.swapcnt);
             Console.WriteLine("===Hoan Thanh sap xep du lieu...");
             sortObj.GhiDuLieu(output);
@@ -317,7 +317,7 @@ namespace CTDL_Sorting
             {
                 if (!isOneOnly(heapSort.size))
                 {
-                    heapSort.sort();
+                    heapSort.sort(0);
                     Console.WriteLine("So lan swap: " + heapSort.swapcnt);
                 }
             }
@@ -346,11 +346,82 @@ namespace CTDL_Sorting
         }
         static void request_08()
         {
+            Console.WriteLine("Yeu cau 08 - So sanh hieu qua cac thuat toan khi lam viec voi day so co kich thuoc ban dau khac nhau");
+            //String input = "input_same.txt";
+            //String input = "input_random.txt";
+            //String input = "input_ascending.txt";
+            String input = "input_descending.txt";
 
+            Console.WriteLine("Sap xep chon - Selection sort");
+            SelectionSort selectionSort = new SelectionSort();
+            if (selectionSort.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(selectionSort.size))
+                {
+                    selectionSort.sort(0);
+                    Console.WriteLine("So lan swap: " + selectionSort.swapcnt);
+                }
+            }
+            Console.WriteLine("Sap xep vun dong - Heap sort");
+            HeapSort heapSort = new HeapSort();
+            if (heapSort.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(heapSort.size))
+                {
+                    heapSort.sort(0);
+                    Console.WriteLine("So lan swap: " + heapSort.swapcnt);
+                }
+            }
+            Console.WriteLine("Sap xep nhanh - Quick sort");
+            QuickSort quickSort = new QuickSort();
+            if (quickSort.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(quickSort.size))
+                {
+                    quickSort.sort(0, quickSort.size - 1, 0); ;
+                    Console.WriteLine("So lan swap: " + quickSort.swapcnt);
+                }
+            }
+            Console.WriteLine("Sap xep tron - Merge sort");
+            MergeSort mergeSort = new MergeSort();
+            if (mergeSort.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(mergeSort.size))
+                {
+                    mergeSort.sort(0, mergeSort.size - 1); ;
+                    Console.WriteLine("So lan swap: " + mergeSort.swapcnt);
+                }
+            }
+            anotherRequest();
         }
         static void request_09()
         {
-
+            HeapSort sorting = new HeapSort();
+            String input = "input_10000.txt";
+            Console.WriteLine("Yeu cau 09 - Sap xep vun dong giam dan - Heap sort");
+            if (sorting.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(sorting.size))
+                {
+                    doRequest_09(sorting);
+                }
+            }
+            else //error
+            {
+                Console.WriteLine("Hay kiem tra lại file du lieu dau vao !!!");
+            }
+            anotherRequest();
+        }
+        static void doRequest_09(HeapSort sortObj)
+        {
+            String output = "heapsort_descending.txt";
+            Console.WriteLine("===Tien hanh yeu cau 09...");
+            Console.WriteLine("===Dang sap xep du lieu...");
+            sortObj.sort(1);
+            Console.WriteLine("So lan swap: " + sortObj.swapcnt);
+            Console.WriteLine("===Hoan Thanh sap xep du lieu...");
+            sortObj.GhiDuLieu(output);
+            Console.WriteLine("===Hoan thanh yeu cau 09...");
         }
         static void request_10()
         {
