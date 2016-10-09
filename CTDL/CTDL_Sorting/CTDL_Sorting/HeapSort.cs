@@ -6,41 +6,41 @@ using System.Threading.Tasks;
 
 namespace CTDL_Sorting
 {
-    class HeapSort: Sorting
-    {      
+    class HeapSort : Sorting
+    {
         public void sort()
         {
-            int i, temp;
+            int i,j;
             for (i = (size / 2) - 1; i >= 0; i--)
-                siftDown(iarr, i, size);
-            for (i = size - 1; i >= 1; i--)
-            {
-                swap(0, i);
+            {                
+                siftDown(iarr, i, size - 1);
+            }
+            for (j = size - 1; j > 0; j--)
+            {                
+                swap(0, j);
                 swapcnt++;
-                siftDown(iarr, 0, i - 1);
+                siftDown(iarr, 0, j - 1);
             }
         }
         void siftDown(int[] numbers, int root, int bottom)
-        {
-            int done, maxChild, temp;
-            done = 0;
-            while ((root * 2 <= bottom) && (done == 0))
+        {            
+            int tmp = iarr[root];
+            int succ = root * 2 + 1;
+            if (succ < bottom && iarr[succ] < iarr[succ+1])
             {
-                if (root * 2 == bottom)
-                    maxChild = root * 2;
-                else if (numbers[root * 2] > numbers[root * 2 + 1])
-                    maxChild = root * 2;
-                else
-                    maxChild = root * 2 + 1;
-                if (numbers[root] < numbers[maxChild])
-                {
-                    swap(root, maxChild);
-                    swapcnt++;
-                    root = maxChild;
-                }
-                else
-                    done = 1;
+                succ++;
             }
+            while (succ <= bottom && tmp < iarr[succ])
+            {
+                iarr[root] = iarr[succ];
+                root = succ;
+                succ = succ * 2 + 1;
+                if (succ < bottom && iarr[succ] < iarr[succ+1])
+                {
+                    succ++;
+                }
+            }
+            iarr[root] = tmp;
         }
     }
 }
