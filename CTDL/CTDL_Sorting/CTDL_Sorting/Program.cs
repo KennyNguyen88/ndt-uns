@@ -55,7 +55,7 @@ namespace CTDL_Sorting
             Console.WriteLine("6 - Sap xep theo co so - Radix sort");
             Console.WriteLine("7 - So sanh hieu qua cac thuat toan khi lam viec voi day so co kich thuoc tang dan");
             Console.WriteLine("8 - So sanh hieu qua cac thuat toan khi lam viec voi day so co kich thuoc ban dau khac nhau");
-            Console.WriteLine("9 - Hieu chinh thuat toan sap xep vun dong - radix sort");
+            Console.WriteLine("9 - Hieu chinh thuat toan sap xep vun dong - heap sort");
             Console.WriteLine("10 - Khu de quy thuat toan sap xep nhanh");
             Console.WriteLine("0 - Thoat chuong trinh");
         }
