@@ -53,7 +53,7 @@ namespace CTDL_Sorting
             Console.WriteLine("4 - Sap xep nhanh - Quick sort");
             Console.WriteLine("5 - Sap xep tron - Merge sort");
             Console.WriteLine("6 - Sap xep theo co so - Radix sort");
-            Console.WriteLine("7 - So sanh hieu qua cac thuat toan khi lam viec voi da so co kich thuoc tang dan");
+            Console.WriteLine("7 - So sanh hieu qua cac thuat toan khi lam viec voi day so co kich thuoc tang dan");
             Console.WriteLine("8 - So sanh hieu qua cac thuat toan khi lam viec voi day so co kich thuoc ban dau khac nhau");
             Console.WriteLine("9 - Hieu chinh thuat toan sap xep vun dong - radix sort");
             Console.WriteLine("10 - Khu de quy thuat toan sap xep nhanh");
@@ -97,7 +97,7 @@ namespace CTDL_Sorting
         {
             Sorting sorting = new Sorting();            
             Console.WriteLine("Yeu cau 01 - Cho biet trang thai ban dau cua day so trong tap du lieu dau vao");
-            String input = "input_10000.txt";            
+            String input = "input_10000.txt";
             if (sorting.DocDuLieu(input) == 1)
             {                
                 if (!isOneOnly(sorting.size))
@@ -181,7 +181,7 @@ namespace CTDL_Sorting
         static void request_03()
         {
             HeapSort sorting = new HeapSort();
-            String input = "input_10000.txt";
+            String input = "input_10000.txt";            
             Console.WriteLine("Yeu cau 03 - Sap xep vun dong - Heap sort");
             if (sorting.DocDuLieu(input) == 1)
             {
@@ -239,7 +239,7 @@ namespace CTDL_Sorting
         static void request_05()
         {
             MergeSort sorting = new MergeSort();
-            String input = "input_10000.txt";
+            String input = "input_10000.txt";            
             Console.WriteLine("Yeu cau 05 - Sap xep tron - Merge sort");
             if (sorting.DocDuLieu(input) == 1)
             {
@@ -266,7 +266,6 @@ namespace CTDL_Sorting
             sortObj.GhiDuLieu(output);
             Console.WriteLine("===Hoan thanh yeu cau 05...");
         }
-
         static void request_06()
         {
             RadixSort sorting = new RadixSort();
@@ -296,7 +295,53 @@ namespace CTDL_Sorting
             Console.WriteLine("===Hoan thanh yeu cau 06...");
         }
         static void request_07()
-        {
+        {            
+            Console.WriteLine("Yeu cau 07 - So sanh hieu qua cac thuat toan khi lam viec voi day so co kich thuoc tang dan");
+            //String input = "input_10000.txt";
+            String input = "input_100000.txt";
+            //String input = "input_500000.txt";
+
+            Console.WriteLine("Sap xep chon - Selection sort");
+            SelectionSort selectionSort = new SelectionSort();
+            if (selectionSort.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(selectionSort.size))
+                {
+                    selectionSort.sort(0);
+                    Console.WriteLine("So lan swap: " + selectionSort.swapcnt);
+                }
+            }
+            Console.WriteLine("Sap xep vun dong - Heap sort");
+            HeapSort heapSort = new HeapSort();
+            if (heapSort.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(heapSort.size))
+                {
+                    heapSort.sort();
+                    Console.WriteLine("So lan swap: " + heapSort.swapcnt);
+                }
+            }
+            Console.WriteLine("Sap xep nhanh - Quick sort");
+            QuickSort quickSort = new QuickSort();
+            if (quickSort.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(quickSort.size))
+                {
+                    quickSort.sort(0, quickSort.size - 1, 0); ;
+                    Console.WriteLine("So lan swap: " + quickSort.swapcnt);
+                }
+            }
+            Console.WriteLine("Sap xep tron - Merge sort");
+            MergeSort mergeSort = new MergeSort();
+            if (mergeSort.DocDuLieu(input) == 1)
+            {
+                if (!isOneOnly(mergeSort.size))
+                {
+                    mergeSort.sort(0, mergeSort.size - 1); ;
+                    Console.WriteLine("So lan swap: " + mergeSort.swapcnt);
+                }
+            }
+            anotherRequest();
 
         }
         static void request_08()
