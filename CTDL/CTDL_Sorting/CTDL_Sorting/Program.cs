@@ -220,7 +220,8 @@ namespace CTDL_Sorting
         static void request_04()
         {
             QuickSort sorting = new QuickSort();
-            String input = "input_10000.txt";
+            //String input = "input_10000.txt";
+            String input = "input_test_quicksort.txt";
             Console.WriteLine("Yeu cau 04 - Sap xep nhanh - Quick sort");            
             if (sorting.DocDuLieu(input) == 1)
             {
@@ -237,7 +238,8 @@ namespace CTDL_Sorting
         }
         static void doRequest_04(QuickSort sortObj)
         {
-            String output = "quicksort.txt";
+            //String output = "quicksort.txt";
+            String output = "test_quicksort.txt";
             Console.WriteLine("===Tien hanh yeu cau 04...");
             Console.WriteLine("===Dang sap xep du lieu...");
             //quickSort(a, ref swapcnt, 0, n - 1, 0);
