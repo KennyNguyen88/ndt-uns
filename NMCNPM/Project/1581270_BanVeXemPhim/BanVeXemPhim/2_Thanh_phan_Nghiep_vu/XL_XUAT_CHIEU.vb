@@ -99,6 +99,13 @@
         Kq &= "Ca Chiếu: " & Ca_Chieu.Ten & vbCrLf
         Return Kq
     End Function
+    Public Function Tao_Chuoi_Tom_tat_New() As String
+        Dim Kq As String = ""
+        Kq &= "Phim : " & Phim.Ten & vbCrLf
+        Kq &= "Phòng : " & Phong.Ten & vbCrLf
+        Kq &= "Ca Chiếu: " & Ca_Chieu.Ten & vbCrLf
+        Return Kq
+    End Function
     Public Function Tao_Chuoi_Thong_tin(Optional Co_ID As Boolean = False) As String
         Dim Kq As String = ""
         If Co_ID Then
