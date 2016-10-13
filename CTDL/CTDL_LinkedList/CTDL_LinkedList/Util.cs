@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CTDL_Sorting
+namespace CTDL_LinkedList
 {
     class Util
     {
-        static public int ReadFile(string filename, ref String[] a, ref int n)
+        public static int ReadFile(string filename, ref String[] a, ref int n)
         {
             string line;
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
@@ -40,19 +40,31 @@ namespace CTDL_Sorting
             return 1;
                      
         }
-        //static public void WriteFile(string filename, int[] a, int n)
-        //{
-        //    string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
-        //    _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
-        //    _filePath += @"\" + filename;
-        //    System.IO.StreamWriter file = new System.IO.StreamWriter(_filePath);
-        //    file.WriteLine(n);
-        //    for (int i = 0; i < n; i ++)
-        //    {
-        //        file.WriteLine(a[i]);
+        ////static public void WriteFile(string filename, int[] a, int n)
+        ////{
+        ////    string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
+        ////    _filePath = Directory.GetParent(Directory.GetParent(_filePath).FullName).FullName;
+        ////    _filePath += @"\" + filename;
+        ////    System.IO.StreamWriter file = new System.IO.StreamWriter(_filePath);
+        ////    file.WriteLine(n);
+        ////    for (int i = 0; i < n; i ++)
+        ////    {
+        ////        file.WriteLine(a[i]);
 
+        ////    }
+        ////    file.Close();
+        ////}
+        //static public void ReadInput(string filename, CIRCLE list)
+        //{
+        //    int n = 0;
+        //    String[] a = null;
+        //    int x = ReadFile(filename, ref a, ref n);
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        MEMBER member = new MEMBER(a[i]);
+        //        list.AddLast(member);
         //    }
-        //    file.Close();
         //}
+
     }
 }
