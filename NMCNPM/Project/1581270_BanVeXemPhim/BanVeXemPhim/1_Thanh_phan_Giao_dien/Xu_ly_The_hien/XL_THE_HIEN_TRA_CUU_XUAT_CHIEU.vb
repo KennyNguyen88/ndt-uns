@@ -129,4 +129,10 @@
         chb.AutoSize = False
         chb.Anchor = AnchorStyles.Top And AnchorStyles.Left And AnchorStyles.Right
     End Sub
+
+
+
+    Sub Dinh_Dang_Ca_Chieu_Button(btn As Button)
+        Dinh_Dang_Button(btn)
+    End Sub
 End Class

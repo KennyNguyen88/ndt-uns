@@ -223,6 +223,7 @@ Public Class XL_LUU_TRU
             End If
         End If
         Kq = New FileInfo(Duong_dan).FullName
+
         Return Kq
     End Function
     Protected Function Doc_Du_lieu_Hinh(Dong As DataRow) As Byte()
@@ -242,7 +243,7 @@ Public Class XL_LUU_TRU
         Dim Kq As String = ""
         Dim Duong_dan As String = Thu_muc_Hinh & "\" & Ma_so & ".png"
         If Not File.Exists(Duong_dan) Then
-            Duong_dan = Thu_muc_Hinh & "\Hinh.png"
+            Duong_dan = Thu_muc_Hinh & "\Loai_chuc_nang.png"
         End If
         Kq = New FileInfo(Duong_dan).FullName
         Return Kq

@@ -153,9 +153,16 @@
     <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ung_dung.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ung_dung_New.Designer.vb">
+      <DependentUpon>MH_Ung_dung_New.vb</DependentUpon>
+    </Compile>
+    <Compile Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ung_dung_New.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="1_Thanh_phan_Giao_dien\Xu_ly_The_hien\XL_THE_HIEN.vb" />
     <Compile Include="1_Thanh_phan_Giao_dien\Xu_ly_The_hien\XL_THE_HIEN_TRA_CUU_XUAT_CHIEU.vb" />
     <Compile Include="1_Thanh_phan_Giao_dien\Xu_ly_The_hien\XL_THE_HIEN_Ung_dung.vb" />
+    <Compile Include="1_Thanh_phan_Giao_dien\Xu_ly_The_hien\XL_THE_HIEN_Ung_Dung_New.vb" />
     <Compile Include="2_Thanh_phan_Nghiep_vu\XL_CA_CHIEU.vb" />
     <Compile Include="2_Thanh_phan_Nghiep_vu\XL_GHE.vb" />
     <Compile Include="2_Thanh_phan_Nghiep_vu\XL_LOAI_PHONG.vb" />
@@ -222,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ung_dung.resx">
       <DependentUpon>MH_Ung_dung.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1_Thanh_phan_Giao_dien\Man_hinh_Giao_dien\MH_Ung_dung_New.resx">
+      <DependentUpon>MH_Ung_dung_New.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

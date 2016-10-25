@@ -77,6 +77,11 @@
         Kq &= "Tên Ghế : " & Ghe.Ten & vbCrLf
         Return Kq
     End Function
+    Public Function Tao_Chuoi_Tom_tat_New() As String
+        Dim Kq As String = ""
+        Kq &= Ghe.x & "|" & Ghe.y & vbCrLf
+        Return Kq
+    End Function
     Public Function Tao_Chuoi_Thong_tin(Optional Co_ID As Boolean = False) As String
         Dim Kq As String = ""
         If Co_ID Then
