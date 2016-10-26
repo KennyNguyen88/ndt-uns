@@ -1,19 +1,82 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
+using System.IO;
 
 namespace KTLT
 {
     class Program
     {
+        static ArrayList dsDocGia;
+        static ArrayList dsSach;
+        static ArrayList dsPhieu;
+
         static void Main(string[] args)
         {
             int request;
+            khoidong();            
             welcomeMessage();
             request = selectRequest();
             doRequest(request);
+        }
+        static void khoidong()
+        {
+            dsDocGia = getDanhSachDocGia();
+            dsSach = getDanhSachSach();
+            dsPhieu = getDanhSachPhieu();
+        }
+        static ArrayList getDanhSachDocGia()
+        {
+            ArrayList list = new ArrayList();
+            String path = Util.getDirectoryPath(QUY_DINH.DOC_GIA_DIRECTORY);
+            DirectoryInfo d = new DirectoryInfo(path);
+            FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
+            foreach (FileInfo file in Files)
+            {
+                String filename = path + @"\" + file.Name;
+                DOC_GIA docgia = new DOC_GIA(filename);
+                if (docgia.ID != null)
+                {
+                    list.Add(docgia);
+                }
+
+            }
+            return list;
+        }
+        static ArrayList getDanhSachSach()
+        {
+            ArrayList list = new ArrayList();
+            String path = Util.getDirectoryPath(QUY_DINH.SACH_DIRECTORY);
+            DirectoryInfo d = new DirectoryInfo(path);
+            FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
+            foreach (FileInfo file in Files)
+            {
+                String filename = path + @"\" + file.Name;
+                //Sach sach = new SACH(filename);
+                //if (docgia.ID != null)
+                //{
+                //    list.Add(docgia);
+                //}
+
+            }
+            return list;
+        }
+        static ArrayList getDanhSachPhieu()
+        {
+            ArrayList list = new ArrayList();
+            String path = Util.getDirectoryPath(QUY_DINH.PHIEU_DIRECTORY);
+            DirectoryInfo d = new DirectoryInfo(path);
+            FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
+            foreach (FileInfo file in Files)
+            {
+                String filename = path + @"\" + file.Name;
+                //Sach sach = new SACH(filename);
+                //if (docgia.ID != null)
+                //{
+                //    list.Add(docgia);
+                //}
+
+            }
+            return list;
         }
         static void doRequest(int request)
         {
@@ -116,99 +179,245 @@ namespace KTLT
             Console.WriteLine("===Nhap so tu 1 ~ 20 de thuc hien yeu cau tiep theo. Nhap 0 de ket thuc.  ?");
             int request = selectRequest();
             doRequest(request);
-        }
-        //static void request_01()
-        //{
-        //    Sorting sorting = new Sorting();
-        //    Console.WriteLine("Yeu cau 01 - Cho biet trang thai ban dau cua day so trong tap du lieu dau vao");
-        //    String input = "input_10000.txt";
-        //    if (sorting.DocDuLieu(input) == 1)
-        //    {
-        //        if (!isOneOnly(sorting.size))
-        //        {
-        //            doRequest_01(sorting.iarr, sorting.size);
-        //        }
-        //    }
-        //    else //error
-        //    {
-        //        Console.WriteLine("Hay kiem tra lại file du lieu dau vao !!!");
-        //    }
-        //    anotherRequest();
-        //}
-        //static void doRequest_01(int[] a, int n)
-        //{
-        //    Console.WriteLine("===Tien hanh yeu cau 01...");
-        //    Boolean daySoGiongNhau = true;
-        //    Boolean daySoTangDan = true;
-        //    Boolean daySoGiamDan = true;
-        //    for (int i = 1; i < n; i++)
-        //    {
-        //        if (a[i - 1] < a[i] && daySoGiamDan)
-        //        {
-        //            daySoGiongNhau = false;
-        //            daySoGiamDan = false;
-
-        //        }
-        //        if (a[i - 1] > a[i] && daySoTangDan)
-        //        {
-        //            daySoGiongNhau = false;
-        //            daySoTangDan = false;
-        //        }
-        //    }
-        //    Console.WriteLine("Ket qua");
-        //    if (!daySoTangDan && !daySoGiamDan)
-        //    {
-        //        Console.WriteLine("Day so ngau nhien");
-        //    }
-        //    else if (daySoGiongNhau)
-        //    {
-        //        Console.WriteLine("Day so giong nhau");
-        //    }
-        //    else if (daySoTangDan)
-        //    {
-        //        Console.WriteLine("Day so tang dan");
-        //    }
-        //    else if (daySoGiamDan)
-        //    {
-        //        Console.WriteLine("Day so giam dan");
-        //    }
-        //    Console.WriteLine("===Hoan thanh yeu cau 01...");
-        //}
+        }        
         static void request_01()
         {
-            Console.WriteLine("1 - Xem danh sach doc gia");
-            //do_request01
+            do_request01();
             anotherRequest();
         }
-        static void request_02()
+        static void do_request01()
         {
-            Console.WriteLine("2 - Them Doc Gia");
-            //do_request02
+            Console.WriteLine("===Tien hanh yeu cau 01...");            
+            if (dsDocGia.Count > 0)
+            {
+                Console.WriteLine("So doc gia trong thu vien la: " + dsDocGia.Count);
+                foreach (DOC_GIA docgia in dsDocGia)
+                {
+                    Console.WriteLine(docgia.HoTen);
+                }
+            }
+            else
+            {
+                Console.WriteLine("So doc gia trong thu vien la: 0");
+            }            
+            Console.WriteLine("===Ket thuc yeu cau 01...");
+        }
+        static void request_02()
+        {            
+            doRequest_02();
             anotherRequest();
+        }
+        static void doRequest_02()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 02...");
+            //Nhap thong tin
+            DOC_GIA docgia = new DOC_GIA();
+            docgia.Input_Console();
+            //Kiem tra thong tin da nhap
+            Console.WriteLine("Vui long kiem tra thong tin da nhap ");
+            docgia.Output_Console_DocGia();
+            //Luu xuong o cung
+            Console.WriteLine("Ban co muon luu lai thong tin doc gia ? Y / N");
+            String select = Console.ReadLine();
+            if (select.ToUpper().Equals("Y"))
+            {
+                String result = docgia.Output_File_DocGia();
+                if (result != "")
+                {
+                    Console.WriteLine("== Them doc gia thanh cong ! ==");
+                    Console.WriteLine("== Ma doc gia vua them: " + result + " ==");
+                    //Cap nhat file maxID
+                    String filename = QUY_DINH.DOC_GIA_MAXID;
+                    StreamWriter wt = Util.getStreamWriterDocGia(filename);
+                    wt.WriteLine(result);
+                    wt.Close();
+                }
+            }
+            Console.WriteLine("===Ket thuc yeu cau 02...");
         }
         static void request_03()
         {
-            Console.WriteLine("3 - Chinh sua thong tin doc gia");
-            //do_request03
+            do_request03();
             anotherRequest();
         }
-        static void request_04()
+        static void do_request03()
         {
-            Console.WriteLine("4 - Xoa thong tin doc gia");
-            //do_request04
+            Console.WriteLine("===Tien hanh yeu cau 03...");
+            Console.WriteLine("Ban muon chon doc gia can sua bang cach nhap ");
+            Console.WriteLine("1 - CMND");
+            Console.WriteLine("2 - Ho Ten");
+            int select = int.Parse(Console.ReadLine());
+            if (select == 1)
+            {
+                Console.WriteLine("Nhap so CMND cua doc gia can tim: ");
+                String input = Console.ReadLine();
+                DOC_GIA docgia = search_docgia_cmnd(input);
+                if (docgia != null)
+                {
+                    SuaDocGia(docgia);
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia thoa dieu kien!!!");
+                }
+            }
+            else if (select == 2)
+            {
+                Console.WriteLine("Nhap hoten cua doc gia can tim: ");
+                String input = Console.ReadLine();
+                DOC_GIA docgia = search_docgia_hoten(input);
+                if (docgia != null)
+                {
+                    SuaDocGia(docgia);
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia thoa dieu kien!!!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Vui long chon 1 hoac 2");
+            }
+            Console.WriteLine("===Ket thuc yeu cau 03...");
+        }
+        static void SuaDocGia(DOC_GIA docgia)
+        {
+            docgia.Edit();
+            Console.WriteLine("Vui long kiem tra thong tin doc gia moi dieu chinh");
+            docgia.Output_Console_DocGia();
+            Console.WriteLine("Ban co muon luu lai thong tin vua dieu chinh ? Y / N");
+            String select = Console.ReadLine();
+            if (select.ToUpper().Equals("Y"))
+            {
+                String result = docgia.Output_File_DocGia();
+                if (result != "")
+                {
+                    Console.WriteLine("== Sua doc gia thanh cong ! ==");                    
+                }
+                else
+                {
+                    Console.WriteLine("== Sua doc gia khong thanh cong ! Vui long kiem tra lai he thong");
+                }
+            }
+        }
+        static void request_04()
+        {            
+            do_request04();
             anotherRequest();
+        }
+        static void do_request04()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 04...");
+            Console.WriteLine("Ban muon chon doc gia can xoa bang cach nhap ");
+            Console.WriteLine("1 - CMND");
+            Console.WriteLine("2 - Ho Ten");
+            int select = int.Parse(Console.ReadLine());
+            if (select == 1)
+            {
+                Console.WriteLine("Nhap so CMND cua doc gia can tim: ");
+                String input = Console.ReadLine();
+                DOC_GIA docgia = search_docgia_cmnd(input);
+                if (docgia != null)
+                {
+                    XoaDocGia(docgia);
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia thoa dieu kien!!!");
+                }
+            }
+            else if (select == 2)
+            {
+                Console.WriteLine("Nhap hoten cua doc gia can tim: ");
+                String input = Console.ReadLine();
+                DOC_GIA docgia = search_docgia_hoten(input);
+                if (docgia != null)
+                {
+                    XoaDocGia(docgia);
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia thoa dieu kien!!!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Vui long chon 1 hoac 2");
+            }
+            Console.WriteLine("===Ket thuc yeu cau 04...");
+        }
+        static void XoaDocGia(DOC_GIA docgia)
+        {
+            String result = docgia.Delete();
+            if (result != "")
+            {
+                Console.WriteLine("Xoa thanh cong doc gia co ID: " + result);
+            }
+            else
+            {
+                Console.WriteLine("Xoa that bai");
+            }
         }
         static void request_05()
         {
-            Console.WriteLine("5 - Tim kiem doc gia theo CMND");
-            //do_request05
+            do_request05();
             anotherRequest();
         }
+        static void do_request05()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 05...");
+            Console.WriteLine("Nhap so CMND cua doc gia can tim: ");
+            String input = Console.ReadLine();
+            DOC_GIA docgia = search_docgia_cmnd(input);
+            if (docgia != null)
+            {
+                Console.WriteLine("Tim thay doc gia !!!");
+                docgia.Output_Console_DocGia();
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay doc gia thoa dieu kien!!!");
+            }
+            Console.WriteLine("===Ket thuc yeu cau 05...");
+        }
+        static DOC_GIA search_docgia_cmnd(String CMND)
+        {
+            foreach (DOC_GIA docgia in dsDocGia)
+            {
+                if (docgia.CMND.ToUpper().Equals(CMND.ToUpper())) return docgia;
+            }
+            return null;
+        }        
         static void request_06()
         {
-            Console.WriteLine("6 - Tim kiem doc gia theo ho ten");
-            //do_request06
+            do_request06();
             anotherRequest();
+        }
+        static void do_request06()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 06...");
+            Console.WriteLine("Nhap hoten cua doc gia can tim: ");
+            String input = Console.ReadLine();
+            DOC_GIA docgia = search_docgia_hoten(input);
+            if (docgia != null)
+            {
+                Console.WriteLine("Tim thay doc gia !!!");
+                docgia.Output_Console_DocGia();
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay doc gia thoa dieu kien!!!");
+            }
+            Console.WriteLine("===Ket thuc yeu cau 06...");
+        }
+        static DOC_GIA search_docgia_hoten(String hoten)
+        {
+            foreach (DOC_GIA docgia in dsDocGia)
+            {
+                if (docgia.HoTen.ToUpper().Equals(hoten.ToUpper())) return docgia;
+            }
+            return null;
         }
         static void request_07()
         {

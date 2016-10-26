@@ -12,5 +12,11 @@ namespace KTLT
         public static int NgayMuonToiDa = 7; //days
         public static double TienPhatQuaHan = 5000;
         public static float TiLePhatMatSach = 200; //%
+        public static String GIOI_TINH_NAM = "Nam";
+        public static String GIOI_TINH_NU = "Nu";
+        public static String DOC_GIA_MAXID = "maxID.config";
+        public static String DOC_GIA_DIRECTORY = "DOC_GIA";
+        public static String SACH_DIRECTORY = "SACH";
+        public static String PHIEU_DIRECTORY = "PHIEU";
     }
 }
