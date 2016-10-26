@@ -15,6 +15,7 @@ namespace KTLT
         public static String GIOI_TINH_NAM = "Nam";
         public static String GIOI_TINH_NU = "Nu";
         public static String DOC_GIA_MAXID = "maxID.config";
+        public static String SACH_MAXID = "maxID.config";
         public static String DOC_GIA_DIRECTORY = "DOC_GIA";
         public static String SACH_DIRECTORY = "SACH";
         public static String PHIEU_DIRECTORY = "PHIEU";

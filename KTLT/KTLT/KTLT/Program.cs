@@ -213,10 +213,8 @@ namespace KTLT
             //Nhap thong tin
             DOC_GIA docgia = new DOC_GIA();
             docgia.Input_Console();
-            //Kiem tra thong tin da nhap
             Console.WriteLine("Vui long kiem tra thong tin da nhap ");
             docgia.Output_Console_DocGia();
-            //Luu xuong o cung
             Console.WriteLine("Ban co muon luu lai thong tin doc gia ? Y / N");
             String select = Console.ReadLine();
             if (select.ToUpper().Equals("Y"))
@@ -231,6 +229,7 @@ namespace KTLT
                     StreamWriter wt = Util.getStreamWriterDocGia(filename);
                     wt.WriteLine(result);
                     wt.Close();
+                    dsDocGia.Add(docgia);
                 }
             }
             Console.WriteLine("===Ket thuc yeu cau 02...");
@@ -321,6 +320,7 @@ namespace KTLT
                 if (docgia != null)
                 {
                     XoaDocGia(docgia);
+                    dsDocGia.Remove(docgia);
                 }
                 else
                 {
@@ -335,6 +335,7 @@ namespace KTLT
                 if (docgia != null)
                 {
                     XoaDocGia(docgia);
+                    dsDocGia.Remove(docgia);
                 }
                 else
                 {
@@ -421,87 +422,169 @@ namespace KTLT
         }
         static void request_07()
         {
-            Console.WriteLine("7 - Xem danh sach cac sach trong thu vien");
-            //do_request07
+            do_request07();
             anotherRequest();
+        }
+        static void do_request07()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 07...");
+            if (dsSach.Count > 0)
+            {
+                Console.WriteLine("So sach trong thu vien la: " + dsSach.Count);
+                foreach (SACH sach in dsSach)
+                {
+                    Console.WriteLine(sach.Ten);
+                }
+            }
+            else
+            {
+                Console.WriteLine("So sach trong thu vien la: 0");
+            }
+            Console.WriteLine("===Ket thuc yeu cau 07...");
         }
         static void request_08()
         {
-            Console.WriteLine("8 - Them sach");
-            //do_request08
+            do_request08();
             anotherRequest();
+        }
+        static void do_request08()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 08...");
+
+            Console.WriteLine("===Ket thuc yeu cau 08...");
         }
         static void request_09()
         {
-            Console.WriteLine("9 - Chinh sua thong tin sach");
-            //do_request09
+            do_request09();
             anotherRequest();
+        }
+        static void do_request09()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 09...");
+
+            Console.WriteLine("===Ket thuc yeu cau 09...");
         }
         static void request_10()
         {
             Console.WriteLine("10 - Xoa thong tin sach");
-            //do_request10
+            do_request10();
             anotherRequest();
         }
-        static void request_11()
+        static void do_request10()
         {
-            Console.WriteLine("11 - Tim kiem sach theo ISBN");
-            //do_request11
+            Console.WriteLine("===Tien hanh yeu cau 10...");
+
+            Console.WriteLine("===Ket thuc yeu cau 10...");
+        }
+        static void request_11()
+        {            
+            do_request11();
             anotherRequest();
+        }
+        static void do_request11()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 11...");
+
+            Console.WriteLine("===Ket thuc yeu cau 11...");
         }
         static void request_12()
         {
-            Console.WriteLine("12 - Tiem kiem sach theo ten");
-            //do_request11
+            do_request12();
             anotherRequest();
+        }
+        static void do_request12()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 12...");
+
+            Console.WriteLine("===Ket thuc yeu cau 12...");
         }
         static void request_13()
         {
-            Console.WriteLine("13 - Lap phieu muon sach");
-            //do_request11
+            do_request13();
             anotherRequest();
         }
+        static void do_request13()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 13...");
+
+            Console.WriteLine("===Ket thuc yeu cau 13...");
+        }        
         static void request_14()
         {
-            Console.WriteLine("14 - Lap phieu tra sach");
-            //do_request11
+            do_request14();
             anotherRequest();
         }
+        static void do_request14()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 14...");
+
+            Console.WriteLine("===Ket thuc yeu cau 14...");
+        }       
         static void request_15()
         {
-            Console.WriteLine("15 - Thong ke so luong sach trong thu vien");
-            //do_request11
+            do_request15();
             anotherRequest();
+        }
+        static void do_request15()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 15...");
+
+            Console.WriteLine("===Ket thuc yeu cau 15...");
         }
         static void request_16()
         {
-            Console.WriteLine("16 - Thong ke so luong sach theo the loai");
-            //do_request11
+            do_request16();
             anotherRequest();
+        }
+        static void do_request16()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 16...");
+
+            Console.WriteLine("===Ket thuc yeu cau 16...");
         }
         static void request_17()
         {
-            Console.WriteLine("17 - Thong ke so luong doc gia");
-            //do_request11
+            do_request17();
             anotherRequest();
+        }
+        static void do_request17()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 17...");
+
+            Console.WriteLine("===Ket thuc yeu cau 17...");
         }
         static void request_18()
         {
-            Console.WriteLine("18 - Thong ke so luong doc gia theo gioi tinh");
-            //do_request11
+            do_request18();
             anotherRequest();
+        }
+        static void do_request18()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 18...");
+
+            Console.WriteLine("===Ket thuc yeu cau 18...");
         }
         static void request_19()
         {
-            Console.WriteLine("19 - Thong ke so luong sach dang muon");
-            //do_request11
+            do_request19();
             anotherRequest();
+        }
+        static void do_request19()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 19...");
+
+            Console.WriteLine("===Ket thuc yeu cau 19...");
         }
         static void request_20()
         {
-            Console.WriteLine("20 - Thong ke danh sach doc gia bi tre han");
-            //do_request11
+            do_request20();
             anotherRequest();
+        }
+        static void do_request20()
+        {
+            Console.WriteLine("===Tien hanh yeu cau 20...");
+
+            Console.WriteLine("===Ket thuc yeu cau 20...");
         }
 
     }                
