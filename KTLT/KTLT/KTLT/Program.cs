@@ -29,54 +29,78 @@ namespace KTLT
             ArrayList list = new ArrayList();
             String path = Util.getDirectoryPath(QUY_DINH.DOC_GIA_DIRECTORY);
             DirectoryInfo d = new DirectoryInfo(path);
-            FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
-            foreach (FileInfo file in Files)
+            try
             {
-                String filename = path + @"\" + file.Name;
-                DOC_GIA docgia = new DOC_GIA(filename);
-                if (docgia.ID != null)
+                FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
+                foreach (FileInfo file in Files)
                 {
-                    list.Add(docgia);
-                }
+                    String filename = path + @"\" + file.Name;
+                    DOC_GIA docgia = new DOC_GIA(filename);
+                    if (docgia.ID != null)
+                    {
+                        list.Add(docgia);
+                    }
 
+                }
+                return list;
             }
-            return list;
+            catch (Exception ex)
+            {
+                return null;
+            }
+            
         }
         static ArrayList getDanhSachSach()
         {
             ArrayList list = new ArrayList();
             String path = Util.getDirectoryPath(QUY_DINH.SACH_DIRECTORY);
             DirectoryInfo d = new DirectoryInfo(path);
-            FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
-            foreach (FileInfo file in Files)
+            try
             {
-                String filename = path + @"\" + file.Name;
-                //Sach sach = new SACH(filename);
-                //if (docgia.ID != null)
-                //{
-                //    list.Add(docgia);
-                //}
+                FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
+                foreach (FileInfo file in Files)
+                {
+                    String filename = path + @"\" + file.Name;
 
+                    //Sach sach = new SACH(filename);
+                    //if (docgia.ID != null)
+                    //{
+                    //    list.Add(docgia);
+                    //}
+
+                }
+                return list;
             }
-            return list;
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         static ArrayList getDanhSachPhieu()
         {
             ArrayList list = new ArrayList();
             String path = Util.getDirectoryPath(QUY_DINH.PHIEU_DIRECTORY);
             DirectoryInfo d = new DirectoryInfo(path);
-            FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
-            foreach (FileInfo file in Files)
+            try
             {
-                String filename = path + @"\" + file.Name;
-                //Sach sach = new SACH(filename);
-                //if (docgia.ID != null)
-                //{
-                //    list.Add(docgia);
-                //}
+                FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files            
+                foreach (FileInfo file in Files)
+                {
+                    String filename = path + @"\" + file.Name;
+                    //Sach sach = new SACH(filename);
+                    //if (docgia.ID != null)
+                    //{
+                    //    list.Add(docgia);
+                    //}
 
+                }
+                return list;
             }
-            return list;
+            catch (Exception ex)
+            {
+                return null;
+            }
+
         }
         static void doRequest(int request)
         {
@@ -210,7 +234,6 @@ namespace KTLT
         static void doRequest_02()
         {
             Console.WriteLine("===Tien hanh yeu cau 02...");
-            //Nhap thong tin
             DOC_GIA docgia = new DOC_GIA();
             docgia.Input_Console();
             Console.WriteLine("Vui long kiem tra thong tin da nhap ");
@@ -450,7 +473,27 @@ namespace KTLT
         static void do_request08()
         {
             Console.WriteLine("===Tien hanh yeu cau 08...");
-
+            SACH sach = new SACH();
+            sach.Input_Console();
+            Console.WriteLine("Vui long kiem tra thong tin da nhap ");
+            sach.Output_Console_Sach();
+            Console.WriteLine("Ban co muon luu lai thong tin sach ? Y / N");
+            String select = Console.ReadLine();
+            if (select.ToUpper().Equals("Y"))
+            {
+                String result = sach.Output_File_Sach();
+                if (result != "")
+                {
+                    Console.WriteLine("== Them sach thanh cong ! ==");
+                    Console.WriteLine("== Ma ISBM vua them: " + result + " ==");
+                    //Cap nhat file maxID
+                    String filename = QUY_DINH.SACH_MAXID;
+                    StreamWriter wt = Util.getStreamWriterSach(filename);
+                    wt.WriteLine(result);
+                    wt.Close();
+                    dsSach.Add(sach);
+                }
+            }
             Console.WriteLine("===Ket thuc yeu cau 08...");
         }
         static void request_09()

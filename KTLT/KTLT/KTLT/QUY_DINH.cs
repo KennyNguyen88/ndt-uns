@@ -19,5 +19,6 @@ namespace KTLT
         public static String DOC_GIA_DIRECTORY = "DOC_GIA";
         public static String SACH_DIRECTORY = "SACH";
         public static String PHIEU_DIRECTORY = "PHIEU";
+        
     }
 }
