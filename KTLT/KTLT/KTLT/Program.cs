@@ -20,8 +20,12 @@ namespace KTLT
         }
         static void khoidong()
         {
+            Console.WriteLine("===Khoi dong chuong trinh...");
+            Console.WriteLine("===Loading Doc Gia...");
             dsDocGia = getDanhSachDocGia();
+            Console.WriteLine("===Loading Sach...");
             dsSach = getDanhSachSach();
+            Console.WriteLine("===Loading Phieu...");
             dsPhieu = getDanhSachPhieu();
         }
         static ArrayList getDanhSachDocGia()
@@ -62,11 +66,11 @@ namespace KTLT
                 {
                     String filename = path + @"\" + file.Name;
 
-                    //Sach sach = new SACH(filename);
-                    //if (docgia.ID != null)
-                    //{
-                    //    list.Add(docgia);
-                    //}
+                    SACH sach = new SACH(filename);
+                    if (sach.ISBN != null)
+                    {
+                        list.Add(sach);
+                    }
 
                 }
                 return list;
@@ -485,7 +489,7 @@ namespace KTLT
                 if (result != "")
                 {
                     Console.WriteLine("== Them sach thanh cong ! ==");
-                    Console.WriteLine("== Ma ISBM vua them: " + result + " ==");
+                    Console.WriteLine("== Ma ISBN vua them: " + result + " ==");
                     //Cap nhat file maxID
                     String filename = QUY_DINH.SACH_MAXID;
                     StreamWriter wt = Util.getStreamWriterSach(filename);
@@ -504,20 +508,123 @@ namespace KTLT
         static void do_request09()
         {
             Console.WriteLine("===Tien hanh yeu cau 09...");
-
+            Console.WriteLine("Ban muon chon sach can sua bang cach nhap ");
+            Console.WriteLine("1 - ISBN");
+            Console.WriteLine("2 - Ten sach");
+            int select = int.Parse(Console.ReadLine());
+            if (select == 1)
+            {
+                Console.WriteLine("Nhap so ISBN cua sach can tim: ");
+                String input = Console.ReadLine();
+                SACH sach = search_sach_ISBN(input);
+                if (sach != null)
+                {
+                    SuaSach(sach);
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay sach thoa dieu kien!!!");
+                }
+            }
+            else if (select == 2)
+            {
+                Console.WriteLine("Nhap ten sach can tim: ");
+                String input = Console.ReadLine();
+                SACH sach = search_sach_ten(input);
+                if (sach != null)
+                {
+                    SuaSach(sach);
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay sach thoa dieu kien!!!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Vui long chon 1 hoac 2");
+            }
             Console.WriteLine("===Ket thuc yeu cau 09...");
         }
-        static void request_10()
+        static void SuaSach(SACH sach)
         {
-            Console.WriteLine("10 - Xoa thong tin sach");
+            sach.Edit();
+            Console.WriteLine("Vui long kiem tra thong tin sach moi dieu chinh");
+            sach.Output_Console_Sach();
+            Console.WriteLine("Ban co muon luu lai thong tin vua dieu chinh ? Y / N");
+            String select = Console.ReadLine();
+            if (select.ToUpper().Equals("Y"))
+            {
+                String result = sach.Output_File_Sach();
+                if (result != "")
+                {
+                    Console.WriteLine("== Sua sach thanh cong ! ==");
+                }
+                else
+                {
+                    Console.WriteLine("== Sua sach khong thanh cong ! Vui long kiem tra lai he thong");
+                }
+            }
+        }
+        static void request_10()
+        {            
             do_request10();
             anotherRequest();
         }
         static void do_request10()
         {
             Console.WriteLine("===Tien hanh yeu cau 10...");
-
+            Console.WriteLine("Ban muon chon sach can xoa bang cach nhap ");
+            Console.WriteLine("1 - ISBN");
+            Console.WriteLine("2 - Ten Sach");
+            int select = int.Parse(Console.ReadLine());
+            if (select == 1)
+            {
+                Console.WriteLine("Nhap so ISBN cua sach can tim: ");
+                String input = Console.ReadLine();
+                SACH sach = search_sach_ISBN(input);
+                if (sach != null)
+                {
+                    XoaSach(sach);
+                    dsSach.Remove(sach);
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay sach thoa dieu kien!!!");
+                }
+            }
+            else if (select == 2)
+            {
+                Console.WriteLine("Nhap ten cua sach can tim: ");
+                String input = Console.ReadLine();
+                SACH sach = search_sach_ten(input);
+                if (sach != null)
+                {
+                    XoaSach(sach);
+                    dsSach.Remove(sach);
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay sach thoa dieu kien!!!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Vui long chon 1 hoac 2");
+            }
             Console.WriteLine("===Ket thuc yeu cau 10...");
+        }
+        static void XoaSach(SACH sach)
+        {
+            String result = sach.Delete();
+            if (result != "")
+            {
+                Console.WriteLine("Xoa thanh cong sach co ISBN: " + result);
+            }
+            else
+            {
+                Console.WriteLine("Xoa that bai");
+            }
         }
         static void request_11()
         {            
@@ -527,8 +634,27 @@ namespace KTLT
         static void do_request11()
         {
             Console.WriteLine("===Tien hanh yeu cau 11...");
-
+            Console.WriteLine("Nhap so ISBN cua sach can tim: ");
+            String input = Console.ReadLine();
+            SACH sach = search_sach_ISBN(input);
+            if (sach != null)
+            {
+                Console.WriteLine("Tim thay sach !!!");
+                sach.Output_Console_Sach();
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay sach thoa dieu kien!!!");
+            }
             Console.WriteLine("===Ket thuc yeu cau 11...");
+        }
+        static SACH search_sach_ISBN(String ISBN)
+        {
+            foreach (SACH sach in dsSach)
+            {
+                if (sach.ISBN.ToUpper().Equals(ISBN.ToUpper())) return sach;
+            }
+            return null;
         }
         static void request_12()
         {
@@ -538,8 +664,27 @@ namespace KTLT
         static void do_request12()
         {
             Console.WriteLine("===Tien hanh yeu cau 12...");
-
+            Console.WriteLine("Nhap ten cua sach can tim: ");
+            String input = Console.ReadLine();
+            SACH sach = search_sach_ten(input);
+            if (sach != null)
+            {
+                Console.WriteLine("Tim thay sach !!!");
+                sach.Output_Console_Sach();
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay sach thoa dieu kien!!!");
+            }
             Console.WriteLine("===Ket thuc yeu cau 12...");
+        }
+        static SACH search_sach_ten(String ten)
+        {
+            foreach (SACH sach in dsSach)
+            {
+                if (sach.Ten.ToUpper().Equals(ten.ToUpper())) return sach;
+            }
+            return null;
         }
         static void request_13()
         {
