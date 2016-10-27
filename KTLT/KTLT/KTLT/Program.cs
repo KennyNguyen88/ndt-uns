@@ -9,7 +9,7 @@ namespace KTLT
         static ArrayList dsDocGia;
         static ArrayList dsSach;
         static ArrayList dsPhieu;
-
+        static ArrayList dsTheLoai;
         static void Main(string[] args)
         {
             int request;
@@ -57,6 +57,7 @@ namespace KTLT
         static ArrayList getDanhSachSach()
         {
             ArrayList list = new ArrayList();
+            dsTheLoai = new ArrayList();
             String path = Util.getDirectoryPath(QUY_DINH.SACH_DIRECTORY);
             DirectoryInfo d = new DirectoryInfo(path);
             try
@@ -65,11 +66,22 @@ namespace KTLT
                 foreach (FileInfo file in Files)
                 {
                     String filename = path + @"\" + file.Name;
-
                     SACH sach = new SACH(filename);
                     if (sach.ISBN != null)
                     {
                         list.Add(sach);
+                        //Them the loai vao danh sach quan ly
+                        if (dsTheLoai.Count > 0)
+                        {
+                            if(dsTheLoai.IndexOf(sach.TheLoai) <= -1) //chua ton tai
+                            {
+                                dsTheLoai.Add(sach.TheLoai);
+                            }
+                        }
+                        else
+                        {
+                            dsTheLoai.Add(sach.TheLoai);
+                        }                       
                     }
 
                 }
@@ -911,7 +923,15 @@ namespace KTLT
         static void do_request15()
         {
             Console.WriteLine("===Tien hanh yeu cau 15...");
-
+            int soLuongSach = 0;
+            int soLuongDauSach = 0;
+            foreach (SACH sach in dsSach)
+            {
+                soLuongDauSach++;
+                soLuongSach += sach.SoQuyen;
+            }
+            Console.WriteLine("Trong thu vien hien co " + soLuongSach + " quyen sach");
+            Console.WriteLine("Thuoc ve " + soLuongDauSach + " dau sach");
             Console.WriteLine("===Ket thuc yeu cau 15...");
         }
         static void request_16()
@@ -921,8 +941,19 @@ namespace KTLT
         }
         static void do_request16()
         {
-            Console.WriteLine("===Tien hanh yeu cau 16...");
-
+            Console.WriteLine("===Tien hanh yeu cau 16...");            
+            foreach (String theloai in dsTheLoai)
+            {
+                int soLuongSach = 0;
+                foreach (SACH sach in dsSach)
+                {
+                    if(sach.TheLoai.ToUpper().Equals(theloai.ToUpper()))
+                    {
+                        soLuongSach += sach.SoQuyen;
+                    }
+                }
+                Console.WriteLine("The loai sach: " + theloai + ". So luong: " + soLuongSach);
+            }
             Console.WriteLine("===Ket thuc yeu cau 16...");
         }
         static void request_17()
@@ -933,7 +964,7 @@ namespace KTLT
         static void do_request17()
         {
             Console.WriteLine("===Tien hanh yeu cau 17...");
-
+            Console.WriteLine("So luong doc gia trong thu vien: " + dsDocGia.Count);
             Console.WriteLine("===Ket thuc yeu cau 17...");
         }
         static void request_18()
@@ -944,7 +975,21 @@ namespace KTLT
         static void do_request18()
         {
             Console.WriteLine("===Tien hanh yeu cau 18...");
-
+            int soLuongNam = 0;
+            int soLuongNu = 0;
+            foreach (DOC_GIA docgia in dsDocGia)
+            {
+                if (docgia.GioiTinh == QUY_DINH.GIOI_TINH_NAM)
+                {
+                    soLuongNam++;
+                }
+                else if(docgia.GioiTinh == QUY_DINH.GIOI_TINH_NU)
+                {
+                    soLuongNu++;
+                }
+            }
+            Console.WriteLine("So luong doc gia Nam: " + soLuongNam);
+            Console.WriteLine("So luong doc gia Nu: " + soLuongNu);
             Console.WriteLine("===Ket thuc yeu cau 18...");
         }
         static void request_19()
@@ -955,7 +1000,15 @@ namespace KTLT
         static void do_request19()
         {
             Console.WriteLine("===Tien hanh yeu cau 19...");
-
+            int soSachMuon = 0;
+            foreach (PHIEU phieu in dsPhieu)
+            {
+                if (phieu.NgayTraThucTe == null || phieu.NgayTraThucTe == "")
+                {
+                    soSachMuon += phieu.ListISBN.Count;
+                }
+            }
+            Console.WriteLine("Tong so sach dang duoc doc gia muon: " + soSachMuon);
             Console.WriteLine("===Ket thuc yeu cau 19...");
         }
         static void request_20()
@@ -966,9 +1019,38 @@ namespace KTLT
         static void do_request20()
         {
             Console.WriteLine("===Tien hanh yeu cau 20...");
-
+            String current = DateTime.Now.ToString("yyyyMMdd");
+            foreach (PHIEU phieu in dsPhieu)
+            {
+                if (phieu.NgayTraThucTe == null || phieu.NgayTraThucTe == "") //chu tra sach
+                {
+                    //kiem tra ngay tra du kien
+                    if (int.Parse(current) > int.Parse(phieu.NgayTraDuKien))
+                    {
+                        //doc gia tre han
+                        DOC_GIA docgia = search_docgia_ID(phieu.ID_Doc_GIa);
+                        docgia.Output_Console_DocGia();
+                    }
+                }
+                else //da tra sach
+                {
+                    if (int.Parse(phieu.NgayTraDuKien) < int.Parse(phieu.NgayTraThucTe))
+                    {
+                        //doc gia tre han
+                        DOC_GIA docgia = search_docgia_ID(phieu.ID_Doc_GIa);
+                        docgia.Output_Console_DocGia();
+                    }
+                }
+            }
             Console.WriteLine("===Ket thuc yeu cau 20...");
         }
-
+        static DOC_GIA search_docgia_ID(String ID)
+        {
+            foreach (DOC_GIA docgia in dsDocGia)
+            {
+                if (docgia.ID.ToUpper().Equals(ID.ToUpper())) return docgia;
+            }
+            return null;
+        }
     }                
 }
