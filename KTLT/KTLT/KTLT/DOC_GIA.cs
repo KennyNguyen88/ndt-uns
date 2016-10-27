@@ -258,23 +258,41 @@ namespace KTLT
         public void Edit()
         {
             Console.WriteLine("Ho Ten hien tai: " + this.HoTen) ;
-            String HoTen = this.Input_DocGia_HoTen();
+            if (!Util.isEnter())
+            {
+                String HoTen = this.Input_DocGia_HoTen();
+                this.HoTen = HoTen;
+            }            
             Console.WriteLine("CMND hien tai: " + this.CMND);
-            String CMND = this.Input_DocGia_CMND();
+            if (!Util.isEnter())
+            {
+                String CMND = this.Input_DocGia_CMND();
+                this.CMND = CMND;
+            }            
             Console.WriteLine("Gioi tinh hien tai: " + this.GioiTinh);
-            String GioiTinh = this.Input_DocGia_GioiTinh();
+            if (!Util.isEnter())
+            {
+                String GioiTinh = this.Input_DocGia_GioiTinh();
+                this.GioiTinh = GioiTinh;
+            }            
             Console.WriteLine("Ngay sinh hien tai: " + this.NgaySinh);
-            String NgaySinh = this.Input_DocGia_NgaySinh();
+            if (!Util.isEnter())
+            {
+                String NgaySinh = this.Input_DocGia_NgaySinh();
+                this.NgaySinh = NgaySinh;
+            }            
             Console.WriteLine("Email hien tai: " + this.Email);
-            String Email = this.Input_DocGia_Email();
+            if (!Util.isEnter())
+            {
+                String Email = this.Input_DocGia_Email();
+                this.Email = Email;
+            }
             Console.WriteLine("Dia chi hien tai: " + this.DiaChi);
-            String DiaChi = this.Input_DocGia_DiaChi();
-            this.HoTen = HoTen;
-            this.CMND = CMND;
-            this.GioiTinh = GioiTinh;
-            this.NgaySinh = NgaySinh;
-            this.Email = Email;
-            this.DiaChi = DiaChi;
+            if (!Util.isEnter())
+            {
+                String DiaChi = this.Input_DocGia_DiaChi();
+                this.DiaChi = DiaChi;
+            }            
         }
 
     }

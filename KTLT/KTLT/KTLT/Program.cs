@@ -91,11 +91,11 @@ namespace KTLT
                 foreach (FileInfo file in Files)
                 {
                     String filename = path + @"\" + file.Name;
-                    //Sach sach = new SACH(filename);
-                    //if (docgia.ID != null)
-                    //{
-                    //    list.Add(docgia);
-                    //}
+                    PHIEU phieu = new PHIEU(filename);
+                    if (phieu.ID != null)
+                    {
+                        list.Add(phieu);
+                    }
 
                 }
                 return list;
@@ -457,7 +457,7 @@ namespace KTLT
             Console.WriteLine("===Tien hanh yeu cau 07...");
             if (dsSach.Count > 0)
             {
-                Console.WriteLine("So sach trong thu vien la: " + dsSach.Count);
+                Console.WriteLine("So dau sach trong thu vien la: " + dsSach.Count);
                 foreach (SACH sach in dsSach)
                 {
                     Console.WriteLine(sach.Ten);
@@ -694,9 +694,155 @@ namespace KTLT
         static void do_request13()
         {
             Console.WriteLine("===Tien hanh yeu cau 13...");
-
+            Console.WriteLine("Chon doc gia bang cach nhap ");
+            Console.WriteLine("1 - CMND");
+            Console.WriteLine("2 - Ho Ten");
+            int select = int.Parse(Console.ReadLine());
+            if (select == 1)
+            {
+                Console.WriteLine("Nhap so CMND cua doc gia can tim: ");
+                String input = Console.ReadLine();
+                DOC_GIA docgia = search_docgia_cmnd(input);
+                if (docgia != null) //tim thay docgia
+                {
+                    docgia.Output_Console_DocGia();
+                    PHIEU phieuMuonSach = lapPhieuMuonSach(docgia);
+                    Console.WriteLine("Vui long kiem tra lai thong tin phieu muon sach");
+                    phieuMuonSach.Output_Console();
+                    Console.WriteLine("Ban co muon luu lai thong tin ? Y / N");
+                    String sselect = Console.ReadLine();
+                    if (sselect.ToUpper().Equals("Y"))
+                    {
+                        String result = phieuMuonSach.Output_File();
+                        if (result != "")
+                        {                            
+                            Console.WriteLine("== Lap phieu muon sach thanh cong ! ==");
+                            //stock
+                            foreach (String isbn in phieuMuonSach.ListISBN)
+                            {
+                                SACH sach = search_sach_ISBN(isbn);
+                                sach.SoQuyen -= 1;
+                                sach.Output_File_Sach();
+                            }
+                            //Cap nhat file maxID
+                            String filename = QUY_DINH.PHIEU_MAXID;
+                            StreamWriter wt = Util.getStreamWriterPhieu(filename);
+                            wt.WriteLine(result);
+                            wt.Close();
+                            dsPhieu.Add(phieuMuonSach);
+                        }
+                        else
+                        {
+                            Console.WriteLine("== Lap phieu muon sach khong thanh cong ! Vui long kiem tra lai he thong");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia thoa dieu kien!!!");
+                }
+            }
+            else if (select == 2)
+            {
+                Console.WriteLine("Nhap hoten cua doc gia can tim: ");
+                String input = Console.ReadLine();
+                DOC_GIA docgia = search_docgia_hoten(input);
+                if (docgia != null)
+                {
+                    docgia.Output_Console_DocGia();
+                    PHIEU phieuMuonSach = lapPhieuMuonSach(docgia);
+                    Console.WriteLine("Vui long kiem tra lai thong tin phieu muon sach");
+                    phieuMuonSach.Output_Console();
+                    Console.WriteLine("Ban co muon luu lai thong tin ? Y / N");
+                    String sselect = Console.ReadLine();
+                    if (sselect.ToUpper().Equals("Y"))
+                    {
+                        String result = phieuMuonSach.Output_File();
+                        if (result != "")
+                        {
+                            Console.WriteLine("== Lap phieu muon sach thanh cong ! ==");
+                            //stock
+                            foreach (String isbn in phieuMuonSach.ListISBN)
+                            {
+                                SACH sach = search_sach_ISBN(isbn);
+                                sach.SoQuyen -= 1;
+                                sach.Output_File_Sach();
+                            }
+                            //Cap nhat file maxID
+                            String filename = QUY_DINH.PHIEU_MAXID;
+                            StreamWriter wt = Util.getStreamWriterPhieu(filename);
+                            wt.WriteLine(result);
+                            wt.Close();
+                            dsPhieu.Add(phieuMuonSach);
+                        }
+                        else
+                        {
+                            Console.WriteLine("== Lap phieu muon sach khong thanh cong ! Vui long kiem tra lai he thong");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia thoa dieu kien!!!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Vui long chon 1 hoac 2");
+            }
             Console.WriteLine("===Ket thuc yeu cau 13...");
-        }        
+        }
+        static PHIEU lapPhieuMuonSach(DOC_GIA docgia)
+        {
+            PHIEU phieuMuonSach = new PHIEU();
+            phieuMuonSach.ID_Doc_GIa = docgia.ID;                   
+            bool flag = true;
+            while(flag)
+            {
+                Console.WriteLine("Chon sach can muon bang cach nhap ");
+                Console.WriteLine("1 - ISBN");
+                Console.WriteLine("2 - Ten sach");
+                Console.WriteLine("0 - Ket thuc chon");
+                int select = int.Parse(Console.ReadLine());
+                if (select == 1)
+                {
+                    Console.WriteLine("Nhap so ISBN cua sach can tim: ");
+                    String input = Console.ReadLine();
+                    SACH sach = search_sach_ISBN(input);
+                    if (sach != null)
+                    {
+                        phieuMuonSach.setSachMuon(sach);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Khong tim thay sach thoa dieu kien!!!");
+                    }
+                }
+                else if (select == 2)
+                {
+                    Console.WriteLine("Nhap ten sach can tim: ");
+                    String input = Console.ReadLine();
+                    SACH sach = search_sach_ten(input);
+                    if (sach != null)
+                    {
+                        phieuMuonSach.setSachMuon(sach);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Khong tim thay sach thoa dieu kien!!!");
+                    }
+                }
+                else if (select == 0)
+                {
+                    flag = false;
+                }
+                else
+                {
+                    Console.WriteLine("Vui long chon 0, 1 hoac 2");
+                }
+            }
+            return phieuMuonSach;
+        }                        
         static void request_14()
         {
             do_request14();
@@ -705,9 +851,58 @@ namespace KTLT
         static void do_request14()
         {
             Console.WriteLine("===Tien hanh yeu cau 14...");
-
+            Console.WriteLine("Nhap ID cua phieu can tim: ");
+            String input = Console.ReadLine();
+            PHIEU phieu = search_phieu_ID(input);
+            if (phieu != null)
+            {
+                phieu.Output_Console();
+                if (phieu.NgayTraThucTe != "" && phieu.NgayTraThucTe != null)
+                {
+                    Console.WriteLine("Phieu da hoan tat thu tuc tra !");
+                }
+                else
+                {
+                    phieu.setNgayTraThucTe();
+                    Console.WriteLine("Vui long kiem tra lai thong tin phieu");
+                    phieu.Output_Console();
+                    Console.WriteLine("Ban co muon luu lai thong tin ? Y / N");
+                    String sselect = Console.ReadLine();
+                    if (sselect.ToUpper().Equals("Y"))
+                    {
+                        String result = phieu.Output_File();
+                        if (result != "")
+                        {
+                            Console.WriteLine("== Lap phieu tra sach thanh cong ! ==");
+                            //stock
+                            foreach (String isbn in phieu.ListISBN)
+                            {
+                                SACH sach = search_sach_ISBN(isbn);
+                                sach.SoQuyen += 1;
+                                sach.Output_File_Sach();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("== Lap phieu tra sach khong thanh cong ! Vui long kiem tra lai he thong");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Khong tim thay phieu muon sach tuong ung voi ID: " + input);
+            }
             Console.WriteLine("===Ket thuc yeu cau 14...");
-        }       
+        }
+        static PHIEU search_phieu_ID(String ID)
+        {
+            foreach (PHIEU phieu in dsPhieu)
+            {
+                if (phieu.ID.ToUpper().Equals(ID.ToUpper())) return phieu;
+            }
+            return null;
+        }
         static void request_15()
         {
             do_request15();

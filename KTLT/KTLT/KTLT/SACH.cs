@@ -253,26 +253,51 @@ namespace KTLT
         public void Edit()
         {
             Console.WriteLine("Ten sach hien tai: " + this.Ten);
-            String Ten = this.Input_Sach_Ten();
+            if (!Util.isEnter())
+            {
+                String Ten = this.Input_Sach_Ten();
+                this.Ten = Ten;
+            }            
             Console.WriteLine("Tac Gia hien tai: " + this.TacGia);
-            String TacGia = this.Input_Sach_TacGia();
+            if (!Util.isEnter())
+            {
+                String TacGia = this.Input_Sach_TacGia();
+                this.TacGia = TacGia;
+            }            
             Console.WriteLine("Nha Xuat Ban hien tai: " + this.NhaXuatBan);
-            String NhaXuatBan = this.Input_Sach_NhaXuatBan();
+            if (!Util.isEnter())
+            {
+                String NhaXuatBan = this.Input_Sach_NhaXuatBan();
+                this.NhaXuatBan = NhaXuatBan;
+            }
+            
             Console.WriteLine("Nam Xuat Ban hien tai: " + this.NamXuatBan);
-            String NamXuatBan = this.Input_Sach_NamXuatBan();
+            if (!Util.isEnter())
+            {
+                String NamXuatBan = this.Input_Sach_NamXuatBan();
+                this.NamXuatBan = NamXuatBan;
+            }
+            
             Console.WriteLine("The Loai hien tai: " + this.TheLoai);
-            String TheLoai = this.Input_Sach_TheLoai();
+            if (!Util.isEnter())
+            {
+                String TheLoai = this.Input_Sach_TheLoai();
+                this.TheLoai = TheLoai;
+            }
+            
             Console.WriteLine("Gia hien tai: " + this.Gia);
-            double Gia = this.Input_Sach_Gia();
+            if (!Util.isEnter())
+            {
+                double Gia = this.Input_Sach_Gia();
+                this.Gia = Gia;
+            }
+            
             Console.WriteLine("So luong sach hien tai: " + this.SoQuyen);
-            int SoQuyen = this.Input_Sach_SoQuyen();
-            this.Ten = Ten;
-            this.TacGia = TacGia;
-            this.NhaXuatBan = NhaXuatBan;
-            this.NamXuatBan = NamXuatBan;
-            this.TheLoai = TheLoai;
-            this.Gia = Gia;
-            this.SoQuyen = SoQuyen;
+            if (!Util.isEnter())
+            {
+                int SoQuyen = this.Input_Sach_SoQuyen();
+                this.SoQuyen = SoQuyen;
+            }            
         }
     }
 }
