@@ -9,7 +9,7 @@ namespace KTLT
 {
     class SACH
     {
-        public String ISBM;
+        public String ISBN;
         public String Ten;
         public String TacGia;
         public String NhaXuatBan;
@@ -20,14 +20,14 @@ namespace KTLT
 
         public SACH()
         {
-            this.ISBM = issueISBM();
+            this.ISBN = issueISBN();
         }
         public SACH(String filename)
         {
             try
             {
                 StreamReader rd = new StreamReader(filename);
-                this.ISBM = rd.ReadLine();
+                this.ISBN = rd.ReadLine();
                 this.Ten = rd.ReadLine();
                 this.TacGia = rd.ReadLine();
                 this.NhaXuatBan = rd.ReadLine();
@@ -39,10 +39,10 @@ namespace KTLT
             }
             catch (Exception ex)
             {
-                this.ISBM = null;
+                this.ISBN = null;
             }
         }
-        private String issueISBM()
+        private String issueISBN()
         {
             String filename = QUY_DINH.SACH_MAXID;
             String result = "";
@@ -219,11 +219,11 @@ namespace KTLT
         {
             String filename;
             String result = "";
-            if (this.ISBM != "")
+            if (this.ISBN != "")
             {
-                filename = "S_" + this.ISBM + ".txt";
+                filename = "S_" + this.ISBN + ".txt";
                 StreamWriter wr = Util.getStreamWriterSach(filename);
-                wr.WriteLine(this.ISBM);
+                wr.WriteLine(this.ISBN);
                 wr.WriteLine(this.Ten);
                 wr.WriteLine(this.TacGia);
                 wr.WriteLine(this.NhaXuatBan);
@@ -232,9 +232,72 @@ namespace KTLT
                 wr.WriteLine(this.Gia);
                 wr.WriteLine(this.SoQuyen);                
                 wr.Close();
-                result = this.ISBM;
+                result = this.ISBN;
             }            
             return result;
+        }
+        public String Delete()
+        {
+            String filename = Util.getDirectoryPath(QUY_DINH.SACH_DIRECTORY) + @"\" + "S_" + this.ISBN + ".txt";
+            try
+            {
+                File.Delete(filename);
+                return this.ISBN;
+            }
+            catch (Exception ex)
+            {
+                return "";
+            }
+
+        }
+        public void Edit()
+        {
+            Console.WriteLine("Ten sach hien tai: " + this.Ten);
+            if (!Util.isEnter())
+            {
+                String Ten = this.Input_Sach_Ten();
+                this.Ten = Ten;
+            }            
+            Console.WriteLine("Tac Gia hien tai: " + this.TacGia);
+            if (!Util.isEnter())
+            {
+                String TacGia = this.Input_Sach_TacGia();
+                this.TacGia = TacGia;
+            }            
+            Console.WriteLine("Nha Xuat Ban hien tai: " + this.NhaXuatBan);
+            if (!Util.isEnter())
+            {
+                String NhaXuatBan = this.Input_Sach_NhaXuatBan();
+                this.NhaXuatBan = NhaXuatBan;
+            }
+            
+            Console.WriteLine("Nam Xuat Ban hien tai: " + this.NamXuatBan);
+            if (!Util.isEnter())
+            {
+                String NamXuatBan = this.Input_Sach_NamXuatBan();
+                this.NamXuatBan = NamXuatBan;
+            }
+            
+            Console.WriteLine("The Loai hien tai: " + this.TheLoai);
+            if (!Util.isEnter())
+            {
+                String TheLoai = this.Input_Sach_TheLoai();
+                this.TheLoai = TheLoai;
+            }
+            
+            Console.WriteLine("Gia hien tai: " + this.Gia);
+            if (!Util.isEnter())
+            {
+                double Gia = this.Input_Sach_Gia();
+                this.Gia = Gia;
+            }
+            
+            Console.WriteLine("So luong sach hien tai: " + this.SoQuyen);
+            if (!Util.isEnter())
+            {
+                int SoQuyen = this.Input_Sach_SoQuyen();
+                this.SoQuyen = SoQuyen;
+            }            
         }
     }
 }

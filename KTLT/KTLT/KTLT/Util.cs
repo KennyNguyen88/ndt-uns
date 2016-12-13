@@ -58,6 +58,15 @@ namespace KTLT
             return file;
             //file.WriteLine(n);
             //file.Close();
-        }               
+        }         
+        static public bool isEnter()
+        {
+            Console.WriteLine("Enter neu khong muon dieu chinh");
+            if (Console.ReadKey().KeyChar == (char)13)
+            {
+                return true;
+            }
+            return false;
+        }      
     }
 }
