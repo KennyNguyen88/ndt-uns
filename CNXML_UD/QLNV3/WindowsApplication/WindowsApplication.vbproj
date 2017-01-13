@@ -72,13 +72,70 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="GiaoDien\ManHinh\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="GiaoDien\ManHinh\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GiaoDien\ManHinh\NV_TrangChu.Designer.vb">
+      <DependentUpon>NV_TrangChu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\NV_TrangChu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCN_QLHoSoNhanVien.Designer.vb">
+      <DependentUpon>QLCN_QLHoSoNhanVien.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCN_QLHoSoNhanVien.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCN_TrangChu.Designer.vb">
+      <DependentUpon>QLCN_TrangChu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCN_TrangChu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCTy_QLHoSoChiNhanh.Designer.vb">
+      <DependentUpon>QLCTy_QLHoSoChiNhanh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCTy_QLHoSoChiNhanh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCTy_QLHoSoDonVi.Designer.vb">
+      <DependentUpon>QLCTy_QLHoSoDonVi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCTy_QLHoSoDonVi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCTy_TrangChu.Designer.vb">
+      <DependentUpon>QLCTy_TrangChu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCTy_TrangChu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCTy_QLHoSoCongTy.Designer.vb">
+      <DependentUpon>QLCTy_QLHoSoCongTy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLCTy_QLHoSoCongTy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLDV_TrangChu.Designer.vb">
+      <DependentUpon>QLDV_TrangChu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\QLDV_TrangChu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\Search.Designer.vb">
+      <DependentUpon>Search.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\Search.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiaoDien\XuLyTheHien\FormatIF.vb" />
+    <Compile Include="GiaoDien\XuLyTheHien\XL_THE_HIEN.vb" />
+    <Compile Include="GiaoDien\XuLyTheHien\XL_THE_HIEN_UD.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -96,6 +153,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GiaoDien\ManHinh\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -114,6 +174,10 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LuuTru\" />
+    <Folder Include="NghiepVu\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
