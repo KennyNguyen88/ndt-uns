@@ -125,7 +125,7 @@ namespace BTTuan1_KhaoSatDoThi
                     {
                         b[dem] = i;
                         dem++;
-                        Console.WriteLine("Dinh lien ke: " + (i+1));
+                        //Console.WriteLine("Dinh lien ke: " + (i+1));
                     }
                 }
             }
@@ -137,13 +137,13 @@ namespace BTTuan1_KhaoSatDoThi
                     {
                         b[dem] = i;
                         dem++;
-                        Console.WriteLine("Dinh lien ke: " + (i + 1));
+                        //Console.WriteLine("Dinh lien ke: " + (i + 1));
                     }
                     if (a[vertex, i] != 0 && a[i, vertex] == 0)
                     {
                         b[dem] = i;
                         dem++;
-                        Console.WriteLine("Dinh lien ke: " + (i + 1));
+                        //Console.WriteLine("Dinh lien ke: " + (i + 1));
                     }
 
                 }                
@@ -385,7 +385,43 @@ namespace BTTuan1_KhaoSatDoThi
         public void traverseDFS(int vertext)
         {
             Stack myS = new Stack();
+            int[] visited = new int[n]; //all 0 --> all not visisted
+            myS.Push(vertext);
+            while(myS.Count > 0)
+            {
+                int u = Convert.ToInt32(myS.Pop());
+                if (visited[u] == 0)
+                {
+                    visited[u] = 1;
+                    Console.WriteLine("Tham dinh u: " + u);
+                    foreach(int i in getNeighbor(u))
+                    {
+                        myS.Push(i);
+                    }
+                }
+            }
 
         }
+        public void traverseBFS(int vertext)
+        {
+            int[] visited = new int[n]; //all 0 --> all not visisted
+            Queue myQ = new Queue();
+            visited[vertext] = 1;
+            myQ.Enqueue(vertext);
+            while(myQ.Count != 0)
+            {
+                int s = Convert.ToInt32(myQ.Dequeue());
+                Console.WriteLine("Tham dinh s: " + s);
+                foreach (int i in getNeighbor(s))
+                {
+                   if(visited[i] == 0)
+                    {
+                        visited[i] = 1;
+                        myQ.Enqueue(i);
+                    }
+                }
+            }
+        }
+        
     }
 }

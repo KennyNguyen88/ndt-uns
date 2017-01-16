@@ -30,6 +30,7 @@ namespace BTTuan1_KhaoSatDoThi
             Console.WriteLine("9 - Them hay bot 1 canh");
             Console.WriteLine("10 - Them hay bot 1 dinh");
             Console.WriteLine("11 - Thay doi gia tri trong so cua canh");
+            Console.WriteLine("12 - TEST");
             Console.WriteLine("0 - Thoat chuong trinh");
         }
         static int selectRequest()
@@ -38,22 +39,22 @@ namespace BTTuan1_KhaoSatDoThi
             try
             {
                 yeucau = int.Parse(Console.ReadLine());
-                if (!(yeucau == 0 || yeucau == 1 || yeucau == 2 || yeucau == 3 || yeucau == 4 || yeucau == 5 || yeucau == 6 || yeucau == 7 || yeucau == 8 || yeucau == 9 || yeucau == 10 || yeucau == 11))
+                if (!(yeucau == 0 || yeucau == 1 || yeucau == 2 || yeucau == 3 || yeucau == 4 || yeucau == 5 || yeucau == 6 || yeucau == 7 || yeucau == 8 || yeucau == 9 || yeucau == 10 || yeucau == 11 || yeucau == 12))
                 {
-                    Console.WriteLine("Vui long nhap so 0 ~ 11");
+                    Console.WriteLine("Vui long nhap so 0 ~ 12");
                     return selectRequest();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Vui long nhap so 0 ~ 11");
+                Console.WriteLine("Vui long nhap so 0 ~ 12");
                 return selectRequest();
             }
             return yeucau;
         }
         static void anotherRequest()
         {
-            Console.WriteLine("===Nhap so 1 ~ 11 de thuc hien yeu cau tiep theo. Nhap 0 de ket thuc.  ?");
+            Console.WriteLine("===Nhap so 1 ~ 12 de thuc hien yeu cau tiep theo. Nhap 0 de ket thuc.  ?");
             int request = selectRequest();
             doRequest(request);
         }
@@ -83,6 +84,8 @@ namespace BTTuan1_KhaoSatDoThi
                     request_10(); break;
                 case 11:
                     request_11(); break;
+                case 12:
+                    request_12(); break;
                 default:
                     break;
             }
@@ -301,6 +304,22 @@ namespace BTTuan1_KhaoSatDoThi
                 GRAPH g = new GRAPH(input);
                 g.updateValue(0, 4, 5);
                 g.writeDataConsole();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            anotherRequest();
+        }
+        static void request_12()
+        {
+            String input = "DOTHICOHUONG.txt";
+            Console.WriteLine("Yeu cau 12 - TEST");
+            try
+            {
+                GRAPH g = new GRAPH(input);
+                //g.traverseDFS(0);
+                g.traverseBFS(0);
             }
             catch (Exception ex)
             {
