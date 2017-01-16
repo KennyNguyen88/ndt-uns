@@ -382,36 +382,37 @@ namespace BTTuan1_KhaoSatDoThi
             }                        
             return gh;
         }
-        public void traverseDFS(int vertext)
+        public int[] traverseDFS(int vertex)
         {
             Stack myS = new Stack();
-            int[] visited = new int[n]; //all 0 --> all not visisted
-            myS.Push(vertext);
+            int[] visited = new int[n]; //all 0 --> not visisted
+            myS.Push(vertex);
             while(myS.Count > 0)
             {
                 int u = Convert.ToInt32(myS.Pop());
                 if (visited[u] == 0)
                 {
                     visited[u] = 1;
-                    Console.WriteLine("Tham dinh u: " + u);
+                    //Console.WriteLine("Tham dinh u: " + u);
                     foreach(int i in getNeighbor(u))
                     {
                         myS.Push(i);
                     }
                 }
             }
+            return visited;
 
         }
-        public void traverseBFS(int vertext)
+        public int[] traverseBFS(int vertex)
         {
-            int[] visited = new int[n]; //all 0 --> all not visisted
+            int[] visited = new int[n]; //all 0 --> not visisted
             Queue myQ = new Queue();
-            visited[vertext] = 1;
-            myQ.Enqueue(vertext);
+            visited[vertex] = 1;
+            myQ.Enqueue(vertex);
             while(myQ.Count != 0)
             {
                 int s = Convert.ToInt32(myQ.Dequeue());
-                Console.WriteLine("Tham dinh s: " + s);
+                //Console.WriteLine("Tham dinh s: " + s);
                 foreach (int i in getNeighbor(s))
                 {
                    if(visited[i] == 0)
@@ -421,6 +422,33 @@ namespace BTTuan1_KhaoSatDoThi
                     }
                 }
             }
+            return visited;
+        }
+        public int getConnected() // =1 ==> do thi lien thong
+        {
+            int dem = 0;
+            //int start_vertex = 0;
+            int[] init = new int[n]; //all 0
+
+            for (int i = 0; i < n; i++)
+            {
+                if (init[i] == 0)
+                {
+                    int[] x1 = traverseDFS(i);
+                    if (x1.Length > 0)
+                    {
+                        dem++;
+                        for (int k = 0; k <n; k ++)
+                        {
+                            if (x1[k] != 0)
+                            {
+                                init[k] = dem;
+                            }
+                        }                            
+                    }
+                }                
+            }            
+            return dem;
         }
         
     }

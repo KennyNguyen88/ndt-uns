@@ -319,7 +319,8 @@ namespace BTTuan1_KhaoSatDoThi
             {
                 GRAPH g = new GRAPH(input);
                 //g.traverseDFS(0);
-                g.traverseBFS(0);
+                //g.traverseBFS(0);
+                Console.WriteLine(g.getConnected());
             }
             catch (Exception ex)
             {
