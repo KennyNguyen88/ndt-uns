@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -112,14 +113,18 @@ namespace BTTuan1_KhaoSatDoThi
         }
         //Xac dinh dinh ke
         //vertex: start from 0
-        public void getNeighbor(int vertex)
+        public int[] getNeighbor(int vertex)
         {
+            int[] b = new int[n];
+            int dem = 0;
             if (this.KiemTraVoHuong()) //Do thi vo huong
-            {
+            {                
                 for (int i = 0; i < n; i ++)
                 {
                     if (a[vertex, i] != 0)
                     {
+                        b[dem] = i;
+                        dem++;
                         Console.WriteLine("Dinh lien ke: " + (i+1));
                     }
                 }
@@ -130,15 +135,20 @@ namespace BTTuan1_KhaoSatDoThi
                 {
                     if (a[i, vertex] != 0)
                     {
+                        b[dem] = i;
+                        dem++;
                         Console.WriteLine("Dinh lien ke: " + (i + 1));
                     }
                     if (a[vertex, i] != 0 && a[i, vertex] == 0)
                     {
+                        b[dem] = i;
+                        dem++;
                         Console.WriteLine("Dinh lien ke: " + (i + 1));
                     }
 
                 }                
             }
+            return b;
         }
         //Xac dinh bac cua dinh
         //vertex: start from 0
@@ -178,6 +188,204 @@ namespace BTTuan1_KhaoSatDoThi
                 }
             }
             return dem;
+        }
+        // Chuyen thanh do thi vo huong
+        public GRAPH transform()
+        {
+            if (KiemTraVoHuong())
+            {
+                return this;
+            }
+            else
+            {
+                GRAPH tg = new GRAPH();
+                tg.n = n;                
+                int[,] b = new int[n, n];
+                int run = 0;
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = run; j < n; j++)
+                    {
+                        if (i != j)
+                        {                            
+                            int sum = a[i, j] + a[j, i];
+                            b[i, j] = sum;
+                            b[j, i] = sum;
+                            
+                        }
+                        else
+                        {
+                            b[i, j] = a[i, j];
+                        }
+                        
+                    }
+                    run++;
+                }
+                tg.a = b;
+                return tg;
+            }            
+        }
+        //Thay doi gia tri trong so canh (i,j)
+        //Dinh bat dau = 0
+        public void updateValue(int vertex_start, int vertex_end, int value)
+        {
+            if (vertex_start > -1 && vertex_start < n) //dinh bat dau phai ton tai
+            {
+                if (vertex_end > -1 && vertex_end < n) //dinh ket thuc phai ton tai
+                {
+                    if (a[vertex_start, vertex_end] != 0) //canh ton tai
+                    {                        
+                        if (KiemTraVoHuong()) 
+                        {
+                            a[vertex_start, vertex_end] = value;
+                            a[vertex_end, vertex_start] = value;
+                        }
+                        else
+                        {
+                            a[vertex_start, vertex_end] = value;
+                        }                                                                       
+                    }
+                    else
+                    {
+                        throw new Exception("Canh khong ton tai !");
+                    }                    
+                }
+                else
+                {
+                    throw new Exception("Dinh ket thuc khong ton tai !");
+                }
+            }
+            else
+            {
+                throw new Exception("Dinh bat dau khong ton tai !");
+            }            
+        }
+        //Them 1 dinh        
+        public GRAPH addVertex()
+        {
+            GRAPH ng = new GRAPH();
+            ng.n = n + 1;
+            int[,] b = new int[n + 1, n + 1];
+            for (int i = 0; i < n+1; i ++)
+            {
+                for (int j = 0; j < n+1; j ++)
+                {
+                    if (i == n || j == n)
+                    {
+                        b[i, j] = 0;
+                    }
+                    else
+                    {
+                        b[i, j] = a[i, j];
+                    }
+                }
+            }
+            ng.a = b;
+            return ng;
+        }
+        //Xoa 1 dinh
+        //Dinh bat dau tu 0
+        public GRAPH deleteVertex(int vertex)
+        {
+            GRAPH ng = new GRAPH();
+            ng.n = n - 1;
+            int[,] b = new int[n - 1, n - 1];
+            if (vertex > -1 && vertex < n)
+            {
+                if (vertex == 0) //dinh dau
+                {
+                    for(int i = 1; i < n; i ++)
+                    {
+                        for (int j = 1; j < n; j ++)
+                        {
+                            b[i - 1, j - 1] = a[i, j];
+                        }
+                    }
+                }
+                else if (vertex == (n-1)) //dinh cuoi
+                {
+                    for (int i = 0; i < n-1; i++)
+                    {
+                        for (int j = 0; j < n-1; j++)
+                        {
+                            b[i, j] = a[i, j];
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < vertex; i++)
+                    {
+                        for (int j = 0; j < vertex; j++)
+                        {
+                            b[i, j] = a[i, j];
+                        }
+                    }
+                    for (int i = vertex + 1; i < n; i++)
+                    {
+                        for (int j = vertex + 1; j < n; j++)
+                        {
+                            b[i-1, j-1] = a[i, j];
+                        }
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Dinh khong ton tai !");
+            }
+            ng.a = b;
+            return ng;
+        }
+        //Them 1 canh
+        //canh da ton tai ==> khong them ==> them trong so
+        //dinh khong ton tai ==> them dinh ==> them canh
+        //Dinh bat dau tu 0
+        public GRAPH addEdge(int vertex_start, int vertex_end, int value)
+        {
+            GRAPH gh = new GRAPH();
+            gh.n = this.n;
+            gh.a = this.a;
+            //kiem tra dinh
+            if (vertex_start < 0 || vertex_start > n - 1 || vertex_end < 0 || vertex_end > n - 1)
+            {
+                gh = addVertex();
+            }            
+            //kiem tra canh
+            if (gh.a[vertex_start, vertex_end] != 0) //canh da ton tai
+            {
+                int newVal = gh.a[vertex_start, vertex_end] + value;
+                gh.updateValue(vertex_start, vertex_end, newVal);
+            }
+            else //canh chua ton tai
+            {
+                gh.a[vertex_start, vertex_end] = 1; //lam cho canh ton tai
+                gh.updateValue(vertex_start, vertex_end, value); //cap nhat trong so
+            }
+            return gh;
+
+        }
+        //Xoa 1 canh
+        //Dinh bat dau tu 0
+        public GRAPH deleteEdge(int vertex_start, int vertex_end)
+        {
+            GRAPH gh = new GRAPH();
+            gh.n = this.n;
+            try
+            {
+                this.updateValue(vertex_start, vertex_end, 0);
+                gh.a = this.a;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }                        
+            return gh;
+        }
+        public void traverseDFS(int vertext)
+        {
+            Stack myS = new Stack();
+
         }
     }
 }

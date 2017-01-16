@@ -241,18 +241,71 @@ namespace BTTuan1_KhaoSatDoThi
         }
         static void request_08()
         {
+            String input = "DOTHICOHUONG.txt";
+            Console.WriteLine("Yeu cau 08 - Chuyen doi do thi co huong thanh vo huong");
+            try
+            {               
+                GRAPH g = new GRAPH(input);
+                GRAPH tg = g.transform();
+                tg.writeDataConsole();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             anotherRequest();
         }
         static void request_09()
         {
+            String input = "DOTHICOHUONG.txt";
+            Console.WriteLine("Yeu cau 09 - Them / Xoa  1 canh");
+            try
+            {
+                GRAPH g = new GRAPH(input);
+                GRAPH gh = g.addEdge(6,6,2);
+                gh.writeDataConsole();
+                GRAPH gh1 = gh.deleteEdge(6, 6);                
+                gh1.writeDataConsole();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
             anotherRequest();
         }
         static void request_10()
         {
+            String input = "DOTHICOHUONG.txt";
+            Console.WriteLine("Yeu cau 10 - Them / Xoa 1 dinh");
+            try
+            {
+                GRAPH g = new GRAPH(input);
+                //GRAPH gh = g.addVertex();
+                GRAPH gh = g.deleteVertex(4);
+                gh.writeDataConsole();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
             anotherRequest();
         }
         static void request_11()
         {
+            String input = "DOTHICOHUONG.txt";
+            Console.WriteLine("Yeu cau 11 - Thay doi trong so");
+            try
+            {
+                GRAPH g = new GRAPH(input);
+                g.updateValue(0, 4, 5);
+                g.writeDataConsole();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             anotherRequest();
         }
     }

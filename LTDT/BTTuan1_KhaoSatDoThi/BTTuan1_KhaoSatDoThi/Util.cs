@@ -131,5 +131,16 @@ namespace BTTuan1_KhaoSatDoThi
             }
             return flag;
         }
+        public static int[] RemoveAt(int[] source, int index)
+        {
+            int[] dest = new int[source.Length - 1];
+            if (index > 0)
+                Array.Copy(source, 0, dest, 0, index);
+
+            if (index < source.Length - 1)
+                Array.Copy(source, index + 1, dest, index, source.Length - index - 1);
+
+            return dest;
+        }
     }
 }
