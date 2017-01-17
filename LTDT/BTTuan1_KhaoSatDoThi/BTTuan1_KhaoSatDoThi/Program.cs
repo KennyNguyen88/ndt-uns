@@ -321,10 +321,13 @@ namespace BTTuan1_KhaoSatDoThi
                 //g.traverseDFS(0);
                 //g.traverseBFS(0);
                 //Console.WriteLine(g.getConnected());
-                EDGE[] x = g.getMinSpanningTree();
+                //EDGE[] x = g.getMinSpanningTreePrism();
+                //EDGE[] x = g.getListEdgeSortAsc();
+                EDGE[] x = g.getMinSpanningTreeKruskal();
                 foreach (EDGE e in x)
                 {
-                    e.print();
+                    if (e != null)
+                        e.print();
                 }
             }
             catch (Exception ex)

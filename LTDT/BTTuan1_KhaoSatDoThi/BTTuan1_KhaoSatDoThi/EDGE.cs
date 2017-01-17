@@ -17,6 +17,12 @@ namespace BTTuan1_KhaoSatDoThi
             vertex_end = -1;
             value = -1;
         }
+        public EDGE(int v_start, int v_end, int v_value)
+        {
+            vertex_start = v_start;
+            vertex_end = v_end;
+            value = v_value;
+        }
         public void print()
         {
             Console.WriteLine(vertex_start + " --> " + vertex_end + " : " + value);

@@ -207,11 +207,20 @@ namespace BTTuan1_KhaoSatDoThi
                 {
                     for (int j = run; j < n; j++)
                     {
-                        if (i != j)
-                        {                            
-                            int min = Util.getMin(a[i, j] , a[j, i]);
-                            b[i, j] = min;
-                            b[j, i] = min;
+                        if (i != j) //khong nam tren cheo chinh
+                        {
+                            if (a[i, j] != 0 && a[j, i] != 0)
+                            {
+                                int min = Util.getMin(a[i, j], a[j, i]);
+                                b[i, j] = min;
+                                b[j, i] = min;
+                            }
+                            else
+                            {
+                                int sum = a[i, j] + a[j, i];
+                                b[i, j] = sum;
+                                b[j, i] = sum;
+                            }
                             
                         }
                         else
@@ -453,7 +462,7 @@ namespace BTTuan1_KhaoSatDoThi
             return label;
         }
         //Prism
-        public EDGE[] getMinSpanningTree(int init=0)
+        public EDGE[] getMinSpanningTreePrism(int init=0)
         {
             EDGE[] result = new EDGE[n-1];
             int nresult = 0;
@@ -490,6 +499,91 @@ namespace BTTuan1_KhaoSatDoThi
                 lblVertex[run] = 1;
 
             }
+            return result;
+        }
+        public EDGE[] getListEdge()
+        {
+            EDGE[] result = new EDGE[n*(n-1)/2];
+            int nResult = 0;
+            int run = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = run; j < n; j++)
+                {
+                    if (i != j)
+                    {
+                        if (a[i, j] != 0)
+                        {
+                            EDGE ed = new EDGE(i, j, a[i, j]);
+                            result[nResult] = ed;
+                            nResult++;
+                        }
+                    }
+                }
+                run++;
+            }
+            return result;
+        }
+        public void doHoanVi(ref EDGE a, ref EDGE b)
+        {
+            EDGE temp = null;
+            temp = a;
+            a = b;
+            b = temp;
+        }  
+        public EDGE[] doSortAsc(EDGE[] a)
+        {
+            if (a.Length > 0)
+            {                
+                for (int i = 0; i < a.Length - 1; i++)
+                {                    
+                    for (int j = i + 1; j < a.Length; j++)
+                    {
+                        if (a[j] != null && a[j].value < a[i].value)
+                        {
+                            doHoanVi(ref a[j], ref a[i]);                            
+                        }
+                    }
+                }
+            }          
+            return a;
+        }
+        public EDGE[] getListEdgeSortAsc()
+        {
+            return doSortAsc(getListEdge());
+        }
+        public bool isCircle(EDGE[] ed, EDGE e)
+        {            
+            foreach (EDGE ie in ed)
+            {
+                if (ie != null)
+                {
+                    if ((ie.vertex_end == e.vertex_end && ie.vertex_start == e.vertex_start)|| (ie.vertex_start == e.vertex_end && ie.vertex_end == e.vertex_start))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        //Kruskal
+        public EDGE[] getMinSpanningTreeKruskal(int init=0)
+        {
+            EDGE[] result = new EDGE[n - 1];
+            int nresult = 0;
+            EDGE[] edges = getListEdgeSortAsc();
+            foreach (EDGE e in edges)
+            {
+                if (e != null && nresult < n-1)
+                {
+                    if (!isCircle(result, e))
+                    {
+                        result[nresult] = e;
+                        nresult++;
+                    }
+                }
+            }
+
             return result;
         }
     }
