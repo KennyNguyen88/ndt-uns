@@ -313,18 +313,24 @@ namespace BTTuan1_KhaoSatDoThi
         }
         static void request_12()
         {
-            String input = "DOTHICOHUONG.txt";
+            String input = "PRISM.txt";
             Console.WriteLine("Yeu cau 12 - TEST");
             try
             {
                 GRAPH g = new GRAPH(input);
                 //g.traverseDFS(0);
                 //g.traverseBFS(0);
-                Console.WriteLine(g.getConnected());
+                //Console.WriteLine(g.getConnected());
+                EDGE[] x = g.getMinSpanningTree();
+                foreach (EDGE e in x)
+                {
+                    e.print();
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.Write(ex.StackTrace);
             }
             anotherRequest();
         }

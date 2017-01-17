@@ -190,6 +190,7 @@ namespace BTTuan1_KhaoSatDoThi
             return dem;
         }
         // Chuyen thanh do thi vo huong
+        // Giu lai trong so nho nhat trong truong hop canh boi
         public GRAPH transform()
         {
             if (KiemTraVoHuong())
@@ -208,9 +209,9 @@ namespace BTTuan1_KhaoSatDoThi
                     {
                         if (i != j)
                         {                            
-                            int sum = a[i, j] + a[j, i];
-                            b[i, j] = sum;
-                            b[j, i] = sum;
+                            int min = Util.getMin(a[i, j] , a[j, i]);
+                            b[i, j] = min;
+                            b[j, i] = min;
                             
                         }
                         else
@@ -424,32 +425,72 @@ namespace BTTuan1_KhaoSatDoThi
             }
             return visited;
         }
-        public int getConnected() // =1 ==> do thi lien thong
+        // =1 ==> do thi lien thong
+        public int getConnected() 
         {
-            int dem = 0;
+            int label = 0;
             //int start_vertex = 0;
-            int[] init = new int[n]; //all 0
+            int[] labelarr = new int[n]; //all 0
 
             for (int i = 0; i < n; i++)
             {
-                if (init[i] == 0)
+                if (labelarr[i] == 0)
                 {
                     int[] x1 = traverseDFS(i);
                     if (x1.Length > 0)
                     {
-                        dem++;
+                        label++;
                         for (int k = 0; k <n; k ++)
                         {
                             if (x1[k] != 0)
                             {
-                                init[k] = dem;
+                                labelarr[k] = label;
                             }
                         }                            
                     }
                 }                
             }            
-            return dem;
+            return label;
         }
-        
+        //Prism
+        public EDGE[] getMinSpanningTree(int init=0)
+        {
+            EDGE[] result = new EDGE[n-1];
+            int nresult = 0;
+            int[] lblVertex = new int[n]; //all 0 --> not visited
+            int nLbl = 0;
+            lblVertex[init] = 1; //bat dau tu dinh init
+            while (nresult < n-1) //n-1 phan tu
+            {
+                EDGE edgeMin = new EDGE();
+                int nMinWeight = -1;
+                int run = -1;
+                for (int i = 0; i < n; i++)
+                {
+                    if (lblVertex[i] == 0) // Dinh i chua dc xet
+                    {
+                        for (int j = 0;j<n;j++)
+                        {
+                            if (lblVertex[j] != 0 && a[i,j] != 0) //Dinh j da xet va co canh noi den i
+                            {
+                                if (nMinWeight < 0 || a[i,j] < nMinWeight)
+                                {
+                                    edgeMin.vertex_start = i;
+                                    edgeMin.vertex_end = j;
+                                    edgeMin.value = a[i, j];
+                                    nMinWeight = a[i, j];
+                                    run = i;
+                                }
+                            }
+                        }
+                    }
+                }
+                result[nresult] = edgeMin;
+                nresult++;
+                lblVertex[run] = 1;
+
+            }
+            return result;
+        }
     }
 }

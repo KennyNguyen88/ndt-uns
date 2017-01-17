@@ -142,5 +142,9 @@ namespace BTTuan1_KhaoSatDoThi
 
             return dest;
         }
+        public static int getMin(int a, int b)
+        {
+            return a <= b ? a : b;
+        }
     }
 }
