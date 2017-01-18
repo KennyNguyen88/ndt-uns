@@ -329,8 +329,9 @@ namespace BTTuan1_KhaoSatDoThi
                 //    if (e != null)
                 //        e.print();
                 //}
-                int x = g.getMinRouteDijkstra(0, 4);
-                Console.WriteLine(x);
+                //int x = g.getMinRouteDijkstra(0, 4);
+                bool x = g.getMinRouteBellman(0);
+                Console.ReadLine();
                 }
             catch (Exception ex)
             {

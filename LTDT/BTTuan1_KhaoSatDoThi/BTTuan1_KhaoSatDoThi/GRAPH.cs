@@ -650,5 +650,74 @@ namespace BTTuan1_KhaoSatDoThi
             }
             Console.WriteLine(vertex_start);
         }
+        //Bellman
+        public bool getMinRouteBellman(int vertex_start = 0)
+        {            
+            int[,] mincost = new int[n + 1, n];
+            int[,] previous = new int[n + 1, n];
+
+            //khoi tao
+            int step = 0;
+            for (int i = 0; i< n; i++)
+            {
+                mincost[step, i] = Util.VOCUC;
+                previous[step, i] = i;
+            }
+            mincost[step, vertex_start] = 0;
+            bool success = true;
+
+            for (step = 1; step <= n; step++)
+            {
+                for (int i = 0; i < n; i ++)
+                {
+                    mincost[step, i] = mincost[step - 1, i];
+                    previous[step, i] = previous[step - 1, i];
+                    for (int j = 0; j <n; j++)
+                    {
+                        if (a[j,i] != 0 && mincost[step - 1, j] != Util.VOCUC)
+                        {
+                            if (mincost[step,i] == Util.VOCUC || (mincost[step -1, j] + a[j,i]) < mincost[step - 1, i])
+                            {
+                                mincost[step, i] = mincost[step - 1, j] + a[j, i];
+                                previous[step, i] = j;
+                            }
+                        }
+                    }
+                }
+                bool bsame = true;
+                for (int i = 0; i < n; i ++)
+                {
+                    if (mincost[step,i] != mincost[step - 1, i])
+                    {
+                        bsame = false;
+                        break;
+                    }
+                }
+                if (bsame)
+                {
+                    break;
+                }
+                
+            }
+            printBellman(previous, step);
+            if (step == n)
+            {
+                success = false; //chu trinh am
+            }
+            return success;
+        }
+        public void printBellman(int[,] previous, int step)
+        {
+            for (int i = step - 1; i > 0; i--)
+            {
+                Console.Write(step + "<--");
+                step = previous[i, step];
+            }
+            Console.WriteLine(step);
+        }
+
+
     }
+    
+
 }
