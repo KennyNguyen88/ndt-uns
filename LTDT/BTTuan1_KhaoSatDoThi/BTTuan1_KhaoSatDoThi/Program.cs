@@ -313,7 +313,7 @@ namespace BTTuan1_KhaoSatDoThi
         }
         static void request_12()
         {
-            String input = "PRISM.txt";
+            String input = "DUONGDINGANNHAT.txt";
             Console.WriteLine("Yeu cau 12 - TEST");
             try
             {
@@ -323,13 +323,15 @@ namespace BTTuan1_KhaoSatDoThi
                 //Console.WriteLine(g.getConnected());
                 //EDGE[] x = g.getMinSpanningTreePrism();
                 //EDGE[] x = g.getListEdgeSortAsc();
-                EDGE[] x = g.getMinSpanningTreeKruskal();
-                foreach (EDGE e in x)
-                {
-                    if (e != null)
-                        e.print();
+                //EDGE[] x = g.getMinSpanningTreeKruskal();
+                //foreach (EDGE e in x)
+                //{
+                //    if (e != null)
+                //        e.print();
+                //}
+                int x = g.getMinRouteDijkstra(0, 4);
+                Console.WriteLine(x);
                 }
-            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);

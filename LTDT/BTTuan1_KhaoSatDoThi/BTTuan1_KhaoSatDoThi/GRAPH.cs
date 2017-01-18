@@ -586,5 +586,69 @@ namespace BTTuan1_KhaoSatDoThi
 
             return result;
         }
+        //Dijkstra
+        public int getMinRouteDijkstra(int vertex_start = 0, int vertex_end = 0)
+        {
+            int RouteLength = 0;
+            int[] T = new int[n];
+            int[] Route= new int[n];
+            int[] Label = new int[n];         
+            //Khoi tao thong so
+            for (int i = 0; i<n; i++)
+            {
+                T[i] = 1; //tat ca canh dinh deu nam trong T
+                Route[i] = Util.VOCUC;
+                Label[i] = -1;
+            }
+            Route[vertex_start] = 0; //dinh bat dau
+            
+            while (T[vertex_end] == 1)
+            {
+                int min = Util.VOCUC;
+                int v = -1;
+                for (int i = 0; i < n; i ++)
+                {
+                    if (T[i] != 0 && min >= Route[i])
+                    {
+                        min = Route[i];
+                        v = i;
+                    }
+                }
+                if (v == -1)
+                {
+                    RouteLength = -1;
+                    break;
+                }
+                T[v] = 0;
+                for (int k = 0; k < n ; k++)
+                {
+                    if (a[v,k] != 0 && T[k] != 0)
+                    {
+                        if (Route[k] > (Route[v] + a[v, k]))
+                        {
+                            Route[k] = Route[v] + a[v, k];
+                            Label[k] = v;
+                        }
+                    }
+                    
+                }
+            }
+            if (RouteLength != -1) //ton tai duong di ngan nhat
+            {
+                RouteLength = Route[vertex_end];
+            }
+            printDijkstra(Label, vertex_start, vertex_end);
+            return RouteLength;
+        }
+        public void printDijkstra(int[] Label, int vertex_start, int vertext_end)
+        {
+            Console.Write(vertext_end);
+            while (Label[vertext_end] != Label[vertex_start])
+            {
+                Console.Write("<-- " + Label[vertext_end]);
+                vertext_end = Label[vertext_end];
+            }
+            Console.WriteLine(vertex_start);
+        }
     }
 }

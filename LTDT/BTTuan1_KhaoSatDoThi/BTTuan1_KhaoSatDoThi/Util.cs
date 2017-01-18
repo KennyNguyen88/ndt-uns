@@ -5,6 +5,7 @@ namespace BTTuan1_KhaoSatDoThi
 {
     class Util
     {
+        public static int VOCUC = int.MaxValue;
         public static StreamWriter getFileWrite(string filename)
         {
             string _filePath = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory);
