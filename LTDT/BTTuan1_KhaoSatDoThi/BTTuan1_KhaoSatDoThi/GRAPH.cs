@@ -715,6 +715,32 @@ namespace BTTuan1_KhaoSatDoThi
             }
             Console.WriteLine(step);
         }
+        public void findTour(int vertex, GRAPH g, Stack tour)
+        {
+            for (int i = 0; i < g.n; i ++)
+            {                
+                if (a[vertex, i] != 0) //co canh noi tu vertex -> j
+                {
+                    findTour(i,g.deleteEdge(vertex, i), tour);
+                }             
+            }
+            tour.Push(vertex);
+        }
+        public int[] getTourEuler(int vertex_start)
+        {            
+            Stack tour = new Stack();
+            findTour(vertex_start, this, tour);            
+            object[] oresult = tour.ToArray();
+            int[] result = new int[oresult.Length];
+            int i = oresult.Length - 1;
+            int j = 0;
+            for (; i > -1 && j < oresult.Length; i-- , j++ )
+            {
+                result[j] = int.Parse(oresult[i].ToString());
+            }
+            return result;
+        }
+
 
 
     }
