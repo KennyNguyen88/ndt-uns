@@ -313,7 +313,7 @@ namespace BTTuan1_KhaoSatDoThi
         }
         static void request_12()
         {
-            String input = "EULER.txt";
+            String input = "DUONGDINGANNHAT.txt";
             Console.WriteLine("Yeu cau 12 - TEST");
             try
             {
@@ -331,7 +331,9 @@ namespace BTTuan1_KhaoSatDoThi
                 //}
                 //int x = g.getMinRouteDijkstra(0, 4);
                 //bool x = g.getMinRouteBellman(0);
-                g.getTourEuler(0);
+                //g.getTourEuler(0);
+                int[,] path = g.getMinRouteFloyd();
+                g.printFloyd(path);
                 Console.ReadLine();
                 }
             catch (Exception ex)

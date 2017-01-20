@@ -174,7 +174,7 @@ namespace BTTuan02
             }
             return result;
         }
-        //Xac dinh tnog so canh
+        //Xac dinh tong so canh
         public int getEdgeCount()
         {
             int sum = 0;

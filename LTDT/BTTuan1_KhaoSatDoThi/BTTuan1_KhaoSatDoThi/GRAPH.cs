@@ -34,6 +34,7 @@ namespace BTTuan1_KhaoSatDoThi
             }
             Console.WriteLine("=====Ket thuc doc du lieu");            
         }
+
         public void readData(String txtInput)
         {
             Console.WriteLine("=====Bat dau doc du lieu");
@@ -91,25 +92,62 @@ namespace BTTuan1_KhaoSatDoThi
         {
             return n;
         }
+        //Tong so canh
         public int getEdgeCount()
         {
-            //dem so != 0 tu bieu dien do thi
-            int dem = 0;
-            for (int i = 0; i < n; i ++)
+            int sum = 0;
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; j ++)
+                if (KiemTraVoHuong())
                 {
-                    if (a[i,j] != 0)
+                    sum += getDegree(i);
+                }
+                else
+                {
+                    sum += getDegreeDetail(i)[0];
+                }
+            }
+            if (KiemTraVoHuong())
+            {
+                return sum / 2;
+            }
+            else
+            {
+                return sum;
+            }
+        }
+        //so canh khuyen
+        public int getEdgeCircleCount()
+        {
+            int result = 0;
+            for (int i = 0; i < n; i++)
+            {
+                if (a[i, i] != 0)
+                {
+                    result++;
+                }
+            }
+            return result;
+        }
+        //so canh boi
+        public int getEdgeDupCount()
+        {
+            int result = 0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (a[i, j] > 1)
                     {
-                        dem++;
+                        result += a[i, j];
                     }
                 }
             }
-            if (this.KiemTraVoHuong()) //Do thi vo huong
+            if (KiemTraVoHuong())
             {
-                return dem / 2;
+                return result / 2;
             }
-            return dem;
+            return result;
         }
         //Xac dinh dinh ke
         //vertex: start from 0
@@ -150,8 +188,8 @@ namespace BTTuan1_KhaoSatDoThi
             }
             return b;
         }
-        //Xac dinh bac cua dinh
-        //vertex: start from 0
+        //Xac dinh tong bac cua dinh
+        //Dinh bat dau tu 0
         public int getDegree(int vertex)
         {
             int dem = 0;
@@ -167,7 +205,7 @@ namespace BTTuan1_KhaoSatDoThi
                         }
                         else
                         {
-                            dem++;
+                            dem += a[vertex, i];
                         }
                     }
                 }
@@ -178,16 +216,65 @@ namespace BTTuan1_KhaoSatDoThi
                 {
                     if (a[i, vertex] != 0) //bac vao
                     {
-                        dem++;
+                        dem += a[vertex, i];
                     }
                     if (a[vertex, i] != 0) //bac ra
                     {
-                        dem++;
+                        dem += a[vertex, i];
                     }
 
                 }
             }
             return dem;
+        }
+        //Xac dinh chi tiet bac cua dinh
+        //Dinh bat dau tu 0
+        //int[0]: bac vao
+        //int[1]: bac ra
+        public int[] getDegreeDetail(int vertex)
+        {
+            int dem1 = 0;
+            int dem2 = 0;
+            int[] result = new int[2];
+            if (this.KiemTraVoHuong()) //Do thi vo huong
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    if (a[vertex, i] != 0)
+                    {
+                        if (vertex == i) //co khuyen
+                        {
+                            dem1 = dem1 + 2;
+                        }
+                        else
+                        {
+                            dem1 += a[vertex, i];
+                        }
+                    }
+                }
+                result[0] = dem1;
+                result[1] = dem1;
+
+            }
+            else //Do thi co huong
+            {
+                for (int i = 0; i < n; i++)
+                {
+
+                    if (a[i, vertex] != 0) //bac vao
+                    {
+                        dem1 += a[i, vertex];
+
+                    }
+                    if (a[vertex, i] != 0) //bac ra
+                    {
+                        dem2 += a[vertex, i];
+                    }
+                }
+                result[0] = dem1;
+                result[1] = dem2;
+            }
+            return result;
         }
         // Chuyen thanh do thi vo huong
         // Giu lai trong so nho nhat trong truong hop canh boi
@@ -740,7 +827,80 @@ namespace BTTuan1_KhaoSatDoThi
             }
             return result;
         }
+        //Floyd
+        public int[,] getMinRouteFloyd()
+        {
+            int[,] sau_nut = new int[n, n];
+            //init sau_nut
+            for (int i = 0;i < n;i++)
+            {
+                for (int j=0;j<n;j++)
+                {
+                    if (a[i,j] > 0)
+                    {
+                        sau_nut[i, j] = j;
+                    }
+                    else
+                    {
+                        sau_nut[i, j] = -1;
+                    }
+                }
+            }
+            for (int k =0; k < n; k++)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    if (a[i, k] > 0)
+                    {
+                        for (int j = 0; j < n; j++)
+                        {
+                            if (a[k, j] > 0)
+                            {
+                                if ((a[i, j] == 0 && i != j)  || (a[i,j] > a[i,k] + a[k, j]))
+                                {
+                                    a[i, j] = a[i, k] + a[k, j];
+                                    sau_nut[i, j] = sau_nut[i, k];
+                                }
+                            }
+                        }
+                    }
+                }
+                    
+            }
+            return sau_nut;
 
+        }
+        public void printFloyd(int[,] path)
+        {
+            for (int i =0; i < n; i++)
+            {
+                for (int j=0;j<n;j++)
+                {
+                    if (a[i,j] > 0)
+                    {
+                        int s, t;
+                        Console.WriteLine(i + " -> " + j + " = " + a[i, j]);
+                        s = i;
+                        t = j;
+                        Console.Write(s + "->");                        
+                        while (s!=t)
+                        {
+                            t = path[s, t];                            
+                            Console.Write(t + "->");
+                            if (t == path[s, t])
+                            {
+                                break;
+                            }                            
+                        }
+                        if(t != j)
+                        {
+                            Console.WriteLine(j);
+                        }
+                        Console.WriteLine();
+                    }
+                }
+            }
+        }
 
 
     }
