@@ -72,6 +72,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GiaoDien\ManHinh\DangNhap.Designer.vb">
+      <DependentUpon>DangNhap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GiaoDien\ManHinh\DangNhap.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="GiaoDien\ManHinh\Login.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -153,8 +159,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GiaoDien\ManHinh\DangNhap.resx">
+      <DependentUpon>DangNhap.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\ManHinh\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\ManHinh\QLCTy_TrangChu.resx">
+      <DependentUpon>QLCTy_TrangChu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -178,6 +190,51 @@
   <ItemGroup>
     <Folder Include="LuuTru\" />
     <Folder Include="NghiepVu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-khtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\57-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\99-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\65999-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\716989-pencil-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\717012-trash_can-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boy-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\decision-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department1600.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marketing-icon-inv.c3022d31757e.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-khtn-400w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-khtn-200w.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
