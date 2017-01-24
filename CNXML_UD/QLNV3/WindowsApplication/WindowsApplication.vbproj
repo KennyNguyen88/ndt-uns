@@ -52,6 +52,7 @@
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -165,6 +166,12 @@
     <EmbeddedResource Include="GiaoDien\ManHinh\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\ManHinh\QLCTy_QLHoSoChiNhanh.resx">
+      <DependentUpon>QLCTy_QLHoSoChiNhanh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiaoDien\ManHinh\QLCTy_QLHoSoCongTy.resx">
+      <DependentUpon>QLCTy_QLHoSoCongTy.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GiaoDien\ManHinh\QLCTy_TrangChu.resx">
       <DependentUpon>QLCTy_TrangChu.vb</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +242,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo-khtn-200w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-01.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-02.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-03.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-04.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-add.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-delete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn-modify.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

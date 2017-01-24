@@ -25,6 +25,8 @@
         btn.FlatAppearance.MouseDownBackColor = FormatIF.color_grey
         btn.Font = New Font(btn.Font.Name, FormatIF.font_size_button, btn.Font.Style)
         btn.TextAlign = ContentAlignment.MiddleLeft
+        btn.ImageAlign = ContentAlignment.MiddleRight
+        btn.Height = 50
     End Sub
     Sub Dinh_Dang_Button_Menu_Active(btn As Button)
         Dinh_Dang_Button_Common(btn)
@@ -33,6 +35,8 @@
         btn.FlatAppearance.MouseOverBackColor = FormatIF.color_dark_blue
         btn.Font = New Font(btn.Font.Name, FormatIF.font_size_button, btn.Font.Style)
         btn.TextAlign = ContentAlignment.MiddleLeft
+        btn.ImageAlign = ContentAlignment.MiddleRight
+        btn.Height = 50
     End Sub
     'TODO Dinh_Dang_Button_Delete
     Sub Dinh_Dang_Button_Delete(btn As Button)
