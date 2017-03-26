@@ -423,27 +423,25 @@ namespace BTTuan05
         public bool isCircle(EDGE[] ed, EDGE e)
         {
             //int flag = 0;
+            ArrayList v = new ArrayList();            
             foreach (EDGE ie in ed)
             {
                 if (ie != null)
                 {
-                    if ((ie.vertex_end == e.vertex_end && ie.vertex_start == e.vertex_start) || (ie.vertex_start == e.vertex_end && ie.vertex_end == e.vertex_start))
+                    if(v.IndexOf(ie.vertex_start) < 0) // not exsit
                     {
-                        return true;
+                        v.Add(ie.vertex_start);
                     }
-                    //if (e.vertex_start == ie.vertex_start || e.vertex_start == ie.vertex_end)
-                    //{
-                    //    flag += 1;
-                    //}
-                    //if (e.vertex_end == ie.vertex_start || e.vertex_end == ie.vertex_end)
-                    //{
-                    //    flag += 1;
-                    //}
-                    //if (flag == 2)
-                    //{
-                    //    return true;
-                    //}
+                    if(v.IndexOf(ie.vertex_end) < 0)
+                    {
+                        v.Add(ie.vertex_end);
+                    }                   
                 }
+            }
+
+            if (v.IndexOf(e.vertex_start) > -1 && v.IndexOf(e.vertex_end) > -1)
+            {
+                
             }
             return false;
         }
