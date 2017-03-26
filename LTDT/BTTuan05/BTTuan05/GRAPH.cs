@@ -441,7 +441,7 @@ namespace BTTuan05
 
             if (v.IndexOf(e.vertex_start) > -1 && v.IndexOf(e.vertex_end) > -1)
             {
-                
+                return true;
             }
             return false;
         }
