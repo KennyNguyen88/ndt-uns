@@ -24,12 +24,14 @@ namespace DoAn
             Console.WriteLine("2 - Bellman do thi khong co canh chi phi am");
             Console.WriteLine("3 - Dijkstra do thi co canh chi phi am");
             Console.WriteLine("4 - Bellman do thi co canh chi phi am");
+
             Console.WriteLine("5 - Do thoi gian Dijkstra di qua <=5 dinh");
             Console.WriteLine("6 - Do thoi gian Dijkstra di qua >=10 dinh");
             Console.WriteLine("7 - Do thoi gian Dijkstra di qua >15 dinh");
             Console.WriteLine("8 - Do thoi gian Bellman di qua <=5 dinh");
             Console.WriteLine("9 - Do thoi gian Bellman di qua >=10 dinh");
             Console.WriteLine("10 - Do thoi gian Bellman di qua >15 dinh");
+
             Console.WriteLine("11 - Floy do thi khong co canh chi phi am");
             Console.WriteLine("0 - Thoat chuong trinh");
         }
@@ -65,13 +67,13 @@ namespace DoAn
             switch (request)
             {
                 case 1:
-                    request_01(inputPositive); break;
+                    request_01(inputPositive); break;                    
                 case 2:
-                    request_02(inputPositive); break;
+                    request_02(inputPositive); break;                    
                 case 3:
-                    request_03(inputNegative); break;
+                    request_03(inputNegative); break;                    
                 case 4:
-                    request_04(inputNegative); break;
+                    request_04(inputNegative); break;                    
                 //case 5:
                 //    request_05(input); break;
                 //case 6:
@@ -115,7 +117,16 @@ namespace DoAn
                         int[] label = result[0] as int[];
                         int length = int.Parse(result[1].ToString());
                         g.printDijkstra(label, s, t);
-                        Console.WriteLine("Do dai: " + length);
+                        if (length > Util.VOCUC/2)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Do dai: " + 0);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Do dai: " + length);
+                        }
+                        
                     }
                     else
                     {
@@ -160,7 +171,15 @@ namespace DoAn
                         int[,] previous = result[2] as int[,];
                         int[,] mincost = result[3] as int[,];
                         g.printBellman(previous, step, s, t);
-                        Console.WriteLine("Do dai: " + mincost[step, t]);
+                        if (mincost[step, t] > Util.VOCUC / 2)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Do dai: " + 0);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Do dai: " + mincost[step, t]);
+                        }
                     }
                     else
                     {
@@ -204,7 +223,15 @@ namespace DoAn
                         int[] label = result[0] as int[];
                         int length = int.Parse(result[1].ToString());
                         g.printDijkstra(label, s, t);
-                        Console.WriteLine("Do dai: " + length);
+                        if (length > Util.VOCUC / 2)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Do dai: " + 0);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Do dai: " + length);
+                        }
                     }
                     else
                     {
@@ -251,7 +278,15 @@ namespace DoAn
                         int[,] previous = result[2] as int[,];
                         int[,] mincost = result[3] as int[,];
                         g.printBellman(previous, step, s, t);
-                        Console.WriteLine("Do dai: " + mincost[step, t]);
+                        if (mincost[step, t] > Util.VOCUC / 2)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Do dai: " + 0);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Do dai: " + mincost[step, t]);
+                        }
                     }
                     else
                     {
@@ -271,6 +306,7 @@ namespace DoAn
             anotherRequest();
 
         }
+
         static void request_05(String input)
         {
 
@@ -508,6 +544,37 @@ namespace DoAn
             //}
             //anotherRequest(input);
 
+        }
+
+        static void test(String input)
+        {
+            GRAPH g = new GRAPH(input);
+            for (int s = 0; s < g.getN(); s++)
+            {
+                for (int t = 0; t < g.getN(); t++)
+                {
+                    Console.Write("[s,t] : " + "[" + s + "," + t + "] \t");
+                    /* TEST Dijkstra */
+                    //ArrayList result = new ArrayList();
+                    //result = g.getMinRouteDijkstra(s, t);
+                    //int[] label = result[0] as int[];
+                    //int length = int.Parse(result[1].ToString());
+                    //g.printDijkstra(label, s, t);
+                    //Console.Write("\t");
+                    //Console.WriteLine("Do dai: " + length);
+
+                    /* TEST Bellman */
+                    ArrayList result = new ArrayList();
+                    result = g.getMinRouteBellman(s);
+                    int step = int.Parse(result[1].ToString());
+                    int[,] previous = result[2] as int[,];
+                    int[,] mincost = result[3] as int[,];
+                    g.printBellman(previous, step, s, t);
+                    Console.Write("\t");
+                    Console.WriteLine("Do dai: " + mincost[step, t]);
+                }
+            }
+            Console.ReadLine();
         }
 
         //Kiem tra do thi co huong, khong chua canh boi, khong chua canh khuyen

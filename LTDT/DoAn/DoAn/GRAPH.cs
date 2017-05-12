@@ -21,7 +21,7 @@ namespace DoAn
         {
             a = null;
             n = 0;
-            Console.WriteLine("=====Bat dau doc du lieu");
+            //Console.WriteLine("=====Bat dau doc du lieu");
             try
             {
                 Util.readMatrix(txtInput, ref a, ref n);
@@ -32,7 +32,7 @@ namespace DoAn
                 Console.WriteLine("Xay ra loi khi doc du lieu ! Vui long kiem tra lai file input");
                 throw ex;                
             }
-            Console.WriteLine("=====Ket thuc doc du lieu");            
+            //Console.WriteLine("=====Ket thuc doc du lieu");            
         }
         public void readData(String txtInput)
         {
@@ -505,13 +505,19 @@ namespace DoAn
         }
         public void printDijkstra(int[] Label, int vertex_start, int vertext_end)
         {
-            Console.Write(vertext_end);
+            if (Label[vertext_end] != Label[vertex_start])
+            {
+                Console.Write(vertext_end);
+            }
+            else
+            {
+                Console.Write("Khong-co-duong-di");
+            }            
             while (Label[vertext_end] != Label[vertex_start])
             {
-                Console.Write("<-- " + Label[vertext_end]);
+                Console.Write("<--" + Label[vertext_end]);
                 vertext_end = Label[vertext_end];
             }
-            Console.WriteLine();
             //Console.WriteLine(vertex_start);
         }
         //Bellman
@@ -576,16 +582,21 @@ namespace DoAn
         }
         public void printBellman(int[,] previous, int step, int vertex_start, int vertex_end)
         {
+            if (previous[step, vertex_end] == vertex_end)
+            {
+                Console.Write("Khong-co-duong-di");
+                return;
+            }
             Console.Write(vertex_end);
             while (previous[step, vertex_end] != vertex_start)
             {
-                Console.Write("<-- ");
+                Console.Write("<--");
                 Console.Write(previous[step, vertex_end]);
                 vertex_end = previous[step, vertex_end];
                 
             }
-            Console.Write("<-- ");
-            Console.WriteLine(vertex_start);
+            Console.Write("<--");
+            Console.Write(vertex_start);
         }
         //public void findTour(int vertex, GRAPH g, Stack tour)
         //{
