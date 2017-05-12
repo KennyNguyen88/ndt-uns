@@ -20,7 +20,7 @@ namespace BTTuan05
         {
             Console.WriteLine("Ly thuyet do thi - Bai tap 05");
             Console.WriteLine("Chon yeu cau can thuc hien");
-            Console.WriteLine("1 - Ap dung thuat toan Kruskal tim cay khung nho nhat cua do thi");             
+            Console.WriteLine("1 - Ap dung thuat toan Dijkstra tim duong di ngan nhat");             
             Console.WriteLine("0 - Thoat chuong trinh");
         }
         static int selectRequest()
