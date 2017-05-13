@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,14 +26,11 @@ namespace DoAn
             Console.WriteLine("3 - Dijkstra do thi co canh chi phi am");
             Console.WriteLine("4 - Bellman do thi co canh chi phi am");
 
-            Console.WriteLine("5 - Do thoi gian Dijkstra di qua <=5 dinh");
-            Console.WriteLine("6 - Do thoi gian Dijkstra di qua >=10 dinh");
-            Console.WriteLine("7 - Do thoi gian Dijkstra di qua >15 dinh");
-            Console.WriteLine("8 - Do thoi gian Bellman di qua <=5 dinh");
-            Console.WriteLine("9 - Do thoi gian Bellman di qua >=10 dinh");
-            Console.WriteLine("10 - Do thoi gian Bellman di qua >15 dinh");
+            Console.WriteLine("5 - Do thoi gian Dijkstra");
+            Console.WriteLine("6 - Do thoi gian Bellman");
 
-            Console.WriteLine("11 - Floy do thi khong co canh chi phi am");
+            Console.WriteLine("7 - Floy do thi khong co canh chi phi am");
+            Console.WriteLine("8 - Do thoi gian Floy");            
             Console.WriteLine("0 - Thoat chuong trinh");
         }
         static int selectRequest()
@@ -41,22 +39,22 @@ namespace DoAn
             try
             {
                 yeucau = int.Parse(Console.ReadLine());
-                if (!(yeucau >=0 && yeucau <=11))
+                if (!(yeucau >=0 && yeucau <=8))
                 {
-                    Console.WriteLine("Vui long nhap so 0 ~ 11");
+                    Console.WriteLine("Vui long nhap so 0 ~ 8");
                     return selectRequest();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Vui long nhap so 0 ~ 11");
+                Console.WriteLine("Vui long nhap so 0 ~ 8");
                 return selectRequest();
             }
             return yeucau;
         }
         static void anotherRequest()
         {
-            Console.WriteLine("===Nhap so 1 ~ 11 de thuc hien yeu cau tiep theo. Nhap 0 de ket thuc.  ?");
+            Console.WriteLine("===Nhap so 1 ~ 8 de thuc hien yeu cau tiep theo. Nhap 0 de ket thuc.  ?");
             int request = selectRequest();
             doRequest(request);
         }
@@ -64,6 +62,7 @@ namespace DoAn
         {
             String inputPositive = "inputPositive.txt";
             String inputNegative = "inputNegative.txt";
+            String inputPositiveLarge = "inputPositiveLarge.txt";
             switch (request)
             {
                 case 1:
@@ -73,21 +72,15 @@ namespace DoAn
                 case 3:
                     request_03(inputNegative); break;                    
                 case 4:
-                    request_04(inputNegative); break;                    
-                //case 5:
-                //    request_05(input); break;
-                //case 6:
-                //    request_06(input); break;
-                //case 7:
-                //    request_07(input); break;
-                //case 8:
-                //    request_08(input); break;
-                //case 9:
-                //    request_09(input); break;
-                //case 10:
-                //    request_10(input); break;
-                //case 11:
-                //    request_11(input); break;
+                    request_04(inputNegative); break;
+                case 5:
+                    request_05(inputPositiveLarge); break;
+                case 6:
+                    request_06(inputPositiveLarge); break;
+                case 7:
+                    request_07(inputPositive); break;
+                case 8:
+                    request_08(inputPositiveLarge); break;
                 default:
                     break;
             }
@@ -124,6 +117,7 @@ namespace DoAn
                         }
                         else
                         {
+                            Console.WriteLine();
                             Console.WriteLine("Do dai: " + length);
                         }
                         
@@ -178,6 +172,7 @@ namespace DoAn
                         }
                         else
                         {
+                            Console.WriteLine();
                             Console.WriteLine("Do dai: " + mincost[step, t]);
                         }
                     }
@@ -230,11 +225,13 @@ namespace DoAn
                         }
                         else
                         {
+                            Console.WriteLine();
                             Console.WriteLine("Do dai: " + length);
                         }
                     }
                     else
                     {
+
                         Console.WriteLine("Vui long kiem tra lai input !");
                     }
                 }
@@ -285,6 +282,7 @@ namespace DoAn
                         }
                         else
                         {
+                            Console.WriteLine();
                             Console.WriteLine("Do dai: " + mincost[step, t]);
                         }
                     }
@@ -310,272 +308,245 @@ namespace DoAn
         static void request_05(String input)
         {
 
-            //Console.WriteLine("Do thoi gian Dijkstra di qua <=5 dinh");
-            //try
-            //{
-            //    GRAPH g = new GRAPH(input);
-            //    Console.WriteLine("Du lieu cua do thi: ");
-            //    g.writeDataConsole();
-            //    if (validate(g)) //Do thi don
-            //    {
-            //        EDGE[] x = g.getMinSpanningTreeKruskal();
-            //        int sum = 0;
-            //        Console.WriteLine("Tap canh cua cay khung: ");
-            //        foreach (EDGE e in x)
-            //        {
-            //            if (e != null)
-            //            {
-            //                e.print();
-            //                sum += e.value;
-            //            }
+            Console.WriteLine("Do thoi gian Dijkstra");
+            try
+            {
+                GRAPH g = new GRAPH(input);
+                Console.WriteLine("Du lieu cua do thi: ");
+                g.writeDataConsole();
+                int s = -1;
+                int t = -1;
+                if (validate(g))
+                {
+                    //get input
+                    Console.WriteLine("Nhap dinh bat dau s [Tap dinh bat dau tu 0]");
+                    s = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Nhap dinh ket thuc t [Tap dinh bat dau tu 0]");
+                    t = int.Parse(Console.ReadLine());
+                    if ((s > -1 && s < g.getN() - 1) && (t > -1 && t < g.getN()))
+                    {
+                        //validate input success                        
+                        ArrayList result = new ArrayList();
+                        Stopwatch sw = Stopwatch.StartNew(); //Bat dau do thoi gian
+                        result = g.getMinRouteDijkstra(s, t);
+                        sw.Stop(); //Ket thuc do thoi gian
+                        long elapsedMs = sw.ElapsedTicks;
+                        int[] label = result[0] as int[];
+                        int length = int.Parse(result[1].ToString());
+                        g.printDijkstra(label, s, t);
+                        if (length > Util.VOCUC / 2)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Do dai: " + 0);
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Do dai: " + length);
+                        }
+                        Console.WriteLine("Tong Thoi Gian: " + elapsedMs);
 
-            //        }
-            //        Console.WriteLine("Trong so cua cay khung: " + sum);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //}
-            //anotherRequest(input);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vui long kiem tra lai input !");
+                    }
+                }
+                else
+                {
+                    validateFail(g);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            anotherRequest();
 
-        }
+        }        
         static void request_06(String input)
         {
 
-            //Console.WriteLine("Do thoi gian Dijkstra di qua >=10 dinh");
-            //try
-            //{
-            //    GRAPH g = new GRAPH(input);
-            //    Console.WriteLine("Du lieu cua do thi: ");
-            //    g.writeDataConsole();
-            //    if (validate(g)) //Do thi don
-            //    {
-            //        EDGE[] x = g.getMinSpanningTreeKruskal();
-            //        int sum = 0;
-            //        Console.WriteLine("Tap canh cua cay khung: ");
-            //        foreach (EDGE e in x)
-            //        {
-            //            if (e != null)
-            //            {
-            //                e.print();
-            //                sum += e.value;
-            //            }
+            Console.WriteLine("Do thoi gian Bellman");
+            try
+            {
+                GRAPH g = new GRAPH(input);
+                Console.WriteLine("Du lieu cua do thi: ");
+                g.writeDataConsole();
+                int s = -1;
+                int t = -1;
+                if (validate(g))
+                {
+                    //get input
+                    Console.WriteLine("Nhap dinh bat dau s [Tap dinh bat dau tu 0]");
+                    s = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Nhap dinh ket thuc t [Tap dinh bat dau tu 0]");
+                    t = int.Parse(Console.ReadLine());
+                    if ((s > -1 && s < g.getN() - 1) && (t > -1 && t < g.getN()))
+                    {
+                        //validate input success
+                        ArrayList result = new ArrayList();
+                        Stopwatch sw = Stopwatch.StartNew(); //Bat dau do thoi gian
+                        result = g.getMinRouteBellman(s);
+                        sw.Stop(); //Ket thuc do thoi gian
+                        long elapsedMs = sw.ElapsedTicks;
+                        int step = int.Parse(result[1].ToString());
+                        int[,] previous = result[2] as int[,];
+                        int[,] mincost = result[3] as int[,];
+                        g.printBellman(previous, step, s, t);
+                        if (mincost[step, t] > Util.VOCUC / 2)
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Do dai: " + 0);
+                        }
+                        else
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Do dai: " + mincost[step, t]);
+                        }
+                        Console.WriteLine("Tong Thoi Gian: " + elapsedMs);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vui long kiem tra lai input !");
+                    }
+                }
+                else
+                {
+                    validateFail(g);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            anotherRequest();
 
-            //        }
-            //        Console.WriteLine("Trong so cua cay khung: " + sum);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //}
-            //anotherRequest(input);
+        }          
 
-        }
         static void request_07(String input)
         {
 
-            //Console.WriteLine("Do thoi gian Dijkstra di qua >15 dinh");
-            //try
-            //{
-            //    GRAPH g = new GRAPH(input);
-            //    Console.WriteLine("Du lieu cua do thi: ");
-            //    g.writeDataConsole();
-            //    if (validate(g)) //Do thi don
-            //    {
-            //        EDGE[] x = g.getMinSpanningTreeKruskal();
-            //        int sum = 0;
-            //        Console.WriteLine("Tap canh cua cay khung: ");
-            //        foreach (EDGE e in x)
-            //        {
-            //            if (e != null)
-            //            {
-            //                e.print();
-            //                sum += e.value;
-            //            }
+            Console.WriteLine("Floy do thi khong co canh chi phi am");
+            try
+            {
+                GRAPH g = new GRAPH(input);
+                Console.WriteLine("Du lieu cua do thi: ");
+                g.writeDataConsole();
+                int s = -1;
+                int t = -1;
+                if (validate(g))
+                {
+                    //get input
+                    Console.WriteLine("Nhap dinh bat dau s [Tap dinh bat dau tu 0]");
+                    s = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Nhap dinh ket thuc t [Tap dinh bat dau tu 0]");
+                    t = int.Parse(Console.ReadLine());
+                    if ((s > -1 && s < g.getN() - 1) && (t > -1 && t < g.getN()))
+                    {
+                        //validate input success
+                        int[,] path = g.getMinRouteFloyd();
+                        g.printFloyd(path,s,t);
 
-            //        }
-            //        Console.WriteLine("Trong so cua cay khung: " + sum);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //}
-            //anotherRequest(input);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vui long kiem tra lai input !");
+                    }
+                }
+                else
+                {
+                    validateFail(g);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            anotherRequest();
 
         }
         static void request_08(String input)
         {
 
-            //Console.WriteLine("Do thoi gian Bellman di qua <=5 dinh");
-            //try
-            //{
-            //    GRAPH g = new GRAPH(input);
-            //    Console.WriteLine("Du lieu cua do thi: ");
-            //    g.writeDataConsole();
-            //    if (validate(g)) //Do thi don
-            //    {
-            //        EDGE[] x = g.getMinSpanningTreeKruskal();
-            //        int sum = 0;
-            //        Console.WriteLine("Tap canh cua cay khung: ");
-            //        foreach (EDGE e in x)
-            //        {
-            //            if (e != null)
-            //            {
-            //                e.print();
-            //                sum += e.value;
-            //            }
-
-            //        }
-            //        Console.WriteLine("Trong so cua cay khung: " + sum);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //}
-            //anotherRequest(input);
-
-        }
-        static void request_09(String input)
-        {
-
-            //Console.WriteLine("Do thoi gian Bellman di qua >=10 dinh");
-            //try
-            //{
-            //    GRAPH g = new GRAPH(input);
-            //    Console.WriteLine("Du lieu cua do thi: ");
-            //    g.writeDataConsole();
-            //    if (validate(g)) //Do thi don
-            //    {
-            //        EDGE[] x = g.getMinSpanningTreeKruskal();
-            //        int sum = 0;
-            //        Console.WriteLine("Tap canh cua cay khung: ");
-            //        foreach (EDGE e in x)
-            //        {
-            //            if (e != null)
-            //            {
-            //                e.print();
-            //                sum += e.value;
-            //            }
-
-            //        }
-            //        Console.WriteLine("Trong so cua cay khung: " + sum);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //}
-            //anotherRequest(input);
-
-        }
-        static void request_10(String input)
-        {
-
-            //Console.WriteLine("Do thoi gian Bellman di qua >15 dinh");
-            //try
-            //{
-            //    GRAPH g = new GRAPH(input);
-            //    Console.WriteLine("Du lieu cua do thi: ");
-            //    g.writeDataConsole();
-            //    if (validate(g)) //Do thi don
-            //    {
-            //        EDGE[] x = g.getMinSpanningTreeKruskal();
-            //        int sum = 0;
-            //        Console.WriteLine("Tap canh cua cay khung: ");
-            //        foreach (EDGE e in x)
-            //        {
-            //            if (e != null)
-            //            {
-            //                e.print();
-            //                sum += e.value;
-            //            }
-
-            //        }
-            //        Console.WriteLine("Trong so cua cay khung: " + sum);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //}
-            //anotherRequest(input);
-
-        }
-        static void request_11(String input)
-        {
-
-            //Console.WriteLine("Floy do thi khong co canh chi phi am");
-            //try
-            //{
-            //    GRAPH g = new GRAPH(input);
-            //    Console.WriteLine("Du lieu cua do thi: ");
-            //    g.writeDataConsole();
-            //    if (validate(g)) //Do thi don
-            //    {
-            //        EDGE[] x = g.getMinSpanningTreeKruskal();
-            //        int sum = 0;
-            //        Console.WriteLine("Tap canh cua cay khung: ");
-            //        foreach (EDGE e in x)
-            //        {
-            //            if (e != null)
-            //            {
-            //                e.print();
-            //                sum += e.value;
-            //            }
-
-            //        }
-            //        Console.WriteLine("Trong so cua cay khung: " + sum);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //}
-            //anotherRequest(input);
-
-        }
-
-        static void test(String input)
-        {
-            GRAPH g = new GRAPH(input);
-            for (int s = 0; s < g.getN(); s++)
+            Console.WriteLine("Do thoi gian Floy");
+            try
             {
-                for (int t = 0; t < g.getN(); t++)
+                GRAPH g = new GRAPH(input);
+                Console.WriteLine("Du lieu cua do thi: ");
+                g.writeDataConsole();
+                int s = -1;
+                int t = -1;
+                if (validate(g))
                 {
-                    Console.Write("[s,t] : " + "[" + s + "," + t + "] \t");
-                    /* TEST Dijkstra */
-                    //ArrayList result = new ArrayList();
-                    //result = g.getMinRouteDijkstra(s, t);
-                    //int[] label = result[0] as int[];
-                    //int length = int.Parse(result[1].ToString());
-                    //g.printDijkstra(label, s, t);
-                    //Console.Write("\t");
-                    //Console.WriteLine("Do dai: " + length);
-
-                    /* TEST Bellman */
-                    ArrayList result = new ArrayList();
-                    result = g.getMinRouteBellman(s);
-                    int step = int.Parse(result[1].ToString());
-                    int[,] previous = result[2] as int[,];
-                    int[,] mincost = result[3] as int[,];
-                    g.printBellman(previous, step, s, t);
-                    Console.Write("\t");
-                    Console.WriteLine("Do dai: " + mincost[step, t]);
+                    //get input
+                    Console.WriteLine("Nhap dinh bat dau s [Tap dinh bat dau tu 0]");
+                    s = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Nhap dinh ket thuc t [Tap dinh bat dau tu 0]");
+                    t = int.Parse(Console.ReadLine());
+                    if ((s > -1 && s < g.getN() - 1) && (t > -1 && t < g.getN()))
+                    {
+                        //validate input success
+                        Stopwatch sw = Stopwatch.StartNew(); //Bat dau do thoi gian
+                        int[,] path = g.getMinRouteFloyd();
+                        sw.Stop(); //Ket thuc do thoi gian
+                        long elapsedMs = sw.ElapsedTicks;
+                        g.printFloyd(path, s, t);
+                        Console.WriteLine("Tong Thoi Gian: " + elapsedMs);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vui long kiem tra lai input !");
+                    }
+                    
+                }
+                else
+                {
+                    validateFail(g);
                 }
             }
-            Console.ReadLine();
-        }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            anotherRequest();
+
+        }        
+
+        //static void test(String input)
+        //{
+        //    GRAPH g = new GRAPH(input);
+        //    for (int s = 0; s < g.getN(); s++)
+        //    {
+        //        for (int t = 0; t < g.getN(); t++)
+        //        {
+        //            Console.Write("[s,t] : " + "[" + s + "," + t + "] \t");
+        //            ///* TEST Dijkstra */
+        //            //ArrayList result = new ArrayList();
+        //            //result = g.getMinRouteDijkstra(s, t);
+        //            //int[] label = result[0] as int[];
+        //            //int length = int.Parse(result[1].ToString());
+        //            //g.printDijkstra(label, s, t);
+        //            //Console.Write("\t");
+        //            //Console.WriteLine("Do dai: " + length);
+
+        //            /* TEST Bellman */
+        //            ArrayList result = new ArrayList();
+        //            result = g.getMinRouteBellman(s);
+        //            int step = int.Parse(result[1].ToString());
+        //            int[,] previous = result[2] as int[,];
+        //            int[,] mincost = result[3] as int[,];
+        //            g.printBellman(previous, step, s, t);
+        //            Console.Write("\t");
+        //            Console.WriteLine("Do dai: " + mincost[step, t]);
+        //        }
+        //    }
+        //    Console.ReadLine();
+        //}
 
         //Kiem tra do thi co huong, khong chua canh boi, khong chua canh khuyen
         static bool validate(GRAPH g)

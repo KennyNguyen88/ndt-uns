@@ -27,10 +27,10 @@ namespace DoAn
                 Util.readMatrix(txtInput, ref a, ref n);
             }
             catch (Exception ex)
-            {                
+            {
                 Console.WriteLine("=====Ket thuc doc du lieu");
                 Console.WriteLine("Xay ra loi khi doc du lieu ! Vui long kiem tra lai file input");
-                throw ex;                
+                throw ex;
             }
             //Console.WriteLine("=====Ket thuc doc du lieu");            
         }
@@ -60,8 +60,8 @@ namespace DoAn
             {
                 Console.WriteLine("=====Ket thuc ghi du lieu");
                 Console.WriteLine("Xay ra loi khi ghi du lieu !");
-                throw ex;   
-            }                       
+                throw ex;
+            }
             Console.WriteLine("=====Ket thuc ghi du lieu");
         }
         public void writeDataConsole()
@@ -76,7 +76,7 @@ namespace DoAn
                 Console.WriteLine("=====Ket thuc ghi du lieu");
                 Console.WriteLine("Xay ra loi khi ghi du lieu !");
                 throw ex;
-            }            
+            }
             Console.WriteLine("=====Ket thuc ghi du lieu");
         }
         public int getN()
@@ -206,9 +206,9 @@ namespace DoAn
         public int getEdgeCircleCount()
         {
             int result = 0;
-            for (int i = 0; i< n; i ++)
+            for (int i = 0; i < n; i++)
             {
-                if (a[i,i] != 0)
+                if (a[i, i] != 0)
                 {
                     result++;
                 }
@@ -229,7 +229,7 @@ namespace DoAn
                         {
                             result++;
                         }
-                    }                    
+                    }
                 }
             }
             return result;
@@ -366,7 +366,7 @@ namespace DoAn
                                 labelarr[k] = label;
                             }
                         }
-                        
+
                     }
                     for (int z = 0; z < n; z++)
                     {
@@ -379,7 +379,7 @@ namespace DoAn
 
                 }
             }
-            
+
             //for (int j = 1; j <= label; j++)
             //{
             //    Console.WriteLine("Thanh phan lien thong thu: " + j);
@@ -424,19 +424,19 @@ namespace DoAn
         public bool isCircle(EDGE[] ed, EDGE e)
         {
             //int flag = 0;
-            ArrayList v = new ArrayList();            
+            ArrayList v = new ArrayList();
             foreach (EDGE ie in ed)
             {
                 if (ie != null)
                 {
-                    if(v.IndexOf(ie.vertex_start) < 0) // not exsit
+                    if (v.IndexOf(ie.vertex_start) < 0) // not exsit
                     {
                         v.Add(ie.vertex_start);
                     }
-                    if(v.IndexOf(ie.vertex_end) < 0)
+                    if (v.IndexOf(ie.vertex_end) < 0)
                     {
                         v.Add(ie.vertex_end);
-                    }                   
+                    }
                 }
             }
 
@@ -498,9 +498,9 @@ namespace DoAn
             if (RouteLength != -1) //ton tai duong di ngan nhat
             {
                 RouteLength = Route[vertex_end];
-            }            
+            }
             result.Add(Label);
-            result.Add(RouteLength);            
+            result.Add(RouteLength);
             return result;
         }
         public void printDijkstra(int[] Label, int vertex_start, int vertext_end)
@@ -512,7 +512,7 @@ namespace DoAn
             else
             {
                 Console.Write("Khong-co-duong-di");
-            }            
+            }
             while (Label[vertext_end] != Label[vertex_start])
             {
                 Console.Write("<--" + Label[vertext_end]);
@@ -593,36 +593,11 @@ namespace DoAn
                 Console.Write("<--");
                 Console.Write(previous[step, vertex_end]);
                 vertex_end = previous[step, vertex_end];
-                
+
             }
             Console.Write("<--");
             Console.Write(vertex_start);
-        }
-        //public void findTour(int vertex, GRAPH g, Stack tour)
-        //{
-        //    for (int i = 0; i < g.n; i++)
-        //    {
-        //        if (a[vertex, i] != 0) //co canh noi tu vertex -> j
-        //        {
-        //            findTour(i, g.deleteEdge(vertex, i), tour);
-        //        }
-        //    }
-        //    tour.Push(vertex);
-        //}
-        //public int[] getTourEuler(int vertex_start)
-        //{
-        //    Stack tour = new Stack();
-        //    findTour(vertex_start, this, tour);
-        //    object[] oresult = tour.ToArray();
-        //    int[] result = new int[oresult.Length];
-        //    int i = oresult.Length - 1;
-        //    int j = 0;
-        //    for (; i > -1 && j < oresult.Length; i--, j++)
-        //    {
-        //        result[j] = int.Parse(oresult[i].ToString());
-        //    }
-        //    return result;
-        //}
+        }        
         //Floyd
         public int[,] getMinRouteFloyd()
         {
@@ -666,38 +641,33 @@ namespace DoAn
             return sau_nut;
 
         }
-        public void printFloyd(int[,] path)
+        public void printFloyd(int[,] path, int vertex_start, int vertex_end)
         {
-            for (int i = 0; i < n; i++)
+
+            if (a[vertex_start, vertex_end] > 0)
             {
-                for (int j = 0; j < n; j++)
+                int s, t;
+                Console.WriteLine(vertex_start + " -> " + vertex_end + " = " + a[vertex_start, vertex_end]);
+                s = vertex_start;
+                t = vertex_end;
+                Console.Write(s );
+                do
                 {
-                    if (a[i, j] > 0)
-                    {
-                        int s, t;
-                        Console.WriteLine(i + " -> " + j + " = " + a[i, j]);
-                        s = i;
-                        t = j;
-                        Console.Write(s + "->");
-                        while (s != t)
-                        {
-                            t = path[s, t];
-                            Console.Write(t + "->");
-                            if (t == path[s, t])
-                            {
-                                break;
-                            }
-                        }
-                        if (t != j)
-                        {
-                            Console.WriteLine(j);
-                        }
-                        Console.WriteLine();
-                    }
+
+                    Console.Write("->" + path[s, t] );
+                    s = path[s, t];
                 }
+                while (s != t);
+
+                if (t != vertex_end)
+                {
+                    Console.WriteLine(vertex_end);
+                }
+                Console.WriteLine();
             }
+
         }
     }
-    
+
 
 }
