@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -129,7 +130,8 @@ namespace DoAn
         {
             Console.WriteLine("Xem danh sach doc gia");
             try
-            {                
+            {
+                ThuVien.printListDocGia();
             }
             catch (Exception ex)
             {
@@ -477,7 +479,9 @@ namespace DoAn
         }
         static void test()
         {
-
+            DateTime now = DateTime.Now;
+            //Console.WriteLine(UTIL.formatDate(now));
+            Console.ReadLine();
         }
     }
 }

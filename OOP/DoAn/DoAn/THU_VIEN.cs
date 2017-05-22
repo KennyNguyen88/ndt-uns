@@ -65,10 +65,17 @@ namespace DoAn
         {
 
         }
+        //Tat ca sach tu thu vien
+        public ArrayList getListSach()
+        {
+            ArrayList result = new ArrayList();
+            result = UTIL.getFilesSach();
+            return result;
+        }
         //In tat ca dau sach hien co trong thu vien
         public void printListSach()
         {
-            if (this._listSach != null & this._listSach.Count > 0)
+            if (this._listSach != null && this._listSach.Count > 0)
             {
                 Console.WriteLine("Co tat ca " + this._listSach.Count + " dau sach trong thu vien");
                 foreach (SACH sach in this._listSach)
@@ -197,13 +204,7 @@ namespace DoAn
             return null;
 
         }
-        //Tat ca sach tu thu vien
-        public ArrayList getListSach()
-        {
-            ArrayList result = new ArrayList();
-            result = UTIL.getFilesSach();
-            return result;
-        }
+        
         //Tat ca doc gia trong thu vien
         public ArrayList getListDocGia()
         {
@@ -211,6 +212,24 @@ namespace DoAn
             result = UTIL.getFilesDocGia();
             return result;
         }
+        //In Tat ca doc gia trong thu vien
+        public void printListDocGia()
+        {
+            if (this._listDocGia != null && this._listDocGia.Count > 0)
+            {
+                Console.WriteLine("Co tat ca " + this._listDocGia.Count + " doc gia trong thu vien");
+                foreach(DOC_GIA docgia in this._listDocGia)
+                {
+                    docgia.printShortDesc();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Khong co doc gia nao trong thu vien");
+            }
+        }
+
+
         //Tat ca phieu muon/tra sach
         public ArrayList getListPhieu()
         {

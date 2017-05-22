@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -102,6 +103,25 @@ namespace DoAn
 
         //public static ArrayList getFilesPhieu()
         //protected static DOC_GIA readPHIEU(String fileName)
+
+        //return yyyymmdd
+        public static String formatDateToString(DateTime dt)
+        {
+            DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
+            dtfi.DateSeparator = "";
+            dtfi.ShortDatePattern = @"yyyy/MM/dd";
+            return dt.ToString("d", dtfi);
+        }
+
+        public static DateTime formatStringToDate(String dt)
+        {
+            DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
+            int year = int.Parse(dt.Substring(0, 4));
+            int month = int.Parse(dt.Substring(4, 2));
+            int day = int.Parse(dt.Substring(6, 2));
+            DateTime result = new DateTime(year,month,day);            
+            return result;
+        }
 
 
     }

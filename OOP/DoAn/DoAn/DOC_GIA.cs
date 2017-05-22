@@ -9,15 +9,6 @@ namespace DoAn
     class DOC_GIA
     {
         //Properties
-        //String _maDocGIa;
-        //String _hoTen;
-        //String _cMND;
-        //String _ngaySinh;
-        //String _gioiTinh;
-        //String _email;
-        //String _diaChi;
-        //String _ngayLap;
-        //String _ngayHet;
         public String MaDocGia { get; set; }
         public String HoTen { get; set; }
         public String CMND { get; set; }
@@ -32,14 +23,16 @@ namespace DoAn
         public DOC_GIA(String MaDocGia)
         {
             this.MaDocGia = MaDocGia;
-            //TODO
-            //ngaylap
-            //ngayhet = ngay lap + 48 thang
+            DateTime now = DateTime.Now;
+            DateTime nowplus = now.AddMonths(48);
+            this.NgayLap = UTIL.formatDateToString(now);
+            this.NgayHet = UTIL.formatDateToString(nowplus);            
         }
         //Methods
         public void printShortDesc()
         {
-            //TODO
+            Console.WriteLine("Ho Ten: " + this.HoTen);
+            Console.WriteLine("Ngay Sinh: " + UTIL.formatStringToDate(this.NgaySinh).ToShortDateString());
         }
         public void printLongDesc()
         {
