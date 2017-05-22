@@ -47,9 +47,7 @@ namespace DoAn
             Console.WriteLine("18 - Thong ke so luong doc gia theo gioi tinh");
             Console.WriteLine("19 - Thong ke so sach dang duoc muon");
             Console.WriteLine("20 - Thong ke danh sach doc gia bi tre han");
-        }
-    
-    
+        }        
         static int selectRequest()
         {
             int yeucau = 0;
@@ -254,7 +252,6 @@ namespace DoAn
             }
             anotherRequest();
         }
-
         static void request_11()
         {
             Console.WriteLine("Tim kiem sach theo ISBN");
