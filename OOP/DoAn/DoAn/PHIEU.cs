@@ -10,36 +10,29 @@ namespace DoAn
     class PHIEU
     {
         //properties
-        String _maPhieu;
-        String _maDocGia;
-        String _ngayMuon;
-        String _ngayTraDuKien;
-        String _ngayTraThucTe;
-        ArrayList _sachMuon;
+        //String _maPhieu;
+        //String _maDocGia;
+        //String _ngayMuon;
+        //String _ngayTraDuKien;
+        //String _ngayTraThucTe;
+        //ArrayList _sachMuon;
+        public String MaPhieu { get; set; }
+        public String MaDocGia { get; set; }
+        public String NgayMuon { get; set; }
+        public String NgayTraDuKien { get; set; }
+        public String NgayTraThucTe { get; set; }
+        public ArrayList SachMuon { get; set; }
         //constructor
         public PHIEU()
         {
-            _sachMuon = new ArrayList();
+            this.SachMuon = new ArrayList();
         }
         //methods
         public void input()
         {
 
         }
-        public void getListPhieuMa()
-        {
 
-        }
-        public void getListPhieuMaDocGia()
-        {
-
-        }
-        public String MaPhieu { get; set; }
-        public String MaDocGia { get; set; }
-        public String NgayMuon { get; set; }
-        public String NgayTraDuKien { get; set; }
-        public String NgayTraThucTe { get; set; }
-        public ArrayList SachMuon { get; set;}
 
             
     }
