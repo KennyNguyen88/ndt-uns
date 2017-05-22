@@ -22,27 +22,27 @@ namespace DoAn
             Console.WriteLine("Lap trinh huong doi tuong - Do An Cuoi Ki");
             Console.WriteLine("Chon yeu cau can thuc hien");
 
-            Console.WriteLine("Quan ly Doc Gia");
+            Console.WriteLine("=== Quan ly Doc Gia");
             Console.WriteLine("1 - Xem danh sach doc gia");
             Console.WriteLine("2 - Them doc gia");
             Console.WriteLine("3 - Chinh sua thong tin doc gia");
             Console.WriteLine("4 - Xoa thong tin doc gia");
             Console.WriteLine("5 - Tim kiem doc gia theo CMND");
             Console.WriteLine("6 - Tim kiem doc gia theo ho ten");
-
-            Console.WriteLine("Quan ly Sach");
+            Console.WriteLine("===================");
+            Console.WriteLine("=== Quan ly Sach");
             Console.WriteLine("7 - Xem danh sach cac sach");
             Console.WriteLine("8 - Them sach");
             Console.WriteLine("9 - Chinh sua thong tin sach");
             Console.WriteLine("10 - Xoa thong tin sach");
             Console.WriteLine("11 - Tim kiem sach theo ISBN");
             Console.WriteLine("12 - Tim kiem sach theo ten");
-
-            Console.WriteLine("Quan ly phieu");
+            Console.WriteLine("================");
+            Console.WriteLine("=== Quan ly phieu");
             Console.WriteLine("13 - Lap phieu muon sach");
             Console.WriteLine("14 - Lap phieu tra sach");
-
-            Console.WriteLine("Thong ke");
+            Console.WriteLine("=================");
+            Console.WriteLine("=== Thong ke");
             Console.WriteLine("15 - Thong ke so luong sach trong thu vien");
             Console.WriteLine("16 - Thong ke so luong sach theo the loai");
             Console.WriteLine("17 - Thong ke so luong doc gia");
