@@ -65,36 +65,6 @@ namespace DoAn
         {
 
         }
-        //true neu sach co trong thu vien
-        public bool isSachExist(String ISBN)
-        {
-            if (this.getSachISBN(ISBN) != null)
-            {
-                return true;
-            }            
-            return false;
-        }
-        public bool ThemSach(SACH sach)
-        {
-            //TODO
-            this._listSach.Add(sach);
-            return sach.write();
-        }
-        //Tim kiem sach theo ISBN
-        public SACH getSachISBN(String ISBN)
-        {
-            if (this._listSach.Count > 0)
-            {
-                foreach (SACH sach in this._listSach)
-                {
-                    if (sach.ISBN.ToUpper().Equals(ISBN.ToUpper()))
-                    {
-                        return sach;
-                    }
-                }
-            }
-            return null;
-        }
         //In tat ca dau sach hien co trong thu vien
         public void printListSach()
         {
@@ -111,6 +81,47 @@ namespace DoAn
                 Console.WriteLine("Khong co sach nao trong thu vien");
             }
         }
+        //true neu sach co trong thu vien
+        public bool isSachExist(String ISBN)
+        {
+            if (this.getSachISBN(ISBN) != null)
+            {
+                return true;
+            }            
+            return false;
+        }
+        //true neu them sach thanh cong
+        public bool ThemSach(SACH sach)
+        {            
+            this._listSach.Add(sach);
+            return sach.write();
+        }
+        //true neu cap nhat sach thanh cong
+        public bool CapNhatSach(SACH sach)
+        {
+            return sach.write();
+        }
+        //true neu xoa sach thanh cong
+        public bool XoaSach(SACH sach)
+        {            
+            this._listSach.Remove(sach);            
+            return sach.delete();
+        }
+        //Tim kiem sach theo ISBN
+        public SACH getSachISBN(String ISBN)
+        {
+            if (this._listSach.Count > 0)
+            {
+                foreach (SACH sach in this._listSach)
+                {
+                    if (sach.ISBN.ToUpper().Equals(ISBN.ToUpper()))
+                    {
+                        return sach;
+                    }
+                }
+            }
+            return null;
+        }        
         //Tim kiem sach theo ten sach
         public ArrayList getSachTen(String TenSach)
         {
@@ -127,67 +138,80 @@ namespace DoAn
             }
             return result;
         }
+        //Tim kiem sach
         public SACH getSach()
         {
             Console.WriteLine("Chon phuong thuc tim kiem sach: ");
             Console.WriteLine("1 - Tim kiem sach theo ISBN");
             Console.WriteLine("2 - Tim kiem sach theo Ten Sach");
-            int method = int.Parse(Console.ReadLine());
-            if (method == 1)
+            try
             {
-                Console.WriteLine("Nhap ISBN");
-                String ISBN = Console.ReadLine();
-                return this.getSachISBN(ISBN);
-            }
-            else if (method == 2)
-            {
-                Console.WriteLine("Nhap Ten Sach");
-                String TenSach = Console.ReadLine();
-                ArrayList listSach = this.getSachTen(TenSach);
+                int method = int.Parse(Console.ReadLine());
+                if (method == 1)
+                {
+                    Console.WriteLine("Nhap ISBN");
+                    String ISBN = Console.ReadLine();
+                    return this.getSachISBN(ISBN);
+                }
+                else if (method == 2)
+                {
+                    Console.WriteLine("Nhap Ten Sach");
+                    String TenSach = Console.ReadLine();
+                    ArrayList listSach = this.getSachTen(TenSach);
 
-                if (listSach !=null && listSach.Count > 1)
-                {
-                    Console.WriteLine("Co nhieu sach trung ten. Vui long nhap so thu tu sach can tim");                                        
-                    int step = 0;
-                    foreach(SACH sach in listSach)
+                    if (listSach != null && listSach.Count > 1)
                     {
-                        Console.WriteLine(step);
-                        sach.printShortDesc();
-                        step++;
+                        Console.WriteLine("Co nhieu sach trung ten. Vui long nhap so thu tu sach can tim");
+                        int step = 0;
+                        foreach (SACH sach in listSach)
+                        {
+                            Console.WriteLine(step);
+                            sach.printShortDesc();
+                            step++;
+                        }
+                        int find = int.Parse(Console.ReadLine());
+                        if (find < 0 || find > listSach.Count - 1)
+                        {
+                            Console.WriteLine("Du lieu chon khong chinh xac !");
+                        }
+                        else
+                        {
+                            return (SACH)listSach[find];
+                        }
                     }
-                    int find = int.Parse(Console.ReadLine());
-                    if (find < 0 || find > listSach.Count - 1)
+                    else if (listSach != null & listSach.Count == 1)
                     {
-                        Console.WriteLine("Du lieu chon khong chinh xac !");
-                    }
-                    else
-                    {
-                        return (SACH)listSach[find];
+                        return (SACH)listSach[0];
                     }
                 }
-                else if(listSach !=null & listSach.Count == 1)
+                else
                 {
-                    return (SACH)listSach[0];
+                    Console.WriteLine("Vui long nhap 1 hoac 2");                    
                 }
             }
-            else
+            catch (Exception ex)
             {
                 Console.WriteLine("Vui long nhap 1 hoac 2");
+                
             }
             return null;
+
         }
+        //Tat ca sach tu thu vien
         public ArrayList getListSach()
         {
             ArrayList result = new ArrayList();
             result = UTIL.getFilesSach();
             return result;
         }
+        //Tat ca doc gia trong thu vien
         public ArrayList getListDocGia()
         {
             ArrayList result = new ArrayList();
             result = UTIL.getFilesDocGia();
             return result;
         }
+        //Tat ca phieu muon/tra sach
         public ArrayList getListPhieu()
         {
             //TODO

@@ -227,15 +227,22 @@ namespace DoAn
                 if (!ThuVien.isSachExist(ISBN)) //Sach not exist
                 {
                     SACH sach = new SACH(ISBN);
-                    sach.input();
-                    if (ThuVien.ThemSach(sach))
+                    if (sach.input())
                     {
-                        Console.WriteLine("Them sach thanh cong !"); 
+                        if (ThuVien.ThemSach(sach))
+                        {
+                            Console.WriteLine("Them sach thanh cong !");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Them sach khong thanh cong !");
+                        }
                     }
                     else
                     {
-                        Console.WriteLine("Them sach khong thanh cong !");
+                        Console.WriteLine("Nhap thong tin sach khong thanh cong !");
                     }
+                    
                     
                 }
                 else
@@ -261,7 +268,14 @@ namespace DoAn
                 {
                     if (sach.modify())
                     {
-                        Console.WriteLine("Chinh sua thong tin sach thanh cong !");
+                        if (ThuVien.CapNhatSach(sach))
+                        {
+                            Console.WriteLine("Thong tin moi duoc cap nhat thanh cong !");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Thong tin moi cap nhat khong thanh cong !");
+                        }                        
                     }
                     else
                     {
@@ -288,7 +302,7 @@ namespace DoAn
                 SACH sach = ThuVien.getSach();
                 if (sach != null)
                 {
-                    if (sach.delete())
+                    if (ThuVien.XoaSach(sach))
                     {
                         Console.WriteLine("Xoa thong tin sach thanh cong !");
                     }

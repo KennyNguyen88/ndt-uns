@@ -10,14 +10,6 @@ namespace DoAn
     class SACH
     {
         //properties
-        //String _iSBN;
-        //String _tenSach;
-        //String _tacGia;
-        //String _nXB;
-        //int _namXB;
-        //String _theLoai;
-        //Double _gia;
-        //int _soQuyen;
         public String ISBN { get; set; }
         public String TenSach { get; set; }
         public String TacGia { get; set; }
@@ -48,49 +40,127 @@ namespace DoAn
             Console.WriteLine("Gia: " + this.Gia);
             Console.WriteLine("So Luong: " + this.SoQuyen);
         }
-        public void input()
+        public bool input()
         {
-            Console.WriteLine("Nhap thong tin cho sach");
-            Console.Write("Ten Sach: ");
-            String TenSach = Console.ReadLine();
-            Console.Write("Tac Gia: ");
-            String TacGia = Console.ReadLine();
-            Console.Write("Nha Xuat Ban: ");
-            String NXB = Console.ReadLine();
-            Console.Write("Nam Xuat Ban [yyyy]: ");
-            int NamXB = int.Parse(Console.ReadLine());
-            Console.Write("The Loai: ");
-            String TheLoai = Console.ReadLine();
-            Console.Write("Gia: ");
-            double Gia = double.Parse(Console.ReadLine());
-            Console.Write("So Quyen: ");
-            int SoQuyen = int.Parse(Console.ReadLine());
-            if (validate())
+            try
             {
-                this.TenSach = TenSach;
-                this.TacGia = TacGia;
-                this.NXB = NXB;
-                this.NamXB = NamXB;
-                this.TheLoai = TheLoai;
-                this.Gia = Gia;
-                this.SoQuyen = SoQuyen;
+                Console.WriteLine("Nhap thong tin cho sach");
+                Console.Write("Ten Sach: ");
+                String TenSach = Console.ReadLine();
+                Console.Write("Tac Gia: ");
+                String TacGia = Console.ReadLine();
+                Console.Write("Nha Xuat Ban: ");
+                String NXB = Console.ReadLine();
+                Console.Write("Nam Xuat Ban [yyyy]: ");
+                int NamXB = int.Parse(Console.ReadLine());
+                Console.Write("The Loai: ");
+                String TheLoai = Console.ReadLine();
+                Console.Write("Gia: ");
+                double Gia = double.Parse(Console.ReadLine());
+                Console.Write("So Quyen: ");
+                int SoQuyen = int.Parse(Console.ReadLine());
+                if (validate())
+                {
+                    this.TenSach = TenSach;
+                    this.TacGia = TacGia;
+                    this.NXB = NXB;
+                    this.NamXB = NamXB;
+                    this.TheLoai = TheLoai;
+                    this.Gia = Gia;
+                    this.SoQuyen = SoQuyen;
+                    return true;
+                }
+                return false;
             }
+            catch (Exception ex)
+            {
+                return false;
+            }                        
         }
         public bool modify()
         {
-            //TODO
-            return true;
-        }
-        public bool delete()
-        {
-            //TODO
-            return true;
-        }
+            String input;
+            try
+            {                
+                Console.WriteLine("Nhap Ten Sach moi (Nhap Enter de bo qua): ");
+                input = Console.ReadLine();
+                String nTenSach = this.TenSach;
+                if (!input.Equals(""))
+                {
+                    nTenSach = input;
+                }
+
+                Console.WriteLine("Nhap Tac Gia moi (Nhap Enter de bo qua): ");
+                input = Console.ReadLine();
+                String nTacGia = this.TacGia;
+                if (!input.Equals(""))
+                {
+                    nTacGia = input;
+                }
+
+                Console.WriteLine("Nhap Nha Xuat Ban moi (Nhap Enter de bo qua): ");
+                input = Console.ReadLine();
+                String nNXB = this.NXB;
+                if (!input.Equals(""))
+                {
+                    nNXB = input;
+                }
+
+                Console.WriteLine("Nhap Nam Xuat Ban moi (Nhap Enter de bo qua): ");
+                input = Console.ReadLine();
+                int nNamXB = this.NamXB;
+                if (!input.Equals(""))
+                {
+                    nNamXB = int.Parse(input);
+                }
+
+                Console.WriteLine("Nhap The Loai moi (Nhap Enter de bo qua): ");
+                input = Console.ReadLine();
+                String nTheLoai = this.TheLoai;
+                if (!input.Equals(""))
+                {
+                    nTheLoai = input;
+                }
+
+                Console.WriteLine("Nhap Gia moi (Nhap Enter de bo qua): ");
+                input = Console.ReadLine();
+                double nGia = this.Gia;
+                if (!input.Equals(""))
+                {
+                    nGia = double.Parse(input);
+                }
+
+                Console.WriteLine("Nhap So Quyen moi (Nhap Enter de bo qua): ");
+                input = Console.ReadLine();
+                int nSoQuyen = this.SoQuyen;
+                if (!input.Equals(""))
+                {
+                    nSoQuyen = int.Parse(input);
+                }
+                if (validate())
+                {
+                    this.TenSach = nTenSach;
+                    this.TacGia = nTacGia;
+                    this.NXB = nNXB;
+                    this.NamXB = nNamXB;
+                    this.TheLoai = nTheLoai;
+                    this.Gia = Gia;
+                    this.SoQuyen = SoQuyen;                    
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }                                    
+        }        
         public bool validate()
         {
             //TODO
             return true;
         }
+        //Ghi ra file
         public bool write()
         {
             try
@@ -113,6 +183,19 @@ namespace DoAn
                 return false;
             }            
         }
-
+        //Xoa file
+        public bool delete()
+        {
+            try
+            {
+                String fileName = UTIL.THU_MUC_SACH + "\\" + this.ISBN + ".txt";
+                File.Delete(fileName);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }            
+        }
     }
 }
