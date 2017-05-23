@@ -32,6 +32,7 @@ namespace DoAn
             Console.WriteLine("5 - Tim kiem doc gia theo CMND");
             Console.WriteLine("6 - Tim kiem doc gia theo ho ten");
             Console.WriteLine("===================");
+
             Console.WriteLine("=== Quan ly Sach");
             Console.WriteLine("7 - Xem danh sach cac sach");
             Console.WriteLine("8 - Them sach");
@@ -40,10 +41,12 @@ namespace DoAn
             Console.WriteLine("11 - Tim kiem sach theo ISBN");
             Console.WriteLine("12 - Tim kiem sach theo ten");
             Console.WriteLine("================");
+
             Console.WriteLine("=== Quan ly phieu");
             Console.WriteLine("13 - Lap phieu muon sach");
             Console.WriteLine("14 - Lap phieu tra sach");
             Console.WriteLine("=================");
+
             Console.WriteLine("=== Thong ke");
             Console.WriteLine("15 - Thong ke so luong sach trong thu vien");
             Console.WriteLine("16 - Thong ke so luong sach theo the loai");
@@ -64,7 +67,7 @@ namespace DoAn
                     return selectRequest();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("Vui long nhap so 0 ~ 20");
                 return selectRequest();
@@ -134,10 +137,9 @@ namespace DoAn
             {
                 ThuVien.printListDocGia();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Xem danh sach doc gia");
             }
             anotherRequest(ThuVien);
         }
@@ -173,7 +175,7 @@ namespace DoAn
                     }
                     else
                     {
-                        Console.WriteLine("Ma doc gia khong hop le !");
+                        Console.WriteLine("Ma doc gia khong hop le hoac da ton tai !");
                     }
                 }
                 else
@@ -181,10 +183,9 @@ namespace DoAn
                     Console.WriteLine("Doc gia da co trong thu vien !");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - chuc nang Them doc gia");
             }
             anotherRequest(ThuVien);
         }
@@ -217,10 +218,9 @@ namespace DoAn
                     Console.WriteLine("Khong tim thay doc gia phu hop !");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Chinh sua thong tin doc gia");
             }
             anotherRequest(ThuVien);
         }
@@ -241,11 +241,14 @@ namespace DoAn
                         Console.WriteLine("Xoa thong tin doc gia khong thanh cong !");
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia phu hop !");
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang xoa thong tin doc gia ");
             }
             anotherRequest(ThuVien);
         }
@@ -266,10 +269,9 @@ namespace DoAn
                     Console.WriteLine("Khong tim thay doc gia phu hop !");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang tim kiem doc gia theo CMND");
             }
             anotherRequest(ThuVien);
         }
@@ -294,10 +296,9 @@ namespace DoAn
                     Console.WriteLine("Khong tim thay doc gia phu hop !");
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang tim kiem doc gia theo ho ten");
             }
             anotherRequest(ThuVien);
         }
@@ -308,10 +309,9 @@ namespace DoAn
             {
                 ThuVien.printListSach();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang xem danh sach cac sach");
             }
             anotherRequest(ThuVien);
         }
@@ -349,10 +349,9 @@ namespace DoAn
                 }
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - chuc nang Them sach");
             }
             anotherRequest(ThuVien);
         }
@@ -385,10 +384,9 @@ namespace DoAn
                     Console.WriteLine("Khong tim thay sach phu hop !");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Chinh sua thong tin sach");
             }
             anotherRequest(ThuVien);
         }
@@ -409,11 +407,13 @@ namespace DoAn
                         Console.WriteLine("Xoa thong tin sach khong thanh cong !");
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Khong tim thay sach phu hop !");                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Xoa thong tin sach");
             }
             anotherRequest(ThuVien);
         }
@@ -434,10 +434,9 @@ namespace DoAn
                     Console.WriteLine("Khong tim thay sach phu hop !");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Tim kiem sach theo ISBN");
             }
             anotherRequest(ThuVien);
         }
@@ -462,10 +461,9 @@ namespace DoAn
                     Console.WriteLine("Khong tim thay sach phu hop !");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Tim kiem sach theo ten");
             }
             anotherRequest(ThuVien);
         }
@@ -524,10 +522,9 @@ namespace DoAn
                     Console.WriteLine("Khong tim thay doc gia !");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Lap phieu muon sach");
             }
             anotherRequest(ThuVien);
         }
@@ -568,25 +565,16 @@ namespace DoAn
                     Console.WriteLine("Phieu muon sach khong ton tai");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Lap phieu tra sach");
             }
             anotherRequest(ThuVien);
         }
         static void request_15(THU_VIEN ThuVien)
         {
-            Console.WriteLine("Thong ke so luong sach trong thu vien");
-            try
-            {
-                Console.WriteLine("Tong so luong sach: " + ThuVien.thongKeSach());
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
+            Console.WriteLine("Thong ke so luong sach trong thu vien");                       
+            Console.WriteLine("Tong so luong sach: " + ThuVien.thongKeSach());                        
             anotherRequest(ThuVien);
         }
         static void request_16(THU_VIEN ThuVien)
@@ -602,10 +590,9 @@ namespace DoAn
                     Console.WriteLine(TheLoai[i] + ": " + SLTheLoai[i]);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang Thong ke so luong sach theo the loai");
             }
             anotherRequest(ThuVien);
         }
@@ -624,10 +611,9 @@ namespace DoAn
                 Console.WriteLine("Tong so doc gia Nam: " + result[0]);
                 Console.WriteLine("Tong so doc gia Nu: " + result[1]);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang thong ke so luong doc gia theo gioi tinh");
             }
             anotherRequest(ThuVien);
         }
@@ -653,10 +639,9 @@ namespace DoAn
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Co loi xay ra - Chuc nang thong ke danh sach doc gia bi tre han");
             }
             anotherRequest(ThuVien);
         }

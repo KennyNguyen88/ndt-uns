@@ -58,7 +58,7 @@ namespace DoAn
                 }
                 return false;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return false;
             }                        
@@ -82,7 +82,7 @@ namespace DoAn
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
