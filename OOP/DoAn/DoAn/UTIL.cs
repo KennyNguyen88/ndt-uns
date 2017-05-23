@@ -101,8 +101,45 @@ namespace DoAn
             }
         }
 
-        //public static ArrayList getFilesPhieu()
-        //protected static DOC_GIA readPHIEU(String fileName)
+        public static ArrayList getFilesPhieu()
+        {
+            ArrayList result = new ArrayList();
+            String[] fileEntries = getFiles(THU_MUC_PHIEU);
+            if (fileEntries.Length > 0)
+            {
+                foreach (String fileName in fileEntries)
+                {
+                    PHIEU phieu = readPHIEU(fileName);
+                    if (phieu != null)
+                    {
+                        result.Add(phieu);
+                    }
+                }
+            }
+            return result;
+        }
+        protected static PHIEU readPHIEU(String fileName)
+        {
+            String[] lines = System.IO.File.ReadAllLines(fileName);
+            try
+            {
+                PHIEU phieu = new PHIEU();
+                phieu.MaPhieu = lines[0];
+                phieu.MaDocGia = lines[1];
+                phieu.NgayMuon = lines[2];
+                phieu.NgayTraDuKien = lines[3];
+                phieu.NgayTraThucTe = lines[4];
+                for (int i = 5; i <lines.Length; i++)
+                {
+                    phieu.SachMuon.Add(lines[i]);
+                }                
+                return phieu;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         //return yyyymmdd
         public static String formatDateToString(DateTime dt)
@@ -112,7 +149,6 @@ namespace DoAn
             dtfi.ShortDatePattern = @"yyyy/MM/dd";
             return dt.ToString("d", dtfi);
         }
-
         public static DateTime formatStringToDate(String dt)
         {
             DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;

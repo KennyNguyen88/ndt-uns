@@ -13,58 +13,14 @@ namespace DoAn
         ArrayList _listDocGia;
         ArrayList _listSach;
         ArrayList _listPhieu;
-        public String _nextMaDocGia;
-        public String _nextPhieu;
         //constructor
         public THU_VIEN()
         {
             _listDocGia = this.getListDocGia();
             _listSach = this.getListSach();
             _listPhieu = this.getListPhieu();
-            _nextMaDocGia = this.getNextMaDocGia();
-            _nextPhieu = this.getNextMaPhieu();
         }
         //methods
-        public void MuonSach()
-        {
-
-        }
-        public void TraSach()
-        {
-
-        }
-        public void doMuonSach(PHIEU phieu)
-        {
-
-        }
-        public void doTraSach(PHIEU phieu)
-        {
-
-        }
-        public void ThongKeSoLuongSach()
-        {
-
-        }
-        public void ThongKeSoLuongSachTheoTheLoai()
-        {
-
-        }
-        public void ThongKeSoLuongDocGia()
-        {
-
-        }
-        public void ThongKeSoLuongDocGiaTheoGioiTinh()
-        {
-
-        }
-        public void ThongKeSoSachDangMuon()
-        {
-
-        }
-        public void ThongKeDocGiaTreHan()
-        {
-
-        }
         //Tat ca sach tu thu vien
         public ArrayList getListSach()
         {
@@ -229,9 +185,18 @@ namespace DoAn
             }
         }
         //true neu doc gia co trong thu vien
-        public bool isDocGiaExist(String MaDocGia)
+        public bool isDocGiaExist(String CMND)
         {
-            if(this.getDocGiaMa(MaDocGia) != null)
+            if(this.getDocGiaCMND(CMND) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        //true neu ma doc gia da co
+        public bool isMaDocGiaExist(String MaDocGia)
+        {
+            if (this.getDocGiaMa(MaDocGia) != null)
             {
                 return true;
             }
@@ -364,19 +329,284 @@ namespace DoAn
         {
             //TODO
             ArrayList result = new ArrayList();
+            result = UTIL.getFilesPhieu();
             return result;
         }
-        public String getNextMaDocGia()
+        //true neu phieu co trong thu vien
+        public bool isPhieuExist(String MaPhieu)
         {
-            //TODO
-            String result = "";
-            return result;
+            if (this.getPhieuMa(MaPhieu) != null)
+            {
+                return true;
+            }
+            return false;
         }
-        public String getNextMaPhieu()
+        //true neu co phieu chua tra
+        public bool havePhieuNotFinish(String MaDocGia)
         {
-            //TODO
-            String result = "";
+            ArrayList listPhieu = getPhieuDocGia(MaDocGia);
+            if (listPhieu != null && listPhieu.Count > 0)
+            {
+                foreach(PHIEU phieu in listPhieu)
+                {
+                    if (phieu.NgayTraThucTe == null || phieu.NgayTraThucTe == "")
+                    {
+                        return true;
+                    }                    
+                }
+            }
+            return false;
+        }
+        //true neu danh sach cach sach muon dat yeu cau
+        public bool checkSachMuon(PHIEU phieu)
+        {
+            foreach(String isbn in phieu.SachMuon)
+            {
+                SACH sach = getSachISBN(isbn);
+                if (sach == null || sach.SoQuyen < 1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        //true neu them phieu thanh cong
+        public bool ThemPhieu(PHIEU phieu)
+        {
+            this._listPhieu.Add(phieu);
+            //cap nhat so luong sach trong thu vien
+            foreach(String isbn in phieu.SachMuon)
+            {
+                SACH sach = getSachISBN(isbn);
+                sach.SoQuyen = sach.SoQuyen - 1;
+                if (!sach.write())
+                {
+                    return false;
+                }
+            }
+            return phieu.write();
+        }
+        //true neu cap nhat phieu thanh cong
+        public bool CapNhatPhieu(PHIEU phieu)
+        {
+            Console.WriteLine("Xac nhan so luong sach tra");
+            try
+            {
+                ArrayList listMuon = new ArrayList(phieu.SachMuon);
+                foreach (String isbn in listMuon)
+                {
+                    SACH sach = getSachISBN(isbn);               
+                    Console.WriteLine("Nhap 1 neu co tra sach nay, 0 neu sach bi mat");
+                    sach.printShortDesc();
+                    int select = int.Parse(Console.ReadLine());
+                    if (select == 1)
+                    {
+                        phieu.SachMuon.Remove(sach.ISBN);
+                    }
+                }
+                return phieu.write();
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+        //Tim kiem phieu theo MaPhieu
+        public PHIEU getPhieuMa(String MaPhieu)
+        {
+            if (this._listPhieu.Count > 0)
+            {
+                foreach (PHIEU phieu in this._listPhieu)
+                {
+                    if (phieu.MaPhieu.ToUpper().Equals(MaPhieu.ToUpper()))
+                    {
+                        return phieu;
+                    }
+                }
+            }
+            return null;
+        }
+        //Tim kiem phieu theo MaDocGia
+        public ArrayList getPhieuDocGia(String MaDocGia)
+        {
+            ArrayList result = new ArrayList();
+            if (this._listPhieu.Count > 0)
+            {
+                foreach (PHIEU phieu in this._listPhieu)
+                {
+                    if (phieu.MaDocGia.ToUpper().Equals(MaDocGia.ToUpper()))
+                    {
+                        result.Add(phieu);
+                    }
+                }
+            }
             return result;
         }
+        //In Thong Tin Phieu Doc Gia
+        public void printPhieuMuonSach(PHIEU phieu)
+        {
+            Console.WriteLine("Ma Phieu: " + phieu.MaPhieu);
+            DOC_GIA docgia = getDocGiaMa(phieu.MaDocGia);
+            docgia.printShortDesc();
+            Console.WriteLine("Ngay Muon: " + UTIL.formatStringToDate(phieu.NgayMuon).ToShortDateString());
+            Console.WriteLine("Ngay Tra Du Kien: " + UTIL.formatStringToDate(phieu.NgayTraDuKien).ToShortDateString());
+            Console.WriteLine("Cac sach da muon: ");
+            foreach (String isbn in phieu.SachMuon)
+            {
+                SACH sach = getSachISBN(isbn);
+                sach.printShortDesc();
+            }
+        }
+        //listSach : list sach da muon
+        //phieu.SachMuon: list sach bi mat
+        public void printPhieuTraSach(PHIEU phieu, ArrayList listSach)
+        {
+            int ngaytrehan = phieu.calculateSoNgayTreHan();
+            int sachmat = phieu.SachMuon.Count;
+            double tientrehan = 0;
+            double tienmat = 0;
+            double tong = 0;
+            if (ngaytrehan > 0)
+            {
+                int sosachtrehan = 0;
+                Console.WriteLine("So ngay tre han: " + phieu.calculateSoNgayTreHan());
+                foreach(String isbn in listSach)
+                {
+                    if (!phieu.SachMuon.Contains(isbn))
+                    {
+                        sosachtrehan++;
+                    }
+                }
+                if (sosachtrehan > 0)
+                {
+                    Console.WriteLine("So sach tre han: " + sosachtrehan);
+                    tientrehan = sosachtrehan * ngaytrehan * 5000;
+                    Console.WriteLine("So tien tre han: " + tientrehan);
+                }
+                
+            }
+            if (sachmat > 0)
+            {
+                Console.WriteLine("So sach mat: " + sachmat);
+                foreach (String isbn in phieu.SachMuon)
+                {
+                    SACH sach = getSachISBN(isbn);
+                    tienmat += sach.Gia * 2;
+                }
+            }
+            tong = tientrehan + tienmat;
+            Console.WriteLine("Tong tien thanh toan: " + tong);
+        }
+        public ArrayList getListPhieuNotFinish()
+        {
+            ArrayList result = new ArrayList();
+            foreach(PHIEU phieu in this._listPhieu)
+            {
+                if (phieu.NgayTraThucTe == null || phieu.NgayTraThucTe == "")
+                {
+                    result.Add(phieu);
+                }
+            }
+            return result;
+        }
+
+        public int thongKeSach()
+        {
+            int result = 0;
+            foreach(SACH sach in this._listSach)
+            {
+                result += sach.SoQuyen;
+            }
+            return result;
+        }
+        public ArrayList thongKeSachTheoTheLoai()
+        {
+            ArrayList result = new ArrayList();
+            ArrayList TheLoai = new ArrayList();
+            ArrayList SLTheLoai = new ArrayList();
+            try
+            {
+                foreach (SACH sach in this._listSach)
+                {
+                    if (!TheLoai.Contains(sach.TheLoai))
+                    {
+                        TheLoai.Add(sach.TheLoai);
+                        SLTheLoai.Add(sach.SoQuyen);
+                    }
+                    else
+                    {
+                        int i = TheLoai.IndexOf(sach.TheLoai);
+                        SLTheLoai[i] = (int.Parse(SLTheLoai[i].ToString()) + sach.SoQuyen);
+                    }
+                }
+                result.Add(TheLoai);
+                result.Add(SLTheLoai);
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }            
+            return result;
+        }
+        public int thongKeDocGia()
+        {
+            int result = 0;
+            result = this._listDocGia.Count;
+            return result;
+        }
+        public ArrayList thongKeDocGiaTheoGioiTinh()
+        {
+            ArrayList result = new ArrayList();
+            result[0] = 0;//Nam
+            result[1] = 0;//Nu
+            try
+            {
+                foreach (DOC_GIA docgia in this._listDocGia)
+                {
+                    if (docgia.GioiTinh.ToUpper().Equals("NAM"))
+                    {
+                        result[0] = (int)result[0] + 1;
+                    }
+                    else if (docgia.GioiTinh.ToUpper().Equals("NU"))
+                    {
+                        result[1] = (int)result[1] + 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return result;
+        }
+        public int thongKeSachDangMuon()
+        {
+            ArrayList listPhieu = getListPhieuNotFinish();
+            int tongsach = 0;
+            foreach (PHIEU phieu in listPhieu)
+            {
+                tongsach += phieu.SachMuon.Count;
+            }
+            return tongsach;
+        }
+        public ArrayList thongkeDocGiaTreHan()
+        {
+            ArrayList listPhieu = getListPhieuNotFinish();
+            ArrayList result = new ArrayList();
+            if (listPhieu.Count > 0)
+            {
+                foreach (PHIEU phieu in listPhieu)
+                {
+
+                    if (UTIL.formatStringToDate(phieu.NgayTraDuKien) < DateTime.Today)
+                    {
+                        result.Add(phieu.MaDocGia);
+                    }
+                }
+            }
+            return result;            
+        }
+        
+
     }
 }

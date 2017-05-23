@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Globalization;
 using System.Collections.Generic;
@@ -145,32 +146,39 @@ namespace DoAn
             Console.WriteLine("Them doc gia");
             try
             {
-                Console.WriteLine("Nhap MaDocGia");
-                String MaDocGia = Console.ReadLine();
-                if (!ThuVien.isDocGiaExist(MaDocGia)) //Doc Gia not exist
+                Console.WriteLine("Nhap CMND");
+                String CMND = Console.ReadLine();
+                if (!ThuVien.isDocGiaExist(CMND)) //Doc Gia not exist
                 {
-                    DOC_GIA docgia = new DOC_GIA(MaDocGia);
-                    if (docgia.input())
+                    Console.WriteLine("Nhap MaDocGia");
+                    String MaDocGia = Console.ReadLine();
+                    if (!ThuVien.isMaDocGiaExist(MaDocGia))
                     {
-                        if (ThuVien.ThemDocGia(docgia))
+                        DOC_GIA docgia = new DOC_GIA(MaDocGia);
+                        if (docgia.input())
                         {
-                            Console.WriteLine("Them doc gia thanh cong !");
+                            if (ThuVien.ThemDocGia(docgia))
+                            {
+                                Console.WriteLine("Them doc gia thanh cong !");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Them doc gia khong thanh cong !");
+                            }
                         }
                         else
                         {
-                            Console.WriteLine("Them doc gia khong thanh cong !");
+                            Console.WriteLine("Nhap thong tin doc gia khong thanh cong !");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Nhap thong tin doc gia khong thanh cong !");
+                        Console.WriteLine("Ma doc gia khong hop le !");
                     }
-
-
                 }
                 else
                 {
-                    Console.WriteLine("Ma doc gia khong hop le hoac doc gia da co trong thu vien !");
+                    Console.WriteLine("Doc gia da co trong thu vien !");
                 }
             }
             catch (Exception ex)
@@ -466,6 +474,55 @@ namespace DoAn
             Console.WriteLine("Lap phieu muon sach");
             try
             {
+                DOC_GIA docgia = ThuVien.getDocGia();
+                if (docgia != null)
+                {
+                    if (!ThuVien.havePhieuNotFinish(docgia.MaDocGia))
+                    {
+                        Console.WriteLine("Nhap Ma Phieu");
+                        String MaPhieu = Console.ReadLine();
+                        if (!ThuVien.isPhieuExist(MaPhieu))
+                        {
+                            PHIEU phieu = new PHIEU(MaPhieu, docgia.MaDocGia);
+                            if (phieu.input())
+                            {
+                                //kiem tra sach muon
+                                if (ThuVien.checkSachMuon(phieu))
+                                {
+                                    if (ThuVien.ThemPhieu(phieu))
+                                    {
+                                        Console.WriteLine("Lap phieu muon thanh cong !");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Lap phieu muon khong thanh cong !");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Kiem tra sach muon that bai - kiem tra lai isbn hoac so luong !");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Nhap danh sach cac sach muon that bai !");
+                            }
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Ma Phieu khong hop le !");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Phieu muon sach cu chua hoan tat");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia !");
+                }
             }
             catch (Exception ex)
             {
@@ -479,6 +536,37 @@ namespace DoAn
             Console.WriteLine("Lap phieu tra sach");
             try
             {
+                Console.WriteLine("Nhap ma phieu");
+                String MaPhieu = Console.ReadLine();
+                if (ThuVien.isPhieuExist(MaPhieu))
+                {
+                    PHIEU phieu = ThuVien.getPhieuMa(MaPhieu);
+                    if (phieu.NgayTraThucTe == null || phieu.NgayTraThucTe == "")
+                    {
+                        Console.WriteLine("Thong tin phieu muon!");
+                        ThuVien.printPhieuMuonSach(phieu);
+                        phieu.setNgayTraThucTe();
+                        ArrayList listSachMuon = new ArrayList(phieu.SachMuon);
+                        if (ThuVien.CapNhatPhieu(phieu))
+                        {
+                            Console.WriteLine("Thong tin phieu tra !");
+                            ThuVien.printPhieuTraSach(phieu,listSachMuon);
+                            Console.WriteLine("Hoan tat tra sach");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tra sach that bai");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Phieu muon sach da ket thuc !");
+                    }
+                }                
+                else
+                {
+                    Console.WriteLine("Phieu muon sach khong ton tai");
+                }
             }
             catch (Exception ex)
             {
@@ -492,6 +580,7 @@ namespace DoAn
             Console.WriteLine("Thong ke so luong sach trong thu vien");
             try
             {
+                Console.WriteLine("Tong so luong sach: " + ThuVien.thongKeSach());
             }
             catch (Exception ex)
             {
@@ -505,6 +594,13 @@ namespace DoAn
             Console.WriteLine("Thong ke so luong sach theo the loai");
             try
             {
+                ArrayList result = ThuVien.thongKeSachTheoTheLoai();
+                ArrayList TheLoai = (ArrayList) result[0];
+                ArrayList SLTheLoai = (ArrayList)result[1];
+                for (int i = 0; i < TheLoai.Count; i++)
+                {
+                    Console.WriteLine(TheLoai[i] + ": " + SLTheLoai[i]);
+                }
             }
             catch (Exception ex)
             {
@@ -516,14 +612,7 @@ namespace DoAn
         static void request_17(THU_VIEN ThuVien)
         {
             Console.WriteLine("Thong ke so luong doc gia");
-            try
-            {
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
+            Console.WriteLine("Tong so luong doc gia: " + ThuVien.thongKeDocGia());            
             anotherRequest(ThuVien);
         }
         static void request_18(THU_VIEN ThuVien)
@@ -531,6 +620,9 @@ namespace DoAn
             Console.WriteLine("Thong ke so luong doc gia theo gioi tinh");
             try
             {
+                ArrayList result = ThuVien.thongKeDocGiaTheoGioiTinh();
+                Console.WriteLine("Tong so doc gia Nam: " + result[0]);
+                Console.WriteLine("Tong so doc gia Nu: " + result[1]);
             }
             catch (Exception ex)
             {
@@ -541,15 +633,8 @@ namespace DoAn
         }
         static void request_19(THU_VIEN ThuVien)
         {
-            Console.WriteLine("Thong ke so sach dang duoc muon");
-            try
-            {
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
+            Console.WriteLine("Thong ke so sach dang duoc muon");                  
+            Console.WriteLine("Tong so sach dang duoc muon: " + ThuVien.thongKeSachDangMuon());            
             anotherRequest(ThuVien);
         }
         static void request_20(THU_VIEN ThuVien)
@@ -557,6 +642,16 @@ namespace DoAn
             Console.WriteLine("Thong ke danh sach doc gia bi tre han");
             try
             {
+                ArrayList result = ThuVien.thongkeDocGiaTreHan();
+                Console.WriteLine("Co " + result.Count + " doc gia tre han");
+                if (result.Count > 0)
+                {                    
+                    foreach(String MaDocGia in result)
+                    {
+                        DOC_GIA docgia = ThuVien.getDocGiaMa(MaDocGia);
+                        docgia.printShortDesc();
+                    }
+                }
             }
             catch (Exception ex)
             {
