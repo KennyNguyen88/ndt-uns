@@ -228,7 +228,136 @@ namespace DoAn
                 Console.WriteLine("Khong co doc gia nao trong thu vien");
             }
         }
+        //true neu doc gia co trong thu vien
+        public bool isDocGiaExist(String MaDocGia)
+        {
+            if(this.getDocGiaMa(MaDocGia) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        //true neu them docgia thanh cong
+        public bool ThemDocGia(DOC_GIA docgia)
+        {
+            this._listDocGia.Add(docgia);
+            return docgia.write();
+        }
+        //true neu cap nhat doc gia thanh cong
+        public bool CapNhatDocGia(DOC_GIA docgia)
+        {
+            return docgia.write();
+        }
+        //true neu xoa doc gia thanh cong
+        public bool XoaDocGia(DOC_GIA docgia)
+        {
+            this._listDocGia.Remove(docgia);
+            return docgia.delete();
+        }
+        //Tim kiem doc gia theo MaDocGIa
+        public DOC_GIA getDocGiaMa(String MaDocGia)
+        {
+            if (this._listDocGia.Count > 0)
+            {
+                foreach(DOC_GIA docgia in this._listDocGia)
+                {
+                    if (docgia.MaDocGia.ToUpper().Equals(MaDocGia.ToUpper()))
+                    {
+                        return docgia;
+                    }
+                }
+            }
+            return null;
+        }
+        //Tim kiem doc gia theo CMND
+        public DOC_GIA getDocGiaCMND(String CMND)
+        {
+            if (this._listDocGia.Count > 0)
+            {
+                foreach (DOC_GIA docgia in this._listDocGia)
+                {
+                    if (docgia.CMND.ToUpper().Equals(CMND.ToUpper()))
+                    {
+                        return docgia;
+                    }
+                }
+            }
+            return null;
+        }
+        //Tim kiem doc gia theo ten
+        public ArrayList getDocGiaTen(String TenDocGia)
+        {
+            ArrayList result = new ArrayList();
+            if (this._listDocGia.Count > 0)
+            {
+                foreach (DOC_GIA docgia in this._listDocGia)
+                {
+                    if (docgia.HoTen.ToUpper().Equals(TenDocGia.ToUpper()))
+                    {
+                        result.Add(docgia);
+                    }
+                }
+            }
+            return result;
+        }
+        //Tim kiem doc gia
+        public DOC_GIA getDocGia()
+        {
+            Console.WriteLine("Chon phuong thuc tim kiem doc gia: ");
+            Console.WriteLine("1 - Tim kiem doc gia theo CMND");
+            Console.WriteLine("2 - Tim kiem doc gia theo Ho Ten");
+            try
+            {
+                int method = int.Parse(Console.ReadLine());
+                if (method == 1)
+                {
+                    Console.WriteLine("Nhap CMND");
+                    String CMND = Console.ReadLine();
+                    return this.getDocGiaCMND(CMND);
+                }
+                else if (method == 2)
+                {
+                    Console.WriteLine("Nhap Ho Ten");
+                    String HoTen = Console.ReadLine();
+                    ArrayList listDocGia = this.getDocGiaTen(HoTen);
 
+                    if (listDocGia != null && listDocGia.Count > 1)
+                    {
+                        Console.WriteLine("Co nhieu doc gia trung ten. Vui long nhap so thu tu doc gia can tim");
+                        int step = 0;
+                        foreach (DOC_GIA docgia in listDocGia)
+                        {
+                            Console.WriteLine(step);
+                            docgia.printShortDesc();
+                            step++;
+                        }
+                        int find = int.Parse(Console.ReadLine());
+                        if (find < 0 || find > listDocGia.Count - 1)
+                        {
+                            Console.WriteLine("Du lieu chon khong chinh xac !");
+                        }
+                        else
+                        {
+                            return (DOC_GIA)listDocGia[find];
+                        }
+                    }
+                    else if (listDocGia != null & listDocGia.Count == 1)
+                    {
+                        return (DOC_GIA)listDocGia[0];
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Vui long nhap 1 hoac 2");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Vui long nhap 1 hoac 2");
+
+            }
+            return null;
+        }
 
         //Tat ca phieu muon/tra sach
         public ArrayList getListPhieu()

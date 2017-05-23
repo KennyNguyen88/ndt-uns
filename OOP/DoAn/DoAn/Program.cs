@@ -145,6 +145,33 @@ namespace DoAn
             Console.WriteLine("Them doc gia");
             try
             {
+                Console.WriteLine("Nhap MaDocGia");
+                String MaDocGia = Console.ReadLine();
+                if (!ThuVien.isDocGiaExist(MaDocGia)) //Doc Gia not exist
+                {
+                    DOC_GIA docgia = new DOC_GIA(MaDocGia);
+                    if (docgia.input())
+                    {
+                        if (ThuVien.ThemDocGia(docgia))
+                        {
+                            Console.WriteLine("Them doc gia thanh cong !");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Them doc gia khong thanh cong !");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nhap thong tin doc gia khong thanh cong !");
+                    }
+
+
+                }
+                else
+                {
+                    Console.WriteLine("Ma doc gia khong hop le hoac doc gia da co trong thu vien !");
+                }
             }
             catch (Exception ex)
             {
@@ -158,6 +185,29 @@ namespace DoAn
             Console.WriteLine("Chinh sua thong tin doc gia");
             try
             {
+                DOC_GIA docgia = ThuVien.getDocGia();
+                if (docgia != null)
+                {
+                    if (docgia.modify())
+                    {
+                        if (ThuVien.CapNhatDocGia(docgia))
+                        {
+                            Console.WriteLine("Thong tin moi duoc cap nhat thanh cong !");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Thong tin moi cap nhat khong thanh cong !");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Chinh sua thong tin doc gia khong thanh cong !");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia phu hop !");
+                }
             }
             catch (Exception ex)
             {
@@ -171,6 +221,18 @@ namespace DoAn
             Console.WriteLine("Xoa thong tin doc gia");
             try
             {
+                DOC_GIA docgia = ThuVien.getDocGia();
+                if (docgia != null)
+                {
+                    if (ThuVien.XoaDocGia(docgia))
+                    {
+                        Console.WriteLine("Xoa thong tin doc gia thanh cong !");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Xoa thong tin doc gia khong thanh cong !");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -184,6 +246,17 @@ namespace DoAn
             Console.WriteLine("Tim kiem doc gia theo CMND");
             try
             {
+                Console.WriteLine("Nhap CMND");
+                String CMND = Console.ReadLine();
+                DOC_GIA docgia = ThuVien.getDocGiaCMND(CMND);
+                if (docgia != null)
+                {
+                    docgia.printLongDesc();
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia phu hop !");
+                }
             }
             catch (Exception ex)
             {
@@ -197,6 +270,21 @@ namespace DoAn
             Console.WriteLine("Tim kiem doc gia theo ho ten");
             try
             {
+                Console.WriteLine("Nhap Ho Ten");
+                String HoTen = Console.ReadLine();
+                ArrayList listDocGia = ThuVien.getDocGiaTen(HoTen);
+                if (listDocGia != null && listDocGia.Count > 0)
+                {
+                    Console.WriteLine("Co " + listDocGia.Count + " doc gia thoa dieu kien");
+                    foreach (DOC_GIA docgia in listDocGia)
+                    {
+                        docgia.printLongDesc();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Khong tim thay doc gia phu hop !");
+                }
             }
             catch (Exception ex)
             {
