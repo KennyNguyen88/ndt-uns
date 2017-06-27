@@ -10,15 +10,15 @@
 namespace KiemTra01_1581270 {
     
     
-    public partial class _default {
+    public partial class all_product {
         
         /// <summary>
-        /// WUC_Slider control.
+        /// WUC_Sidebar_Category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::KiemTra01_1581270.WUC.WUC_Slider WUC_Slider;
+        protected global::KiemTra01_1581270.WUC.WUC_Sidebar_Category WUC_Sidebar_Category;
     }
 }
