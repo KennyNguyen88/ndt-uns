@@ -1,0 +1,50 @@
+extends template
+include mixins/mixin
+block btitle
+    title Log in | LTW - Lab03
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                    'index.html':'Home',
+                    '#':'Login'
+                    }
+                +breadcrumb(list)
+        .row
+            .col-xs-12.col-sm-8
+                h1 NOT A MEMBER
+                p Register a new one for better shopping
+                .form-horizontal
+                    .form-group
+                        label.col-sm-4.control-label(for="inputEmail") Email Address
+                        .col-sm-8
+                            input#inputEmail.form-control(type="email" placeholder="example@example.com")
+                    .form-group
+                        label.col-sm-4.control-label(for="inputUsername") Username
+                        .col-sm-8
+                            input#inputUsername.form-control(type="text" placeholder="At least 6 characters")
+                    .form-group
+                        label.col-sm-4.control-label(for="inputPassword") Password
+                        .col-sm-8
+                            input#inputPassword.form-control(type="password" placeholder="password")
+                    .form-group
+                        label.col-sm-4.control-label(for="inputCPassword") Confirm Password
+                        .col-sm-8
+                            input#inputCPassword.form-control(type="password" placeholder="password")
+                    .form-group
+                        .col-sm-8.col-sm-offset-4.text-center
+                            a.btn.btn-primary(href="#") Register
+
+            .col-xs-12.col-sm-4
+                h3 ALREADY A MEMBER
+                .form-horizontal
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="text" placeholder="Username")
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="password" placeholder="password")
+                p.text-right #[a(href="#") Forgotten Password ?]
+                p.text-center #[a.btn.btn-primary(href="#") Login]

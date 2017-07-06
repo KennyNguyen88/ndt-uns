@@ -1,0 +1,92 @@
+extends template
+include mixins/mixin
+block btitle
+    title Product Detail | LTW - Lab03
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                        'index.html':'Home',
+                        'categories.html':'Products',
+                        '#':'Product 01'
+                    }
+                +breadcrumb(list)
+        .row
+            .col-lg-9
+                .row
+                    .col-sm-6
+                        .row
+                            .col-xs-12
+                                img.img-responsive(src="../images/product-gallery/large-image.jpg")
+                        .row
+                            .col-xs-3
+                                a(href="#") #[img(src="../images/product-gallery/thumb_1.jpg")]
+                            .col-xs-3
+                                a(href="#") #[img.img-responsive(src="../images/product-gallery/thumb_2.jpg")]
+                            .col-xs-3
+                                a(href="#") #[img.img-responsive(src="../images/product-gallery/thumb_3.jpg")]
+                            .col-xs-3
+                                a(href="#") #[img.img-responsive(src="../images/product-gallery/thumb_4.jpg")]
+                    .col-sm-6
+                        h6 Product 01
+                        h6 $100
+                        p Available In Stock
+                        form.form-horizontal
+                            .form-group
+                                label.col-xs-2.control-label(for="inputSize") Size
+                                .col-xs-10
+                                    select#inputSize.form-control
+                                        option 10
+                                        option 20
+                                        option 30
+                            .form-group
+                                label.col-xs-2.control-label(for="inputQuantity") Quantity
+                                .col-xs-10
+                                    select#inputQuantity.form-control
+                                        option 1
+                                        option 2
+                                        option 3
+                            .form-group
+                                .col-xs-offset-2.col-xs-10
+                                    a.btn.btn-primary ADD TO CART
+                            .form-group
+                                label.radio-inline
+                                    input(type="radio" name="ratingRadio" value="1")
+                                    img(src="../images/star.png")
+                                label.radio-inline
+                                    input(type="radio" name="ratingRadio" value="2")
+                                    img(src="../images/star.png")
+                                label.radio-inline
+                                    input(type="radio" name="ratingRadio" value="3")
+                                    img(src="../images/star.png")
+                                label.radio-inline
+                                    input(type="radio" name="ratingRadio" value="4")
+                                    img(src="../images/star.png")
+                                label.radio-inline
+                                    input(type="radio" name="ratingRadio" value="5")
+                                    img(src="../images/star.png")
+            .col-lg-3
+                include partials/sidebar
+        .row
+            .col-xs-12
+                ul.nav.nav-tabs
+                    li.active
+                        a(href="#ShortDescription" aria-controls="home" role="tab" data-toggle="tab") Short Description
+                    li
+                        a(href="#Detail" aria-controls="home" role="tab" data-toggle="tab") Detail
+                .tab-content
+                    #ShortDescription.tab-pane.fade.in.active Short Description Content
+                    #Detail.tab-pane.fade Detail Content
+        .product-list
+            h2 Related
+            .row
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")

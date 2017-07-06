@@ -1,0 +1,46 @@
+extends template
+include mixins/mixin
+block btitle
+    title Check Out | LTW - Lab03
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                    'index.html':'Home',
+                    'cart.html':'Shopping Cart',
+                    '#':'Check Out'
+                    }
+                +breadcrumb(list)
+        .row
+            h1 CHECK OUT
+            .col-xs-12.col-sm-6
+                h3 Contact Detail
+                .form-horizontal
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="text" placeholder="First Name")
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="text" placeholder="Last Name")
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="email" placeholder="Email")
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="text" placeholder="Phone")
+            .col-xs-12.col-sm-6
+                h3 Delivery Address
+                .form-horizontal
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="text" placeholder="Address")
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="text" placeholder="District")
+                    .form-group
+                        .col-sm-12
+                            input.form-control(type="text" placeholder="City")
+        .row.text-center
+            a.btn.btn-primary OK

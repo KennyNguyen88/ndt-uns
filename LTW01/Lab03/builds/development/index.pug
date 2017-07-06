@@ -1,0 +1,38 @@
+extends template
+include mixins/mixin
+block btitle
+    title Home | LTW - Lab03
+block content
+    .container
+        .row.visible-xs
+            .col-xs-8
+                input.form-control(type="text" placeholder="Search")
+            .col-xs-4.text-right
+                button.btn.btn-default(type="submit") Submit
+
+        include partials/slider
+        .product-list
+            h2 Featured
+            .row
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+        .product-list
+            h2 Latest
+            .row
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+
+
+

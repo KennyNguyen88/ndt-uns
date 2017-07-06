@@ -1,0 +1,25 @@
+extends template
+include mixins/mixin
+block btitle
+    title About | Product Detail | LTW - Lab03
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                    'index.html':'Home',
+                    '#':'About us'
+                    }
+                +breadcrumb(list)
+        .row
+            .col-lg-9
+                h1 ABOUT US
+                .row
+                    .col-xs-12.text-center
+                        img.img-responsive(src="../images/blog/post-image-3.jpg")
+                    .col-xs-12
+                        p This website is a project for class LTW01 - 2017
+                        p Lecturer: Ms.Tran Thi Bich Hanh
+            .col-lg-3
+                include partials/sidebar

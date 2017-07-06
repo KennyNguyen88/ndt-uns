@@ -1,0 +1,99 @@
+extends admin_template
+include mixins/mixin
+block btitle
+    title Admin Products | LTW - Lab03
+block content
+    .row
+        .col-xs-12
+            h1 Add New Category
+    .row
+        .col-xs-6
+            .row
+                .form-horizontal
+                    .form-group
+                        label.col-xs-4.control-label(for="inputName") Name
+                        .col-xs-8
+                            input#inputName.form-control(type="text" placeholder="Nguyen Duc Trung")
+                    .form-group
+                        label.col-xs-4.control-label(for="comboParent") Parent Category
+                        .col-xs-8
+                            select#comboParent.form-control
+                                option Category 1
+                                option Category 2
+                                option Category 3
+                    .form-group
+                        label.col-xs-4.control-label(for="inputQuantity") Quantities
+                        .col-xs-8
+                            input#inputQuantity.form-control(type="text" value="1")
+        .col-xs-6
+            .row
+                .form-horizontal
+                    .form-group
+                        label.col-xs-4.control-label(for="inputName") Image
+                        .col-xs-8
+                            label.btn.btn-default.btn-file Browse #[input(type="file" style="display: none;")]
+
+
+                    .form-group
+                        label.col-xs-4.control-label(for="inputModel") Model
+                        .col-xs-8
+                            input#inputModel.form-control(type="text")
+                    .form-group
+                        label.col-xs-4.control-label(for="inputPrice") Price
+                        .col-xs-8
+                            input#inputPrice.form-control(type="text" value="100")
+    .row
+        .col-xs-6
+            h1 Products
+        .col-xs-6.text-right
+            .form-inline
+                .form-group
+                    input.form-control(type="text" placeholder="Search key...")
+                .form-group
+                    a.btn.btn-primary(href="#") Search
+    .row
+        .col-xs-12
+            table.table.table-responsive.table-bordered.table-hover
+                thead
+                    th #[input(type="checkbox" value="")]
+                    th Item No
+                    th Name
+                    th Category
+                    th Model
+                    th Quantities
+                    th Price
+                    th Statuc
+                    th Action
+                tbody
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td Name 001
+                        td Cate 01
+                        td ASDA
+                        td 100
+                        td $100
+                        td In Stock
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td Name 001
+                        td Cate 01
+                        td ASDA
+                        td 100
+                        td $100
+                        td In Stock
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td Name 001
+                        td Cate 01
+                        td ASDA
+                        td 100
+                        td $100
+                        td In Stock
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+        .col-xs-12.text-center
+            +pagination(3)

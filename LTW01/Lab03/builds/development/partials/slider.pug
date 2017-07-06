@@ -1,0 +1,20 @@
+#carousel.carousel.slide(data-ride="carousel")
+    //Indicators
+    ol.carousel-indicators
+        li.active(data-target="#carousel" data-slide-to="0")
+        li(data-target="#carousel" data-slide-to="1")
+        li(data-target="#carousel" data-slide-to="2")
+    //Wrapper for slides
+    .carousel-inner
+        .item.active
+            img(src="../images/slider/slide1.jpg")
+            .carousel-caption
+                h1 slide1
+        .item
+            img(src="../images/slider/slide2.jpg")
+            .carousel-caption
+                h1 slide2
+        .item
+            img(src="../images/slider/slide3.jpg")
+            .carousel-caption
+                h1 slide3

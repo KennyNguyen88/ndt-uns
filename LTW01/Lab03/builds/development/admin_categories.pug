@@ -1,0 +1,66 @@
+extends admin_template
+include mixins/mixin
+block btitle
+    title Admin Categories | LTW - Lab03
+block content
+    .row
+        .col-xs-12
+            h1 Add New Category
+    .row
+        .col-xs-7
+            .row
+                .form-horizontal
+                    .form-group
+                        label.col-xs-4.control-label(for="inputName") Name
+                        .col-xs-8
+                            input#inputName.form-control(type="text" placeholder="Nguyen Duc Trung")
+                    .form-group
+                        label.col-xs-4.control-label(for="comboParent") Parent Category
+                        .col-xs-8
+                            select#comboParent.form-control
+                                option Category 1
+                                option Category 2
+                                option Category 3
+    .row
+        .col-xs-6
+            h1 Categories
+        .col-xs-6.text-right
+            .form-inline
+                .form-group
+                    input.form-control(type="text" placeholder="Search key...")
+                .form-group
+                    a.btn.btn-primary(href="#") Search
+    .row
+        .col-xs-12
+            table.table.table-responsive.table-bordered.table-hover
+                thead
+                    th #[input(type="checkbox" value="")]
+                    th Cat ID
+                    th Cat Name
+                    th Parent Cat
+                    th Status
+                    th Action
+                tbody
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td Name 001
+                        td
+                        td Active
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td Name 002
+                        td Name 001
+                        td Active
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td Name 003
+                        td Name 001
+                        td Active
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+        .col-xs-12.text-center
+            +pagination(3)

@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        block btitle
+            title PTUDW - Lab03
+        meta(http-equiv="X-UA-Compatibale" content="IE-Edge")
+        meta(name="viewport" content="width-device-width, initial-scale=1")
+        link(rel="shortcut icon" href="http://web.hcmus.edu.vn/images/uns.ico")
+        block styles
+            link(rel="stylesheet" href="../css/font-awesome.min.css")
+            link(rel="stylesheet" href="../css/styles.css")
+    body
+        include regions/admin/header
+        .container-fluid
+            .row
+                .col-sm-3
+                    include regions/admin/sidebar
+                .col-sm-9
+                    block content
+        include regions/admin/footer
+        block scripts
+            script(src="../js/lib/jquery.min.js")
+            script(src="../js/lib/bootstrap.js")
+            script(src="../js/script.js")

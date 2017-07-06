@@ -1,0 +1,70 @@
+extends template
+include mixins/mixin
+block btitle
+    title Profile | Product Detail | LTW - Lab03
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                    'index.html':'Home',
+                    '#Account':'Account',
+                    '#':'Profile'
+                    }
+                +breadcrumb(list)
+        .row
+            .col-lg-9
+                h1 PROFILE
+                .row
+                    h3 Update New Password
+                    .col-xs-12
+                        .panel.panel-default
+                            .panel-body
+                                form.form-horizontal
+                                    .form-group
+                                        label.col-xs-2.control-label(for="inputUsername") Username
+                                        .col-xs-10
+                                            input#inputUsername.form-control(type="text" value="Username 01" disabled)
+                                    .form-group
+                                        label.col-xs-2.control-label(for="inputEmail") Email Address
+                                        .col-xs-10
+                                            input#inputEmail.form-control(type="email" value="ndt@fit.hsmus.edu.vn" disabled)
+                                    .form-group
+                                        label.col-xs-2.control-label(for="inputOldPassword") Old Password
+                                        .col-xs-10
+                                            input#inputOldPassword.form-control(type="password")
+                                    .form-group
+                                        label.col-xs-2.control-label(for="inputNewPassword") New Password
+                                        .col-xs-10
+                                            input#inputNewPassword.form-control(type="password")
+                                    .form-group
+                                        label.col-xs-2.control-label(for="inputConfirmPassword") Confirm Password
+                                        .col-xs-10
+                                            input#inputConfirmPassword.form-control(type="password")
+                                    .form-group
+                                        .col-xs-offset-2.col-xs-10.text-center
+                                            a.btn.btn-primary Update
+                .row
+                    h3 Address
+                    .col-xs-12
+                        .panel.panel-default
+                            .panel-body
+                                form.form-horizontal
+                                    .form-group
+                                        label.col-xs-2.control-label(for="inputAddress") Address
+                                        .col-xs-10
+                                            input#inputAddress.form-control(type="text" value="227 Nguyen Van Cu")
+                                    .form-group
+                                        label.col-xs-2.control-label(for="inputDistrict") District
+                                        .col-xs-10
+                                            input#inputDistrict.form-control(type="text" value="5")
+                                    .form-group
+                                        label.col-xs-2.control-label(for="inputCity") City
+                                        .col-xs-10
+                                            input#inputCity.form-control(type="text" value="Ho Chi Minh")
+                                    .form-group
+                                        .col-xs-offset-2.col-xs-10.text-center
+                                            a.btn.btn-primary Update
+            .col-lg-3
+                include partials/sidebar
