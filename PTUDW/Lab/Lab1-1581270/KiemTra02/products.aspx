@@ -60,20 +60,26 @@
 				<div class="products-right-grid">
 					<div class="products-right-grids">
 						<div class="sorting">
-							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Default sorting</option>
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by popularity</option> 
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by average rating</option>					
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by price</option>								
-							</select>
+                            <asp:DropDownList ID="country" 
+                                runat="server"
+                                CssClass="frm-field required sect"
+                                ClientIDMode="Static"
+                                AutoPostBack="true"
+                                OnSelectedIndexChanged="country_SelectedIndexChanged">
+                                <asp:ListItem Value="Price" Text="Sort by Price"></asp:ListItem>
+                                <asp:ListItem Value="AverageRating" Text="Sort by Rating"></asp:ListItem>
+                            </asp:DropDownList>							
 						</div>
 						<div class="sorting-left">
-							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 9</option>
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 18</option> 
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 32</option>					
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>All</option>								
-							</select>
+							<asp:DropDownList ID="country1" 
+                                runat="server"
+                                CssClass="frm-field required sect"
+                                ClientIDMode="Static"
+                                AutoPostBack="true"
+                                OnSelectedIndexChanged="country1_SelectedIndexChanged">
+                                <asp:ListItem Value="9" Text="Item on Page 9"></asp:ListItem>
+                                <asp:ListItem Value="18" Text="Item on Page 18"></asp:ListItem>
+                            </asp:DropDownList>
 						</div>
 						<div class="clearfix"> </div>
 					</div>
@@ -82,13 +88,19 @@
                     ID="SqlDataSourceProducts" 
                     runat="server" 
                     ConnectionString="<%$ ConnectionStrings:PTUDWConnectionString %>" 
-                    SelectCommand="SELECT * FROM [Product] P, [Category] C WHERE (P.CategoryId = C.Id) AND ((P.CategoryId = @CategoryId) OR (C.ParentId = @CategoryId))">
+                    SelectCommand="
+                    SELECT * 
+                    FROM [Product] P, [Category] C 
+                    WHERE (P.CategoryId = C.Id) 
+                    AND (P.Name like '%' + @keyword + '%')
+                    AND (((@CategoryId > 0) AND (P.CategoryId = @CategoryId) OR (C.ParentId = @CategoryId)) OR (@CategoryId = 0))">
                     <SelectParameters>
                         <asp:QueryStringParameter DefaultValue="0" Name="CategoryId" QueryStringField="id" Type="Int32" />
+                        <asp:QueryStringParameter DefaultValue="%" Name="keyword" QueryStringField="keyword" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
                 <asp:ListView 
-                    ID="ListView1" 
+                    ID="ListViewProducts" 
                     runat="server"
                     GroupPlaceholderID="groupPlaceHolder"
                     GroupItemCount="3"
@@ -110,18 +122,18 @@
 												<h4>$<%# Eval("Price") %><span>$<%# Eval("OldPrice") %></span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">												
-													<fieldset>
-														<input type="hidden" name="cmd" value="_cart">
-														<input type="hidden" name="add" value="1">
-														<input type="hidden" name="business" value=" ">
-														<input type="hidden" name="item_name" value="Fortune Sunflower Oil">
-														<input type="hidden" name="amount" value="35.99">
-														<input type="hidden" name="discount_amount" value="1.00">
-														<input type="hidden" name="currency_code" value="USD">
-														<input type="hidden" name="return" value=" ">
-														<input type="hidden" name="cancel_return" value=" ">
-														<input type="submit" name="submit" value="Add to cart" class="button">
-													</fieldset>												
+												<fieldset>
+													<input type="hidden" name="cmd" value="_cart">
+													<input type="hidden" name="add" value="1">
+													<input type="hidden" name="business" value=" ">
+													<input type="hidden" name="item_name" value="Fortune Sunflower Oil">
+													<input type="hidden" name="amount" value="35.99">
+													<input type="hidden" name="discount_amount" value="1.00">
+													<input type="hidden" name="currency_code" value="USD">
+													<input type="hidden" name="return" value=" ">
+													<input type="hidden" name="cancel_return" value=" ">
+													<input type="button" name="button" value="Add to cart" class="button">
+												</fieldset>												
 											</div>
 										</div>
 									</figure>
@@ -143,21 +155,41 @@
                 </asp:ListView>
 				<nav class="numbering">
 					<ul class="pagination paging">
-						<li>
-							<a href="#" aria-label="Previous">
-								<span aria-hidden="true">&laquo;</span>
-							</a>
-						</li>
-						<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li>
-							<a href="#" aria-label="Next">
-							<span aria-hidden="true">&raquo;</span>
-							</a>
-						</li>
+                        <asp:DataPager 
+                            ID="DataPagerProducts" 
+                            runat="server"
+                            PageSize="9"
+                            PagedControlID="ListViewProducts"
+                            ClientIDMode="Static">
+                            <Fields>
+                                <asp:NextPreviousPagerField 
+                                    ButtonType="Link" 
+                                    FirstPageText="&laquo;" 
+                                    ShowFirstPageButton="true" 
+                                    ShowPreviousPageButton="true"
+                                    PreviousPageText="&laquo;"
+                                    ShowLastPageButton="false"
+                                    ShowNextPageButton="false" 
+                                    RenderNonBreakingSpacesBetweenControls="false"/>
+                                <asp:NumericPagerField 
+                                    ButtonType="Link" 
+                                    ButtonCount="5" 
+                                    CurrentPageLabelCssClass="active" 
+                                    RenderNonBreakingSpacesBetweenControls="false" />
+                                <asp:NextPreviousPagerField 
+                                    ButtonType="Link" 
+                                    LastPageText="&raquo;"                                                                                                             
+                                    ShowLastPageButton="true"
+                                    ShowNextPageButton="true" 
+                                    ShowPreviousPageButton="false"
+                                    ShowFirstPageButton="false"
+                                    NextPageText="&raquo;"
+                                    RenderNonBreakingSpacesBetweenControls="false"/>
+                                
+                            </Fields>
+                            
+                        </asp:DataPager>
+						
 					</ul>
 				</nav>
 			</div>

@@ -12,16 +12,13 @@
 					<li>
                         <asp:HyperLink NavigateUrl="~/login.aspx" ID="HyperLink3" runat="server">Login</asp:HyperLink></li>
 					<li>
-                        <asp:HyperLink NavigateUrl="~/contact.aspx" ID="HyperLink4" runat="server">Help</asp:HyperLink></li>
-					
+                        <asp:HyperLink NavigateUrl="~/contact.aspx" ID="HyperLink4" runat="server">Help</asp:HyperLink></li>					
 				</ul>
 			</div>
-			<div class="product_list_header">  
-					<form action="#" method="post" class="last"> 
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="display" value="1">
-						<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-					</form>  
+			<div class="product_list_header">  					
+				<input type="hidden" name="cmd" value="_cart">
+				<input type="hidden" name="display" value="1">
+				<%--<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>--%>					
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -40,13 +37,28 @@
                     <asp:HyperLink NavigateUrl="~/default.aspx" ID="HyperLink5" runat="server">super Market</asp:HyperLink></h1>
 			</div>
 		<div class="w3l_search">
-			<form action="#" method="post">
-				<input type="search" name="Search" placeholder="Search for a Product..." required="">
-				<button type="submit" class="btn btn-default search" aria-label="Left Align">
-					<i class="fa fa-search" aria-hidden="true"> </i>
-				</button>
-				<div class="clearfix"></div>
-			</form>
+            <asp:TextBox 
+                ID="TextBoxKeyword" 
+                runat="server"
+                TextMode="Search"
+                placeholder="Search for a Product..." 
+                required=""
+                ValidationGroup="Search"
+                ClientIDMode="Static"
+                OnTextChanged="TextBoxKeyword_TextChanged"
+                AutoPostBack="true">
+            </asp:TextBox>
+            <asp:LinkButton 
+                ID="LinkButtonSearch" 
+                runat="server"
+                ValidationGroup="Search"
+                CssClass="btn btn-default search"
+                aria-label="Left Align"
+                OnClick="LinkButtonSearch_Click"
+                AutoPostBack="true">
+                <i class="fa fa-search" aria-hidden="true"> </i>
+            </asp:LinkButton>			
+			<div class="clearfix"></div>			
 		</div>
 			
 			<div class="clearfix"> </div>

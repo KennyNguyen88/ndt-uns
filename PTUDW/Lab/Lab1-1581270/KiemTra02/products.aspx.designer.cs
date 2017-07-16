@@ -31,6 +31,24 @@ namespace KiemTra02 {
         protected global::System.Web.UI.WebControls.Repeater RepeaterCategory;
         
         /// <summary>
+        /// country control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList country;
+        
+        /// <summary>
+        /// country1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList country1;
+        
+        /// <summary>
         /// SqlDataSourceProducts control.
         /// </summary>
         /// <remarks>
@@ -40,12 +58,21 @@ namespace KiemTra02 {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceProducts;
         
         /// <summary>
-        /// ListView1 control.
+        /// ListViewProducts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
+        protected global::System.Web.UI.WebControls.ListView ListViewProducts;
+        
+        /// <summary>
+        /// DataPagerProducts control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataPager DataPagerProducts;
     }
 }

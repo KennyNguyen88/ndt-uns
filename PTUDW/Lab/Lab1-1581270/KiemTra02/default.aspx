@@ -48,7 +48,7 @@
 															<h4>$20.99 <span>$35.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -59,9 +59,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -90,21 +90,19 @@
 															</div>
 															<h4>$20.99 <span>$35.00</span></h4>
 														</div>
-														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="basmati rise" />
-																	<input type="hidden" name="amount" value="20.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
+														<div class="snipcart-details top_brand_home_details">															
+															<fieldset>
+																<input type="hidden" name="cmd" value="_cart" />
+																<input type="hidden" name="add" value="1" />
+																<input type="hidden" name="business" value=" " />
+																<input type="hidden" name="item_name" value="basmati rise" />
+																<input type="hidden" name="amount" value="20.99" />
+																<input type="hidden" name="discount_amount" value="1.00" />
+																<input type="hidden" name="currency_code" value="USD" />
+																<input type="hidden" name="return" value=" " />
+																<input type="hidden" name="cancel_return" value=" " />
+																<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
+															</fieldset>															
 														</div>
 													</div>
 												</figure>
@@ -133,21 +131,19 @@
 															</div>
 															<h4>$40.99 <span>$65.00</span></h4>
 														</div>
-														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Pepsi soft drink" />
-																	<input type="hidden" name="amount" value="40.00" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
+														<div class="snipcart-details top_brand_home_details">															
+															<fieldset>
+																<input type="hidden" name="cmd" value="_cart" />
+																<input type="hidden" name="add" value="1" />
+																<input type="hidden" name="business" value=" " />
+																<input type="hidden" name="item_name" value="Pepsi soft drink" />
+																<input type="hidden" name="amount" value="40.00" />
+																<input type="hidden" name="discount_amount" value="1.00" />
+																<input type="hidden" name="currency_code" value="USD" />
+																<input type="hidden" name="return" value=" " />
+																<input type="hidden" name="cancel_return" value=" " />
+																<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
+															</fieldset>															
 														</div>
 													</div>
 												</figure>
@@ -179,21 +175,19 @@
 															</div>
 															<h4>$35.99 <span>$55.00</span></h4>
 														</div>
-														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
-																<fieldset>
-																	<input type="hidden" name="cmd" value="_cart" />
-																	<input type="hidden" name="add" value="1" />
-																	<input type="hidden" name="business" value=" " />
-																	<input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
-																	<input type="hidden" name="amount" value="35.99" />
-																	<input type="hidden" name="discount_amount" value="1.00" />
-																	<input type="hidden" name="currency_code" value="USD" />
-																	<input type="hidden" name="return" value=" " />
-																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
-																</fieldset>
-															</form>
+														<div class="snipcart-details top_brand_home_details">															
+															<fieldset>
+																<input type="hidden" name="cmd" value="_cart" />
+																<input type="hidden" name="add" value="1" />
+																<input type="hidden" name="business" value=" " />
+																<input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+																<input type="hidden" name="amount" value="35.99" />
+																<input type="hidden" name="discount_amount" value="1.00" />
+																<input type="hidden" name="currency_code" value="USD" />
+																<input type="hidden" name="return" value=" " />
+																<input type="hidden" name="cancel_return" value=" " />
+																<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
+															</fieldset>															
 														</div>
 													</div>
 												</figure>
@@ -223,7 +217,7 @@
 															<h4>$30.99 <span>$45.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -234,9 +228,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -269,7 +263,7 @@
 															<h4>$80.99 <span>$105.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -280,9 +274,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -321,7 +315,7 @@
 															<h4>$35.99 <span>$55.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -332,9 +326,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -364,7 +358,7 @@
 															<h4>$30.99 <span>$45.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -375,9 +369,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -410,7 +404,7 @@
 															<h4>$80.99 <span>$105.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -421,9 +415,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -456,7 +450,7 @@
 															<h4>$20.99 <span>$35.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -467,9 +461,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -499,7 +493,7 @@
 															<h4>$20.99 <span>$35.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -510,9 +504,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -542,7 +536,7 @@
 															<h4>$40.99 <span>$65.00</span></h4>
 														</div>
 														<div class="snipcart-details top_brand_home_details">
-															<form action="#" method="post">
+															
 																<fieldset>
 																	<input type="hidden" name="cmd" value="_cart" />
 																	<input type="hidden" name="add" value="1" />
@@ -553,9 +547,9 @@
 																	<input type="hidden" name="currency_code" value="USD" />
 																	<input type="hidden" name="return" value=" " />
 																	<input type="hidden" name="cancel_return" value=" " />
-																	<input type="submit" name="submit" value="Add to cart" class="button" />
+																	<%--<input type="submit" name="submit" value="Add to cart" class="button" />--%>
 																</fieldset>
-															</form>
+															
 														</div>
 													</div>
 												</figure>
@@ -769,7 +763,7 @@
 													<h4>$35.99 <span>$55.00</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
-												<form action="#" method="post">
+												
 													<fieldset>
 														<input type="hidden" name="cmd" value="_cart">
 														<input type="hidden" name="add" value="1">
@@ -780,9 +774,9 @@
 														<input type="hidden" name="currency_code" value="USD">
 														<input type="hidden" name="return" value=" ">
 														<input type="hidden" name="cancel_return" value=" ">
-														<input type="submit" name="submit" value="Add to cart" class="button">
+														<%--<input type="submit" name="submit" value="Add to cart" class="button">--%>
 													</fieldset>
-												</form>
+												
 											</div>
 										</div>
 									</figure>
@@ -812,7 +806,7 @@
 													<h4>$30.99 <span>$45.00</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
-												<form action="#" method="post">
+												
 													<fieldset>
 														<input type="hidden" name="cmd" value="_cart">
 															<input type="hidden" name="add" value="1">
@@ -823,9 +817,9 @@
 															<input type="hidden" name="currency_code" value="USD">
 															<input type="hidden" name="return" value=" ">
 															<input type="hidden" name="cancel_return" value=" ">
-															<input type="submit" name="submit" value="Add to cart" class="button">
+															<%--<input type="submit" name="submit" value="Add to cart" class="button">--%>
 													</fieldset>
-												</form>
+												
 											</div>
 										</div>
 									</figure>
@@ -858,7 +852,7 @@
 													<h4>$80.99 <span>$105.00</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
-												<form action="#" method="post">
+												
 													<fieldset>
 														<input type="hidden" name="cmd" value="_cart">
 														<input type="hidden" name="add" value="1">
@@ -869,9 +863,9 @@
 														<input type="hidden" name="currency_code" value="USD">
 														<input type="hidden" name="return" value=" ">
 														<input type="hidden" name="cancel_return" value=" ">
-														<input type="submit" name="submit" value="Add to cart" class="button">
+														<%--<input type="submit" name="submit" value="Add to cart" class="button">--%>
 													</fieldset>
-												</form>
+												
 											</div>
 										</div>
 									</figure>
@@ -901,7 +895,7 @@
 													<h4>$35.99 <span>$55.00</span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">
-												<form action="#" method="post">
+												
 													<fieldset>
 														<input type="hidden" name="cmd" value="_cart">
 														<input type="hidden" name="add" value="1">
@@ -912,9 +906,9 @@
 														<input type="hidden" name="currency_code" value="USD">
 														<input type="hidden" name="return" value=" ">
 														<input type="hidden" name="cancel_return" value=" ">
-														<input type="submit" name="submit" value="Add to cart" class="button">
+														<%--<input type="submit" name="submit" value="Add to cart" class="button">--%>
 													</fieldset>
-												</form>
+												
 											</div>
 										</div>
 									</figure>

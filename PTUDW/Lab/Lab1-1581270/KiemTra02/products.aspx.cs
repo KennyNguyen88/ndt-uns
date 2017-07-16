@@ -13,5 +13,23 @@ namespace KiemTra02
         {
 
         }
+
+        protected void country_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String sortExpression = country.SelectedValue;
+            SortDirection sortDirection = SortDirection.Ascending;
+            if (sortExpression == "AverageRating")
+            {
+                sortDirection = SortDirection.Descending;
+            }
+            ListViewProducts.Sort(sortExpression, sortDirection);
+        }
+
+        protected void country1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataPagerProducts.PageSize = int.Parse(country1.SelectedValue);
+            DataPagerProducts.DataBind();
+            ListViewProducts.DataBind();
+        }
     }
 }

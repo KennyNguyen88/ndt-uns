@@ -1,0 +1,11 @@
+﻿a.btn.btn-default.search {
+    background: #fe9126;
+    padding: 11px 12px 11px;
+    float: right;
+    outline: none;
+    border: none;
+}
+
+    a.btn.btn-default.search:hover {
+        background: #333;
+    }

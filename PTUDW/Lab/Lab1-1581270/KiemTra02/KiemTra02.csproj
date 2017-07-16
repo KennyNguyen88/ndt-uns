@@ -71,6 +71,7 @@
     <Content Include="contact.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\font-awesome.css" />
+    <Content Include="css\mystyle.css" />
     <Content Include="css\skdslider.css" />
     <Content Include="css\style.css" />
     <Content Include="default.aspx" />

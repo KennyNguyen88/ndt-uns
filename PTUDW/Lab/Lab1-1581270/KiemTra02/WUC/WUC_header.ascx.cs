@@ -13,5 +13,21 @@ namespace KiemTra02.WUC
         {
 
         }
+
+        protected void TextBoxKeyword_TextChanged(object sender, EventArgs e)
+        {
+            Search(Server.UrlEncode(TextBoxKeyword.Text));
+        }
+
+        protected void LinkButtonSearch_Click(object sender, EventArgs e)
+        {
+            Search(Server.UrlEncode(TextBoxKeyword.Text));            
+        }
+
+        protected void Search(String keyword)
+        {
+            String url = String.Format("~/Products.aspx?keyword={0}", keyword);
+            Response.Redirect(url);
+        }
     }
 }
