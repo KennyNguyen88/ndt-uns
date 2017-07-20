@@ -1,0 +1,52 @@
+﻿<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="DD_Chinh.css" type="text/css" />
+
+<body>
+    <div class="container">
+        <div class="row TIEU_DE" id='Th_Tieu_De'>
+            Tra Cứu Thi Sinh            
+        </div>
+        <div class="row DANH_SACH_CHUC_NANG" id="Th_Danh_Sach_Chuc_Nang">
+            <div id="Th_Tra_Cuu_Theo_SBD" class="CHUC_NANG">
+                Số Báo Danh
+            </div>
+            <div id="Th_Tra_Cuu_Theo_Truong" class="CHUC_NANG">
+                Trường
+            </div>
+            <div id="Th_Tra_Cuu_Theo_Diem_Toan" class="CHUC_NANG">
+                Điểm Toán
+            </div>
+        </div>
+        <iframe class="row KHUNG_CHUC_NANG" id='Khung_Chuc_nang'></iframe>
+    </div>
+
+</body>
+
+<script>
+    Th_Tra_Cuu_Theo_SBD.onclick = () => {
+        Khung_Chuc_nang.src = "MH_Tra_Cuu_Theo_SBD.cshtml"
+        Danh_dau_Chon_Chuc_nang(Th_Tra_Cuu_Theo_SBD)
+    }
+    Th_Tra_Cuu_Theo_Truong.onclick = () => {
+        Khung_Chuc_nang.src = "MH_Tra_Cuu_Theo_Truong.cshtml"
+        Danh_dau_Chon_Chuc_nang(Th_Tra_Cuu_Theo_Truong)
+    }
+
+    Th_Tra_Cuu_Theo_Diem_Toan.onclick = () => {
+        Khung_Chuc_nang.src = "MH_Tra_Cuu_Theo_Diem_Toan.cshtml"
+        Danh_dau_Chon_Chuc_nang(Th_Tra_Cuu_Theo_Diem_Toan)
+    }
+
+    Th_Tra_Cuu_Theo_SBD.click()
+
+    function Danh_dau_Chon_Chuc_nang(Th_Chuc_Nang_Chon) {
+
+        for (var i = 0; i < Th_Danh_Sach_Chuc_Nang.childNodes.length; i++)
+            Th_Danh_Sach_Chuc_Nang.childNodes[i].className = "CHUC_NANG"
+        Th_Chuc_Nang_Chon.className = "CHUC_NANG_CHON"
+    }
+</script>
