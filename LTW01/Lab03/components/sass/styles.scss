@@ -1,4 +1,110 @@
 @import "bootstrap";
+
+$product-name-color: #494949;
+$price-color: #fd5f37;
+
+html{
+  font-size: 16px ;
+  font-family: Roboto Arial sans-serif;
+}
 .header_top{
-  //background: url("../images/header-BG.png") repeat-x;
+  background: url("../images/header-BG.png") repeat-x;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  a{
+    color: white;
+    &:hover{
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+.header_bottom{
+  background: url("../images/navigation-BG.png");
+  a{
+    text-decoration: none;
+  }
+  .nav{
+    li{
+      &.active{
+        a{
+          background: url("../images/header-BG.png") repeat-x;
+          color: white;
+        }
+      }
+      a{
+        &:hover{
+          background: url("../images/header-BG.png") repeat-x;
+        }
+      }
+    }
+  }
+  .navbar{
+    border: none;
+  }
+}
+.product-name{
+  color: $product-name-color;
+}
+.product-price{
+  color: $price-color;
+}
+.product{
+  background: #f7f7f7;
+  h6{
+    font-size: 1.2rem;
+  }
+}
+
+.footer_top{
+  background: url("../images/footer-BG.png") top repeat-x #636363;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  h6{
+    font-size: 1.2rem;
+    color: white;
+  }
+  a{
+    color: #c9c9c9;
+  }
+}
+.footer_bottom{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: #4d4d4d;
+  p{
+    color: #848484;
+  }
+}
+
+.list-group-item{
+  border-width: 0 0 2px 0;
+  border-style: dotted;
+
+}
+#product-detail{
+  h6{
+    font-size: 1.5rem;
+  }
+  .radio-inline{
+    div{
+      height: 12px;
+      width: 12px;
+    }
+    &.yellow{
+      div{
+        background: url("../images/star.png") top no-repeat;
+      }
+    }
+    &.grey{
+      div{
+        background: url("../images/star.png") bottom no-repeat;
+      }
+    }
+  }
+
+  input[name="ratingRadio"]{
+    display: none;
+  }
+
 }
