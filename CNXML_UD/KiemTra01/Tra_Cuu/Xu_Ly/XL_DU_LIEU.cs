@@ -41,42 +41,42 @@ public class XL_DU_LIEU
         }
         return Thi_Sinh;
     }
-    //public XmlElement Tra_cuu_Hoc_sinh_theo_Ho_ten( string Ho_ten)
-    //{
-    //    var Tai_lieu = new XmlDocument();
-    //    Tai_lieu.LoadXml("<DANH_SACH_HOC_SINH />");
-    //    var Danh_sach = Tai_lieu.DocumentElement;
-    //    foreach (XmlElement Hoc_sinh_Nguon in Danh_Sach_Thi_Sinh.GetElementsByTagName("HOC_SINH"))
-    //    {
-    //        var Thoa_Dieu_kien_Tra_cuu = Hoc_sinh_Nguon.GetAttribute("Ho_ten").ToUpper().Contains(Ho_ten.ToUpper()) ;
-    //        if (Thoa_Dieu_kien_Tra_cuu)
-    //        {
-    //            var Hoc_sinh = Tai_lieu.ImportNode(Hoc_sinh_Nguon, true);
-    //            Danh_sach.AppendChild(Hoc_sinh);
-    //        }
+    public XmlElement Tra_Cuu_Hoc_Sinh_Theo_Truong(string Ten_Truong)
+    {
+        var Tai_lieu = new XmlDocument();
+        Tai_lieu.LoadXml("<DANH_SACH_THI_SINH />");
+        var Danh_sach = Tai_lieu.DocumentElement;
+        foreach (XmlElement Thi_Sinh_Nguon in Danh_Sach_Thi_Sinh.GetElementsByTagName("THI_SINH"))
+        {
+            var Truong_Cap_2 = (XmlElement)Thi_Sinh_Nguon.GetElementsByTagName("TRUONG_CAP_2")[0];
+            var Thoa_Dieu_kien_Tra_cuu = Truong_Cap_2.GetAttribute("Ten").ToUpper().Contains(Ten_Truong.ToUpper());
+            if (Thoa_Dieu_kien_Tra_cuu)
+            {
+                var Thi_Sinh = Tai_lieu.ImportNode(Thi_Sinh_Nguon, true);
+                Danh_sach.AppendChild(Thi_Sinh);
+            }
 
-    //    }
-    //    return Danh_sach;
-    //}
-    //public XmlElement Tra_cuu_Hoc_sinh_theo_Lop( string Chuoi_Tra_cuu)
-    //{
-   
-    //    var Tai_lieu = new XmlDocument();
-    //    Tai_lieu.LoadXml("<DANH_SACH_HOC_SINH />");
-    //    var Danh_sach = Tai_lieu.DocumentElement;
-    //    foreach (XmlElement Hoc_sinh_Nguon in Danh_sach_Hoc_sinh.GetElementsByTagName("HOC_SINH"))
-    //    {
-    //        var Lop = (XmlElement) Hoc_sinh_Nguon.GetElementsByTagName("LOP")[0];
-    //        var Thoa_Dieu_kien_Tra_cuu =   Lop.GetAttribute("Ma_so").ToUpper().Contains(Chuoi_Tra_cuu.ToUpper()) ;
-    //        if (Thoa_Dieu_kien_Tra_cuu)
-    //        {
-    //            var Hoc_sinh = Tai_lieu.ImportNode(Hoc_sinh_Nguon, true);
-    //            Danh_sach.AppendChild(Hoc_sinh);
-    //        }
+        }
+        return Danh_sach;
+    }
+    public XmlElement Tra_Cuu_Thi_Sinh_Theo_Diem_Toan(string Diem_Toan)
+    {
 
-    //    }
-    //    return Danh_sach;
-    //}
+        var Tai_lieu = new XmlDocument();
+        Tai_lieu.LoadXml("<DANH_SACH_HOC_SINH />");
+        var Danh_sach = Tai_lieu.DocumentElement;
+        foreach (XmlElement Thi_Sinh_Nguon in Danh_Sach_Thi_Sinh.GetElementsByTagName("THI_SINH"))
+        {
+            var Thoa_Dieu_kien_Tra_cuu = Thi_Sinh_Nguon.GetAttribute("Diem_Toan") == Diem_Toan;            
+            if (Thoa_Dieu_kien_Tra_cuu)
+            {
+                var Hoc_sinh = Tai_lieu.ImportNode(Thi_Sinh_Nguon, true);
+                Danh_sach.AppendChild(Hoc_sinh);
+            }
+
+        }
+        return Danh_sach;
+    }
     // Xử lý Tạo chuỗi HTML
     public string Tao_Chuoi_HTML_Thi_Sinh(XmlElement Thi_Sinh)
     {
@@ -89,18 +89,18 @@ public class XL_DU_LIEU
         var Chuoi_HTML = Bo_Ghi_Chuoi.GetStringBuilder().ToString();
         return Chuoi_HTML;
     }
-    //public string Tao_Chuoi_HTML_Danh_sach_Hoc_sinh(XmlElement Danh_sach)
-    //{
-    //    var Duong_dan_XSLT = Thu_muc_XSLT.FullName + "\\Tao_Chuoi_HTML_Danh_sach_Hoc_sinh.xslt";
-    //    var Xu_ly_XSLT = new XslCompiledTransform();
-    //    Xu_ly_XSLT.Load(Duong_dan_XSLT);
-    //    var Bo_Doc_XML = XmlReader.Create(new StringReader(Danh_sach.OuterXml));
-    //    var Bo_Ghi_Chuoi = new StringWriter();
-    //    Xu_ly_XSLT.Transform(Bo_Doc_XML, null, Bo_Ghi_Chuoi);
-    //    var Chuoi_HTML = Bo_Ghi_Chuoi.GetStringBuilder().ToString();
-    //    return Chuoi_HTML;
-    //}
-     
+    public string Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(XmlElement Danh_sach)
+    {
+        var Duong_dan_XSLT = Thu_muc_XSLT.FullName + "\\Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh.xslt";
+        var Xu_ly_XSLT = new XslCompiledTransform();
+        Xu_ly_XSLT.Load(Duong_dan_XSLT);
+        var Bo_Doc_XML = XmlReader.Create(new StringReader(Danh_sach.OuterXml));
+        var Bo_Ghi_Chuoi = new StringWriter();
+        Xu_ly_XSLT.Transform(Bo_Doc_XML, null, Bo_Ghi_Chuoi);
+        var Chuoi_HTML = Bo_Ghi_Chuoi.GetStringBuilder().ToString();
+        return Chuoi_HTML;
+    }
+
 
 
 }

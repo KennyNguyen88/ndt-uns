@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dich_vu", "Dich_vu\Dich_vu.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tra_Cuu", "Tra_Cuu\Tra_Cuu.csproj", "{9C91DF46-3572-44A8-8100-37DC44873CD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cap_Nhat", "Cap_Nhat\Cap_Nhat.csproj", "{97759518-E960-49B1-88D6-0BB1FA5F9BFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9C91DF46-3572-44A8-8100-37DC44873CD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C91DF46-3572-44A8-8100-37DC44873CD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C91DF46-3572-44A8-8100-37DC44873CD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97759518-E960-49B1-88D6-0BB1FA5F9BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97759518-E960-49B1-88D6-0BB1FA5F9BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97759518-E960-49B1-88D6-0BB1FA5F9BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97759518-E960-49B1-88D6-0BB1FA5F9BFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

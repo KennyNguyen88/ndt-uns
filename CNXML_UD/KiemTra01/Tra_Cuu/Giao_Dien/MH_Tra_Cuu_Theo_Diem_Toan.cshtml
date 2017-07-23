@@ -1,9 +1,50 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
+
 <html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <link type="text/css" href="DD_Tra_cuu.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
+    @using System.Xml;
+    @{
+        var Du_lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        var Chuoi_Nhap_lieu_Diem = "";
+        var Chuoi_The_hien_Thong_bao = new HtmlString(
+                "Nhập Điểm Toán cần tìm  (Kết thúc với Enter)");
+        var Chuoi_The_hien_DS_Thi_Sinh = new HtmlString("");
+        if (IsPost)
+        {
+            Chuoi_Nhap_lieu_Diem = Request["Th_Diem"].Trim();
+            var DS_Thi_Sinh = Du_lieu.Tra_Cuu_Thi_Sinh_Theo_Diem_Toan(Chuoi_Nhap_lieu_Diem);
+            var Hop_le = DS_Thi_Sinh.ChildNodes.Count > 0;
+            if (Hop_le)
+            {
+                var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(DS_Thi_Sinh);
+                Chuoi_The_hien_DS_Thi_Sinh = new HtmlString(Chuoi_HTML);
+                Chuoi_The_hien_Thong_bao = new HtmlString("Thông tin về Thí Sinh ");
+            }
+            else
+            {
+                Chuoi_The_hien_Thong_bao = new HtmlString("Không tìm thấy kết quả ! ");
+            }
+        }
+    }
 
+    <div class="container-fluid">
+        <form action="MH_Tra_Cuu_Theo_Diem_Toan.cshtml" method="post" class="row">
+            <input name="Th_Diem" class="NHAP_LIEU" id="Th_Diem" spellcheck="false"
+                   autocomplete="off" placeholder="Điểm Toán"
+                   value="@Chuoi_Nhap_lieu_Diem" />
+        </form>
+        <div id="Th_Thong_bao" class="row THONG_BAO">
+            @Chuoi_The_hien_Thong_bao
+        </div>
+        <div class="row KHUNG_HOC_SINH">
+            @Chuoi_The_hien_DS_Thi_Sinh
+        </div>
+    </div>
 </body>
 </html>

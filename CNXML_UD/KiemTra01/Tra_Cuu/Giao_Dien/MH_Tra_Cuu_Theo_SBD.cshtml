@@ -10,20 +10,11 @@
 <body>
     @using System.Xml;
     @{
-
-
-
-
         var Du_lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
-
-
-
         var Chuoi_Nhap_lieu_SBD = "";
         var Chuoi_The_hien_Thong_bao = new HtmlString(
                 "Nhập SBD  của học sinh  (Kết thúc với Enter)");
         var Chuoi_The_hien_Thi_Sinh = new HtmlString("");
-
-
         if (IsPost)
         {
 
@@ -37,18 +28,14 @@
                 Chuoi_The_hien_Thi_Sinh = new HtmlString(Chuoi_HTML);
 
                 Chuoi_The_hien_Thong_bao = new HtmlString("Thông tin về Thí Sinh ");
-
-
             }
             else
             {
                 Chuoi_The_hien_Thong_bao = new HtmlString("SBD không hợp lệ ");
-
             }
 
         }
     }
-
 
     <div class="container-fluid">
         <form action="MH_Tra_Cuu_Theo_SBD.cshtml" method="post" class="row">

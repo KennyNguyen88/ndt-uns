@@ -6,13 +6,13 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9C91DF46-3572-44A8-8100-37DC44873CD5}</ProjectGuid>
+    <ProjectGuid>{97759518-E960-49B1-88D6-0BB1FA5F9BFF}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tra_Cuu</RootNamespace>
-    <AssemblyName>Tra_Cuu</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>Cap_Nhat</RootNamespace>
+    <AssemblyName>Cap_Nhat</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -51,9 +51,9 @@
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -76,22 +76,19 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Giao_Dien\DD_Chinh.css" />
-    <Content Include="Giao_Dien\DD_Tra_cuu.css" />
     <Content Include="Giao_Dien\MH_Chinh.html" />
     <Content Include="Web.config" />
-    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh.xslt" />
-    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Thi_Sinh.xslt" />
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Cap_Nhat_Diem_Toan.xslt" />
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Them_Thi_Sinh.xslt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xu_Ly\XL_DU_LIEU.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Giao_Dien\MH_Cap_Nhat_Diem_Toan.cshtml" />
     <Content Include="packages.config" />
-    <Content Include="Giao_Dien\MH_Tra_Cuu_Theo_SBD.cshtml" />
-    <Content Include="Giao_Dien\MH_Tra_Cuu_Theo_Truong.cshtml" />
-    <Content Include="Giao_Dien\MH_Tra_Cuu_Theo_Diem_Toan.cshtml" />
+    <Content Include="Giao_Dien\MH_Them_Thi_Sinh.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,9 +110,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>58078</DevelopmentServerPort>
+          <DevelopmentServerPort>51349</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58078/</IISUrl>
+          <IISUrl>http://localhost:51349/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
