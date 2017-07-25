@@ -1,0 +1,69 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    color: blue;
+    font-size: 1em;
+    font-family: Arial;
+ 
+}
+
+.NHAP_LIEU {
+    font-size: 1.2em;
+    color: blue;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 0.5px solid;
+}
+.NHAP_LIEU_DIEM_SO {
+    font-size: 1em;
+    color: black;
+    padding: 5px;
+    border: none;
+    
+}
+.NHAP_LIEU_DIA_CHI {
+    font-size: 1em;
+    color: black;
+    padding: 5px;
+    width: 400px;
+    border: none;
+    border-bottom: 0.5px solid;
+}
+
+
+.THONG_BAO {
+    font-size: 1.2em;
+    color: brown;
+    margin-left: 3vw;
+    clear: both;
+}
+
+.DANH_SACH_HOC_SINH {
+    color: blue;
+    font-size: 1em;
+}
+
+.HOC_SINH {
+    font-style: italic;
+    width: 18vw;
+    float: left;
+    margin: 5px;
+    padding-left: 10px;
+    border-left: 0.5px solid navy;
+}
+.DONG_HO_PET {
+    font-size: inherit;
+    color: brown;
+    margin: 10px;
+   
+}
+.btn{
+    font-size: 14px;
+    background: cyan;
+    color: grey;
+    padding: 10px 30px;
+
+}

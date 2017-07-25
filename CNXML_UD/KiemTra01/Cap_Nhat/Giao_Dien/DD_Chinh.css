@@ -1,0 +1,51 @@
+﻿
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1em;
+    font-family: Arial;
+    background-color:white;
+    color:brown;
+}
+
+.TIEU_DE {
+    
+    font-size: 2.4em;
+    padding: 5px;
+    text-align: center;
+}
+
+.KHUNG_CHUC_NANG {
+    height: 75vh;
+    width: 95vw;
+    border: none;
+}
+.DANH_SACH_CHUC_NANG {
+}
+.CHUC_NANG {
+    height: 6vh;
+    font-size: 2em;
+    color: red;
+    padding: 5px;
+    margin-left:5px;
+    text-align: center;
+    float: left;
+    border-top: 0.5px solid blue;
+    border-bottom: 0.5px solid blue;
+}
+.CHUC_NANG_CHON {
+    height: 6vh;
+    font-size: 2em;
+    color: red;
+    padding: 5px;
+    margin-left: 5px;
+    text-align: center;
+    float: left;
+    font-style: italic;
+    font-weight: bold;
+    border-top: 0.5px solid blue;
+    border-bottom: 0.5px solid blue;
+}
+ 

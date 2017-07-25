@@ -18,7 +18,7 @@
         if (IsPost)
         {
             Chuoi_Nhap_lieu_Truong = Request["Th_Ten_Truong"].Trim();
-            var DS_Thi_Sinh = Du_lieu.Tra_Cuu_Hoc_Sinh_Theo_Truong(Chuoi_Nhap_lieu_Truong);
+            var DS_Thi_Sinh = Du_lieu.Tim_Thi_Sinh_Theo_Truong(Chuoi_Nhap_lieu_Truong);
             var Hop_le = DS_Thi_Sinh.ChildNodes.Count > 0;
             if (Hop_le)
             {

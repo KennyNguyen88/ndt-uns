@@ -41,7 +41,7 @@ public class XL_DU_LIEU
         }
         return Thi_Sinh;
     }
-    public XmlElement Tra_Cuu_Hoc_Sinh_Theo_Truong(string Ten_Truong)
+    public XmlElement Tim_Thi_Sinh_Theo_Truong(string Ten_Truong)
     {
         var Tai_lieu = new XmlDocument();
         Tai_lieu.LoadXml("<DANH_SACH_THI_SINH />");
@@ -78,27 +78,25 @@ public class XL_DU_LIEU
         return Danh_sach;
     }
     // Xử lý Tạo chuỗi HTML
-    public string Tao_Chuoi_HTML_Thi_Sinh(XmlElement Thi_Sinh)
+    public string Tao_Chuoi_HTML_Dung_Chung(string Duong_Dan_XSLT, XmlElement xmlElement)
     {
-        var Duong_dan_XSLT = Thu_muc_XSLT.FullName + "\\Tao_Chuoi_HTML_Thi_Sinh.xslt";
         var Xu_ly_XSLT = new XslCompiledTransform();
-        Xu_ly_XSLT.Load(Duong_dan_XSLT);
-        var Bo_Doc_XML = XmlReader.Create(new StringReader(Thi_Sinh.OuterXml));
+        Xu_ly_XSLT.Load(Duong_Dan_XSLT);
+        var Bo_Doc_XML = XmlReader.Create(new StringReader(xmlElement.OuterXml));
         var Bo_Ghi_Chuoi = new StringWriter();
         Xu_ly_XSLT.Transform(Bo_Doc_XML, null, Bo_Ghi_Chuoi);
         var Chuoi_HTML = Bo_Ghi_Chuoi.GetStringBuilder().ToString();
         return Chuoi_HTML;
     }
-    public string Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(XmlElement Danh_sach)
+    public string Tao_Chuoi_HTML_Thi_Sinh(XmlElement Thi_Sinh)
     {
+        var Duong_dan_XSLT = Thu_muc_XSLT.FullName + "\\Tao_Chuoi_HTML_Thi_Sinh.xslt";
+        return Tao_Chuoi_HTML_Dung_Chung(Duong_dan_XSLT, Thi_Sinh);
+    }
+    public string Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(XmlElement Danh_sach)
+    {                
         var Duong_dan_XSLT = Thu_muc_XSLT.FullName + "\\Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh.xslt";
-        var Xu_ly_XSLT = new XslCompiledTransform();
-        Xu_ly_XSLT.Load(Duong_dan_XSLT);
-        var Bo_Doc_XML = XmlReader.Create(new StringReader(Danh_sach.OuterXml));
-        var Bo_Ghi_Chuoi = new StringWriter();
-        Xu_ly_XSLT.Transform(Bo_Doc_XML, null, Bo_Ghi_Chuoi);
-        var Chuoi_HTML = Bo_Ghi_Chuoi.GetStringBuilder().ToString();
-        return Chuoi_HTML;
+        return Tao_Chuoi_HTML_Dung_Chung(Duong_dan_XSLT, Danh_sach);
     }
 
 

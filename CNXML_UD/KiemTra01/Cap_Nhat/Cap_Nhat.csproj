@@ -76,10 +76,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Giao_Dien\DD_Cap_nhat.css" />
+    <Content Include="Giao_Dien\DD_Chinh.css" />
     <Content Include="Giao_Dien\MH_Chinh.html" />
     <Content Include="Web.config" />
     <Content Include="Xu_Ly\Tao_Chuoi_HTML_Cap_Nhat_Diem_Toan.xslt" />
-    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Them_Thi_Sinh.xslt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
