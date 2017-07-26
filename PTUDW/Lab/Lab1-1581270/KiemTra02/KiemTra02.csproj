@@ -43,10 +43,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BotDetect, Version=4.2.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.2.0\lib\net45\BotDetect.dll</HintPath>
+    </Reference>
+    <Reference Include="BotDetect.Web.Mvc, Version=4.2.0.0, Culture=neutral, PublicKeyToken=74616036388b765f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Captcha.4.2.0\lib\net45\BotDetect.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,6 +82,16 @@
     <Content Include="about.aspx" />
     <Content Include="beverages.aspx" />
     <Content Include="checkout.aspx" />
+    <Content Include="Code\MyShopModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MyShopModel.Context.cs</LastGenOutput>
+      <DependentUpon>MyShopModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Code\MyShopModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyShopModel.edmx</DependentUpon>
+      <LastGenOutput>MyShopModel.cs</LastGenOutput>
+    </Content>
     <Content Include="contact.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\font-awesome.css" />
@@ -194,6 +218,13 @@
     <Content Include="WUC\WUC_footer.ascx" />
     <Content Include="WUC\WUC_header.ascx" />
     <Content Include="WUC\WUC_navigation.ascx" />
+    <EntityDeploy Include="Code\MyShopModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyShopModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Code\MyShopModel.edmx.diagram">
+      <DependentUpon>MyShopModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -225,6 +256,33 @@
     </Compile>
     <Compile Include="checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Brand.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Category.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\ContactMessage.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\MyShopModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyShopModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\MyShopModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\MyShopModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyShopModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Code\Product.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
@@ -353,6 +411,9 @@
     <Compile Include="WUC\WUC_navigation.ascx.designer.cs">
       <DependentUpon>WUC_navigation.ascx</DependentUpon>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -42,7 +42,7 @@
                 runat="server"
                 TextMode="Search"
                 placeholder="Search for a Product..." 
-                required=""
+                
                 ValidationGroup="Search"
                 ClientIDMode="Static"
                 OnTextChanged="TextBoxKeyword_TextChanged"
@@ -57,7 +57,8 @@
                 OnClick="LinkButtonSearch_Click"
                 AutoPostBack="true">
                 <i class="fa fa-search" aria-hidden="true"> </i>
-            </asp:LinkButton>			
+            </asp:LinkButton>
+            
 			<div class="clearfix"></div>			
 		</div>
 			
