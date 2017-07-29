@@ -1,7 +1,7 @@
 extends template
 include mixins/mixin
 block btitle
-    title Log in | LTW - Lab03
+    title Log in | LTW
 block content
     .container
         .row
@@ -16,7 +16,7 @@ block content
             .col-xs-12.col-sm-8
                 h1 NOT A MEMBER
                 p Register a new one for better shopping
-                .form-horizontal
+                .form-horizontal.form-register
                     .form-group
                         label.col-sm-4.control-label(for="inputEmail") Email Address
                         .col-sm-8
@@ -39,7 +39,7 @@ block content
 
             .col-xs-12.col-sm-4
                 h3 ALREADY A MEMBER
-                .form-horizontal
+                .form-horizontal.form-register
                     .form-group
                         .col-sm-12
                             input.form-control(type="text" placeholder="Username")
@@ -47,4 +47,4 @@ block content
                         .col-sm-12
                             input.form-control(type="password" placeholder="password")
                 p.text-right #[a(href="#") Forgotten Password ?]
-                p.text-center #[a.btn.btn-primary(href="#") Login]
+                p.text-right #[a.btn.btn-primary(href="#") Login]

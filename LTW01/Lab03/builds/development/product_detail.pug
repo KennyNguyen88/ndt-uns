@@ -13,22 +13,22 @@ block content
                         '#':'Product 01'
                     }
                 +breadcrumb(list)
-        .row#product-detail
+        .row.marginb-2rem#product-detail
             .col-lg-9
                 .row
                     .col-sm-6.product-images
-                        .row
+                        .row.marginb-1rem
                             .col-xs-12.product-thumb
                                 img.img-responsive(src="../images/product-gallery/large-image.jpg")
                         .row
                             .col-xs-3.product-small-image
                                 a(href="#") #[img(src="../images/product-gallery/thumb_1.jpg")]
                             .col-xs-3.product-small-image
-                                a(href="#") #[img.img-responsive(src="../images/product-gallery/thumb_2.jpg")]
+                                a(href="#") #[img(src="../images/product-gallery/thumb_2.jpg")]
                             .col-xs-3.product-small-image
-                                a(href="#") #[img.img-responsive(src="../images/product-gallery/thumb_3.jpg")]
+                                a(href="#") #[img(src="../images/product-gallery/thumb_3.jpg")]
                             .col-xs-3.product-small-image
-                                a(href="#") #[img.img-responsive(src="../images/product-gallery/thumb_4.jpg")]
+                                a(href="#") #[img(src="../images/product-gallery/thumb_4.jpg")]
                     .col-sm-6
                         h6.product-name Product 01
                         h6.product-price $100
@@ -77,8 +77,12 @@ block content
                     li
                         a(href="#Detail" aria-controls="home" role="tab" data-toggle="tab") Detail
                 .tab-content
-                    #ShortDescription.tab-pane.fade.in.active Short Description Content
-                    #Detail.tab-pane.fade Detail Content
+                    #ShortDescription.tab-pane.fade.in.active
+                        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        p Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    #Detail.tab-pane.fade
+                        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        p Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
         .product-list
             h2 Related
             .row

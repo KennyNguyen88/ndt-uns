@@ -2,20 +2,42 @@
 
 $product-name-color: #494949;
 $price-color: #fd5f37;
+$white: white;
+$blue: #286090;
 
-html{
+html, body{
   font-size: 16px ;
-  font-family: Roboto Arial sans-serif;
+  font-family: Roboto;
 }
+.marginb-1rem{
+  margin-bottom: 1rem;
+}
+.marginb-2rem{
+  margin-bottom: 2rem;
+}
+.marginl-2rem{
+  margin-left: 2rem;
+}
+.custom-table{
+  thead{
+    background-color: $blue;
+    color: $white;
+  }
+  td{
+    vertical-align: middle;
+  }
+}
+/* HEADER
+/*================================================*/
 .header_top{
   background: url("../images/header-BG.png") repeat-x;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   a{
-    color: white;
+    color: $white;
     &:hover{
       text-decoration: none;
-      color: white;
+      color: $white;
     }
   }
 }
@@ -29,18 +51,34 @@ html{
       &.active{
         a{
           background: url("../images/header-BG.png") repeat-x;
-          color: white;
+          color: $white;
         }
       }
       a{
         &:hover{
           background: url("../images/header-BG.png") repeat-x;
+          color: $white;
         }
       }
     }
   }
   .navbar{
     border: none;
+  }
+}
+/* PRODUCT LIST
+/*================================================*/
+.product-list{
+  .title{
+    h2{
+      color: $price-color;
+    }
+    &:hover{
+      text-decoration: none;
+      h2{
+        color: $price-color;
+      }
+    }
   }
 }
 .product-name{
@@ -55,17 +93,25 @@ html{
     font-size: 1.2rem;
   }
 }
-
+/* FOOTER
+/*================================================*/
 .footer_top{
   background: url("../images/footer-BG.png") top repeat-x #636363;
   padding-top: 2rem;
   padding-bottom: 2rem;
   h6{
     font-size: 1.2rem;
-    color: white;
+    color: $white;
   }
   a{
     color: #c9c9c9;
+    &:hover{
+      color: $white;
+      text-decoration: none;
+    }
+    &.social{
+      color: $white;
+    }
   }
 }
 .footer_bottom{
@@ -74,14 +120,15 @@ html{
   background: #4d4d4d;
   p{
     color: #848484;
+    margin-bottom: 0;
   }
 }
-
 .list-group-item{
   border-width: 0 0 2px 0;
   border-style: dotted;
-
 }
+/* PRODUCT DETAIL
+/*================================================*/
 #product-detail{
   h6{
     font-size: 1.5rem;
@@ -102,9 +149,73 @@ html{
       }
     }
   }
-
   input[name="ratingRadio"]{
     display: none;
   }
-
+}
+#ShortDescription, #Detail{
+  p {
+    padding: 2rem;
+  }
+}
+/* LOG IN
+/*================================================*/
+.form-horizontal.form-register{
+  padding: 2rem;
+}
+/* CART
+/*================================================*/
+#cart{
+  img{
+    width: 100px;
+  }
+  input[type=text]{
+    width: 80px;
+    text-align: center;
+  }
+}
+/* ORDER HISTORY
+/*================================================*/
+#order-history{
+  .form-group{
+    margin-right: 1.5rem;
+    label{
+      margin-right: 1rem;
+    }
+  }
+}
+/* ADMIN HEADER
+/*================================================*/
+#admin_header{
+  @extend .marginb-2rem;
+  ul{
+    li{
+      margin-right: 2rem;
+      line-height: 41px;
+    }
+  }
+}
+/* ADMIN FOOTER
+/*================================================*/
+#admin_footter{
+  background: url("../images/footer-BG.png") top repeat-x #636363;
+  color: $white;
+  padding: 2rem;
+  p{
+    margin-bottom: 0;
+  }
+}
+/* ADMIN DASHBOARD
+/*================================================*/
+.dashboard-item{
+  background-color: $blue;
+  padding: 2rem;
+  text-align: center;
+  a{
+    color: $white;
+    &:hover{
+      text-decoration: none;
+      color: $white;
+    }
+  }
 }

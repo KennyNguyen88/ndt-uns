@@ -3,7 +3,7 @@ include mixins/mixin
 block btitle
     title Order History | LTW - Lab03
 block content
-    .container
+    .container#order-history
         .row
             .col-sm-12.hidden-xs
                 -
@@ -15,8 +15,8 @@ block content
                 +breadcrumb(list)
         .row
             .col-xs-12
-                h1 ORDER HISTORY
-                .row
+                h1.marginb-2rem ORDER HISTORY
+                .row.marginb-2rem
                     .col-xs-12
                         .form-inline
                             .form-group
@@ -34,7 +34,7 @@ block content
                                 a.btn.btn-primary(href="#") Search
                 .row
                     .col-xs-12
-                        table.table.table-bordered.table-hover.table-responsive
+                        table.table.table-bordered.table-hover.table-responsive.custom-table
                             thead
                                 th Date
                                 th Order ID
@@ -60,7 +60,7 @@ block content
                                     td $303
                                     td Finish
                                     td 227 Nguyen Van Cu Street District 5 Ho Chi MInh City
-                .row
+                .row.marginb-2rem
                     .col-xs-12.text-center
                         +pagination(3)
 

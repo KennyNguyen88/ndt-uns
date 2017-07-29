@@ -12,10 +12,9 @@ block content
                     '#':'Shopping Cart'
                     }
                 +breadcrumb(list)
-        .row
+        #cart.row
             .col-xs-12
-
-                table.table.table-bordered.table-hover.table-responsive
+                table.table.table-bordered.table-hover.table-responsive.custom-table
                     thead
                         th Remove
                         th Image
@@ -28,7 +27,7 @@ block content
                     tbody
                         tr
                             td #[input(type="checkbox" value="")]
-                            td #[img.img-responsive(src="../images/products/product-1.jpg")]
+                            td #[img(src="../images/products/product-1.jpg")]
                             td Name 1
                             td ACB1
                             td 001
@@ -37,7 +36,7 @@ block content
                             td 100
                         tr
                             td #[input(type="checkbox" value="")]
-                            td #[img.img-responsive(src="../images/products/product-2.jpg")]
+                            td #[img(src="../images/products/product-2.jpg")]
                             td Name 2
                             td ACB
                             td 002
@@ -46,7 +45,7 @@ block content
                             td 100
                         tr
                             td #[input(type="checkbox" value="")]
-                            td #[img.img-responsive(src="../images/products/product-3.jpg")]
+                            td #[img(src="../images/products/product-3.jpg")]
                             td Name 3
                             td ACB1
                             td 003
@@ -55,13 +54,13 @@ block content
                             td 100
         .row
             .col-xs-12.text-right
-                h5 Total: $300
+                h3.product-price Total: $300
         .row
             .col-xs-12.text-center
-                a.btn.btn-primary(href="#") Check Out
+                a.btn.btn-primary(href="checkout.html" style="margin-right: 2rem;") Check Out
                 a.btn.btn-primary(href="#") Update
-                .row
-                    .col-xs-12
-                        a(href="#") Continue Shopping
+        .row
+            .col-xs-12.text-center(style="padding: 2rem 0;")
+                a(href="categories.html") Continue Shopping
 
 

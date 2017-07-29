@@ -7,20 +7,20 @@ block content
             h1 From Last Login
     .row
         .col-sm-4
-            .panel.panel-default
+            .panel.panel-default.dashboard-item
                 .panel-body
-                    p 2 New Users
+                    a(href="#") 2 New Users
         .col-sm-4
-            .panel.panel-default
+            .panel.panel-default.dashboard-item
                 .panel-body
-                    p 2 New Orders
+                    a(href="#") 2 New Orders
         .col-sm-4
-            .panel.panel-default
+            .panel.panel-default.dashboard-item
                 .panel-body
-                    p 2 New Messages
+                    a(href="#") 2 New Messages
     .row
         .col-xs-12
-            table.table.table-responsive.table-bordered.table-hover
+            table.table.table-responsive.table-bordered.table-hover.custom-table
                 thead
                     th No
                     th Name
@@ -28,21 +28,12 @@ block content
                     th Item No
                     th Quantity
                 tbody
-                    tr
-                        td 001
-                        td Name 1
-                        td ASDA
-                        td 001
-                        td 5
-                    tr
-                        td 001
-                        td Name 1
-                        td ASDA
-                        td 001
-                        td 5
-                    tr
-                        td 001
-                        td Name 1
-                        td ASDA
-                        td 001
-                        td 5
+                    - var n = 1;
+                        while n < 16
+                            tr
+                                td 001
+                                td Name 1
+                                td ASDA
+                                td 001
+                                td 5
+                            - n++;

@@ -3,11 +3,11 @@ header
         .container
             .row
                 .col-xs-6.text-left
-                    a(href="index.html") #[img.img-responsive(src="../images/logo.png")]
+                    a(href="index.html") #[img(src="../images/logo.png")]
                 .col-xs-6.text-right
                     ul.list-inline
-                        li #[a(href="#") Login]
-                        li #[a(href="#") #[img.img-responsive(src="../images/cart.png")]]
+                        li #[a(href="login.html") Login]
+                        li #[a(href="cart.html") #[img.cart(src="../images/cart.png")]]
     .header_bottom
         nav.navbar
             .container
@@ -20,9 +20,9 @@ header
                 .collapse.navbar-collapse#navbar-collapse-1
                     ul.nav.navbar-nav
                         li.active #[a(href="#") Home #[span.sr-only (current)]]
-                        li #[a(href="#") Categories]
-                        li #[a(href="#") Contact]
-                        li #[a(href="#") About Us]
+                        li #[a(href="categories.html") Categories]
+                        li #[a(href="contact.html") Contact]
+                        li #[a(href="about.html") About Us]
                     form.navbar-form.navbar-right.hidden-xs
                         .form-group
                             input.form-control(type="text" placeholder="Search")
