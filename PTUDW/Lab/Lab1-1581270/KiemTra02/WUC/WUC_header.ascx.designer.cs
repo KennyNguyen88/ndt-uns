@@ -49,6 +49,24 @@ namespace KiemTra02.WUC {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
         
         /// <summary>
+        /// LinkButtonViewCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonViewCart;
+        
+        /// <summary>
+        /// LabelCartItemCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCartItemCount;
+        
+        /// <summary>
         /// HyperLink5 control.
         /// </summary>
         /// <remarks>
@@ -74,5 +92,14 @@ namespace KiemTra02.WUC {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonSearch;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
     }
 }

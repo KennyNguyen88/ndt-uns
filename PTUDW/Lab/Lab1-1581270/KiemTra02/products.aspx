@@ -105,7 +105,8 @@
                     GroupPlaceholderID="groupPlaceHolder"
                     GroupItemCount="3"
                     ItemPlaceholderID="itemPlaceHolder"
-                    DataSourceID="SqlDataSourceProducts">
+                    DataSourceID="SqlDataSourceProducts"
+                    OnItemCommand="ListViewProducts_ItemCommand">
                     <ItemTemplate>
                         <div class="col-md-4 top_brand_left">
 						<div class="hover14 column">
@@ -122,18 +123,13 @@
 												<h4>$<%# Eval("Price") %><span>$<%# Eval("OldPrice") %></span></h4>
 											</div>
 											<div class="snipcart-details top_brand_home_details">												
-												<fieldset>
-													<input type="hidden" name="cmd" value="_cart">
-													<input type="hidden" name="add" value="1">
-													<input type="hidden" name="business" value=" ">
-													<input type="hidden" name="item_name" value="Fortune Sunflower Oil">
-													<input type="hidden" name="amount" value="35.99">
-													<input type="hidden" name="discount_amount" value="1.00">
-													<input type="hidden" name="currency_code" value="USD">
-													<input type="hidden" name="return" value=" ">
-													<input type="hidden" name="cancel_return" value=" ">
-													<input type="button" name="button" value="Add to cart" class="button">
-												</fieldset>												
+                                                <asp:Button 
+                                                    ID="ButtonAddToCart" 
+                                                    runat="server" 
+                                                    Text="Add To Cart"
+                                                    CssClass="button"
+                                                    CommandArgument='<%# Eval("Id") %>'
+                                                    CommandName="AddToCart"/>									
 											</div>
 										</div>
 									</figure>

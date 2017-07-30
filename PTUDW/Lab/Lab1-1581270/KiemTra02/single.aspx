@@ -18,7 +18,7 @@
                 <asp:QueryStringParameter DefaultValue="1" Name="Id" QueryStringField="id" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Repeater ID="RepeaterDetail" runat="server" DataSourceID="SqlDataSourceDetail">
+        <asp:Repeater ID="RepeaterDetail" runat="server" DataSourceID="SqlDataSourceDetail" OnItemCommand="RepeaterDetail_ItemCommand">
             <ItemTemplate>
                 <div class="container">
 			        <div class="agileinfo_single">				
@@ -50,18 +50,13 @@
 							        <h4 class="m-sing">$<%#Eval("Price") %><span>$<%#Eval("OldPrice") %></span></h4>
 						        </div>
 						        <div class="snipcart-details agileinfo_single_right_details">							
-							        <fieldset>
-								        <input type="hidden" name="cmd" value="_cart">
-								        <input type="hidden" name="add" value="1">
-								        <input type="hidden" name="business" value=" ">
-								        <input type="hidden" name="item_name" value="pulao basmati rice">
-								        <input type="hidden" name="amount" value="21.00">
-								        <input type="hidden" name="discount_amount" value="1.00">
-								        <input type="hidden" name="currency_code" value="USD">
-								        <input type="hidden" name="return" value=" ">
-								        <input type="hidden" name="cancel_return" value=" ">								        
-                                        <asp:Button CssClass="button" ID="Button1" runat="server" Text="Add to cart" />
-							        </fieldset>							
+							        <asp:Button 
+                                        ID="ButtonAddToCart" 
+                                        runat="server" 
+                                        Text="Add To Cart"
+                                        CssClass="button"
+                                        CommandArgument='<%# Eval("Id") %>'
+                                        CommandName="AddToCart"/>						
 						        </div>
 					        </div>
 				        </div>

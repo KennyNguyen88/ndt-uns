@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KiemTra02.Code;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace KiemTra02.WUC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                UpdateCartItem();
+            }
         }
 
         protected void TextBoxKeyword_TextChanged(object sender, EventArgs e)
@@ -28,6 +32,12 @@ namespace KiemTra02.WUC
         {
             String url = String.Format("~/Products.aspx?keyword={0}", keyword);
             Response.Redirect(url);
+        }
+
+        public void UpdateCartItem()
+        {
+            ShoppingCart cart = new ShoppingCart();
+            LabelCartItemCount.Text = cart.TotalItemCount.ToString();
         }
     }
 }

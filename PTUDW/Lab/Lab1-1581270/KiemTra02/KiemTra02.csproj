@@ -99,6 +99,7 @@
     <Content Include="css\skdslider.css" />
     <Content Include="css\style.css" />
     <Content Include="default.aspx" />
+    <Content Include="error.html" />
     <Content Include="faq.aspx" />
     <Content Include="goumet.aspx" />
     <Content Include="groceries.aspx" />
@@ -197,6 +198,7 @@
     <Content Include="js\responsiveslides.min.js" />
     <Content Include="js\skdslider.min.js" />
     <Content Include="login.aspx" />
+    <Content Include="MyCart.aspx" />
     <Content Include="offers.aspx" />
     <Content Include="packagedfoods.aspx" />
     <Content Include="packages.config" />
@@ -218,6 +220,7 @@
     <Content Include="WUC\WUC_footer.ascx" />
     <Content Include="WUC\WUC_header.ascx" />
     <Content Include="WUC\WUC_navigation.ascx" />
+    <Content Include="WUC\WUC_ShoppingCart.ascx" />
     <EntityDeploy Include="Code\MyShopModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MyShopModel.Designer.cs</LastGenOutput>
@@ -260,6 +263,7 @@
     <Compile Include="Code\Brand.cs">
       <DependentUpon>MyShopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Code\CartItem.cs" />
     <Compile Include="Code\Category.cs">
       <DependentUpon>MyShopModel.tt</DependentUpon>
     </Compile>
@@ -284,6 +288,7 @@
     <Compile Include="Code\Product.cs">
       <DependentUpon>MyShopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Code\ShoppingCart.cs" />
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -332,6 +337,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyCart.aspx.cs">
+      <DependentUpon>MyCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyCart.aspx.designer.cs">
+      <DependentUpon>MyCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="offers.aspx.cs">
       <DependentUpon>offers.aspx</DependentUpon>
@@ -410,6 +422,13 @@
     </Compile>
     <Compile Include="WUC\WUC_navigation.ascx.designer.cs">
       <DependentUpon>WUC_navigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\WUC_ShoppingCart.ascx.cs">
+      <DependentUpon>WUC_ShoppingCart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\WUC_ShoppingCart.ascx.designer.cs">
+      <DependentUpon>WUC_ShoppingCart.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -15,10 +15,14 @@
                         <asp:HyperLink NavigateUrl="~/contact.aspx" ID="HyperLink4" runat="server">Help</asp:HyperLink></li>					
 				</ul>
 			</div>
-			<div class="product_list_header">  					
+			<div class="product_list_header">
+                <asp:LinkButton ID="LinkButtonViewCart" runat="server" PostBackUrl="~/MyCart.aspx">
+                    <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                    <asp:label ID="LabelCartItemCount" text="" runat="server" CssClass="badge badge-notify my-cart-badge" />
+                </asp:LinkButton>
 				<input type="hidden" name="cmd" value="_cart">
 				<input type="hidden" name="display" value="1">
-				<%--<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>--%>					
+				<%--<button class="w3view-cart" type="submit" name="submit" value=""></button>--%>					
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -58,7 +62,13 @@
                 AutoPostBack="true">
                 <i class="fa fa-search" aria-hidden="true"> </i>
             </asp:LinkButton>
-            
+            <asp:RequiredFieldValidator 
+                ID="RequiredFieldValidator1" 
+                runat="server" ErrorMessage=""
+                CssClass="text-danger"
+                ControlToValidate="TextBoxKeyword"
+                ValidationGroup="search"
+                Display="Dynamic"></asp:RequiredFieldValidator>
 			<div class="clearfix"></div>			
 		</div>
 			

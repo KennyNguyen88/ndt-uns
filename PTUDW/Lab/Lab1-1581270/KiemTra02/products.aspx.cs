@@ -1,4 +1,6 @@
-﻿using System;
+﻿using KiemTra02.Code;
+using KiemTra02.WUC;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,6 +32,18 @@ namespace KiemTra02
             DataPagerProducts.PageSize = int.Parse(country1.SelectedValue);
             DataPagerProducts.DataBind();
             ListViewProducts.DataBind();
+        }
+
+        protected void ListViewProducts_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if (e.CommandName == "AddToCart")
+            {
+                ShoppingCart cart = new ShoppingCart();
+                int id = int.Parse(e.CommandArgument.ToString());
+                cart.AddItem(id);
+
+                ((WUC_header)Page.Master.FindControl("WUC_header")).UpdateCartItem();
+            }
         }
     }
 }
