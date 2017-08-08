@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<DIEN_THOAI   Ten="Android 12" Ma_so="ANDROID_12" Don_gia_Ban="14120000">
+  <NHOM_DIEN_THOAI Ten="Android" Ma_so="ANDROID" />
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-03T00:00:00+07:00" So_luong="1" Don_gia="14120000" Tien="14120000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Đổ viết sơn Trúc" Dien_thoai="0735727847" Dia_chi="377 Bàng thị Thúy,Phường 10,Quận 7, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Tô thị Giảng" Ma_so="NV_1" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_PHAN_CONG" Ngay="2017-08-03T00:00:00+07:00" So_luong="1" Don_gia="14120000" Tien="14120000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Phạm phước Bình" Dien_thoai="0848831341" Dia_chi="424 Trần nam Bắc,Phường 3,Quận 11, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_GIAO" Ngay="2017-08-03T00:00:00+07:00" So_luong="1" Don_gia="14120000" Tien="14120000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Đặng thanh gia Trưởng" Dien_thoai="0243513499" Dia_chi="103 Huỳnh văn hiền trúc,Phường 2,Quận Phú nhuận, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Hứa ngọc thảo Nguyên" Ma_so="NV_3" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_GIAO" Ngay="2017-08-04T00:00:00+07:00" So_luong="2" Don_gia="14120000" Tien="28240000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Lâm hà Thùy" Dien_thoai="0883191346" Dia_chi="485 Thái duy Khiêm,Phường 10,Quận Phú nhuận, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Hứa ngọc thảo Nguyên" Ma_so="NV_3" />
+  </PHIEU_DAT>
+</DIEN_THOAI>

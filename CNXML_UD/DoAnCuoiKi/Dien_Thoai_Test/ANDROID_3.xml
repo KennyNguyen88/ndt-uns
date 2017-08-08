@@ -1,0 +1,45 @@
+﻿<?xml version="1.0"?>
+<DIEN_THOAI   Ten="Android 3" Ma_so="ANDROID_3" Don_gia_Ban="1920000">
+  <NHOM_DIEN_THOAI Ten="Android" Ma_so="ANDROID" />
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-02T00:00:00+07:00" So_luong="1" Don_gia="1920000" Tien="1920000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Hồ thanh Châu" Dien_thoai="0347563398" Dia_chi="92 Trần chiến Thiền,Phường 5,Quận 9, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Nguyên đình Vàng" Ma_so="NV_2" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-02T00:00:00+07:00" So_luong="1" Don_gia="1920000" Tien="1920000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Phi văn kiên Trường" Dien_thoai="0638336151" Dia_chi="538 Tô đình Châu,Phường 9,Quận 9, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Tô thị Giảng" Ma_so="NV_1" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_PHAN_CONG" Ngay="2017-08-02T00:00:00+07:00" So_luong="1" Don_gia="1920000" Tien="1920000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Trần nam Tạo" Dien_thoai="0256217362" Dia_chi="369 Tô ngọc thùy Trang,Phường 1,Quận Tân bình, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_GIAO" Ngay="2017-08-02T00:00:00+07:00" So_luong="1" Don_gia="1920000" Tien="1920000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Đồng đắc Dũng" Dien_thoai="0352634875" Dia_chi="581 Trần chiến xuân Trường,Phường 5,Quận 7, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Nguyên đình Vàng" Ma_so="NV_2" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-03T00:00:00+07:00" So_luong="2" Don_gia="1920000" Tien="3840000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Kiều phước Khóa" Dien_thoai="0969521514" Dia_chi="121 Ngô quyết Khang,Phường 6,Quận 10, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Tô thị Giảng" Ma_so="NV_1" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-03T00:00:00+07:00" So_luong="1" Don_gia="1920000" Tien="1920000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Phí xuân thảo Trúc" Dien_thoai="0913812542" Dia_chi="522 Đặng ngọc hải Liên,Phường 4,Quận 2, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Tô thị Giảng" Ma_so="NV_1" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_PHAN_CONG" Ngay="2017-08-03T00:00:00+07:00" So_luong="2" Don_gia="1920000" Tien="3840000" So_ngay_Du_kien="1" So_ngay_Thuc_te="2">
+    <Khach_hang Ho_ten="Lâm ngọc Khiêm" Dien_thoai="0553397658" Dia_chi="84 Đổ chiến Toàn,Phường 5,Quận 2, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_GIAO" Ngay="2017-08-03T00:00:00+07:00" So_luong="2" Don_gia="1920000" Tien="3840000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Bạch thanh đan Tân" Dien_thoai="0862828291" Dia_chi="416 Hoa kim Bình,Phường 1,Quận 11, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Hứa ngọc thảo Nguyên" Ma_so="NV_3" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-04T00:00:00+07:00" So_luong="1" Don_gia="1920000" Tien="1920000" So_ngay_Du_kien="1" So_ngay_Thuc_te="2">
+    <Khach_hang Ho_ten="Hà đình minh Toàn" Dien_thoai="0166941513" Dia_chi="410 Lý chiến thụy Trang,Phường 1,Quận 10, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Tô thị Giảng" Ma_so="NV_1" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_PHAN_CONG" Ngay="2017-08-04T00:00:00+07:00" So_luong="2" Don_gia="1920000" Tien="3840000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Nguyễn tiến Thúy" Dien_thoai="0912885767" Dia_chi="568 Bạch phạm Toàn,Phường 5,Quận Tân bình, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_GIAO" Ngay="2017-08-04T00:00:00+07:00" So_luong="1" Don_gia="1920000" Tien="1920000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Nguyễn sơn Phước" Dien_thoai="0645898174" Dia_chi="304 Cao ngọc minh Tâm,Phường 4,Quận 4, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Tô thị Giảng" Ma_so="NV_1" />
+  </PHIEU_DAT>
+</DIEN_THOAI>
