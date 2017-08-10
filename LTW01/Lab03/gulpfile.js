@@ -42,7 +42,7 @@ gulp.task('set-env-prod', function() {
 //html
 gulp.task('html', function() {
     gulp.src('builds/development/*.html')
-        .pipe(gulpif(env === 'production', minifyHTML()))
+        // .pipe(gulpif(env === 'production', minifyHTML()))
         .pipe(gulpif(env === 'production', gulp.dest(outputDir)))
 });
 //scss to css
