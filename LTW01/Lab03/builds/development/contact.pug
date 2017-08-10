@@ -1,7 +1,7 @@
 extends template
 include mixins/mixin
 block btitle
-    title Contact | LTW - Lab03
+    title Contact | LTW01
 block content
     .container
         .row
@@ -34,19 +34,19 @@ block content
                             .panel-body
                                 form.form-horizontal
                                     .form-group
-                                        label.col-xs-2.control-label(for="inputName") Name
-                                        .col-xs-10
+                                        label.col-sm-3.control-label.hidden-xs(for="inputName") Name
+                                        .col-xs-12.col-sm-9
                                             input#inputName.form-control(type="text" placeholder="Nguyen Duc Trung")
                                     .form-group
-                                        label.col-xs-2.control-label(for="inputEmail") Email
-                                        .col-xs-10
+                                        label.col-sm-3.control-label.hidden-xs(for="inputEmail") Email
+                                        .col-xs-12.col-sm-9
                                             input#inputEmail.form-control(type="email" placeholder="ndt@example.com")
                                     .form-group
-                                        label.col-xs-2.control-label(for="inputMessage") Message
-                                        .col-xs-10
+                                        label.col-sm-3.control-label.hidden-xs(for="inputMessage") Message
+                                        .col-xs-12.col-sm-9
                                             textarea#inputMessage.form-control(placeholder="Input Message" rows="3")
                                     .form-group
-                                        .col-xs-offset-2.col-xs-10.text-right
+                                        .col-xs-12.col-sm-offset-3.col-sm-9.text-right
                                             a.btn.btn-primary Submit
             .col-lg-3
                 include partials/sidebar

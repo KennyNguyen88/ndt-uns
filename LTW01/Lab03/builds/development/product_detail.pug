@@ -1,7 +1,7 @@
 extends template
 include mixins/mixin
 block btitle
-    title Product Detail | LTW - Lab03
+    title Product Detail | LTW01
 block content
     .container
         .row
@@ -35,21 +35,21 @@ block content
                         p Available In Stock
                         form.form-horizontal
                             .form-group
-                                label.col-xs-2.control-label(for="inputSize") Size
-                                .col-xs-10
+                                label.col-xs-3.control-label(for="inputSize") Size
+                                .col-xs-9
                                     select#inputSize.form-control
                                         option 10
                                         option 20
                                         option 30
                             .form-group
-                                label.col-xs-2.control-label(for="inputQuantity") Quantity
-                                .col-xs-10
+                                label.col-xs-3.control-label(for="inputQuantity") Quantity
+                                .col-xs-9
                                     select#inputQuantity.form-control
                                         option 1
                                         option 2
                                         option 3
                             .form-group
-                                .col-xs-offset-2.col-xs-10
+                                .col-xs-offset-3.col-xs-9
                                     a.btn.btn-primary ADD TO CART
                             .form-group
                                 label.radio-inline.yellow

@@ -1,54 +1,52 @@
 extends admin_template
 include mixins/mixin
 block btitle
-    title Admin Products | LTW - Lab03
+    title Admin Products | LTW01
 block content
     .row
         .col-xs-12
             h1 Add New Product
     .row
-        .col-xs-6
+        .col-xs-12.col-sm-6
             .row
                 .form-horizontal
                     .form-group
-                        label.col-xs-4.control-label(for="inputName") Name
-                        .col-xs-8
+                        label.col-xs-11.col-xs-offset-1.col-sm-3.control-label(for="inputName") Name
+                        .col-xs-10.col-xs-offset-1.col-sm-7
                             input#inputName.form-control(type="text" placeholder="Nguyen Duc Trung")
                     .form-group
-                        label.col-xs-4.control-label(for="comboParent") Parent Category
-                        .col-xs-8
+                        label.col-xs-11.col-xs-offset-1.col-sm-3.control-label(for="comboParent") Parent Category
+                        .col-xs-10.col-xs-offset-1.col-sm-7
                             select#comboParent.form-control
                                 option Category 1
                                 option Category 2
                                 option Category 3
                     .form-group
-                        label.col-xs-4.control-label(for="inputQuantity") Quantities
-                        .col-xs-8
+                        label.col-xs-11.col-xs-offset-1.col-sm-3.control-label(for="inputQuantity") Quantities
+                        .col-xs-10.col-xs-offset-1.col-sm-7
                             input#inputQuantity.form-control(type="text" value="1")
-        .col-xs-6
+        .col-xs-12.col-sm-6
             .row
                 .form-horizontal
                     .form-group
-                        label.col-xs-4.control-label(for="inputName") Image
-                        .col-xs-8
+                        label.col-xs-11.col-xs-offset-1.col-sm-3.control-label(for="inputName") Image
+                        .col-xs-10.col-xs-offset-1.col-sm-6
                             label.btn.btn-default.btn-file Browse #[input(type="file" style="display: none;")]
-
-
                     .form-group
-                        label.col-xs-4.control-label(for="inputModel") Model
-                        .col-xs-8
+                        label.col-xs-11.col-xs-offset-1.col-sm-3.control-label(for="inputModel") Model
+                        .col-xs-10.col-xs-offset-1.col-sm-6
                             input#inputModel.form-control(type="text")
                     .form-group
-                        label.col-xs-4.control-label(for="inputPrice") Price
-                        .col-xs-8
+                        label.col-xs-11.col-xs-offset-1.col-sm-3.control-label(for="inputPrice") Price
+                        .col-xs-10.col-xs-offset-1.col-sm-6
                             input#inputPrice.form-control(type="text" value="100")
                     .form-group
-                        .col-xs-8.col-xs-offset-4
+                        .col-xs-12.col-xs-offset-4.col-sm-8
                             a.btn.btn-primary(href="#") Add New
     .row
-        .col-xs-6
+        .col-xs-12.col-sm-6
             h1 Products
-        .col-xs-6.text-right
+        .col-xs-12.col-sm-6.text-right
             .form-inline
                 .form-group
                     input.form-control(type="text" placeholder="Search key...")

@@ -65,6 +65,9 @@ html, body{
   .navbar{
     border: none;
   }
+  .navbar-toggle .icon-bar{
+    background-color: $price-color;
+  }
 }
 /* PRODUCT LIST
 /*================================================*/
@@ -121,7 +124,11 @@ html, body{
   p{
     color: #848484;
     margin-bottom: 0;
+    @media (max-width: $screen-xs) {
+        text-align: center;
+    }
   }
+
 }
 .list-group-item{
   border-width: 0 0 2px 0;
@@ -203,6 +210,9 @@ html, body{
   padding: 2rem;
   p{
     margin-bottom: 0;
+    @media (max-width: $screen-xs) {
+      text-align: center;
+    }
   }
 }
 /* ADMIN DASHBOARD
