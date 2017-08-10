@@ -1,0 +1,367 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Trang Chính - Khách Hàng</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="DD_Chinh.css" type="text/css">
+<body>
+    @using System.Xml;
+    @{
+//var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+//var DS_Dien_Thoai_Iphone = Du_Lieu.DS_Dien_Thoai_Iphone();
+//var DS_Dien_Thoai_Android = Du_Lieu.DS_Dien_Thoai_Android();
+//var Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString("");
+//var Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString("");
+//if (DS_Dien_Thoai_Iphone != null && DS_Dien_Thoai_Android != null)
+//{
+//    var Chuoi_HTML_Iphone = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Iphone);
+//    Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString(Chuoi_HTML_Iphone);
+//    var Chuoi_HTML_Android = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Android);
+//    Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString(Chuoi_HTML_Android);
+//}
+
+//var Chuoi_Nhap_lieu_Diem = "";
+//var Chuoi_The_hien_Thong_bao = new HtmlString(
+//        "Nhập Điểm Toán cần tìm  (Kết thúc với Enter)");
+//var Chuoi_The_hien_DS_Thi_Sinh = new HtmlString("");
+//if (IsPost)
+//{
+//    Chuoi_Nhap_lieu_Diem = Request["Th_Diem"].Trim();
+//    var DS_Thi_Sinh = Du_lieu.Tra_Cuu_Thi_Sinh_Theo_Diem_Toan(Chuoi_Nhap_lieu_Diem);
+//    var Hop_le = DS_Thi_Sinh.ChildNodes.Count > 0;
+//    if (Hop_le)
+//    {
+//        var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(DS_Thi_Sinh);
+//        Chuoi_The_hien_DS_Thi_Sinh = new HtmlString(Chuoi_HTML);
+//        Chuoi_The_hien_Thong_bao = new HtmlString("Thông tin về Thí Sinh ");
+//    }
+//    else
+//    {
+//        Chuoi_The_hien_Thong_bao = new HtmlString("Không tìm thấy kết quả ! ");
+//    }
+//}
+    }
+    <div class="container-fluid">
+        <header class="green">
+            <div class="container">
+                <div class="row valign-wrapper white-text mb-0">
+                    <div class="col s2"><a class="white-text" href="#"><h5>BDT-TT</h5></a></div>
+                    <div class="col s9 center-align"><h4>Quản Lý</h4></div>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <ul>
+                        <li><a href="#">Đơn Giá</a></li>
+                        <li><a href="#">Đơn Hàng</a></li>
+                        <li><a href="#">Phân Công</a></li>
+                        <li><a class="active" href="#">Thống Kê Tháng</a></li>
+                        <li><a href="#">Thống Kê Năm</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="main_wrapper">
+            <div class="container">
+                <h4 class="center-align">Thống kê doanh thu tháng</h4>
+                <h3 class="center-align">Tháng 1 - Tổng thu <span class="text-red">4800000</span></h3>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">1</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">2</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">3</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">4</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">5</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">6</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">7</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">8</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">9</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">10</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">11</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">12</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">13</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">14</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">15</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">16</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">17</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">18</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">19</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">20</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">21</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">22</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">23</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">24</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">25</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">26</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">27</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">28</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">29</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">30</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                        <div class="card-panel">
+                            <div class="row mb-0 valign-wrapper">
+                                <div class="col s2 valign-wrapper">
+                                    <i class="small material-icons">date_range</i><span class="thong-ke">31</span>
+                                </div>
+                                <div class="col s8 don-gia">Doanh Thu 480000</div>
+                                <div class="col s2 right-align thong-ke">10%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="green darken-3">
+            <div class="center-align white-text">
+                <h5>Đồ án cuối kì - Công nghệ XML và ứng dụng</h5><h6>
+                    Nguyễn Đức Trung -
+                    1581270
+                </h6>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>

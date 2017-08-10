@@ -76,9 +76,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Giao_Dien\DD_Cap_nhat.css" />
+    <Content Include="Giao_Dien\android.jpg" />
     <Content Include="Giao_Dien\DD_Chinh.css" />
-    <Content Include="Giao_Dien\MH_Chinh.html" />
+    <Content Include="Giao_Dien\iphone.jpg" />
+    <Content Include="Giao_Dien\script.js" />
     <Content Include="Web.config" />
     <Content Include="Xu_Ly\Tao_Chuoi_HTML_Cap_Nhat_Diem_Toan.xslt" />
   </ItemGroup>
@@ -90,6 +91,7 @@
     <Content Include="Giao_Dien\MH_Cap_Nhat_Diem_Toan.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Giao_Dien\MH_Them_Thi_Sinh.cshtml" />
+    <Content Include="Giao_Dien\Trang-Chinh.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

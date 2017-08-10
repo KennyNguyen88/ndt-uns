@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Trang Chính - Khách Hàng</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="DD_Chinh.css" type="text/css">
+<body>
+    @using System.Xml;
+    @{
+//var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+//var DS_Dien_Thoai_Iphone = Du_Lieu.DS_Dien_Thoai_Iphone();
+//var DS_Dien_Thoai_Android = Du_Lieu.DS_Dien_Thoai_Android();
+//var Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString("");
+//var Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString("");
+//if (DS_Dien_Thoai_Iphone != null && DS_Dien_Thoai_Android != null)
+//{
+//    var Chuoi_HTML_Iphone = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Iphone);
+//    Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString(Chuoi_HTML_Iphone);
+//    var Chuoi_HTML_Android = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Android);
+//    Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString(Chuoi_HTML_Android);
+//}
+
+//var Chuoi_Nhap_lieu_Diem = "";
+//var Chuoi_The_hien_Thong_bao = new HtmlString(
+//        "Nhập Điểm Toán cần tìm  (Kết thúc với Enter)");
+//var Chuoi_The_hien_DS_Thi_Sinh = new HtmlString("");
+//if (IsPost)
+//{
+//    Chuoi_Nhap_lieu_Diem = Request["Th_Diem"].Trim();
+//    var DS_Thi_Sinh = Du_lieu.Tra_Cuu_Thi_Sinh_Theo_Diem_Toan(Chuoi_Nhap_lieu_Diem);
+//    var Hop_le = DS_Thi_Sinh.ChildNodes.Count > 0;
+//    if (Hop_le)
+//    {
+//        var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(DS_Thi_Sinh);
+//        Chuoi_The_hien_DS_Thi_Sinh = new HtmlString(Chuoi_HTML);
+//        Chuoi_The_hien_Thong_bao = new HtmlString("Thông tin về Thí Sinh ");
+//    }
+//    else
+//    {
+//        Chuoi_The_hien_Thong_bao = new HtmlString("Không tìm thấy kết quả ! ");
+//    }
+//}
+    }
+    <div class="container-fluid">
+        <header class="green">
+            <div class="container">
+                <div class="row valign-wrapper white-text mb-0">
+                    <div class="col s2"><a class="white-text" href="#"><h5>BDT-TT</h5></a></div>
+                    <div class="col s9 center-align"><h4>Quản Lý</h4></div>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <ul>
+                        <li><a href="#">Đơn Giá</a></li>
+                        <li><a class="active" href="#">Đơn Hàng</a></li>
+                        <li><a href="#">Phân Công</a></li>
+                        <li><a href="#">Thống Kê Tháng</a></li>
+                        <li><a href="#">Thống Kê Năm</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="main_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel">
+                            <div class="row">
+                                <div class="col s12"><h5>Android_1</h5></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status blue white-text">Chờ Phân Công</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status blue white-text">Chờ Phân Công</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status blue white-text">Chờ Phân Công</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel">
+                            <div class="row">
+                                <div class="col s12"><h5>Android_2</h5></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status orange white-text">Chờ Giao</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status orange white-text">Chờ Giao</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status orange white-text">Chờ Giao</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status orange white-text">Chờ Giao</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel">
+                            <div class="row">
+                                <div class="col s12"><h5>Android_3</h5></div>
+                            </div>
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status green white-text">Đã Giao</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status green white-text">Đã Giao</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status green white-text">Đã Giao</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <div class="status green white-text">Đã Giao</div>
+                                        </div>
+                                        <div class="card-content">
+                                            <ul>
+                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
+                                                <li class="so-luong">Số lượng: 1</li>
+                                                <li class="so-luong">Nhân Viên:</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="green darken-3">
+            <div class="center-align white-text">
+                <h5>Đồ án cuối kì - Công nghệ XML và ứng dụng</h5><h6>
+                    Nguyễn Đức Trung -
+                    1581270
+                </h6>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>

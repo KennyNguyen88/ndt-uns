@@ -78,7 +78,6 @@
   <ItemGroup>
     <Content Include="Giao_Dien\android.jpg" />
     <Content Include="Giao_Dien\DD_Chinh.css" />
-    <Content Include="Giao_Dien\DD_Tra_cuu.css" />
     <Content Include="Giao_Dien\iphone.jpg" />
     <Content Include="Giao_Dien\script.js" />
     <Content Include="Web.config" />
