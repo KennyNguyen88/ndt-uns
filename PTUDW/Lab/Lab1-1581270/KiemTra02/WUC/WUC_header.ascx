@@ -6,11 +6,35 @@
 				<p>SALE UP TO 70% OFF. USE CODE "SALE70%" . <asp:HyperLink NavigateUrl="~/products.aspx" ID="HyperLink1" runat="server">SHOP NOW</asp:HyperLink></p>
 			</div>
 			<div class="agile-login">
-				<ul>
-					<li>
+                <ul>
+                <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        <li>
                         <asp:HyperLink NavigateUrl="~/registered.aspx" ID="HyperLink2" runat="server">Create Account</asp:HyperLink></li>
-					<li>
-                        <asp:HyperLink NavigateUrl="~/login.aspx" ID="HyperLink3" runat="server">Login</asp:HyperLink></li>
+					    <li>
+                            <asp:HyperLink NavigateUrl="~/login.aspx" ID="HyperLink3" runat="server">Login</asp:HyperLink></li>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <li>
+                            <div class="dropdown">
+                              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                  <asp:LoginName ID="LoginName1" runat="server" />                                  
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/member/default.aspx">My Account</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/member/myorders.aspx">My Orders</asp:HyperLink></li>
+                                <li>
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                                </li>                                
+                              </ul>
+                            </div>
+                        </li>
+                    </LoggedInTemplate>
+                </asp:LoginView>
+				
+					
 					<li>
                         <asp:HyperLink NavigateUrl="~/contact.aspx" ID="HyperLink4" runat="server">Help</asp:HyperLink></li>					
 				</ul>

@@ -15,20 +15,38 @@
 <!-- login -->
 	<div class="login">
 		<div class="container">
-			<h2>Login Form</h2>
+            <asp:LoginView ID="LoginView1" runat="server">
+                <AnonymousTemplate>
+                    <h2>Login Form</h2>
 		
 			<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-				<form>
-					<input type="email" placeholder="Email Address" required=" " >
-					<input type="password" placeholder="Password" required=" " >
-					<div class="forgot">
-						<a href="#">Forgot Password?</a>
-					</div>
-					<input type="submit" value="Login">
-				</form>
+
+                    <asp:Login ID="Login1" runat="server">
+                        <LayoutTemplate>                                                                                                                                          
+                            <asp:TextBox ID="UserName" runat="server" TextMode="SingleLine" placeholder="Username" required=" "></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>                            
+                            <asp:TextBox ID="Password" runat="server" TextMode="Password" placeholder="Password" required=" "></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                            <asp:CheckBox ID="RememberMe" runat="server" Text="Remember me next time." />
+                            <div class="forgot">
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/PasswordRecovery.aspx">Forgot Password?</asp:HyperLink>
+					        </div>
+                            <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                            <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" ValidationGroup="Login1" />
+                        </LayoutTemplate>
+                    </asp:Login>
+					                    
+
 			</div>
 			<h4>For New People</h4>
-			<p><a href="registered.html">Register Here</a> (Or) go back to <a href="index.html">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+			<p>
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/registered.aspx">Register Here</asp:HyperLink>
+                 (Or) go back to <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/default.aspx">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></asp:HyperLink>
+
+			</p>
+                </AnonymousTemplate>
+            </asp:LoginView>
+			
 		</div>
 	</div>
 <!-- //login -->
