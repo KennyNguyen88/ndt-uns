@@ -82,13 +82,21 @@
     <Content Include="Giao_Dien\script.js" />
     <Content Include="Web.config" />
     <Content Include="Xu_Ly\Tao_Chuoi_HTML_Cap_Nhat_Diem_Toan.xslt" />
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Cap_Nhat_Don_Gia.xslt" />
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai.xslt">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Danh_Sach_Don_Hang.xslt" />
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Danh_Sach_Phan_Cong.xslt" />
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Thong_Ke_Nam.xslt" />
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Thong_Ke_Thang.xslt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xu_Ly\XL_DU_LIEU.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Giao_Dien\Trang-Don-Gia.cshtml" />
+    <Content Include="Giao_Dien\Trang-Chinh.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Giao_Dien\Trang-Cap-Nhat-Don-Gia.cshtml" />
     <Content Include="Giao_Dien\Trang-Don-Hang.cshtml" />

@@ -7,45 +7,46 @@
 <body>
     @using System.Xml;
     @{
-//var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
-//var DS_Dien_Thoai_Iphone = Du_Lieu.DS_Dien_Thoai_Iphone();
-//var DS_Dien_Thoai_Android = Du_Lieu.DS_Dien_Thoai_Android();
-//var Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString("");
-//var Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString("");
-//if (DS_Dien_Thoai_Iphone != null && DS_Dien_Thoai_Android != null)
-//{
-//    var Chuoi_HTML_Iphone = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Iphone);
-//    Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString(Chuoi_HTML_Iphone);
-//    var Chuoi_HTML_Android = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Android);
-//    Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString(Chuoi_HTML_Android);
-//}
+        var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        var MaSoNV = Request.QueryString["id"];
+        if (MaSoNV.IsEmpty())
+        {
+            MaSoNV = "NV_1";
+        }
+        var TenNhanVien = "";
+        switch (MaSoNV)
+        {
+            case "NV_1":
+                TenNhanVien = "Tô thị Giảng";
+                break;
+            case "NV_2":
+                TenNhanVien = "Nguyên đình Vàng";
+                break;
+            case "NV_3":
+                TenNhanVien = "Hứa ngọc thảo Nguyên";
+                break;
+            default:
+                TenNhanVien = "Nhân Viên";
+                break;
+        }
+        var Chuoi_The_Hien_DS = new HtmlString("");
+        if (IsPost)
+        {
 
-//var Chuoi_Nhap_lieu_Diem = "";
-//var Chuoi_The_hien_Thong_bao = new HtmlString(
-//        "Nhập Điểm Toán cần tìm  (Kết thúc với Enter)");
-//var Chuoi_The_hien_DS_Thi_Sinh = new HtmlString("");
-//if (IsPost)
-//{
-//    Chuoi_Nhap_lieu_Diem = Request["Th_Diem"].Trim();
-//    var DS_Thi_Sinh = Du_lieu.Tra_Cuu_Thi_Sinh_Theo_Diem_Toan(Chuoi_Nhap_lieu_Diem);
-//    var Hop_le = DS_Thi_Sinh.ChildNodes.Count > 0;
-//    if (Hop_le)
-//    {
-//        var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(DS_Thi_Sinh);
-//        Chuoi_The_hien_DS_Thi_Sinh = new HtmlString(Chuoi_HTML);
-//        Chuoi_The_hien_Thong_bao = new HtmlString("Thông tin về Thí Sinh ");
-//    }
-//    else
-//    {
-//        Chuoi_The_hien_Thong_bao = new HtmlString("Không tìm thấy kết quả ! ");
-//    }
-//}
+        }
+
+        var DS_PhieuDat = Du_Lieu.DS_PhieuDat_ChoGiao_PhanCong(MaSoNV);
+        if (DS_PhieuDat != null)
+        {
+            var Chuoi_HTML_DanhSach = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach(DS_PhieuDat);
+            Chuoi_The_Hien_DS = new HtmlString(Chuoi_HTML_DanhSach);
+        }
     }
     <div class="container-fluid">
         <header class="green">
             <div class="container">
                 <div class="row valign-wrapper white-text mb-0">
-                    <div class="col s2"><a class="white-text" href="#"><h5>BDT-TT</h5></a></div>
+                    <div class="col s2"><a class="white-text" href="Trang-Chinh.cshtml"><h5>BDT-TT</h5></a></div>
                     <div class="col s9 center-align"><h4>Nhân Viên</h4></div>
                 </div>
             </div>
@@ -54,82 +55,19 @@
             <div class="nav-wrapper">
                 <div class="container">
                     <ul>
-                        <li><a class="active" href="#">Nguyên đình Vàng</a></li>
-                        <li><a href="#">Nguyên đình Vàng</a></li>
-                        <li><a href="#">Nguyên đình Vàng</a></li>
-                        <li><a href="#">Nguyên đình Vàng</a></li>
+                        <li><a class="active" href="Trang-Chinh.cshtml?id=NV_1">Tô thị Giảng</a></li>
+                        <li><a href="Trang-Chinh.cshtml?id=NV_2">Nguyên đình Vàng</a></li>
+                        <li><a href="Trang-Chinh.cshtml?id=NV_3">Hứa ngọc thảo Nguyên</a></li>                        
+                        <li><a href="Trang-Chinh.cshtml?id=NV_4">Nhân Viên</a></li>                        
                     </ul>
                 </div>
             </div>
         </nav>
         <div id="main_wrapper">
             <div class="container">
-                <h2>Nguyên đình Vàng</h2><h4>Đơn hàng</h4>
-                <div class="row">
-                    <div class="col s6">
-                        <div class="card-panel">
-                            <div class="row">
-                                <div class="col s3"><img class="responsive-img" src="iphone.jpg"></div>
-                                <div class="col s9">
-                                    <ul>
-                                        <li class="ten-dien-thoai">iphone 1</li>
-                                        <li class="don-gia">Đơn giá: 480000</li>
-                                        <li class="so-luong">Số lượng: 1</li>
-                                        <li class="tong-tien">Tiền: 480000</li>
-                                        <li>Khách Hàng: Nguyên quyết Khóa</li>
-                                        <li>
-                                            Địa Chỉ: 487 Trang bích Hải,Phường 4,Quận 9, Ho Chi Minh City, Ho Chi Minh,
-                                            Vietnam
-                                        </li>
-                                        <li>Điện Thoại: 0113134342</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s6">
-                        <div class="card-panel">
-                            <div class="row">
-                                <div class="col s3"><img class="responsive-img" src="iphone.jpg"></div>
-                                <div class="col s9">
-                                    <ul>
-                                        <li class="ten-dien-thoai">iphone 1</li>
-                                        <li class="don-gia">Đơn giá: 480000</li>
-                                        <li class="so-luong">Số lượng: 1</li>
-                                        <li class="tong-tien">Tiền: 480000</li>
-                                        <li>Khách Hàng: Nguyên quyết Khóa</li>
-                                        <li>
-                                            Địa Chỉ: 487 Trang bích Hải,Phường 4,Quận 9, Ho Chi Minh City, Ho Chi Minh,
-                                            Vietnam
-                                        </li>
-                                        <li>Điện Thoại: 0113134342</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col s6">
-                        <div class="card-panel">
-                            <div class="row">
-                                <div class="col s3"><img class="responsive-img" src="iphone.jpg"></div>
-                                <div class="col s9">
-                                    <ul>
-                                        <li class="ten-dien-thoai">iphone 1</li>
-                                        <li class="don-gia">Đơn giá: 480000</li>
-                                        <li class="so-luong">Số lượng: 1</li>
-                                        <li class="tong-tien">Tiền: 480000</li>
-                                        <li>Khách Hàng: Nguyên quyết Khóa</li>
-                                        <li>
-                                            Địa Chỉ: 487 Trang bích Hải,Phường 4,Quận 9, Ho Chi Minh City, Ho Chi Minh,
-                                            Vietnam
-                                        </li>
-                                        <li>Điện Thoại: 0113134342</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <h2>@TenNhanVien</h2>
+                <h4>Đơn hàng</h4>
+                @Chuoi_The_Hien_DS                                
             </div>
         </div>
         <footer class="green darken-3">
@@ -140,49 +78,7 @@
                 </h6>
             </div>
         </footer>
-    </div>
-    
-    @*<div class="container-fluid">
-        <header class="green">
-            <div class="container">
-                <div class="row valign-wrapper white-text">
-                    <div class="col s2"><a class="white-text" href="#"><h5>BDT-TT</h5></a></div>
-                    <div class="col s9 center-align"><h4>Khách hàng</h4></div>
-                </div>
-            </div>
-        </header>
-
-        <form action="" method="post" class="row">
-            <div id="main_wrapper">
-                <div class="container">                                     
-                    <h2>Iphone</h2>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="card-panel">
-                                @Chuoi_The_Hien_DS_Dien_Thoai_Iphone                                
-                            </div>
-                        </div>
-                    </div>
-                    <h2>Android</h2>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="card-panel">
-                                @Chuoi_The_Hien_DS_Dien_Thoai_Android                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <footer class="green darken-3">
-            <div class="center-align white-text">
-                <h5>Đồ án cuối kì - Công nghệ XML và ứng dụng</h5><h6>
-                    Nguyễn Đức Trung -
-                    1581270
-                </h6>
-            </div>
-        </footer>
-    </div>*@
+    </div>   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
     <script src="script.js"></script>

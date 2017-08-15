@@ -5,6 +5,19 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="stylesheet" href="DD_Chinh.css" type="text/css">
 <body>
+    @using System.Xml;
+    @{
+        var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        var MaSoDienThoai = Request.QueryString["id"];
+        var Chuoi_The_Hien_DT = new HtmlString("");
+        var DienThoai = Du_Lieu.Tra_DT_Theo_Ma(MaSoDienThoai);
+        var Chuoi_The_Hien_ThongBao = new HtmlString("");
+        if (DienThoai != null)
+        {
+            var Chuoi_HTML_DienThoai = Du_Lieu.Tao_Chuoi_HTML_Chi_Tiet_Dien_Thoai(DienThoai);
+            Chuoi_The_Hien_DT = new HtmlString(Chuoi_HTML_DienThoai);
+        }
+    }
     <div class="container-fluid">
         <header class="green">
             <div class="container">
@@ -18,33 +31,7 @@
             <div id="main_wrapper">
                 <div class="container">
                     <h2>Đặt hàng</h2><h4>Đơn hàng</h4>
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="card-panel">
-                                <div class="row">
-                                    <div class="col s3"><img class="responsive-img" src="iphone.jpg"></div>
-                                    <div class="col s9">
-                                        <ul>
-                                            <li class="ten-dien-thoai">iphone 1</li>
-                                            <li class="ngay">Ngày Đặt: 2017-08-02T00:00:00+07:00</li>
-                                            <li class="ngay">Số Ngày Dự Kiến: 1</li>
-                                            <li class="don-gia">Đơn giá: 480000</li>
-                                        </ul>
-                                        <div class="row">
-                                            <div class="col s12 so-luong">
-                                                Số lượng
-                                                <div class="input-field inline s12">
-                                                    <input class="center-align" id="so-luong"
-                                                           type="number" value="1">
-                                                </div>
-                                            </div>
-                                            <div class="col s12"><p class="tong-tien">Tiền: 480000</p></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @Chuoi_The_Hien_DT
                     <h4>Khách hàng</h4>
                     <div class="row">
                         <div class="col s12">
@@ -75,10 +62,12 @@
                     </div>
                     <div class="row">
                         <div class="col s12 center-align"><a class="waves-effect waves-light btn">Xác Nhận</a></div>
-                        <div class="col s12 center-align red-text"><p>Thông báo</p></div>
+                        <div class="col s12 center-align red-text"><p class="text-center">@Chuoi_The_Hien_ThongBao</p></div>
                     </div>
                 </div>
             </div>
+
+            
         </form>
             <footer class="green darken-3">
                 <div class="center-align white-text">

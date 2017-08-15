@@ -12,10 +12,14 @@
         var DS_Dien_Thoai_Android = Du_Lieu.DS_Dien_Thoai_Android();
         var Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString("");
         var Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString("");
-        if (DS_Dien_Thoai_Iphone != null && DS_Dien_Thoai_Android != null)
+        if (DS_Dien_Thoai_Iphone != null )
         {
             var Chuoi_HTML_Iphone = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Iphone);
             Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString(Chuoi_HTML_Iphone);
+
+        }
+        if (DS_Dien_Thoai_Android != null)
+        {
             var Chuoi_HTML_Android = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Android);
             Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString(Chuoi_HTML_Android);
         }

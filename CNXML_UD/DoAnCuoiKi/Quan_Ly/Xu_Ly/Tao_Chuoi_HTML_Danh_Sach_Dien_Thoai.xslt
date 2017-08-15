@@ -9,7 +9,7 @@
   </xsl:template>
   <xsl:template match="DIEN_THOAI">
     <div class="col s3">
-      <div class="card hoverable">
+      <div class="card">
         <div class="card-image">
           <xsl:for-each select="NHOM_DIEN_THOAI">
             <xsl:if test = "@Ma_so = 'IPHONE'">
@@ -17,22 +17,28 @@
             </xsl:if>
             <xsl:if test = "@Ma_so = 'ANDROID'">
               <img src="android.jpg"/>
-            </xsl:if>             
-          </xsl:for-each>          
+            </xsl:if>
+          </xsl:for-each>
         </div>
         <div class="card-content center-align">
-          <p class="ten-dien-thoai"><xsl:value-of select="@Ten"/></p>
-          <p class="don-gia"><xsl:value-of select="@Don_gia_Ban"/></p>
+          <p class="ten-dien-thoai">
+            <xsl:value-of select="@Ten"/>
+          </p>
+          <p class="don-gia">
+            <xsl:value-of select="@Don_gia_Ban"/>
+          </p>
         </div>
         <div class="card-action">
-          <xsl:variable name="Ma_so" select="@Ma_so" />          
-          <a class="valign-wrapper" href="Trang-Dat-Hang.cshtml?id={$Ma_so}">
-            <i class="material-icons mr-1">shopping_cart</i>
-            <p>Đặt Hàng</p>
+          <xsl:variable name="Ma_so" select="@Ma_so" />
+          <a class="valign-wrapper" href="Trang-Cap-Nhat-Don-Gia.cshtml?id={$Ma_so}">
+            <i class="material-icons mr-1">edit</i>
+            <p>Cập Nhật</p>
           </a>
         </div>
       </div>
     </div>
+
+
   </xsl:template>
 
 

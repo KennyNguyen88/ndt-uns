@@ -7,39 +7,32 @@
 <body>
     @using System.Xml;
     @{
-//var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
-//var DS_Dien_Thoai_Iphone = Du_Lieu.DS_Dien_Thoai_Iphone();
-//var DS_Dien_Thoai_Android = Du_Lieu.DS_Dien_Thoai_Android();
-//var Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString("");
-//var Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString("");
-//if (DS_Dien_Thoai_Iphone != null && DS_Dien_Thoai_Android != null)
-//{
-//    var Chuoi_HTML_Iphone = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Iphone);
-//    Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString(Chuoi_HTML_Iphone);
-//    var Chuoi_HTML_Android = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Android);
-//    Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString(Chuoi_HTML_Android);
-//}
+        var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        var DS_DonHang_ChoPhanCong = Du_Lieu.DS_Phieu_Dat_ChoPhanCong();
+        var DS_DonHang_ChoGiao = Du_Lieu.DS_Phieu_Dat_ChoGiao();
+        var DS_DonHang_DaGiao = Du_Lieu.DS_Phieu_Dat_DaGiao();
 
-//var Chuoi_Nhap_lieu_Diem = "";
-//var Chuoi_The_hien_Thong_bao = new HtmlString(
-//        "Nhập Điểm Toán cần tìm  (Kết thúc với Enter)");
-//var Chuoi_The_hien_DS_Thi_Sinh = new HtmlString("");
-//if (IsPost)
-//{
-//    Chuoi_Nhap_lieu_Diem = Request["Th_Diem"].Trim();
-//    var DS_Thi_Sinh = Du_lieu.Tra_Cuu_Thi_Sinh_Theo_Diem_Toan(Chuoi_Nhap_lieu_Diem);
-//    var Hop_le = DS_Thi_Sinh.ChildNodes.Count > 0;
-//    if (Hop_le)
-//    {
-//        var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(DS_Thi_Sinh);
-//        Chuoi_The_hien_DS_Thi_Sinh = new HtmlString(Chuoi_HTML);
-//        Chuoi_The_hien_Thong_bao = new HtmlString("Thông tin về Thí Sinh ");
-//    }
-//    else
-//    {
-//        Chuoi_The_hien_Thong_bao = new HtmlString("Không tìm thấy kết quả ! ");
-//    }
-//}
+        var Chuoi_The_Hien_DS_DonHang_ChoPhanCong = new HtmlString("");
+        var Chuoi_The_Hien_DS_DonHang_ChoGiao = new HtmlString("");
+        var Chuoi_The_Hien_DS_DonHang_DaGiao = new HtmlString("");
+
+        if (DS_DonHang_ChoPhanCong != null)
+        {
+            var Chuoi_HTML_DonHang = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Don_Hang(DS_DonHang_ChoPhanCong);
+            Chuoi_The_Hien_DS_DonHang_ChoPhanCong = new HtmlString(Chuoi_HTML_DonHang);
+
+        }
+        if (DS_DonHang_ChoGiao != null)
+        {
+            var Chuoi_HTML_DonHang = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Don_Hang(DS_DonHang_ChoGiao);
+            Chuoi_The_Hien_DS_DonHang_ChoGiao = new HtmlString(Chuoi_HTML_DonHang);
+        }
+
+        if (DS_DonHang_DaGiao != null)
+        {
+            var Chuoi_HTML_DonHang = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Don_Hang(DS_DonHang_DaGiao);
+            Chuoi_The_Hien_DS_DonHang_DaGiao = new HtmlString(Chuoi_HTML_DonHang);
+        }
     }
     <div class="container-fluid">
         <header class="green">
@@ -54,11 +47,11 @@
             <div class="nav-wrapper">
                 <div class="container">
                     <ul>
-                        <li><a href="#">Đơn Giá</a></li>
-                        <li><a class="active" href="#">Đơn Hàng</a></li>
-                        <li><a href="#">Phân Công</a></li>
-                        <li><a href="#">Thống Kê Tháng</a></li>
-                        <li><a href="#">Thống Kê Năm</a></li>
+                        <li><a  href="Trang-Chinh.cshtml">Đơn Giá</a></li>
+                        <li><a class="active" href="Trang-Don-Hang.cshtml">Đơn Hàng</a></li>
+                        <li><a href="Trang-Phan-Cong.cshtml">Phân Công</a></li>
+                        <li><a href="Trang-Bao-Cao-Thang.cshtml">Thống Kê Tháng</a></li>
+                        <li><a href="Trang-Bao-Cao-Nam.cshtml">Thống Kê Năm</a></li>
                     </ul>
                 </div>
             </div>
@@ -69,51 +62,11 @@
                     <div class="col s12">
                         <div class="card-panel">
                             <div class="row">
-                                <div class="col s12"><h5>Android_1</h5></div>
+                                <div class="col s12"><h5>Chờ Phân Công</h5></div>
                             </div>
                             <div class="row">
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status blue white-text">Chờ Phân Công</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status blue white-text">Chờ Phân Công</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status blue white-text">Chờ Phân Công</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                @Chuoi_The_Hien_DS_DonHang_ChoPhanCong
+                                
                             </div>
                         </div>
                     </div>
@@ -122,65 +75,11 @@
                     <div class="col s12">
                         <div class="card-panel">
                             <div class="row">
-                                <div class="col s12"><h5>Android_2</h5></div>
+                                <div class="col s12"><h5>Chờ Giao</h5></div>
                             </div>
                             <div class="row">
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status orange white-text">Chờ Giao</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status orange white-text">Chờ Giao</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status orange white-text">Chờ Giao</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status orange white-text">Chờ Giao</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                @Chuoi_The_Hien_DS_DonHang_ChoGiao
+                                
                             </div>
                         </div>
                     </div>
@@ -189,65 +88,11 @@
                     <div class="col s12">
                         <div class="card-panel">
                             <div class="row">
-                                <div class="col s12"><h5>Android_3</h5></div>
+                                <div class="col s12"><h5>Đã Giao</h5></div>
                             </div>
                             <div class="row">
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status green white-text">Đã Giao</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status green white-text">Đã Giao</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status green white-text">Đã Giao</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s3">
-                                    <div class="card">
-                                        <div class="card-image">
-                                            <div class="status green white-text">Đã Giao</div>
-                                        </div>
-                                        <div class="card-content">
-                                            <ul>
-                                                <li class="ngay">Ngày đặt hàng: 2017-08-02T00:00:00+07:00</li>
-                                                <li class="so-luong">Số lượng: 1</li>
-                                                <li class="so-luong">Nhân Viên:</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                @Chuoi_The_Hien_DS_DonHang_DaGiao
+                                
                             </div>
                         </div>
                     </div>

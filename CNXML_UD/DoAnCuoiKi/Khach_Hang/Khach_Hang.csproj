@@ -82,7 +82,7 @@
     <Content Include="Giao_Dien\script.js" />
     <Content Include="Web.config" />
     <Content Include="Xu_Ly\Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai.xslt" />
-    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Thi_Sinh.xslt" />
+    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Chi_Tiet_Dien_Thoai.xslt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
