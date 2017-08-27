@@ -17,14 +17,13 @@ public class XL_LUU_TRU_XML
         var Chuoi = "";        
         var Duong_dan = Thu_muc_Du_lieu.FullName + @"\" + Ma_so + "." + Loai_Luu_tru;
         if (File.Exists(Duong_dan))
-            Chuoi = File.ReadAllText(Duong_dan);
-
+            Chuoi = File.ReadAllText(Duong_dan);            
         return Chuoi;
     }
     public string Ghi_Chuoi(string Loai_Doi_tuong, string Ma_so, string Chuoi)
     {
         var Kq = "";        
-        var Duong_dan = Thu_muc_Du_lieu.FullName + @"\" + Ma_so + "." + Loai_Luu_tru;
+        var Duong_dan = Thu_muc_Du_lieu.FullName + @"\" + Ma_so + "." + Loai_Luu_tru;         
         File.WriteAllText(Duong_dan, Chuoi);
         return Kq;
     }

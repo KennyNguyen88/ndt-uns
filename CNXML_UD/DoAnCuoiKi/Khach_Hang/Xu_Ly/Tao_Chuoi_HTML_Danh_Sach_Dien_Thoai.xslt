@@ -21,8 +21,8 @@
           </xsl:for-each>          
         </div>
         <div class="card-content center-align">
-          <p class="ten-dien-thoai"><xsl:value-of select="@Ten"/></p>
-          <p class="don-gia"><xsl:value-of select="@Don_gia_Ban"/></p>
+          <p class="ten-dien-thoai center-align"><xsl:value-of select="@Ten"/></p>
+          <p class="don-gia center-align"><xsl:value-of select="@Don_gia_Ban"/></p>
         </div>
         <div class="card-action">
           <xsl:variable name="Ma_so" select="@Ma_so" />          

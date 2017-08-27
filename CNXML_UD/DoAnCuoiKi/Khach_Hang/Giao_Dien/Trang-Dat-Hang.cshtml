@@ -7,16 +7,82 @@
 <body>
     @using System.Xml;
     @{
-        var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
-        var MaSoDienThoai = Request.QueryString["id"];
+        //var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();.
+        var Du_Lieu = XL_DU_LIEU.Instance;
         var Chuoi_The_Hien_DT = new HtmlString("");
-        var DienThoai = Du_Lieu.Tra_DT_Theo_Ma(MaSoDienThoai);
         var Chuoi_The_Hien_ThongBao = new HtmlString("");
-        if (DienThoai != null)
+        if (!IsPost && Request.QueryString["id"] != null)
         {
-            var Chuoi_HTML_DienThoai = Du_Lieu.Tao_Chuoi_HTML_Chi_Tiet_Dien_Thoai(DienThoai);
-            Chuoi_The_Hien_DT = new HtmlString(Chuoi_HTML_DienThoai);
+            var MaSoDienThoai = Request.QueryString["id"];
+            var DienThoai = Du_Lieu.Tra_DT_Theo_Ma(MaSoDienThoai);
+
+            if (DienThoai != null)
+            {
+                var Chuoi_HTML_DienThoai = Du_Lieu.Tao_Chuoi_HTML_Chi_Tiet_Dien_Thoai(DienThoai);
+                Chuoi_The_Hien_DT = new HtmlString(Chuoi_HTML_DienThoai);
+            }
         }
+        else
+        {
+            string MaDienThoai = "";
+            string HoTen = "";
+            string SoDienThoai = "";
+            string DiaChi = "";
+            if (Request["ma-so-dien-thoai"] != null) {
+                MaDienThoai = Request["ma-so-dien-thoai"];
+            }
+            if (Request["ho-ten"] != null) {
+                HoTen = Request["ho-ten"];
+            }
+            if (Request["so-dien-thoai"] != null) {
+                SoDienThoai = Request["so-dien-thoai"];
+            }
+            if (Request["dia-chi"] != null)
+            {
+                DiaChi = Request["dia-chi"];
+            }
+
+            if (HoTen != "")
+            {
+                if (SoDienThoai != "")
+                {
+                    if (DiaChi != "")
+                    {
+                        var Kq = Du_Lieu.Them_Phieu_Dat(MaDienThoai, HoTen,SoDienThoai,DiaChi);
+                        if (Kq == "")
+                        {
+                            var MaSoDienThoai = Request.QueryString["ma-so-dien-thoai"];
+                            var DienThoai = Du_Lieu.Tra_DT_Theo_Ma(MaSoDienThoai);
+
+                            if (DienThoai != null)
+                            {
+                                var Chuoi_HTML_DienThoai = Du_Lieu.Tao_Chuoi_HTML_Chi_Tiet_Dien_Thoai(DienThoai);
+                                Chuoi_The_Hien_DT = new HtmlString(Chuoi_HTML_DienThoai);
+                            }
+                            Chuoi_The_Hien_ThongBao = new HtmlString("Đã cập nhật");
+                        }
+                        else
+                        {
+                            Chuoi_The_Hien_ThongBao = new HtmlString("Cập nhật không thành công");
+                        }
+                    }
+                    else
+                    {
+                        Chuoi_The_Hien_ThongBao = new HtmlString("Vui lòng nhập thông tin Địa Chỉ");
+                    }
+                }
+                else
+                {
+                    Chuoi_The_Hien_ThongBao = new HtmlString("Vui lòng nhập thông tin số điện thoại");
+                }
+            }
+            else
+            {
+                Chuoi_The_Hien_ThongBao = new HtmlString("Vui lòng nhập họ tên");
+            }
+
+        }
+
     }
     <div class="container-fluid">
         <header class="green">
@@ -27,7 +93,7 @@
                 </div>
             </div>
         </header>
-        <form action="" method="post" class="row">
+        <form action="Trang-Dat-Hang.cshtml" method="post" class="row">
             <div id="main_wrapper">
                 <div class="container">
                     <h2>Đặt hàng</h2><h4>Đơn hàng</h4>
@@ -38,7 +104,7 @@
                             <div class="card-panel">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="ho-ten" type="text"><label for="ho-ten">
+                                        <input id="ho-ten" type="text" name="ho-ten"><label for="ho-ten">
                                             Họ
                                             Tên
                                         </label>
@@ -46,12 +112,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="so-dien-thoai" type="text"><label for="so-dien-thoai">Số Điện Thoại</label>
+                                        <input id="so-dien-thoai" type="text" name="so-dien-thoai"><label for="so-dien-thoai">Số Điện Thoại</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="dia-chi" type="text"><label for="dia-chi">
+                                        <input id="dia-chi" type="text" name="dia-chi"><label for="dia-chi">
                                             Địa
                                             Chỉ
                                         </label>
@@ -61,7 +127,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col s12 center-align"><a class="waves-effect waves-light btn">Xác Nhận</a></div>
+                        <div class="col s12 center-align"><button type="submit" class="waves-effect waves-light btn">Xác Nhận</button></div>
                         <div class="col s12 center-align red-text"><p class="text-center">@Chuoi_The_Hien_ThongBao</p></div>
                     </div>
                 </div>

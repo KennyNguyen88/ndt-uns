@@ -90,7 +90,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Giao_Dien\MH_Tra_Cuu_Theo_Diem_Toan.cshtml" />
     <Content Include="Giao_Dien\Trang-Chinh.cshtml" />
     <Content Include="Giao_Dien\Trang-Dat-Hang.cshtml" />
     <None Include="Web.Debug.config">

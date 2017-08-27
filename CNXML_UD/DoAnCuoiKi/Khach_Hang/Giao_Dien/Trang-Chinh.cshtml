@@ -7,7 +7,9 @@
 <body>
     @using System.Xml;
     @{
-        var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        //var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        var Du_Lieu = XL_DU_LIEU.Instance;
+        Du_Lieu.Khoi_dong_Du_lieu();
         var DS_Dien_Thoai_Iphone = Du_Lieu.DS_Dien_Thoai_Iphone();
         var DS_Dien_Thoai_Android = Du_Lieu.DS_Dien_Thoai_Android();
         var Chuoi_The_Hien_DS_Dien_Thoai_Iphone = new HtmlString("");
@@ -23,27 +25,6 @@
             var Chuoi_HTML_Android = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai(DS_Dien_Thoai_Android);
             Chuoi_The_Hien_DS_Dien_Thoai_Android = new HtmlString(Chuoi_HTML_Android);
         }
-
-        //var Chuoi_Nhap_lieu_Diem = "";
-        //var Chuoi_The_hien_Thong_bao = new HtmlString(
-        //        "Nhập Điểm Toán cần tìm  (Kết thúc với Enter)");
-        //var Chuoi_The_hien_DS_Thi_Sinh = new HtmlString("");
-        //if (IsPost)
-        //{
-        //    Chuoi_Nhap_lieu_Diem = Request["Th_Diem"].Trim();
-        //    var DS_Thi_Sinh = Du_lieu.Tra_Cuu_Thi_Sinh_Theo_Diem_Toan(Chuoi_Nhap_lieu_Diem);
-        //    var Hop_le = DS_Thi_Sinh.ChildNodes.Count > 0;
-        //    if (Hop_le)
-        //    {
-        //        var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML_Danh_Sach_Thi_Sinh(DS_Thi_Sinh);
-        //        Chuoi_The_hien_DS_Thi_Sinh = new HtmlString(Chuoi_HTML);
-        //        Chuoi_The_hien_Thong_bao = new HtmlString("Thông tin về Thí Sinh ");
-        //    }
-        //    else
-        //    {
-        //        Chuoi_The_hien_Thong_bao = new HtmlString("Không tìm thấy kết quả ! ");
-        //    }
-        //}
     }
 
     <div class="container-fluid">

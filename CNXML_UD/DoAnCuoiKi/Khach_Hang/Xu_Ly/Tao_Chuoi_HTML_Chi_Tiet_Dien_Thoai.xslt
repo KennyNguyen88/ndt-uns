@@ -3,7 +3,8 @@
     xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl">
   <xsl:output method="html" indent="yes"/>
   <xsl:template match="DIEN_THOAI">
-
+    <xsl:variable name="Ma_so" select="@Ma_so" />
+    <input type="hidden" name="ma-so-dien-thoai" value ="{$Ma_so}"/>
     <div class="row">
       <div class="col s12">
         <div class="card-panel">
@@ -23,18 +24,18 @@
                 <li class="ten-dien-thoai">
                   <xsl:value-of select="@Ten"/>
                 </li>
-                <li class="ngay">Số Ngày Dự Kiến: 1</li>
+                <li class="ngay">Số Ngày Giao Dự Kiến: 1</li>
                 <li class="don-gia">
                   Đơn giá: <xsl:value-of select="@Don_gia_Ban"/>
                 </li>
               </ul>
               <div class="row">
                 <div class="col s12 so-luong">
-                  Số lượng
-                  <div class="input-field inline s12">
+                  Số lượng: 1
+                  <!--<div class="input-field inline s12">
                     <input class="center-align" id="so-luong"
                            type="number" value="1"/>
-                  </div>
+                  </div>-->
                 </div>
                 <div class="col s12">
                   <p class="tong-tien">
