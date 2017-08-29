@@ -81,7 +81,6 @@
     <Content Include="Giao_Dien\iphone.jpg" />
     <Content Include="Giao_Dien\script.js" />
     <Content Include="Web.config" />
-    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Cap_Nhat_Diem_Toan.xslt" />
     <Content Include="Xu_Ly\Tao_Chuoi_HTML_Danh_Sach.xslt" />
   </ItemGroup>
   <ItemGroup>
@@ -89,9 +88,7 @@
     <Compile Include="Xu_Ly\XL_DU_LIEU.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Giao_Dien\MH_Cap_Nhat_Diem_Toan.cshtml" />
     <Content Include="packages.config" />
-    <Content Include="Giao_Dien\MH_Them_Thi_Sinh.cshtml" />
     <Content Include="Giao_Dien\Trang-Chinh.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -112,7 +109,16 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51349</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51349/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

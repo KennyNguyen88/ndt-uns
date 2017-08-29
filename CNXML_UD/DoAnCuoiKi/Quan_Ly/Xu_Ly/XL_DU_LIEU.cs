@@ -7,7 +7,7 @@ using System.Xml.Xsl;
 
 public class XL_DU_LIEU
 {
-    static string Dia_chi_Dich_vu = "http://localhost:57926/XL_DICH_VU_XML.cshtml";
+    static string Dia_chi_Dich_vu = "http://localhost:57929/XL_DICH_VU_XML.cshtml";
     static DirectoryInfo Thu_muc_Project = new DirectoryInfo(HttpContext.Current.Server.MapPath("/"));
     static DirectoryInfo Thu_muc_XSLT = Thu_muc_Project.GetDirectories("Xu_Ly")[0];
 

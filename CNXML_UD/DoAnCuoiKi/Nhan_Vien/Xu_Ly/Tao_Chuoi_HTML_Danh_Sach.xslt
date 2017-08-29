@@ -45,6 +45,10 @@
               </li>
               </xsl:for-each>              
             </ul>
+            <div class="col s12 center-align">
+              <!--TODO Ma dt, so dt khach hang-->
+              <a href="Trang-Chinh.cshtml?Ma_Dt=">Giao Hàng</a>
+            </div>
           </div>
         </div>
       </div>
