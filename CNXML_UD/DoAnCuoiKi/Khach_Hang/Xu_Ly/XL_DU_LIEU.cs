@@ -103,8 +103,6 @@ public class XL_DU_LIEU
         string Tien = DienThoai.GetAttribute("Don_gia_Ban");
 
         var PhieuDat = this.Node_Phieu_Dat(DienThoai.OwnerDocument, HoTen, SoDienThoai, DiaChi, DonGia, Tien);
-        //DienThoai.OwnerDocument.ImportNode(PhieuDat, true);
-        //DienThoai.Im
         DienThoai.AppendChild(PhieuDat);        
 
         return Cap_Nhat_Dien_Thoai(DienThoai);

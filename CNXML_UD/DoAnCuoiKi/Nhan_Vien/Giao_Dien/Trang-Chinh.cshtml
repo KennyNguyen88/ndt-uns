@@ -8,39 +8,87 @@
     @using System.Xml;
     @{
         var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
-        var MaSoNV = Request.QueryString["id"];
-        if (MaSoNV.IsEmpty())
-        {
-            MaSoNV = "NV_1";
-        }
-        var TenNhanVien = "";
-        switch (MaSoNV)
-        {
-            case "NV_1":
-                TenNhanVien = "Tô thị Giảng";
-                break;
-            case "NV_2":
-                TenNhanVien = "Nguyên đình Vàng";
-                break;
-            case "NV_3":
-                TenNhanVien = "Hứa ngọc thảo Nguyên";
-                break;
-            default:
-                TenNhanVien = "Nhân Viên";
-                break;
-        }
         var Chuoi_The_Hien_DS = new HtmlString("");
+        var TenNhanVien = "";
         if (IsPost)
         {
+            String Ma_Dt = "";
+            String So_Dt = "";
+            String Ma_Nv = "";
+            if (Request["Ma_Dt"] != null)
+            {
+                Ma_Dt = Request["Ma_Dt"];
+            }
+            if (Request["So_Dt"] != null)
+            {
+                So_Dt = Request["So_Dt"];
+            }
+            if (Request["Ma_Nv"] != null)
+            {
+                Ma_Nv = Request["Ma_Nv"];
+            }
 
+            if (Ma_Dt != "" && So_Dt != "" && Ma_Nv != "")
+            {
+                var Kq = Du_Lieu.doGiaoHang(Ma_Nv, Ma_Dt, So_Dt);
+                if (Kq == "")
+                {                    
+                    switch (Ma_Nv)
+                    {
+                        case "NV_1":
+                            TenNhanVien = "Tô thị Giảng";
+                            break;
+                        case "NV_2":
+                            TenNhanVien = "Nguyên đình Vàng";
+                            break;
+                        case "NV_3":
+                            TenNhanVien = "Hứa ngọc thảo Nguyên";
+                            break;
+                        default:
+                            TenNhanVien = "Nhân Viên";
+                            break;
+                    }
+
+                    var DS_PhieuDat = Du_Lieu.DS_PhieuDat_ChoGiao_PhanCong(Ma_Nv);
+                    if (DS_PhieuDat != null)
+                    {
+                        var Chuoi_HTML_DanhSach = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach(DS_PhieuDat);
+                        Chuoi_The_Hien_DS = new HtmlString(Chuoi_HTML_DanhSach);
+                    }
+                }
+            }
         }
-
-        var DS_PhieuDat = Du_Lieu.DS_PhieuDat_ChoGiao_PhanCong(MaSoNV);
-        if (DS_PhieuDat != null)
+        else
         {
-            var Chuoi_HTML_DanhSach = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach(DS_PhieuDat);
-            Chuoi_The_Hien_DS = new HtmlString(Chuoi_HTML_DanhSach);
+            var MaSoNV = Request.QueryString["id"];
+            if (MaSoNV.IsEmpty())
+            {
+                MaSoNV = "NV_1";
+            }            
+            switch (MaSoNV)
+            {
+                case "NV_1":
+                    TenNhanVien = "Tô thị Giảng";
+                    break;
+                case "NV_2":
+                    TenNhanVien = "Nguyên đình Vàng";
+                    break;
+                case "NV_3":
+                    TenNhanVien = "Hứa ngọc thảo Nguyên";
+                    break;
+                default:
+                    TenNhanVien = "Nhân Viên";
+                    break;
+            }
+
+            var DS_PhieuDat = Du_Lieu.DS_PhieuDat_ChoGiao_PhanCong(MaSoNV);
+            if (DS_PhieuDat != null)
+            {
+                var Chuoi_HTML_DanhSach = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach(DS_PhieuDat);
+                Chuoi_The_Hien_DS = new HtmlString(Chuoi_HTML_DanhSach);
+            }
         }
+
     }
     <div class="container-fluid">
         <header class="green">

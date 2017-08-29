@@ -7,7 +7,7 @@
       <xsl:apply-templates select="PHIEU_DAT"  />
     </div>
   </xsl:template>
-  
+
   <xsl:template match="PHIEU_DAT">
     <div class="col s6">
       <div class="card-panel">
@@ -29,30 +29,49 @@
                   <xsl:value-of select="@Ten_Dien_Thoai"/>
                 </xsl:for-each>
               </li>
-              <li class="don-gia">Đơn giá: <xsl:value-of select="@Don_gia"/>
-            </li>
-              <li class="so-luong">Số lượng: <xsl:value-of select="@So_luong"/>
-            </li>
-              <li class="tong-tien">Tiền: <xsl:value-of select="@Tien"/>
-            </li>
-              <xsl:for-each select="Khach_hang">
-                <li>Khách Hàng: <xsl:value-of select="@Ho_ten"/>
+              <li class="don-gia">
+                Đơn giá: <xsl:value-of select="@Don_gia"/>
               </li>
+              <li class="so-luong">
+                Số lượng: <xsl:value-of select="@So_luong"/>
+              </li>
+              <li class="tong-tien">
+                Tiền: <xsl:value-of select="@Tien"/>
+              </li>
+              <xsl:for-each select="Khach_hang">
+                <li>
+                  Khách Hàng: <xsl:value-of select="@Ho_ten"/>
+                </li>
                 <li>
                   <xsl:value-of select="@Dia_chi"/>
                 </li>
-                <li>Điện Thoại: <xsl:value-of select="@Dien_thoai"/>
-              </li>
-              </xsl:for-each>              
+                <li>
+                  Điện Thoại: <xsl:value-of select="@Dien_thoai"/>
+                </li>
+              </xsl:for-each>
             </ul>
             <div class="col s12 center-align">
-              <!--TODO Ma dt, so dt khach hang-->
-              <a href="Trang-Chinh.cshtml?Ma_Dt=">Giao Hàng</a>
+              <form action="Trang-Chinh.cshtml" method="post">
+                <xsl:for-each select="TT_Dien_Thoai">
+                  <!--TODO Ma dt, so dt khach hang-->
+                  <xsl:variable name="Ma_Dt" select="@Ma_So_Dien_Thoai" />
+                  <input name="Ma_Dt" value="{$Ma_Dt}" type="hidden"/>
+                </xsl:for-each>
+                <xsl:for-each select="Khach_hang">
+                  <xsl:variable name="So_Dt" select="@Dien_thoai" />                  
+                  <input name="So_Dt" value="{$So_Dt}" type="hidden"/>                  
+                </xsl:for-each>
+                <xsl:for-each select="Nhan_vien">
+                  <xsl:variable name="Ma_Nv" select="@Ma_so" />
+                  <input name="Ma_Nv" value="{$Ma_Nv}" type="hidden"/>
+                </xsl:for-each>
+                <button type="submit" class="waves-effect waves-light btn">Xác Nhận</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   </xsl:template>
-  
+
 </xsl:stylesheet>

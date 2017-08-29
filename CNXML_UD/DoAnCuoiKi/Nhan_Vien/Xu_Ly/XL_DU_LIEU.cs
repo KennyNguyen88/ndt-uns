@@ -27,7 +27,32 @@ public class XL_DU_LIEU
         return Du_lieu;
 
     }
-
+    public XmlElement Tra_DT_Theo_Ma(string _MaDienThoai)
+    {
+        var Dien_Thoai = (XmlElement)null;
+        foreach (XmlElement Dien_Thoai_Nguon in Danh_Sach_Dien_Thoai.GetElementsByTagName("DIEN_THOAI"))
+        {
+            var Thoa_Dieu_kien_Tra_cuu = Dien_Thoai_Nguon.GetAttribute("Ma_so") == _MaDienThoai;
+            if (Thoa_Dieu_kien_Tra_cuu)
+            {
+                Dien_Thoai = Dien_Thoai_Nguon;
+            }
+        }
+        return Dien_Thoai;
+    }
+    public string Cap_Nhat_Dien_Thoai(XmlElement DienThoai)
+    {
+        var Kq = "";
+        var Dia_chi = Dia_chi_Dich_vu + "?Ma_So_Xu_Ly=GHI_CHUOI"
+                               + "&Loai_Doi_Tuong=DIEN_THOAI"
+                                  + "&Ma_So=" + DienThoai.GetAttribute("Ma_so")
+                               ;
+        var Dich_vu = new WebClient();
+        Dich_vu.Encoding = System.Text.Encoding.UTF8;
+        Kq = Dich_vu.UploadString(Dia_chi, DienThoai.OuterXml);
+        Kq = Kq.Trim();
+        return Kq;
+    }
     //Xử lý tra cứu
     //Danh sach phieu dat thoa dieu kien
     // 1. Trang thai CHO_GIAO
@@ -103,9 +128,22 @@ public class XL_DU_LIEU
         ThongTin.SetAttribute("Ma_Nhom_Dien_Thoai", MaNhomDienThoai);
         return ThongTin;
     }
-    //Tim phieu dat theo ma dt, so dt khach hang
+    //Tim phieu dat theo ma dt, so dt khach hang, ma nv
     //Xu ly cap nhat trang thai CHO_GIAO --> DA_GIAO
-
+    public string doGiaoHang(string MaNV, string MaDT, string SoDT)
+    {
+        var DienThoai = Tra_DT_Theo_Ma(MaDT);
+        var Phieu_Dat_List = DienThoai.GetElementsByTagName("PHIEU_DAT");
+        foreach (XmlElement PhieuDatNguon in Phieu_Dat_List)
+        {
+            var NodeKhachHang = (XmlElement)PhieuDatNguon.GetElementsByTagName("Khach_hang")[0];
+            if (NodeKhachHang.GetAttribute("Dien_thoai") == SoDT)
+            {
+                PhieuDatNguon.SetAttribute("Trang_thai", "DA_GIAO");
+            }
+        }
+        return Cap_Nhat_Dien_Thoai(DienThoai);
+    }
 
     // Xử lý Tạo chuỗi HTML 
     public string Tao_Chuoi_HTML_Dung_Chung(string Duong_Dan_XSLT, XmlElement xmlElement)
