@@ -32,10 +32,6 @@
               <div class="row">
                 <div class="col s12 so-luong">
                   Số lượng: 1
-                  <!--<div class="input-field inline s12">
-                    <input class="center-align" id="so-luong"
-                           type="number" value="1"/>
-                  </div>-->
                 </div>
                 <div class="col s12">
                   <p class="tong-tien">

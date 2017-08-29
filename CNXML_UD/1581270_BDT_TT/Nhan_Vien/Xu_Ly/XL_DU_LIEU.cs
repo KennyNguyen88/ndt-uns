@@ -40,19 +40,7 @@ public class XL_DU_LIEU
         }
         return Dien_Thoai;
     }
-    public string Cap_Nhat_Dien_Thoai(XmlElement DienThoai)
-    {
-        var Kq = "";
-        var Dia_chi = Dia_chi_Dich_vu + "?Ma_So_Xu_Ly=GHI_CHUOI"
-                               + "&Loai_Doi_Tuong=DIEN_THOAI"
-                                  + "&Ma_So=" + DienThoai.GetAttribute("Ma_so")
-                               ;
-        var Dich_vu = new WebClient();
-        Dich_vu.Encoding = System.Text.Encoding.UTF8;
-        Kq = Dich_vu.UploadString(Dia_chi, DienThoai.OuterXml);
-        Kq = Kq.Trim();
-        return Kq;
-    }
+    
     //Xử lý tra cứu
     //Danh sach phieu dat thoa dieu kien
     // 1. Trang thai CHO_GIAO
@@ -76,7 +64,7 @@ public class XL_DU_LIEU
         }
         return Danh_sach;
     }
-    
+   
     public XmlElement DS_Phieu_Dat_Trang_Thai(string _TrangThai)
     {
         var Tai_lieu = new XmlDocument();// khai bao
@@ -128,8 +116,21 @@ public class XL_DU_LIEU
         ThongTin.SetAttribute("Ma_Nhom_Dien_Thoai", MaNhomDienThoai);
         return ThongTin;
     }
-    //Tim phieu dat theo ma dt, so dt khach hang, ma nv
-    //Xu ly cap nhat trang thai CHO_GIAO --> DA_GIAO
+
+    //Xử lý cập nhật
+    public string Cap_Nhat_Dien_Thoai(XmlElement DienThoai)
+    {
+        var Kq = "";
+        var Dia_chi = Dia_chi_Dich_vu + "?Ma_So_Xu_Ly=GHI_CHUOI"
+                               + "&Loai_Doi_Tuong=DIEN_THOAI"
+                                  + "&Ma_So=" + DienThoai.GetAttribute("Ma_so")
+                               ;
+        var Dich_vu = new WebClient();
+        Dich_vu.Encoding = System.Text.Encoding.UTF8;
+        Kq = Dich_vu.UploadString(Dia_chi, DienThoai.OuterXml);
+        Kq = Kq.Trim();
+        return Kq;
+    }
     public string doGiaoHang(string MaNV, string MaDT, string SoDT)
     {
         var DienThoai = Tra_DT_Theo_Ma(MaDT);
@@ -155,17 +156,7 @@ public class XL_DU_LIEU
         Xu_ly_XSLT.Transform(Bo_Doc_XML, null, Bo_Ghi_Chuoi);
         var Chuoi_HTML = Bo_Ghi_Chuoi.GetStringBuilder().ToString();
         return Chuoi_HTML;
-    }
-    //public string Tao_Chuoi_HTML_Cap_nhat_Diem_Toan(XmlElement Thi_Sinh)
-    //{
-    //    var Duong_dan_XSLT = Thu_muc_XSLT.FullName + "\\Tao_Chuoi_HTML_Cap_Nhat_Diem_Toan.xslt";
-    //    return Tao_Chuoi_HTML_Dung_Chung(Duong_dan_XSLT, Thi_Sinh);
-    //}
-    //public string Tao_Chuoi_HTML_Thi_Sinh(XmlElement Thi_Sinh)
-    //{
-    //    var Duong_dan_XSLT = Thu_muc_XSLT.FullName + "\\Tao_Chuoi_HTML_Thi_Sinh.xslt";
-    //    return Tao_Chuoi_HTML_Dung_Chung(Duong_dan_XSLT, Thi_Sinh);
-    //}
+    }    
     public string Tao_Chuoi_HTML_Danh_Sach(XmlElement Danh_sach)
     {
         var Duong_dan_XSLT = Thu_muc_XSLT.FullName + "\\Tao_Chuoi_HTML_Danh_Sach.xslt";
