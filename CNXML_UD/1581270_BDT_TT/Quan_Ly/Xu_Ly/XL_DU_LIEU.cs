@@ -275,6 +275,27 @@ public class XL_DU_LIEU
         return ThongTin;
     }    
 
+    //Xử lý Cập Nhật
+    public String doCapNhatDonGia(String MaDT, String DonGia)
+    {
+        var DienThoai = Tra_DT_Theo_Ma(MaDT);
+        DienThoai.SetAttribute("Don_gia_Ban", DonGia);
+        return Cap_Nhat_Dien_Thoai(DienThoai);
+
+    }
+    public string Cap_Nhat_Dien_Thoai(XmlElement DienThoai)
+    {
+        var Kq = "";
+        var Dia_chi = Dia_chi_Dich_vu + "?Ma_So_Xu_Ly=GHI_CHUOI"
+                               + "&Loai_Doi_Tuong=DIEN_THOAI"
+                                  + "&Ma_So=" + DienThoai.GetAttribute("Ma_so")
+                               ;
+        var Dich_vu = new WebClient();
+        Dich_vu.Encoding = System.Text.Encoding.UTF8;
+        Kq = Dich_vu.UploadString(Dia_chi, DienThoai.OuterXml);
+        Kq = Kq.Trim();
+        return Kq;
+    }
     // Xử lý Tạo chuỗi HTML
     public string Tao_Chuoi_HTML_Dung_Chung(string Duong_Dan_XSLT, XmlElement xmlElement)
     {

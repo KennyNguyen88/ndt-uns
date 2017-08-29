@@ -3,6 +3,11 @@
     xmlns:msxsl="urn:schemas-microsoft-com:xslt" exclude-result-prefixes="msxsl">
   <xsl:output method="html" indent="yes"/>
   <xsl:template match="DIEN_THOAI">
+    <form method="post" action="Trang-Cap-Nhat-Don-Gia.cshtml">
+      <xsl:variable name="MaDt">
+        <xsl:value-of select="@Ma_so"/>
+      </xsl:variable>
+      <input type="hidden" name="MaDt" value="{$MaDt}"></input>
     <div class="row">
       <div class="col s12">
         <div class="card-panel">
@@ -29,7 +34,7 @@
                     <xsl:variable name="DonGia">
                       <xsl:value-of select="@Don_gia_Ban"/>
                     </xsl:variable>
-                    <input class="center-align" id="don-gia" type="number" value="{$DonGia}"/>
+                    <input class="center-align" id="don-gia" name="don-gia" type="number" value="{$DonGia}"/>
                   </div>
                 </div>
                 <div class="col s12">
@@ -41,5 +46,6 @@
         </div>
       </div>
     </div>
+    </form>
   </xsl:template>
 </xsl:stylesheet>

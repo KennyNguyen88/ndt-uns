@@ -81,7 +81,6 @@
     <Content Include="Giao_Dien\iphone.jpg" />
     <Content Include="Giao_Dien\script.js" />
     <Content Include="Web.config" />
-    <Content Include="Xu_Ly\Tao_Chuoi_HTML_Cap_Nhat_Diem_Toan.xslt" />
     <Content Include="Xu_Ly\Tao_Chuoi_HTML_Cap_Nhat_Don_Gia.xslt" />
     <Content Include="Xu_Ly\Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai.xslt">
       <SubType>Designer</SubType>
