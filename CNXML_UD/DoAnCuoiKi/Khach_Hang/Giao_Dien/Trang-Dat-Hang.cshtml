@@ -7,7 +7,6 @@
 <body>
     @using System.Xml;
     @{
-        //var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();.
         var Du_Lieu = XL_DU_LIEU.Instance;
         var Chuoi_The_Hien_DT = new HtmlString("");
         var Chuoi_The_Hien_ThongBao = new HtmlString("");
@@ -22,7 +21,7 @@
                 Chuoi_The_Hien_DT = new HtmlString(Chuoi_HTML_DienThoai);
             }
         }
-        else
+        else if (IsPost)
         {
             string MaDienThoai = "";
             string HoTen = "";

@@ -33,13 +33,15 @@ public class XL_LUU_TRU_XML
         var Chuoi_Danh_sach = "<DANH_SACH_" + Loai_Doi_tuong + ">";        
         foreach (FileInfo Tap_tin in Thu_muc_Du_lieu.GetFiles("*." + Loai_Luu_tru))
         {
-            var Chuoi = GetXMLAsString(Tap_tin.FullName);
+            //var Chuoi = GetXMLAsString(Tap_tin.FullName);
+            var Chuoi = File.ReadAllText(Tap_tin.FullName);
             Chuoi_Danh_sach += Chuoi;
         }
         Chuoi_Danh_sach += "</DANH_SACH_" + Loai_Doi_tuong + ">";
         return Chuoi_Danh_sach;
     }
 
+    /*
     public string GetXMLAsString(String myxml)
     {
         XmlTextReader reader = new XmlTextReader(myxml);
@@ -47,5 +49,5 @@ public class XL_LUU_TRU_XML
         reader.Read(); //Whitespace        
         reader.Read(); //Element
         return reader.ReadOuterXml();        
-    }
+    }*/
 }

@@ -27,18 +27,14 @@ public class XL_DU_LIEU
 
     public void Khoi_dong_Du_lieu() 
     {
-        //var Du_lieu = new XL_DU_LIEU();
-        var Dia_chi = Dia_chi_Dich_vu + "?Ma_so_Xu_ly=DOC_CHUOI_DANH_SACH"
-                                + "&Loai_Doi_tuong=DIEN_THOAI";
+        var Dia_chi = Dia_chi_Dich_vu + "?Ma_So_Xu_Ly=DOC_CHUOI_DANH_SACH"
+                                + "&Loai_Doi_Tuong=DIEN_THOAI";
         var Dich_vu = new WebClient();
         Dich_vu.Encoding = System.Text.Encoding.UTF8;        
         var Chuoi_XML_Danh_Sach_Dien_Thoai = Dich_vu.UploadString(Dia_chi, "");
         var Tai_lieu_Dien_Thoai = new XmlDocument();
         Tai_lieu_Dien_Thoai.LoadXml(Chuoi_XML_Danh_Sach_Dien_Thoai);
         this.Danh_Sach_Dien_Thoai = Tai_lieu_Dien_Thoai.DocumentElement;
-
-        //return Du_lieu;
-
     }
 
     // Xử lý Tra cứu 
@@ -70,17 +66,16 @@ public class XL_DU_LIEU
     }
     public XmlElement Tra_DT_Theo_Ma(string _MaDienThoai)
     {
-        var Dia_chi = Dia_chi_Dich_vu + "?Ma_so_Xu_ly=DOC_CHUOI"
-                                + "&Loai_Doi_tuong=DIEN_THOAI"
-                                + "&Ma_so=" + _MaDienThoai;
-        var Dich_vu = new WebClient();
-        Dich_vu.Encoding = System.Text.Encoding.UTF8;
-        var Chuoi_XML_Dien_Thoai = Dich_vu.UploadString(Dia_chi, "");
-        var Tai_lieu_Dien_Thoai = new XmlDocument();
-        Tai_lieu_Dien_Thoai.LoadXml(Chuoi_XML_Dien_Thoai);
-
-        XmlElement DienThoai = Tai_lieu_Dien_Thoai.DocumentElement;
-        return DienThoai != null ? DienThoai : null;
+        var Dien_Thoai = (XmlElement)null;
+        foreach (XmlElement Dien_Thoai_Nguon in Danh_Sach_Dien_Thoai.GetElementsByTagName("DIEN_THOAI"))
+        {
+            var Thoa_Dieu_kien_Tra_cuu = Dien_Thoai_Nguon.GetAttribute("Ma_so") == _MaDienThoai;
+            if (Thoa_Dieu_kien_Tra_cuu)
+            {
+                Dien_Thoai = Dien_Thoai_Nguon;
+            }
+        }
+        return Dien_Thoai;
     }
     public XmlElement Tra_DT_Theo_Ten(string _TenDienThoai)
     {
@@ -102,16 +97,17 @@ public class XL_DU_LIEU
     //Xử lý Thêm Phiếu Đặt
     public string Them_Phieu_Dat(string MaDienThoai, string HoTen, string SoDienThoai, string DiaChi)
     {   
-        XmlElement DienThoai = Tra_DT_Theo_Ma(MaDienThoai);
+        var DienThoai = Tra_DT_Theo_Ma(MaDienThoai);
 
         string DonGia = DienThoai.GetAttribute("Don_gia_Ban");
         string Tien = DienThoai.GetAttribute("Don_gia_Ban");
 
-        XmlElement PhieuDat = this.Node_Phieu_Dat(DienThoai.OwnerDocument, HoTen, SoDienThoai, DiaChi, DonGia, Tien);
-        DienThoai.OwnerDocument.ImportNode(PhieuDat, true);        
+        var PhieuDat = this.Node_Phieu_Dat(DienThoai.OwnerDocument, HoTen, SoDienThoai, DiaChi, DonGia, Tien);
+        //DienThoai.OwnerDocument.ImportNode(PhieuDat, true);
+        //DienThoai.Im
         DienThoai.AppendChild(PhieuDat);        
 
-        return Cap_Nhat_Dien_Thoai(DienThoai.OwnerDocument);
+        return Cap_Nhat_Dien_Thoai(DienThoai);
     }
 
     //Tao Node Phieu Dat
@@ -137,12 +133,12 @@ public class XL_DU_LIEU
         return PhieuDat;
         
     }
-    public string Cap_Nhat_Dien_Thoai(XmlDocument DienThoai)
+    public string Cap_Nhat_Dien_Thoai(XmlElement DienThoai)
     {
         var Kq = "";
-        var Dia_chi = Dia_chi_Dich_vu + "?Ma_so_Xu_ly=GHI_CHUOI"
-                               + "&Loai_Doi_tuong=DIEN_THOAI"
-                                  + "&Ma_so=" + DienThoai.DocumentElement.GetAttribute("Ma_so")
+        var Dia_chi = Dia_chi_Dich_vu + "?Ma_So_Xu_Ly=GHI_CHUOI"
+                               + "&Loai_Doi_Tuong=DIEN_THOAI"
+                                  + "&Ma_So=" + DienThoai.GetAttribute("Ma_so")
                                ;
         var Dich_vu = new WebClient();
         Dich_vu.Encoding = System.Text.Encoding.UTF8;
