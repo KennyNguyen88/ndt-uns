@@ -16,35 +16,36 @@ block content
             .col-xs-12.col-sm-8
                 h1 NOT A MEMBER
                 p Register a new one for better shopping
-                .form-horizontal.form-register
+                form.form-horizontal.form-register
                     .form-group
-                        label.col-sm-4.control-label(for="inputEmail") Email Address
+                        label.col-sm-4.control-label(for="inputRegisterEmail") Email Address
                         .col-sm-8
-                            input#inputEmail.form-control(type="email" placeholder="example@example.com")
+                            input#inputRegisterEmail.form-control(type="email" placeholder="example@example.com" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$")
                     .form-group
-                        label.col-sm-4.control-label(for="inputUsername") Username
+                        label.col-sm-4.control-label(for="inputRegisterUsername") Username
                         .col-sm-8
-                            input#inputUsername.form-control(type="text" placeholder="At least 6 characters")
+                            input#inputRegisterUsername.form-control(type="text" placeholder="At least 6 characters" required="" minlength="6" oninvalid="this.setCustomValidity('Username not blank and at least 6 characters length !')" oninput="this.setCustomValidity('')")
                     .form-group
-                        label.col-sm-4.control-label(for="inputPassword") Password
+                        label.col-sm-4.control-label(for="inputRegisterPassword") Password
                         .col-sm-8
-                            input#inputPassword.form-control(type="password" placeholder="password")
+                            input#inputRegisterPassword.form-control(type="password" placeholder="password" required="")
                     .form-group
-                        label.col-sm-4.control-label(for="inputCPassword") Confirm Password
+                        label.col-sm-4.control-label(for="inputRegisterConfirmPassword") Confirm Password
                         .col-sm-8
-                            input#inputCPassword.form-control(type="password" placeholder="password")
+                            input#inputRegisterConfirmPassword.form-control(type="password" placeholder="password" required="")
                     .form-group
                         .col-sm-8.col-sm-offset-4.text-center
-                            a.btn.btn-primary(href="#") Register
+                            button.btn.btn-primary(name="submit") Register
 
             .col-xs-12.col-sm-4
                 h3 ALREADY A MEMBER
-                .form-horizontal.form-register
+                form.form-horizontal.form-register
                     .form-group
                         .col-sm-12
-                            input.form-control(type="text" placeholder="Username")
+                            input#inputLoginUsername.form-control(type="text" placeholder="Username" required="" oninvalid="this.setCustomValidity('Please input Username !')" oninput="this.setCustomValidity('')")
                     .form-group
                         .col-sm-12
-                            input.form-control(type="password" placeholder="password")
-                p.text-right #[a(href="#") Forgotten Password ?]
-                p.text-right #[a.btn.btn-primary(href="#") Login]
+                            input#inputLoginPassword.form-control(type="password" placeholder="password" required="" oninvalid="this.setCustomValidity('Please input Password !')" oninput="this.setCustomValidity('')")
+                    p.text-right #[a(href="#") Forgotten Password ?]
+                    p.text-right
+                        button.btn.btn-primary(name="submit") Login

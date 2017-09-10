@@ -1,0 +1,1 @@
+!function(){var t=document.getElementById("inputRegisterPassword"),e=document.getElementById("inputRegisterConfirmPassword"),n=function(){t.value!=e.value?e.setCustomValidity("Password must match !"):e.setCustomValidity("")};t.onchange=n,e.onchange=n}();
