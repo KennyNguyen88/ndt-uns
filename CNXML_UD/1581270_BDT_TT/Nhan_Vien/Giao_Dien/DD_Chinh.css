@@ -55,3 +55,12 @@ span.text-red {
 .card-action a {
     justify-content: center;
 }
+.logo {
+    width: 100px;
+    height: auto;
+}
+@media only screen and (max-width: 567px) {
+    .logo {
+        width: 50px;
+    }
+}

@@ -20,7 +20,7 @@
         <header class="green">
             <div class="container">
                 <div class="row valign-wrapper white-text mb-0">
-                    <div class="col s2"><a class="white-text" href="#"><h5>BDT-TT</h5></a></div>
+                    <div class="col s2"><a class="white-text" href="#"><img src="~/Giao_Dien/logo_for_mobile.png" class="logo" /></a></div>
                     <div class="col s9 center-align"><h4>Quản Lý</h4></div>
                 </div>
             </div>
@@ -28,7 +28,15 @@
         <nav>
             <div class="nav-wrapper">
                 <div class="container">
-                    <ul>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="left  hide-on-med-and-down">
+                        <li><a href="Trang-Chinh.cshtml">Đơn Giá</a></li>
+                        <li><a href="Trang-Don-Hang.cshtml">Đơn Hàng</a></li>
+                        <li><a href="Trang-Phan-Cong.cshtml">Phân Công</a></li>
+                        <li><a href="Trang-Bao-Cao-Thang.cshtml">Thống Kê Tháng</a></li>
+                        <li><a class="active" href="Trang-Bao-Cao-Nam.cshtml">Thống Kê Năm</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
                         <li><a href="Trang-Chinh.cshtml">Đơn Giá</a></li>
                         <li><a href="Trang-Don-Hang.cshtml">Đơn Hàng</a></li>
                         <li><a href="Trang-Phan-Cong.cshtml">Phân Công</a></li>

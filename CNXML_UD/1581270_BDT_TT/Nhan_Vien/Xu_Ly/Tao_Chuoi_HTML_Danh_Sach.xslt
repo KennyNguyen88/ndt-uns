@@ -9,10 +9,10 @@
   </xsl:template>
 
   <xsl:template match="PHIEU_DAT">
-    <div class="col s6">
+    <div class="col s12 l6">
       <div class="card-panel">
         <div class="row">
-          <div class="col s3">
+          <div class="col s12 m6">
             <xsl:for-each select="TT_Dien_Thoai">
               <xsl:if test = "@Ma_Nhom_Dien_Thoai = 'IPHONE'">
                 <img class="responsive-img" src="iphone.jpg"/>
@@ -22,7 +22,7 @@
               </xsl:if>
             </xsl:for-each>
           </div>
-          <div class="col s9">
+          <div class="col s12 m6">
             <ul>
               <li class="ten-dien-thoai">
                 <xsl:for-each select="TT_Dien_Thoai">

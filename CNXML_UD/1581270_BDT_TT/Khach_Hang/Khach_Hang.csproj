@@ -79,6 +79,7 @@
     <Content Include="Giao_Dien\android.jpg" />
     <Content Include="Giao_Dien\DD_Chinh.css" />
     <Content Include="Giao_Dien\iphone.jpg" />
+    <Content Include="Giao_Dien\logo_for_mobile.png" />
     <Content Include="Giao_Dien\script.js" />
     <Content Include="Web.config" />
     <Content Include="Xu_Ly\Tao_Chuoi_HTML_Danh_Sach_Dien_Thoai.xslt" />

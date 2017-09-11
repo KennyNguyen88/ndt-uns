@@ -8,9 +8,9 @@
     </div>
   </xsl:template>
   <xsl:template match="DIEN_THOAI">
-    <div class="col s3">
-      <div class="card">
-        <div class="card-image">
+    <div class="col s12 m6 l4 xl3">
+      <div class="card hoverable">
+        <div class="card-image ">
           <xsl:for-each select="NHOM_DIEN_THOAI">
             <xsl:if test = "@Ma_so = 'IPHONE'">
               <img src="iphone.jpg"/>

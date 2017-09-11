@@ -12,7 +12,7 @@
       <div class="col s12">
         <div class="card-panel">
           <div class="row">
-            <div class="col s3">
+            <div class="col s12 m6">
               <xsl:for-each select="NHOM_DIEN_THOAI">
                 <xsl:if test = "@Ma_so = 'IPHONE'">
                   <img class="responsive-img" src="iphone.jpg"/>
@@ -22,7 +22,7 @@
                 </xsl:if>
               </xsl:for-each>
             </div>
-            <div class="col s9">
+            <div class="col s12 m6">
               <p class="ten-dien-thoai">
                 <xsl:value-of select="@Ten"/>
               </p>

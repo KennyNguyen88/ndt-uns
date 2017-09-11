@@ -8,7 +8,7 @@
     </div>
   </xsl:template>
   <xsl:template match="DIEN_THOAI">
-    <div class="col s3">
+    <div class="col s12 m6 l4 xl3 ">
       <div class="card hoverable">
         <div class="card-image">
           <xsl:for-each select="NHOM_DIEN_THOAI">

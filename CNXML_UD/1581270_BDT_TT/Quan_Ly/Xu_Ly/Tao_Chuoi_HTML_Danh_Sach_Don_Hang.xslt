@@ -10,7 +10,7 @@
 
   <xsl:template match="PHIEU_DAT">
 
-    <div class="col s3">
+    <div class="col s12 m6 l4 xl3">
       <div class="card">
         <div class="card-image">
           <xsl:if test ="@Trang_thai = 'CHO_PHAN_CONG'">

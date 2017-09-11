@@ -55,3 +55,7 @@ span.text-red {
 .card-action a {
     justify-content: center;
 }
+.logo {
+    width: 100px;
+    height: auto;
+}

@@ -22,7 +22,7 @@
           <div class="row">
             <xsl:for-each select="PHIEU_DAT">
               <xsl:if test = "@Trang_thai = 'CHO_PHAN_CONG'">
-                <div class="col s3">
+                <div class="col s12 m6 l4 xl3">
                   <div class="card">
                     <div class="card-image">
                       <div class="status blue white-text">Chờ Phân Công</div>
