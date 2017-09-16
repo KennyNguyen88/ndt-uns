@@ -95,6 +95,7 @@
     <Content Include="contact.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\font-awesome.css" />
+    <Content Include="member\css\member.css" />
     <Content Include="css\mystyle.css" />
     <Content Include="css\skdslider.css" />
     <Content Include="css\style.css" />
@@ -198,11 +199,13 @@
     <Content Include="js\responsiveslides.min.js" />
     <Content Include="js\skdslider.min.js" />
     <Content Include="login.aspx" />
+    <Content Include="member\Default.aspx" />
     <Content Include="member\myorders.aspx" />
     <Content Include="MyCart.aspx" />
     <Content Include="offers.aspx" />
     <Content Include="packagedfoods.aspx" />
     <Content Include="packages.config" />
+    <Content Include="PasswordRecovery.aspx" />
     <Content Include="personalcare.aspx" />
     <Content Include="products.aspx" />
     <Content Include="registered.aspx" />
@@ -230,6 +233,7 @@
       <DependentUpon>MyShopModel.edmx</DependentUpon>
     </Content>
     <Content Include="member\Web.config" />
+    <Content Include="member\Member.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -238,7 +242,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="about.aspx.cs">
@@ -340,6 +346,20 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="member\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="member\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="member\Member.master.cs">
+      <DependentUpon>Member.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="member\Member.master.designer.cs">
+      <DependentUpon>Member.master</DependentUpon>
+    </Compile>
     <Compile Include="member\myorders.aspx.cs">
       <DependentUpon>myorders.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,6 +387,13 @@
     </Compile>
     <Compile Include="packagedfoods.aspx.designer.cs">
       <DependentUpon>packagedfoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordRecovery.aspx.cs">
+      <DependentUpon>PasswordRecovery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PasswordRecovery.aspx.designer.cs">
+      <DependentUpon>PasswordRecovery.aspx</DependentUpon>
     </Compile>
     <Compile Include="personalcare.aspx.cs">
       <DependentUpon>personalcare.aspx</DependentUpon>

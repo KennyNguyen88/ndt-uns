@@ -131,6 +131,9 @@ button.btn.btn-default.search:hover {
     text-align: center;
     padding: 9px 0;
 }
+.agile-login .dropdown-menu a {
+    color: #000;
+}
 .agile-login ul li {
     display: inline-block;
     padding: 0em 1em;
