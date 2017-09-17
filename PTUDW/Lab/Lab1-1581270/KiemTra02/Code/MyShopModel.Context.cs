@@ -29,5 +29,7 @@ namespace KiemTra02.Code
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<ContactMessage> ContactMessages { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<UserAddress> UserAddresses { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
     }
 }

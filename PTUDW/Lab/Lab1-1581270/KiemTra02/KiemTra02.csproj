@@ -200,6 +200,7 @@
     <Content Include="js\skdslider.min.js" />
     <Content Include="login.aspx" />
     <Content Include="member\Default.aspx" />
+    <Content Include="member\MyAddress.aspx" />
     <Content Include="member\myorders.aspx" />
     <Content Include="MyCart.aspx" />
     <Content Include="offers.aspx" />
@@ -223,7 +224,9 @@
     <Content Include="WUC\WUC_carousel.ascx" />
     <Content Include="WUC\WUC_footer.ascx" />
     <Content Include="WUC\WUC_header.ascx" />
+    <Content Include="WUC\WUC_MemberAddress.ascx" />
     <Content Include="WUC\WUC_navigation.ascx" />
+    <Content Include="WUC\WUC_Review.ascx" />
     <Content Include="WUC\WUC_ShoppingCart.ascx" />
     <EntityDeploy Include="Code\MyShopModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -296,7 +299,13 @@
     <Compile Include="Code\Product.cs">
       <DependentUpon>MyShopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Code\Review.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Code\ShoppingCart.cs" />
+    <Compile Include="Code\UserAddress.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -359,6 +368,13 @@
     </Compile>
     <Compile Include="member\Member.master.designer.cs">
       <DependentUpon>Member.master</DependentUpon>
+    </Compile>
+    <Compile Include="member\MyAddress.aspx.cs">
+      <DependentUpon>MyAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="member\MyAddress.aspx.designer.cs">
+      <DependentUpon>MyAddress.aspx</DependentUpon>
     </Compile>
     <Compile Include="member\myorders.aspx.cs">
       <DependentUpon>myorders.aspx</DependentUpon>
@@ -452,12 +468,26 @@
     <Compile Include="WUC\WUC_header.ascx.designer.cs">
       <DependentUpon>WUC_header.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WUC\WUC_MemberAddress.ascx.cs">
+      <DependentUpon>WUC_MemberAddress.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\WUC_MemberAddress.ascx.designer.cs">
+      <DependentUpon>WUC_MemberAddress.ascx</DependentUpon>
+    </Compile>
     <Compile Include="WUC\WUC_navigation.ascx.cs">
       <DependentUpon>WUC_navigation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WUC\WUC_navigation.ascx.designer.cs">
       <DependentUpon>WUC_navigation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\WUC_Review.ascx.cs">
+      <DependentUpon>WUC_Review.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\WUC_Review.ascx.designer.cs">
+      <DependentUpon>WUC_Review.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\WUC_ShoppingCart.ascx.cs">
       <DependentUpon>WUC_ShoppingCart.ascx</DependentUpon>
@@ -470,7 +500,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="images\user\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

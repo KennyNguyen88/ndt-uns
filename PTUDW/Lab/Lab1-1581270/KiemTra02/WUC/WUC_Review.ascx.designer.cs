@@ -7,36 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KiemTra02 {
+namespace KiemTra02.WUC {
     
     
-    public partial class registered {
+    public partial class WUC_Review {
         
         /// <summary>
-        /// CreateUserWizardRegister control.
+        /// LoginViewReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizardRegister;
+        protected global::System.Web.UI.WebControls.LoginView LoginViewReview;
         
         /// <summary>
-        /// CreateUserWizardStep1 control.
+        /// RepeaterReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizardStep CreateUserWizardStep1;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterReview;
         
         /// <summary>
-        /// CompleteWizardStep1 control.
+        /// SqlDataSourceReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompleteWizardStep CompleteWizardStep1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceReview;
     }
 }

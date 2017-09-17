@@ -27,5 +27,12 @@ namespace KiemTra02
                 ((WUC_header)Page.Master.FindControl("WUC_header")).UpdateCartItem();
             }
         }
+        protected string isChecked(int stars, object rating)
+        {
+            double r = double.Parse(rating.ToString());
+            if (stars == Math.Floor(r))
+                return "checked";
+            return "";
+        }
     }
 }

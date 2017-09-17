@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="single.aspx.cs" Inherits="KiemTra02.single" %>
+
+<%@ Register Src="~/WUC/WUC_Review.ascx" TagPrefix="uc1" TagName="WUC_Review" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -29,15 +32,15 @@
 				        <h2><%#Eval("Name") %></h2>
 					        <div class="rating1">
 						        <span class="starRating">
-							        <input id="rating5" type="radio" name="rating" value="5">
+							        <input id="rating5" type="radio" name="rating" value="5" <%# isChecked(5,Eval("AverageRating")) %> >
 							        <label for="rating5">5</label>
-							        <input id="rating4" type="radio" name="rating" value="4">
+							        <input id="rating4" type="radio" name="rating" value="4" <%# isChecked(4,Eval("AverageRating")) %> >
 							        <label for="rating4">4</label>
-							        <input id="rating3" type="radio" name="rating" value="3" checked="">
+							        <input id="rating3" type="radio" name="rating" value="3" <%# isChecked(3,Eval("AverageRating")) %> >
 							        <label for="rating3">3</label>
-							        <input id="rating2" type="radio" name="rating" value="2">
+							        <input id="rating2" type="radio" name="rating" value="2" <%# isChecked(2,Eval("AverageRating")) %> >
 							        <label for="rating2">2</label>
-							        <input id="rating1" type="radio" name="rating" value="1">
+							        <input id="rating1" type="radio" name="rating" value="1" <%# isChecked(1,Eval("AverageRating")) %> >
 							        <label for="rating1">1</label>
 						        </span>
 					        &nbsp;&nbsp;</div>
@@ -67,6 +70,7 @@
         </asp:Repeater>
 		
 	</div>
+    <uc1:WUC_Review runat="server" id="WUC_Review" />
 <!-- new -->
 	<div class="newproducts-w3agile">
 		<div class="container">

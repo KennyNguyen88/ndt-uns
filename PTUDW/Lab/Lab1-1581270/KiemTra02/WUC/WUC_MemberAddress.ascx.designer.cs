@@ -7,36 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KiemTra02 {
+namespace KiemTra02.WUC {
     
     
-    public partial class registered {
+    public partial class WUC_MemberAddress {
         
         /// <summary>
-        /// CreateUserWizardRegister control.
+        /// FormView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizardRegister;
+        protected global::System.Web.UI.WebControls.FormView FormView1;
         
         /// <summary>
-        /// CreateUserWizardStep1 control.
+        /// SqlDataSourceUserAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizardStep CreateUserWizardStep1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceUserAddress;
         
         /// <summary>
-        /// CompleteWizardStep1 control.
+        /// HiddenFieldUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompleteWizardStep CompleteWizardStep1;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldUserId;
     }
 }

@@ -17,7 +17,7 @@
 		<div class="container">
 			<h2>Register Here</h2>
 			<div class="login-form-grids">
-                <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ActiveStepIndex="0">
+                <asp:CreateUserWizard ID="CreateUserWizardRegister" runat="server" ActiveStepIndex="0" OnCreatedUser="CreateUserWizardRegister_CreatedUser">
                     <WizardSteps>
                         <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                             <ContentTemplate>

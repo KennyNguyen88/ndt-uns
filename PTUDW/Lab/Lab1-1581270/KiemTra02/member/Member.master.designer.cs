@@ -13,6 +13,42 @@ namespace KiemTra02 {
     public partial class Member {
         
         /// <summary>
+        /// ImageUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImageUser;
+        
+        /// <summary>
+        /// LabelFullName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelFullName;
+        
+        /// <summary>
+        /// FileUploadUserImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadUserImage;
+        
+        /// <summary>
+        /// ButtonUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonUpload;
+        
+        /// <summary>
         /// LinkButton1 control.
         /// </summary>
         /// <remarks>
