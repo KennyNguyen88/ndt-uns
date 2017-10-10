@@ -95,6 +95,7 @@
     <Content Include="contact.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\font-awesome.css" />
+    <Content Include="member\Checkout.aspx" />
     <Content Include="member\css\member.css" />
     <Content Include="css\mystyle.css" />
     <Content Include="css\skdslider.css" />
@@ -202,6 +203,7 @@
     <Content Include="member\Default.aspx" />
     <Content Include="member\MyAddress.aspx" />
     <Content Include="member\myorders.aspx" />
+    <Content Include="member\succeed.aspx" />
     <Content Include="MyCart.aspx" />
     <Content Include="offers.aspx" />
     <Content Include="packagedfoods.aspx" />
@@ -225,6 +227,9 @@
     <Content Include="WUC\WUC_footer.ascx" />
     <Content Include="WUC\WUC_header.ascx" />
     <Content Include="WUC\WUC_MemberAddress.ascx" />
+    <Content Include="WUC\WUC_MemberCheckout.ascx" />
+    <Content Include="WUC\WUC_MemberOrders.ascx" />
+    <Content Include="WUC\WUC_MemberSucceed.ascx" />
     <Content Include="WUC\WUC_navigation.ascx" />
     <Content Include="WUC\WUC_Review.ascx" />
     <Content Include="WUC\WUC_ShoppingCart.ascx" />
@@ -235,7 +240,9 @@
     <Content Include="Code\MyShopModel.edmx.diagram">
       <DependentUpon>MyShopModel.edmx</DependentUpon>
     </Content>
-    <Content Include="member\Web.config" />
+    <Content Include="member\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="member\Member.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -296,6 +303,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyShopModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Code\Order.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\OrderDetail.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Code\OrderStatu.cs">
+      <DependentUpon>MyShopModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Code\Product.cs">
       <DependentUpon>MyShopModel.tt</DependentUpon>
     </Compile>
@@ -355,6 +371,13 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="member\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="member\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="member\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -382,6 +405,13 @@
     </Compile>
     <Compile Include="member\myorders.aspx.designer.cs">
       <DependentUpon>myorders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="member\succeed.aspx.cs">
+      <DependentUpon>succeed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="member\succeed.aspx.designer.cs">
+      <DependentUpon>succeed.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyCart.aspx.cs">
       <DependentUpon>MyCart.aspx</DependentUpon>
@@ -474,6 +504,27 @@
     </Compile>
     <Compile Include="WUC\WUC_MemberAddress.ascx.designer.cs">
       <DependentUpon>WUC_MemberAddress.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\WUC_MemberCheckout.ascx.cs">
+      <DependentUpon>WUC_MemberCheckout.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\WUC_MemberCheckout.ascx.designer.cs">
+      <DependentUpon>WUC_MemberCheckout.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\WUC_MemberOrders.ascx.cs">
+      <DependentUpon>WUC_MemberOrders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\WUC_MemberOrders.ascx.designer.cs">
+      <DependentUpon>WUC_MemberOrders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WUC\WUC_MemberSucceed.ascx.cs">
+      <DependentUpon>WUC_MemberSucceed.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WUC\WUC_MemberSucceed.ascx.designer.cs">
+      <DependentUpon>WUC_MemberSucceed.ascx</DependentUpon>
     </Compile>
     <Compile Include="WUC\WUC_navigation.ascx.cs">
       <DependentUpon>WUC_navigation.ascx</DependentUpon>

@@ -31,5 +31,8 @@ namespace KiemTra02.Code
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<UserAddress> UserAddresses { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<OrderStatu> OrderStatus { get; set; }
     }
 }

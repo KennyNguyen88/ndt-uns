@@ -10,15 +10,15 @@
 namespace KiemTra02.member {
     
     
-    public partial class myorders {
+    public partial class Checkout {
         
         /// <summary>
-        /// WUC_MemberOrders control.
+        /// WUC_MemberCheckout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::KiemTra02.WUC.WUC_MemberOrders WUC_MemberOrders;
+        protected global::KiemTra02.WUC.WUC_MemberCheckout WUC_MemberCheckout;
     }
 }

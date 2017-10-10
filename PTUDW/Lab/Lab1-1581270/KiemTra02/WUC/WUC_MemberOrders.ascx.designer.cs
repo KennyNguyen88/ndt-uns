@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KiemTra02.member {
+namespace KiemTra02.WUC {
     
     
-    public partial class myorders {
+    public partial class WUC_MemberOrders {
         
         /// <summary>
-        /// WUC_MemberOrders control.
+        /// RepeaterOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::KiemTra02.WUC.WUC_MemberOrders WUC_MemberOrders;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterOrder;
     }
 }

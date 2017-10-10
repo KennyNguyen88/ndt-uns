@@ -1,0 +1,94 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="WUC_MemberCheckout.ascx.cs" Inherits="KiemTra02.WUC.WUC_MemberCheckout" %>
+<%@ Register Src="~/WUC/WUC_MemberAddress.ascx" TagPrefix="uc1" TagName="WUC_MemberAddress" %>
+
+<div class='container'>
+    <div class='row' style='padding-top: 25px; padding-bottom: 25px;'>
+        <div class='col-md-12'>
+            <div id='mainContentWrapper'>
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 style="text-align: center;">Review Your Order & Complete Checkout
+                    </h2>
+                    <hr />
+                    <a href="../MyCart.aspx" class="btn btn-info" style="width: 100%;">Add More Products & Services</a>
+                    <hr />
+                    <div class="shopping_cart">
+                        <div class="form-horizontal" role="form" action="" method="post" id="payment-form">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Review
+                                                Your Order</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div class="items">
+                                                <div class="col-md-9">
+                                                    <table class="table table-striped">
+                                                        <tr>
+                                                            <th>Product</th>
+                                                            <th>Quantity</th>
+                                                            <th>Price</th>
+                                                        </tr>
+                                                        <asp:Repeater ID="RepeaterShoppingCart" runat="server">
+                                                            <ItemTemplate>
+                                                                <tr>
+                                                                    <td>
+                                                                        <ul>                                                                            
+                                                                            <li><%#Eval("Name") %></li>
+                                                                        </ul>
+                                                                    </td>
+                                                                    <td>
+                                                                        <b><%#Eval("Quantity") %></b>
+                                                                    </td>
+                                                                    <td>
+                                                                        <b><%#Eval("TotalPrice") %></b>
+                                                                    </td>
+                                                                </tr>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div style="text-align: center;">
+                                                        <h3>Order Total</h3>
+                                                        <h3><span style="color: green;">
+                                                            <asp:Label ID="LabelTotalPrice" runat="server" Text="Label"></asp:Label></span></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Contact
+                                            and Billing Information</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <uc1:WUC_MemberAddress runat="server" ID="WUC_MemberAddress" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <asp:Button 
+                                    ID="ButtonPayNow" 
+                                    runat="server" 
+                                    Text="Pay Now" 
+                                    CssClass="btn btn-success btn-lg"
+                                    style="width: 100%;"
+                                    OnClick="ButtonPayNow_Click"/>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,6 +15,12 @@
         <EntityTypeShape EntityType="PTUDWModel.UserAddress" Width="1.5" PointX="5.375" PointY="3.75" />
         <EntityTypeShape EntityType="PTUDWModel.Review" Width="1.5" PointX="5.25" PointY="6.625" />
         <AssociationConnector Association="PTUDWModel.FK_Review_ToProduct" />
+        <EntityTypeShape EntityType="PTUDWModel.Order" Width="1.5" PointX="6" PointY="11" />
+        <EntityTypeShape EntityType="PTUDWModel.OrderDetail" Width="1.5" PointX="8.25" PointY="1.875" />
+        <EntityTypeShape EntityType="PTUDWModel.OrderStatu" Width="1.5" PointX="3.75" PointY="11.375" />
+        <AssociationConnector Association="PTUDWModel.FK_Order_ToStatus" />
+        <AssociationConnector Association="PTUDWModel.FK_OrderDetail_ToOrder" />
+        <AssociationConnector Association="PTUDWModel.FK_OrderDetail_ToProduct" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

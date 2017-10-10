@@ -10,15 +10,15 @@
 namespace KiemTra02.member {
     
     
-    public partial class myorders {
+    public partial class succeed {
         
         /// <summary>
-        /// WUC_MemberOrders control.
+        /// WUC_MemberSucceed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::KiemTra02.WUC.WUC_MemberOrders WUC_MemberOrders;
+        protected global::KiemTra02.WUC.WUC_MemberSucceed WUC_MemberSucceed;
     }
 }
