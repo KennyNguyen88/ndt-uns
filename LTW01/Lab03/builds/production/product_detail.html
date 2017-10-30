@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Product Detail | LTW01</title>
+    <meta http-equiv="X-UA-Compatibale" content="IE-Edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="shortcut icon" href="http://web.hcmus.edu.vn/images/uns.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <div class="header_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 text-left"><a href="index.html"><img src="images/logo.png"></a></div>
+                <div class="col-xs-6 text-right">
+                    <ul class="list-inline">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cart.html"><img class="cart" src="images/cart.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
+                            data-target="#navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span
+                            class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right hidden-xs">
+                        <div class="form-group"><input class="form-control" type="text" placeholder="Search">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 hidden-xs">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Products</a></li>
+                <li><a href="#">Product 01</a></li>
+            </ol>
+        </div>
+    </div>
+    <div class="row marginb-2rem" id="product-detail">
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-sm-6 product-images">
+                    <div class="row marginb-1rem">
+                        <div class="col-xs-12 product-thumb"><img class="img-responsive"
+                                                                  src="images/product-gallery/large-image.jpg"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3 product-small-image"><a href="#"><img
+                                src="images/product-gallery/thumb_1.jpg"></a></div>
+                        <div class="col-xs-3 product-small-image"><a href="#"><img
+                                src="images/product-gallery/thumb_2.jpg"></a></div>
+                        <div class="col-xs-3 product-small-image"><a href="#"><img
+                                src="images/product-gallery/thumb_3.jpg"></a></div>
+                        <div class="col-xs-3 product-small-image"><a href="#"><img
+                                src="images/product-gallery/thumb_4.jpg"></a></div>
+                    </div>
+                </div>
+                <div class="col-sm-6"><h6 class="product-name">Product 01</h6><h6 class="product-price">$100</h6>
+                    <p>Available In Stock</p>
+                    <form class="form-horizontal">
+                        <div class="form-group"><label class="col-xs-3 control-label" for="inputSize">Size</label>
+                            <div class="col-xs-9"><select class="form-control" id="inputSize">
+                                <option>10</option>
+                                <option>20</option>
+                                <option>30</option>
+                            </select></div>
+                        </div>
+                        <div class="form-group"><label class="col-xs-3 control-label"
+                                                       for="inputQuantity">Quantity</label>
+                            <div class="col-xs-9"><select class="form-control" id="inputQuantity">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </select></div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-offset-3 col-xs-9"><a class="btn btn-primary">ADD TO CART</a></div>
+                        </div>
+                        <div class="form-group"><label class="radio-inline yellow"><input type="radio"
+                                                                                          name="ratingRadio" value="1">
+                            <div>&nbsp</div>
+                        </label><label class="radio-inline yellow"><input type="radio" name="ratingRadio" value="2">
+                            <div>&nbsp</div>
+                        </label><label class="radio-inline yellow"><input type="radio" name="ratingRadio" value="3">
+                            <div>&nbsp</div>
+                        </label><label class="radio-inline grey"><input type="radio" name="ratingRadio" value="4">
+                            <div>&nbsp</div>
+                        </label><label class="radio-inline grey"><input type="radio" name="ratingRadio" value="5">
+                            <div>&nbsp</div>
+                        </label></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3"><h5>CATEGORIES</h5>
+            <div class="list-group"><a class="list-group-item active" href="#">Categories 01</a><a
+                    class="list-group-item" href="#">Categories 02</a><a class="list-group-item" href="#">Categories
+                03</a><a class="list-group-item" href="#">Categories 04</a><a class="list-group-item" href="#">Categories
+                05</a></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#ShortDescription" aria-controls="home" role="tab" data-toggle="tab">Short
+                    Description</a></li>
+                <li><a href="#Detail" aria-controls="home" role="tab" data-toggle="tab">Detail</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="ShortDescription"><p>Lorem Ipsum is simply dummy text of the
+                    printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                    since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book. It has survived not only five centuries, but also the leap into electronic
+                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                    like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                        classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+                        Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
+                        words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
+                        classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32
+                        and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
+                        written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
+                        Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+                        section 1.10.32.</p></div>
+                <div class="tab-pane fade" id="Detail"><p>Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has
+                    survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+                    containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
+                    PageMaker including versions of Lorem Ipsum.</p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+                        classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a
+                        Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
+                        words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
+                        classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32
+                        and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
+                        written in 45 BC. This book is a treatise on the theory of ethics, very popular during the
+                        Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+                        section 1.10.32.</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="product-list"><h2>Related</h2>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="panel panel-default product">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12 text-center"><a href="product_detail.html"><img
+                                    src="images/products/product-6.jpg"/></a></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><h6 class="product-name">Product Name</h6></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7"><a class="btn btn-block btn-primary">ADD TO CART</a></div>
+                            <div class="col-xs-5 text-right"><h6 class="product-price">$100</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="panel panel-default product">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12 text-center"><a href="product_detail.html"><img
+                                    src="images/products/product-7.jpg"/></a></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><h6 class="product-name">Product Name</h6></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7"><a class="btn btn-block btn-primary">ADD TO CART</a></div>
+                            <div class="col-xs-5 text-right"><h6 class="product-price">$100</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="panel panel-default product">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12 text-center"><a href="product_detail.html"><img
+                                    src="images/products/product-8.jpg"/></a></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><h6 class="product-name">Product Name</h6></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7"><a class="btn btn-block btn-primary">ADD TO CART</a></div>
+                            <div class="col-xs-5 text-right"><h6 class="product-price">$100</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <div class="panel panel-default product">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12 text-center"><a href="product_detail.html"><img
+                                    src="images/products/product-1.jpg"/></a></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12"><h6 class="product-name">Product Name</h6></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7"><a class="btn btn-block btn-primary">ADD TO CART</a></div>
+                            <div class="col-xs-5 text-right"><h6 class="product-price">$100</h6></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>LINKS</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>ACCOUNT</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="order_history.html">Order History</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>SOCIAL</h6>
+                    <ul class="list-inline">
+                        <li><a class="social" href="#"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-google-plus-square fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-instagram fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6"><p>HO CHI MINH UNIVERSITY OF SCIENCE</p></div>
+                <div class="col-xs-12 col-sm-6"><p class="text-right">NGUYEN DUC TRUNG - 1581270</p></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

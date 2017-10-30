@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Log in | LTW01</title>
+    <meta http-equiv="X-UA-Compatibale" content="IE-Edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="shortcut icon" href="http://web.hcmus.edu.vn/images/uns.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <div class="header_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 text-left"><a href="index.html"><img src="images/logo.png"></a></div>
+                <div class="col-xs-6 text-right">
+                    <ul class="list-inline">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cart.html"><img class="cart" src="images/cart.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
+                            data-target="#navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span
+                            class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right hidden-xs">
+                        <div class="form-group"><input class="form-control" type="text" placeholder="Search">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 hidden-xs">
+            <ol class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Login</a></li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8"><h1>NOT A MEMBER</h1>
+            <p>Register a new one for better shopping</p>
+            <form class="form-horizontal form-register">
+                <div class="form-group"><label class="col-sm-4 control-label" for="inputRegisterEmail">Email
+                    Address</label>
+                    <div class="col-sm-8"><input class="form-control" id="inputRegisterEmail" type="email"
+                                                 placeholder="example@example.com" required=""
+                                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"></div>
+                </div>
+                <div class="form-group"><label class="col-sm-4 control-label"
+                                               for="inputRegisterUsername">Username</label>
+                    <div class="col-sm-8"><input class="form-control" id="inputRegisterUsername" type="text"
+                                                 placeholder="At least 6 characters" required="" minlength="6"
+                                                 oninvalid="this.setCustomValidity('Username not blank and at least 6 characters length !')"
+                                                 oninput="this.setCustomValidity('')"></div>
+                </div>
+                <div class="form-group"><label class="col-sm-4 control-label"
+                                               for="inputRegisterPassword">Password</label>
+                    <div class="col-sm-8"><input class="form-control" id="inputRegisterPassword" type="password"
+                                                 placeholder="password" required=""></div>
+                </div>
+                <div class="form-group"><label class="col-sm-4 control-label" for="inputRegisterConfirmPassword">Confirm
+                    Password</label>
+                    <div class="col-sm-8"><input class="form-control" id="inputRegisterConfirmPassword" type="password"
+                                                 placeholder="password" required=""></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-4 text-center">
+                        <button class="btn btn-primary" name="submit">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 col-sm-4"><h3>ALREADY A MEMBER</h3>
+            <form class="form-horizontal form-register">
+                <div class="form-group">
+                    <div class="col-sm-12"><input class="form-control" id="inputLoginUsername" type="text"
+                                                  placeholder="Username" required=""
+                                                  oninvalid="this.setCustomValidity('Please input Username !')"
+                                                  oninput="this.setCustomValidity('')"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12"><input class="form-control" id="inputLoginPassword" type="password"
+                                                  placeholder="password" required=""
+                                                  oninvalid="this.setCustomValidity('Please input Password !')"
+                                                  oninput="this.setCustomValidity('')"></div>
+                </div>
+                <p class="text-right"><a href="#">Forgotten Password ?</a></p>
+                <p class="text-right">
+                    <button class="btn btn-primary" name="submit">Login</button>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>LINKS</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>ACCOUNT</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="order_history.html">Order History</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>SOCIAL</h6>
+                    <ul class="list-inline">
+                        <li><a class="social" href="#"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-google-plus-square fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-instagram fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6"><p>HO CHI MINH UNIVERSITY OF SCIENCE</p></div>
+                <div class="col-xs-12 col-sm-6"><p class="text-right">NGUYEN DUC TRUNG - 1581270</p></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

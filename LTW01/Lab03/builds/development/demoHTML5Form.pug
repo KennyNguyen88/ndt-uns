@@ -1,0 +1,86 @@
+extends template
+include mixins/mixin
+block btitle
+    title Demo | LTW01
+block content
+    form.form-horizontal
+        fieldset
+            legend Demo HTML5 Form Validation
+            .form-group
+                label.col-md-4.control-label(for="txtName") Name
+                .col-md-4
+                    input#txtName.form-control.input-md(name="txtName" type="text" placeholder="Enter your name" required="" oninvalid="this.setCustomValidity('Please enter your name !')" oninput="this.setCustomValidity('')")
+            .form-group
+                label.col-md-4.control-label(for="txtPassword") Password
+                .col-md-4
+                    input#txtPassword.form-control.input-md(name="txtPassword" type="password" placeholder="" required="")
+            .form-group
+                label.col-md-4.control-label(for="txtConfirmPassword") Confirm Password
+                .col-md-4
+                    input#txtConfirmPassword.form-control.input-md(name="txtConfirmPassword" type="password" placeholder="" required="" )
+            .form-group
+                label.col-md-4.control-label(for="txtAge") Age
+                .col-md-4
+                    input#txtAge.form-control.input-md(name="txtAge" type="number" placeholder="Enter a number greater than 18" required="" min="18" max="100" value="18")
+            .form-group
+                label.col-md-4.control-label(for="txtBirthday") Birthday
+                .col-md-4
+                    input#txtBirthday.form-control.input-md(name="txtBirthday" type="date" placeholder="" required="" min="1900-01-01" value="1900-01-01")
+            .form-group
+                label.col-md-4.control-label(for="txtEmail") Email
+                .col-md-4
+                    input#txtEmail.form-control.input-md(name="txtEmail" type="email" placeholder="example@uns.com" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$")
+            .form-group
+                label.col-md-4.control-label(for="txtPhone") Phone Number
+                .col-md-4
+                    input#txtPhone.form-control.input-md(name="txtPhone" type="text" required="" placeholder="(84) 123456789" pattern="\\d{10,11}")
+            .form-group
+                label.col-md-4.control-label(for="cbcontinent") Continent
+                .col-md-4
+                    select#cbcontinent.form-control(name="cbcontinent" required="")
+                        option(value="") -- Please Select
+                        option(value="Asia") Asia
+                        option(value="Australia") Australia
+                        option(value="Europe") Europe
+            .form-group
+                label.col-md-4.control-label(for="cool") Are you cool ?
+                .col-md-4
+                    .radio
+                        label(for="cool-0")
+                            input#cool-0(type="radio" name="cool" value="1" required="")
+                            | Yes
+                    .radio
+                        label(for="cool-1")
+                            input#cool-1(type="radio" name="cool" value="0")
+                            | No
+            .form-group
+                label.col-md-4.control-label(for="colors") What color do you like ?
+                .col-md-4
+                    select#colors.form-control(name="colors" multiple="multiple" required="")
+                        option(value="Red") Red
+                        option(value="Green") Green
+                        option(value="Blue") Blue
+                        option(value="Pink") Pink
+            .form-group
+                label.col-md-4.control-label(for="language") What do you like ?
+                .col-md-4
+                    label.checkbox-inline(for="language-0")
+                        input#language-0(type="checkbox" name="language" value="HTML5")
+                        | HTML5
+
+                    label.checkbox-inline(for="language-1")
+                        input#language-1(type="checkbox" name="language" value="CSS")
+                        | CSS
+
+                    label.checkbox-inline(for="language-2")
+                        input#language-2(type="checkbox" name="language" value="Bootstrap")
+                        | Bootstrap
+
+                    label.checkbox-inline(for="language-3")
+                        input#language-3(type="checkbox" name="language" value="Jquery")
+                        | Jquery
+
+            .form-group
+                label.col-md-4.control-label(for="submit")
+                .col-md-4
+                    button#submit.btn.btn-primary(name="submit") Submit

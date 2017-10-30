@@ -1,0 +1,47 @@
+extends template
+include mixins/mixin
+block btitle
+    title Check Out | LTW01
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                    'index.html':'Home',
+                    'cart.html':'Shopping Cart',
+                    '#':'Check Out'
+                    }
+                +breadcrumb(list)
+        form
+            .row.marginb-2rem
+                h1 CHECK OUT
+                .col-xs-12.col-sm-6
+                    h3 Contact Detail
+                    .form-horizontal
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" placeholder="First Name" required="" oninvalid="this.setCustomValidity('Please input your first name !')" oninput="this.setCustomValidity('')")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" placeholder="Last Name" required="" oninvalid="this.setCustomValidity('Please input your last name !')" oninput="this.setCustomValidity('')")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="email" placeholder="Email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" required="" placeholder="(84) 123456789" pattern="\\d{10,11}")
+                .col-xs-12.col-sm-6
+                    h3 Delivery Address
+                    .form-horizontal
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" placeholder="Address" required="" oninvalid="this.setCustomValidity('Please input your Address !')" oninput="this.setCustomValidity('')")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" placeholder="District" required="" oninvalid="this.setCustomValidity('Please input your District !')" oninput="this.setCustomValidity('')")
+                        .form-group
+                            .col-sm-12
+                                input.form-control(type="text" placeholder="City" required="" oninvalid="this.setCustomValidity('Please input your City !')" oninput="this.setCustomValidity('')")
+            .row.text-center.marginb-2rem
+                button.btn.btn-primary(name="submit") OK

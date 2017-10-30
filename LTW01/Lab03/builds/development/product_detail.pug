@@ -1,0 +1,91 @@
+extends template
+include mixins/mixin
+block btitle
+    title Product Detail | LTW01
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                        'index.html':'Home',
+                        'categories.html':'Products',
+                        '#':'Product 01'
+                    }
+                +breadcrumb(list)
+        .row.marginb-2rem#product-detail
+            .col-lg-9
+                .row
+                    .col-sm-6.product-images
+                        .row
+                            .sp-wrap.marginl-2rem
+                                a(href="../images/product-gallery/1.jpg") #[img(src="../images/product-gallery/1_tb.jpg")]
+                                a.sp-default(href="../images/product-gallery/2.jpg") #[img(src="../images/product-gallery/2_tb.jpg")]
+                                a(href="../images/product-gallery/3.jpg") #[img(src="../images/product-gallery/3_tb.jpg")]
+                                a(href="../images/product-gallery/4.jpg") #[img(src="../images/product-gallery/4_tb.jpg")]
+                                a(href="../images/product-gallery/5.jpg") #[img(src="../images/product-gallery/5_tb.jpg")]
+                    .col-sm-6
+                        h6.product-name Product 01
+                        h6.product-price $100
+                        p Available In Stock
+                        form.form-horizontal
+                            .form-group
+                                label.col-xs-3.control-label(for="inputSize") Size
+                                .col-xs-9
+                                    select#inputSize.form-control
+                                        option 10
+                                        option 20
+                                        option 30
+                            .form-group
+                                label.col-xs-3.control-label(for="inputQuantity") Quantity
+                                .col-xs-9
+                                    select#inputQuantity.form-control
+                                        option 1
+                                        option 2
+                                        option 3
+                            .form-group
+                                .col-xs-offset-3.col-xs-9
+                                    a.btn.btn-primary ADD TO CART
+                            .form-group
+                                label.radio-inline.yellow
+                                    input(type="radio" name="ratingRadio" value="1")
+                                    div &nbsp
+                                label.radio-inline.yellow
+                                    input(type="radio" name="ratingRadio" value="2")
+                                    div &nbsp
+                                label.radio-inline.yellow
+                                    input(type="radio" name="ratingRadio" value="3")
+                                    div &nbsp
+                                label.radio-inline.grey
+                                    input(type="radio" name="ratingRadio" value="4")
+                                    div &nbsp
+                                label.radio-inline.grey
+                                    input(type="radio" name="ratingRadio" value="5")
+                                    div &nbsp
+            .col-lg-3
+                include partials/sidebar
+        .row
+            .col-xs-12
+                ul.nav.nav-tabs
+                    li.active
+                        a(href="#ShortDescription" aria-controls="home" role="tab" data-toggle="tab") Short Description
+                    li
+                        a(href="#Detail" aria-controls="home" role="tab" data-toggle="tab") Detail
+                .tab-content
+                    #ShortDescription.tab-pane.fade.in.active
+                        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        p Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    #Detail.tab-pane.fade
+                        p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        p Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+        .product-list
+            h2 Related
+            .row
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-6.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-7.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-8.jpg","Product Name","$100")
+                .col-xs-12.col-sm-6.col-md-3
+                    +product("../images/products/product-1.jpg","Product Name","$100")

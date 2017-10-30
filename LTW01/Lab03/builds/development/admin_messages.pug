@@ -1,0 +1,99 @@
+extends admin_template
+include mixins/mixin
+block btitle
+    title Admin Messages | LTW01
+block content
+    .row
+        .col-xs-12
+            h1 New Messages
+    .row
+        .col-xs-12
+            table.table.table-responsive.table-bordered.table-hover.custom-table
+                thead
+                    th #[input(type="checkbox" value="")]
+                    th ID
+                    th Email
+                    th Title
+                    th Content
+                    th Register Date
+                    th Status
+                    th Action
+                tbody
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td example@example.com
+                        td Title 01
+                        td Content 01
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Reject]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td example@example.com
+                        td Title 01
+                        td Content 01
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Reject]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td example@example.com
+                        td Title 01
+                        td Content 01
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Reject]
+    .row
+        .col-xs-12.col-sm-6
+            h1 Messages
+        .col-xs-12.col-sm-6.text-right
+            .form-inline
+                .form-group
+                    input.form-control(type="text" placeholder="Search key...")
+                .form-group
+                    a.btn.btn-primary(href="#") Search
+    .row
+        .col-xs-12
+            table.table.table-responsive.table-bordered.table-hover.custom-table
+                thead
+                    th #[input(type="checkbox" value="")]
+                    th ID
+                    th Email
+                    th Title
+                    th Content
+                    th Register Date
+                    th Status
+                    th Action
+                tbody
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td example@example.com
+                        td Title 01
+                        td Content 01
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Delete]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td example@example.com
+                        td Title 01
+                        td Content 01
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Delete]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td example@example.com
+                        td Title 01
+                        td Content 01
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Delete]
+        .col-xs-12.text-center
+            +pagination(3)

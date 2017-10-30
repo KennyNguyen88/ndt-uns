@@ -1,0 +1,33 @@
+mixin product(img,name,price)
+    .panel.panel-default.product
+        .panel-body
+            .row
+                .col-xs-12.text-center
+                    a(href="product_detail.html")
+                        img(src=img)
+            .row
+                .col-xs-12
+                    h6.product-name= name
+            .row
+                .col-xs-7
+                    a.btn.btn-block.btn-primary ADD TO CART
+                .col-xs-5.text-right
+                    h6.product-price= price
+mixin breadcrumb(_list)
+    ol.breadcrumb
+        each value,index in _list
+            li
+                a(href=index)=value
+mixin pagination(count)
+    - var i = 1;
+    nav
+        ul.pagination
+            li
+                a(href="#") #[span &laquo;]
+            while i <= count
+                li
+                    a(href="#")= i
+                - i++
+            li
+                a(href="#") #[span &raquo;]
+

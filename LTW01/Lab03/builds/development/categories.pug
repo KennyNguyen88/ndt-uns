@@ -1,0 +1,41 @@
+extends template
+include mixins/mixin
+block btitle
+    title Categories | LTW01
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                    'index.html':'Home',
+                    '#':'Categories'
+                    }
+                +breadcrumb(list)
+        .row
+            .col-lg-9
+                h1 ALL PRODUCTS
+                .row
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-6.jpg","Product Name","$100")
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-1.jpg","Product Name","$100")
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-2.jpg","Product Name","$100")
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-3.jpg","Product Name","$100")
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-4.jpg","Product Name","$100")
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-5.jpg","Product Name","$100")
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-6.jpg","Product Name","$100")
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-1.jpg","Product Name","$100")
+                    .col-xs-12.col-sm-6.col-md-4
+                        +product("../images/products/product-2.jpg","Product Name","$100")
+                .row
+                    .col-xs-12.text-center
+                        +pagination(5)
+            .col-lg-3
+                include partials/sidebar

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Demo | LTW01</title>
+    <meta http-equiv="X-UA-Compatibale" content="IE-Edge">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+    <link rel="shortcut icon" href="http://web.hcmus.edu.vn/images/uns.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <div class="header_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 text-left"><a href="index.html"><img src="images/logo.png"></a></div>
+                <div class="col-xs-6 text-right">
+                    <ul class="list-inline">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="cart.html"><img class="cart" src="images/cart.png"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse"
+                            data-target="#navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span
+                            class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right hidden-xs">
+                        <div class="form-group"><input class="form-control" type="text" placeholder="Search">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<form class="form-horizontal">
+    <fieldset>
+        <legend>Demo HTML5 Form Validation</legend>
+        <div class="form-group"><label class="col-md-4 control-label" for="txtName">Name</label>
+            <div class="col-md-4"><input class="form-control input-md" id="txtName" name="txtName" type="text"
+                                         placeholder="Enter your name" required=""
+                                         oninvalid="this.setCustomValidity('Please enter your name !')"
+                                         oninput="this.setCustomValidity('')"></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="txtPassword">Password</label>
+            <div class="col-md-4"><input class="form-control input-md" id="txtPassword" name="txtPassword"
+                                         type="password" placeholder="" required=""></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="txtConfirmPassword">Confirm Password</label>
+            <div class="col-md-4"><input class="form-control input-md" id="txtConfirmPassword" name="txtConfirmPassword"
+                                         type="password" placeholder="" required=""></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="txtAge">Age</label>
+            <div class="col-md-4"><input class="form-control input-md" id="txtAge" name="txtAge" type="number"
+                                         placeholder="Enter a number greater than 18" required="" min="18" max="100"
+                                         value="18"></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="txtBirthday">Birthday</label>
+            <div class="col-md-4"><input class="form-control input-md" id="txtBirthday" name="txtBirthday" type="date"
+                                         placeholder="" required="" min="1900-01-01" value="1900-01-01"></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="txtEmail">Email</label>
+            <div class="col-md-4"><input class="form-control input-md" id="txtEmail" name="txtEmail" type="email"
+                                         placeholder="example@uns.com" required=""
+                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="txtPhone">Phone Number</label>
+            <div class="col-md-4"><input class="form-control input-md" id="txtPhone" name="txtPhone" type="text"
+                                         required="" placeholder="(84) 123456789" pattern="\d{10,11}"></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="cbcontinent">Continent</label>
+            <div class="col-md-4"><select class="form-control" id="cbcontinent" name="cbcontinent" required="">
+                <option value="">-- Please Select</option>
+                <option value="Asia">Asia</option>
+                <option value="Australia">Australia</option>
+                <option value="Europe">Europe</option>
+            </select></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="cool">Are you cool ?</label>
+            <div class="col-md-4">
+                <div class="radio"><label for="cool-0"><input id="cool-0" type="radio" name="cool" value="1"
+                                                              required="">Yes</label></div>
+                <div class="radio"><label for="cool-1"><input id="cool-1" type="radio" name="cool" value="0">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="colors">What color do you like ?</label>
+            <div class="col-md-4"><select class="form-control" id="colors" name="colors" multiple="multiple"
+                                          required="">
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+                <option value="Pink">Pink</option>
+            </select></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="language">What do you like ?</label>
+            <div class="col-md-4"><label class="checkbox-inline" for="language-0"><input id="language-0" type="checkbox"
+                                                                                         name="language" value="HTML5">HTML5</label><label
+                    class="checkbox-inline" for="language-1"><input id="language-1" type="checkbox" name="language"
+                                                                    value="CSS">CSS</label><label
+                    class="checkbox-inline" for="language-2"><input id="language-2" type="checkbox" name="language"
+                                                                    value="Bootstrap">Bootstrap</label><label
+                    class="checkbox-inline" for="language-3"><input id="language-3" type="checkbox" name="language"
+                                                                    value="Jquery">Jquery</label></div>
+        </div>
+        <div class="form-group"><label class="col-md-4 control-label" for="submit"></label>
+            <div class="col-md-4">
+                <button class="btn btn-primary" id="submit" name="submit">Submit</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<footer>
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>LINKS</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>ACCOUNT</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="order_history.html">Order History</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3"><h6>SOCIAL</h6>
+                    <ul class="list-inline">
+                        <li><a class="social" href="#"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-google-plus-square fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-instagram fa-lg"></i></a></li>
+                        <li><a class="social" href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6"><p>HO CHI MINH UNIVERSITY OF SCIENCE</p></div>
+                <div class="col-xs-12 col-sm-6"><p class="text-right">NGUYEN DUC TRUNG - 1581270</p></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/bootstrap.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

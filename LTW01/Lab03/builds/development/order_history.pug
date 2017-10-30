@@ -1,0 +1,67 @@
+extends template
+include mixins/mixin
+block btitle
+    title Order History | LTW01
+block content
+    .container#order-history
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                    'index.html':'Home',
+                    'profile.html':'Account',
+                    '#':'Order History'
+                    }
+                +breadcrumb(list)
+        .row
+            .col-xs-12
+                h1.marginb-2rem ORDER HISTORY
+                .row.marginb-2rem
+                    .col-xs-12
+                        .form-inline
+                            .form-group.marginb-1rem
+                                label(for="calendarFrom") From
+                                input#calendarFrom.form-control(type="date")
+                            .form-group
+                                label(for="calendarTo") To
+                                input#calendarTo.form-control(type="date")
+                            .form-group
+                                label(for="comboStatus") Status
+                                select#comboStatus.form-control
+                                    option Finish
+                                    option Pending
+                            .form-group
+                                a.btn.btn-primary(href="#") Search
+                .row
+                    .col-xs-12
+                        table.table.table-bordered.table-hover.table-responsive.custom-table
+                            thead
+                                th Date
+                                th Order ID
+                                th Total
+                                th Status
+                                th Delivery Address
+                            tbody
+                                tr
+                                    td 24/06/2017
+                                    td 1701
+                                    td $303
+                                    td Finish
+                                    td 227 Nguyen Van Cu Street District 5 Ho Chi MInh City
+                                tr
+                                    td 24/06/2017
+                                    td 1701
+                                    td $303
+                                    td Finish
+                                    td 227 Nguyen Van Cu Street District 5 Ho Chi MInh City
+                                tr
+                                    td 24/06/2017
+                                    td 1701
+                                    td $303
+                                    td Finish
+                                    td 227 Nguyen Van Cu Street District 5 Ho Chi MInh City
+                .row.marginb-2rem
+                    .col-xs-12.text-center
+                        +pagination(3)
+
+

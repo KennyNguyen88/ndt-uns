@@ -1,0 +1,99 @@
+extends admin_template
+include mixins/mixin
+block btitle
+    title Admin Orders | LTW01
+block content
+    .row
+        .col-xs-12
+            h1 New Orders
+    .row
+        .col-xs-12
+            table.table.table-responsive.table-bordered.table-hover.custom-table
+                thead
+                    th #[input(type="checkbox" value="")]
+                    th Order ID
+                    th User ID
+                    th Username
+                    th Detail
+                    th Total
+                    th Status
+                    th Action
+                tbody
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td User ID 001
+                        td username01
+                        td Detail 1
+                        td $300
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Confirm] #[a.btn.btn-primary(href="#") Reject]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td User ID 001
+                        td username01
+                        td Detail 1
+                        td $300
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Confirm] #[a.btn.btn-primary(href="#") Reject]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td User ID 001
+                        td username01
+                        td Detail 1
+                        td $300
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Confirm] #[a.btn.btn-primary(href="#") Reject]
+    .row
+        .col-xs-12.col-sm-6
+            h1 Orders
+        .col-xs-12.col-sm-6.text-right
+            .form-inline
+                .form-group
+                    input.form-control(type="text" placeholder="Search key...")
+                .form-group
+                    a.btn.btn-primary(href="#") Search
+    .row
+        .col-xs-12
+            table.table.table-responsive.table-bordered.table-hover.custom-table
+                thead
+                    th #[input(type="checkbox" value="")]
+                    th Order ID
+                    th User ID
+                    th Username
+                    th Detail
+                    th Total
+                    th Status
+                    th Action
+                tbody
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td User ID 001
+                        td username01
+                        td Detail 1
+                        td $300
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td User ID 001
+                        td username01
+                        td Detail 1
+                        td $300
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td User ID 001
+                        td username01
+                        td Detail 1
+                        td $300
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Update] #[a.btn.btn-primary(href="#") Delete]
+        .col-xs-12.text-center
+            +pagination(3)

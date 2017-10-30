@@ -1,0 +1,91 @@
+extends admin_template
+include mixins/mixin
+block btitle
+    title Admin Users | LTW01
+block content
+    .row
+        .col-xs-12
+            h1 New Users
+    .row
+        .col-xs-12
+            table.table.table-responsive.table-bordered.table-hover.custom-table
+                thead
+                    th #[input(type="checkbox" value="")]
+                    th User Id
+                    th Username
+                    th Email
+                    th Register Date
+                    th Status
+                    th Action
+                tbody
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td username01
+                        td example@example.com
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Reject]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td username01
+                        td example@example.com
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Reject]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td username01
+                        td example@example.com
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Reject]
+    .row
+        .col-xs-12.col-sm-6
+            h1 Users
+        .col-xs-12.col-sm-6.text-right
+            .form-inline
+                .form-group
+                    input.form-control(type="text" placeholder="Search key...")
+                .form-group
+                    a.btn.btn-primary(href="#") Search
+    .row
+        .col-xs-12
+            table.table.table-responsive.table-bordered.table-hover.custom-table
+                thead
+                    th #[input(type="checkbox" value="")]
+                    th User Id
+                    th Username
+                    th Email
+                    th Register Date
+                    th Status
+                    th Action
+                tbody
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td username01
+                        td example@example.com
+                        td 25/06/2017
+                        td Active
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Delete] #[a.btn.btn-primary(href="#") Reset]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td username01
+                        td example@example.com
+                        td 25/06/2017
+                        td Pending
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Delete] #[a.btn.btn-primary(href="#") Reset]
+                    tr
+                        td #[input(type="checkbox" value="")]
+                        td ID 001
+                        td username01
+                        td example@example.com
+                        td 25/06/2017
+                        td Deactive
+                        td #[a.btn.btn-primary(href="#") Approve] #[a.btn.btn-primary(href="#") Delete] #[a.btn.btn-primary(href="#") Reset]
+        .col-xs-12.text-center
+            +pagination(3)

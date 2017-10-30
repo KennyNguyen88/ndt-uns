@@ -1,0 +1,66 @@
+extends template
+include mixins/mixin
+block btitle
+    title Cart | LTW01
+block content
+    .container
+        .row
+            .col-sm-12.hidden-xs
+                -
+                    var list= {
+                    'index.html':'Home',
+                    '#':'Shopping Cart'
+                    }
+                +breadcrumb(list)
+        #cart.row
+            .col-xs-12
+                table.table.table-bordered.table-hover.table-responsive.custom-table
+                    thead
+                        th Remove
+                        th Image
+                        th Name
+                        th Model
+                        th Item No.
+                        th Quantity
+                        th Unit Price
+                        th Total
+                    tbody
+                        tr
+                            td #[input(type="checkbox" value="")]
+                            td #[img(src="../images/products/product-1.jpg")]
+                            td Name 1
+                            td ACB1
+                            td 001
+                            td #[input(type="number" value="1" min="1")]
+                            td $100
+                            td 100
+                        tr
+                            td #[input(type="checkbox" value="")]
+                            td #[img(src="../images/products/product-2.jpg")]
+                            td Name 2
+                            td ACB
+                            td 002
+                            td #[input(type="number" value="1" min="1")]
+                            td $100
+                            td 100
+                        tr
+                            td #[input(type="checkbox" value="")]
+                            td #[img(src="../images/products/product-3.jpg")]
+                            td Name 3
+                            td ACB1
+                            td 003
+                            td #[input(type="number" value="1" min="1")]
+                            td $100
+                            td 100
+        .row
+            .col-xs-12.text-right
+                h3.product-price Total: $300
+        .row
+            .col-xs-12.text-center
+                a.btn.btn-primary(href="checkout.html" style="margin-right: 2rem;") Check Out
+                a.btn.btn-primary(href="#") Update
+        .row
+            .col-xs-12.text-center(style="padding: 2rem 0;")
+                a(href="categories.html") Continue Shopping
+
+
