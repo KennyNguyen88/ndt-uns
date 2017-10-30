@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/SiteMaster.Master" AutoEventWireup="true" CodeBehind="Member.master.cs" Inherits="KiemTra02.Member" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="css/member.css" rel="stylesheet" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+                    <asp:Image ID="ImageUser" runat="server" CssClass="img-responsive" AlternateText=""/>					
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						<asp:Label ID="LabelFullName" runat="server" Text="User"></asp:Label>
+					</div>
+					<div class="profile-usertitle-job">
+						
+					</div>
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+                    <asp:FileUpload ID="FileUploadUserImage" runat="server" CssClass="btn btn-sm"/>
+                    <asp:Button ID="ButtonUpload" runat="server" Text="Upload"  CssClass="btn btn-success btn-sm" OnClick="ButtonUpload_Click"/>
+				</div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+                            <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="~/member/Default.aspx">
+                                <i class="glyphicon glyphicon-home"></i> Personal
+                            </asp:LinkButton>
+						</li>
+						<li>
+                            <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/member/MyAddress.aspx">
+                                <i class="glyphicon glyphicon-user"></i> Delivery Address
+                            </asp:LinkButton>
+						</li>
+						<li>
+                            <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/member/MyOrders.aspx">
+                                <i class="glyphicon glyphicon-shopping-cart"></i> My Orders
+                            </asp:LinkButton>							
+						</li>
+						<li>
+                            <asp:LinkButton ID="LinkButtonLogOut" runat="server" OnClick="LinkButtonLogOut_Click">
+                                <i class="glyphicon glyphicon-log-out"></i> Logout
+                            </asp:LinkButton>							
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">			   
+                <asp:ContentPlaceHolder ID="memberContent" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
+		</div>
+	</div>
+</div>
+</asp:Content>

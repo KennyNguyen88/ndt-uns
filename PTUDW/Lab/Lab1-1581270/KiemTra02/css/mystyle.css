@@ -1,0 +1,200 @@
+﻿a.btn.btn-default.search {
+    background: #fe9126;
+    padding: 11px 12px 11px;
+    float: right;
+    outline: none;
+    border: none;
+}
+
+a.btn.btn-default.search:hover {
+    background: #333;
+}
+
+/* Search Button */
+a.btn.btn-default.search {
+    background: #fe9126;
+    padding: 11px 12px 11px;
+    float: right;
+    outline: none;
+    border: none;
+}
+
+    a.btn.btn-default.search:hover {
+        background: #333;
+    }
+
+/* Pagination */
+.pagination a:hover, .pagination a:focus {
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination a:first-child {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.pagination a, .pagination span.active {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: black;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.pagination span.active {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #ffc229;
+    border-color: #EDB62B;
+}
+
+/* Shopping Cart*/
+.table > tbody > tr > td, .table > tfoot > tr > td {
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control {
+        width: 20%;
+        display: inline !important;
+    }
+
+    .actions .btn {
+        width: 36%;
+        margin: 1.5em 0;
+    }
+
+    .actions .btn-info {
+        float: left;
+    }
+
+    .actions .btn-danger {
+        float: right;
+    }
+
+    table#cart thead {
+        display: none;
+    }
+
+    table#cart tbody td {
+        display: block;
+        padding: .6rem;
+        min-width: 320px;
+    }
+
+    table#cart tbody tr td:first-child {
+        background: #333;
+        color: #fff;
+    }
+
+    table#cart tbody td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        display: inline-block;
+        width: 8rem;
+    }
+
+
+
+    table#cart tfoot td {
+        display: block;
+    }
+
+        table#cart tfoot td .btn {
+            display: block;
+        }
+}
+/*Comment List styles*/
+.comment-list .row {
+    margin-bottom: 0px;
+}
+
+.comment-list .panel .panel-heading {
+    padding: 4px 15px;
+    position: absolute;
+    border: none;
+    /*Panel-heading border radius*/
+    border-top-right-radius: 0px;
+    top: 1px;
+}
+
+    .comment-list .panel .panel-heading.right {
+        border-right-width: 0px;
+        /*Panel-heading border radius*/
+        border-top-left-radius: 0px;
+        right: 16px;
+    }
+
+    .comment-list .panel .panel-heading .panel-body {
+        padding-top: 6px;
+    }
+
+.comment-list figcaption {
+    /*For wrapping text in thumbnail*/
+    word-wrap: break-word;
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 768px) {
+    .comment-list .arrow:after, .comment-list .arrow:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent;
+    }
+
+    .comment-list .panel.arrow.left:after, .comment-list .panel.arrow.left:before {
+        border-left: 0;
+    }
+    /*****Left Arrow*****/
+    /*Outline effect style*/
+    .comment-list .panel.arrow.left:before {
+        left: 0px;
+        top: 30px;
+        /*Use boarder color of panel*/
+        border-right-color: inherit;
+        border-width: 16px;
+    }
+    /*Background color effect*/
+    .comment-list .panel.arrow.left:after {
+        left: 1px;
+        top: 31px;
+        /*Change for different outline color*/
+        border-right-color: #FFFFFF;
+        border-width: 15px;
+    }
+    /*****Right Arrow*****/
+    /*Outline effect style*/
+    .comment-list .panel.arrow.right:before {
+        right: -16px;
+        top: 30px;
+        /*Use boarder color of panel*/
+        border-left-color: inherit;
+        border-width: 16px;
+    }
+    /*Background color effect*/
+    .comment-list .panel.arrow.right:after {
+        right: -14px;
+        top: 31px;
+        /*Change for different outline color*/
+        border-left-color: #FFFFFF;
+        border-width: 15px;
+    }
+}
+
+.comment-list .comment-post {
+    margin-top: 6px;
+}
