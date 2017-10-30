@@ -1,0 +1,38 @@
+﻿@{
+    // Bước 1 : Nhận tham số
+    //   - Mã số Xử lý
+    //   - Chuỗi nhận
+    var Bo_doc = new StreamReader(Request.InputStream);
+    var Chuoi_Nhan = Bo_doc.ReadToEnd();
+
+    var Ma_so_Xu_ly = Request["Ma_So_Xu_Ly"];
+    var Loai_Doi_tuong = Request["Loai_Doi_Tuong"];
+    var Ma_so = Request["SBD"];// Mã số đối tượng
+
+
+    // Bước 2 : Xử lý tạo kết quả ( Chuổi Kq )
+    var Chuoi_Kq = "";
+    var Luu_tru = new XL_LUU_TRU_XML();
+    if (Ma_so_Xu_ly == "DOC_CHUOI")
+    {
+        Chuoi_Kq = Luu_tru.Doc_Chuoi(Loai_Doi_tuong, Ma_so);
+    }
+    else if (Ma_so_Xu_ly == "GHI_CHUOI")
+    {
+        Chuoi_Kq = Luu_tru.Ghi_Chuoi(Loai_Doi_tuong, Ma_so, Chuoi_Nhan);
+    }
+    else if (Ma_so_Xu_ly == "DOC_CHUOI_DANH_SACH")
+    {
+        Chuoi_Kq = Luu_tru.Doc_Chuoi_Danh_sach(Loai_Doi_tuong);
+
+    }
+
+
+    // Bước 3 : Trả kết quả
+    Response.AddHeader("Access-Control-Allow-Origin", "*");
+    // Cho phép sử dụng Cross-Domain  ( nếu cần thiết )-
+
+    Response.Write(Chuoi_Kq);
+}
+
+

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Trang Phân Công - Quản Lý</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="DD_Chinh.css" type="text/css">
+<body>
+    @using System.Xml;
+    @{
+        var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        var DS_Dien_Thoai = Du_Lieu.DS_Dien_Thoai_TheoTrangThaiPhieuDat_ChoPhanCong();
+        var Chuoi_The_Hien_DS_Dien_Thoai = new HtmlString("");
+
+        if (DS_Dien_Thoai != null)
+        {
+            var Chuoi_HTML_DanhSach = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Phan_Cong(DS_Dien_Thoai);
+            Chuoi_The_Hien_DS_Dien_Thoai = new HtmlString(Chuoi_HTML_DanhSach);
+        }
+    }
+    <div class="container-fluid">
+        <header class="green">
+            <div class="container">
+                <div class="row valign-wrapper white-text mb-0">
+                    <div class="col s2"><a class="white-text" href="#"><img src="~/Giao_Dien/logo_for_mobile.png" class="logo" /></a></div>
+                    <div class="col s9 center-align"><h4>Quản Lý</h4></div>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="left  hide-on-med-and-down">
+                        <li><a href="Trang-Chinh.cshtml">Đơn Giá</a></li>
+                        <li><a href="Trang-Don-Hang.cshtml">Đơn Hàng</a></li>
+                        <li><a class="active" href="Trang-Phan-Cong.cshtml">Phân Công</a></li>
+                        <li><a href="Trang-Bao-Cao-Thang.cshtml">Thống Kê Tháng</a></li>
+                        <li><a href="Trang-Bao-Cao-Nam.cshtml">Thống Kê Năm</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="Trang-Chinh.cshtml">Đơn Giá</a></li>
+                        <li><a href="Trang-Don-Hang.cshtml">Đơn Hàng</a></li>
+                        <li><a class="active" href="Trang-Phan-Cong.cshtml">Phân Công</a></li>
+                        <li><a href="Trang-Bao-Cao-Thang.cshtml">Thống Kê Tháng</a></li>
+                        <li><a href="Trang-Bao-Cao-Nam.cshtml">Thống Kê Năm</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="main_wrapper">
+            <div class="container">
+                @Chuoi_The_Hien_DS_Dien_Thoai                
+            </div>
+        </div>
+        <footer class="green darken-3">
+            <div class="center-align white-text">
+                <h5>Đồ án cuối kì - Công nghệ XML và ứng dụng</h5><h6>
+                    Nguyễn Đức Trung -
+                    1581270
+                </h6>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>

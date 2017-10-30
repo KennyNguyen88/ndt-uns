@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Trang Chính - Nhân Viên</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="DD_Chinh.css" type="text/css">
+<body>
+    @using System.Xml;
+    @{
+        var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        var Chuoi_The_Hien_DS = new HtmlString("");
+        var TenNhanVien = "";
+        if (IsPost)
+        {
+            String Ma_Dt = "";
+            String So_Dt = "";
+            String Ma_Nv = "";
+            if (Request["Ma_Dt"] != null)
+            {
+                Ma_Dt = Request["Ma_Dt"];
+            }
+            if (Request["So_Dt"] != null)
+            {
+                So_Dt = Request["So_Dt"];
+            }
+            if (Request["Ma_Nv"] != null)
+            {
+                Ma_Nv = Request["Ma_Nv"];
+            }
+
+            if (Ma_Dt != "" && So_Dt != "" && Ma_Nv != "")
+            {
+                var Kq = Du_Lieu.doGiaoHang(Ma_Nv, Ma_Dt, So_Dt);
+                if (Kq == "")
+                {                    
+                    switch (Ma_Nv)
+                    {
+                        case "NV_1":
+                            TenNhanVien = "Tô thị Giảng";
+                            break;
+                        case "NV_2":
+                            TenNhanVien = "Nguyên đình Vàng";
+                            break;
+                        case "NV_3":
+                            TenNhanVien = "Hứa ngọc thảo Nguyên";
+                            break;
+                        default:
+                            TenNhanVien = "Nhân Viên";
+                            break;
+                    }
+
+                    var DS_PhieuDat = Du_Lieu.DS_PhieuDat_ChoGiao_PhanCong(Ma_Nv);
+                    if (DS_PhieuDat != null)
+                    {
+                        var Chuoi_HTML_DanhSach = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach(DS_PhieuDat);
+                        Chuoi_The_Hien_DS = new HtmlString(Chuoi_HTML_DanhSach);
+                    }
+                }
+            }
+        }
+        else
+        {
+            var MaSoNV = Request.QueryString["id"];
+            if (MaSoNV.IsEmpty())
+            {
+                MaSoNV = "NV_1";
+            }            
+            switch (MaSoNV)
+            {
+                case "NV_1":
+                    TenNhanVien = "Tô thị Giảng";
+                    break;
+                case "NV_2":
+                    TenNhanVien = "Nguyên đình Vàng";
+                    break;
+                case "NV_3":
+                    TenNhanVien = "Hứa ngọc thảo Nguyên";
+                    break;
+                default:
+                    TenNhanVien = "Nhân Viên";
+                    break;
+            }
+
+            var DS_PhieuDat = Du_Lieu.DS_PhieuDat_ChoGiao_PhanCong(MaSoNV);
+            if (DS_PhieuDat != null)
+            {
+                var Chuoi_HTML_DanhSach = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach(DS_PhieuDat);
+                Chuoi_The_Hien_DS = new HtmlString(Chuoi_HTML_DanhSach);
+            }
+        }
+
+    }
+    <div class="container-fluid">
+        <header class="green">
+            <div class="container">
+                <div class="row valign-wrapper white-text mb-0">
+                    <div class="col s2"><a class="white-text" href="Trang-Chinh.cshtml"><img src="~/Giao_Dien/logo_for_mobile.png" class="logo" /></a></div>
+                    <div class="col s9 center-align"><h4>Nhân Viên</h4></div>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="left  hide-on-med-and-down">
+                        <li><a class="active" href="Trang-Chinh.cshtml?id=NV_1">Tô thị Giảng</a></li>
+                        <li><a href="Trang-Chinh.cshtml?id=NV_2">Nguyên đình Vàng</a></li>
+                        <li><a href="Trang-Chinh.cshtml?id=NV_3">Hứa ngọc thảo Nguyên</a></li>
+                        <li><a href="Trang-Chinh.cshtml?id=NV_4">Nhân Viên</a></li>    
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a class="active" href="Trang-Chinh.cshtml?id=NV_1">Tô thị Giảng</a></li>
+                        <li><a href="Trang-Chinh.cshtml?id=NV_2">Nguyên đình Vàng</a></li>
+                        <li><a href="Trang-Chinh.cshtml?id=NV_3">Hứa ngọc thảo Nguyên</a></li>
+                        <li><a href="Trang-Chinh.cshtml?id=NV_4">Nhân Viên</a></li>    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="main_wrapper">
+            <div class="container">
+                <h2>@TenNhanVien</h2>
+                <h4>Đơn hàng</h4>
+                @Chuoi_The_Hien_DS                                
+            </div>
+        </div>
+        <footer class="green darken-3">
+            <div class="center-align white-text">
+                <h5>Đồ án cuối kì - Công nghệ XML và ứng dụng</h5><h6>
+                    Nguyễn Đức Trung -
+                    1581270
+                </h6>
+            </div>
+        </footer>
+    </div>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>

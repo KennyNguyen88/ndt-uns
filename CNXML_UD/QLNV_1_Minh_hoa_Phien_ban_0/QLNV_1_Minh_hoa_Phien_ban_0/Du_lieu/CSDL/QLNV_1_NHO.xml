@@ -1,0 +1,341 @@
+<?xml version="1.0" standalone="yes"?>
+<QLNV_1>
+  <xs:schema id="QLNV_1" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="QLNV_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="GIOI_TINH">
+            <xs:complexType>
+              <xs:attribute name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" type="xs:int" use="required" />
+              <xs:attribute name="Ten" type="xs:string" />
+              <xs:attribute name="Ma_so" type="xs:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="CONG_TY">
+            <xs:complexType>
+              <xs:attribute name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" type="xs:int" use="required" />
+              <xs:attribute name="Ten" type="xs:string" />
+              <xs:attribute name="Dien_thoai" type="xs:string" />
+              <xs:attribute name="Dia_chi" type="xs:string" />
+              <xs:attribute name="Tuoi_toi_thieu" type="xs:int" />
+              <xs:attribute name="Tuoi_toi_da" type="xs:int" />
+              <xs:attribute name="Muc_luong_toi_thieu" type="xs:int" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="CHI_NHANH">
+            <xs:complexType>
+              <xs:attribute name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" type="xs:int" use="required" />
+              <xs:attribute name="Ten" type="xs:string" />
+              <xs:attribute name="Dien_thoai" type="xs:string" />
+              <xs:attribute name="Dia_chi" type="xs:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DON_VI">
+            <xs:complexType>
+              <xs:attribute name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" type="xs:int" use="required" />
+              <xs:attribute name="Ten" type="xs:string" />
+              <xs:attribute name="ID_CHI_NHANH" type="xs:int" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="NHAN_VIEN">
+            <xs:complexType>
+              <xs:attribute name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" type="xs:int" use="required" />
+              <xs:attribute name="Ho_ten" type="xs:string" />
+              <xs:attribute name="ID_GIOI_TINH" type="xs:int" />
+              <xs:attribute name="CMND" type="xs:string" />
+              <xs:attribute name="Ngay_sinh" type="xs:dateTime" />
+              <xs:attribute name="Muc_luong" type="xs:int" />
+              <xs:attribute name="Dien_thoai" type="xs:string" />
+              <xs:attribute name="Mail" type="xs:string" />
+              <xs:attribute name="Dia_chi" type="xs:string" />
+              <xs:attribute name="ID_DON_VI" type="xs:int" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//GIOI_TINH" />
+        <xs:field xpath="@ID" />
+      </xs:unique>
+      <xs:unique name="CONG_TY_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//CONG_TY" />
+        <xs:field xpath="@ID" />
+      </xs:unique>
+      <xs:unique name="CHI_NHANH_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//CHI_NHANH" />
+        <xs:field xpath="@ID" />
+      </xs:unique>
+      <xs:unique name="DON_VI_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//DON_VI" />
+        <xs:field xpath="@ID" />
+      </xs:unique>
+      <xs:unique name="NHAN_VIEN_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//NHAN_VIEN" />
+        <xs:field xpath="@ID" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <GIOI_TINH ID="1" Ten="Nam" Ma_so="NAM" />
+  <GIOI_TINH ID="2" Ten="Nữ" Ma_so="NU" />
+  <GIOI_TINH ID="3" Ten="Khác" Ma_so="KHAC" />
+  <CONG_TY ID="1" Ten="Công ty 1" Dien_thoai="0976512674" Dia_chi="Trần bích R Quận 3-Hà nội" Tuoi_toi_thieu="20" Tuoi_toi_da="50" Muc_luong_toi_thieu="3500000" />
+  <CHI_NHANH ID="1" Ten="Chi nhánh A" Dien_thoai="0935893391" Dia_chi="Hoàng thế E Quận 6-TP. HCM" />
+  <CHI_NHANH ID="2" Ten="Chi nhánh B" Dien_thoai="0927453250" Dia_chi="Tô viết F Quận 3-TP. HCM" />
+  <DON_VI ID="1" Ten="Đơn vị A1" ID_CHI_NHANH="1" />
+  <DON_VI ID="2" Ten="Đơn vị A2" ID_CHI_NHANH="1" />
+  <DON_VI ID="3" Ten="Đơn vị A3" ID_CHI_NHANH="1" />
+  <DON_VI ID="4" Ten="Đơn vị A4" ID_CHI_NHANH="1" />
+  <DON_VI ID="5" Ten="Đơn vị B1" ID_CHI_NHANH="2" />
+  <DON_VI ID="6" Ten="Đơn vị B2" ID_CHI_NHANH="2" />
+  <DON_VI ID="7" Ten="Đơn vị B3" ID_CHI_NHANH="2" />
+  <DON_VI ID="8" Ten="Đơn vị B4" ID_CHI_NHANH="2" />
+  <NHAN_VIEN ID="1" Ho_ten="Lê thị Trang" ID_GIOI_TINH="1" CMND="080493854" Ngay_sinh="1992-07-20T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0980465238" Mail="lttrang@sptcom" Dia_chi="Hứa sơn U Quận 1-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="2" Ho_ten="Phạm chiến Khóa" ID_GIOI_TINH="2" CMND="036840396" Ngay_sinh="1980-09-25T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0932324007" Mail="pckhóa@gmailcom" Dia_chi="Lý kỳ Q Quận 6-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="3" Ho_ten="Hà cao minh Lý" ID_GIOI_TINH="1" CMND="016778129" Ngay_sinh="1993-11-30T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0954844700" Mail="hcmlý@sptyahoovn" Dia_chi="Dương bảo F Quận 12-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="4" Ho_ten="Trần phước Bình" ID_GIOI_TINH="2" CMND="061756285" Ngay_sinh="1968-01-12T00:00:00+07:00" Muc_luong="7200000" Dien_thoai="0976389218" Mail="tpbình@mrngmailvn" Dia_chi="Nhữ thế B Quận 7-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="5" Ho_ten="Chu thanh Tấn" ID_GIOI_TINH="2" CMND="097127238" Ngay_sinh="1985-04-13T00:00:00+07:00" Muc_luong="9600000" Dien_thoai="0909864411" Mail="cttấn@alphtkvn" Dia_chi="Võ đình B Quận 7-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="6" Ho_ten="Ngô đình minh Lan" ID_GIOI_TINH="2" CMND="057666648" Ngay_sinh="1979-07-18T00:00:00+07:00" Muc_luong="10500000" Dien_thoai="0973561851" Mail="nđmlan@mdahcmvn" Dia_chi="Ôn gia V Quận 1-Vĩnh Long" ID_DON_VI="1" />
+  <NHAN_VIEN ID="7" Ho_ten="Ngô văn thùy Trang" ID_GIOI_TINH="2" CMND="044007746" Ngay_sinh="1980-10-01T00:00:00+07:00" Muc_luong="9000000" Dien_thoai="0943358421" Mail="nvttrang@spthnvn" Dia_chi="Nguyễn thanh B Quận 11-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="8" Ho_ten="Trầm kiến Vàng" ID_GIOI_TINH="2" CMND="083111873" Ngay_sinh="1978-07-21T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0961246595" Mail="tkvàng@gmailcom" Dia_chi="Mai triệu X Quận 11-Hà nội" ID_DON_VI="1" />
+  <NHAN_VIEN ID="9" Ho_ten="Đổ ngọc xuân Dung" ID_GIOI_TINH="2" CMND="074936343" Ngay_sinh="1971-02-05T00:00:00+07:00" Muc_luong="6900000" Dien_thoai="0998682998" Mail="đnxdung@cscgmailvn" Dia_chi="Đồng kỳ J Quận 3-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="10" Ho_ten="Quách thành minh Lý" ID_GIOI_TINH="2" CMND="062407231" Ngay_sinh="1983-05-30T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0935011101" Mail="qtmlý@euhhcmvn" Dia_chi="Liên tắc O Quận 9-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="11" Ho_ten="Hoàng ngọc Tạo" ID_GIOI_TINH="2" CMND="051144227" Ngay_sinh="1981-11-20T00:00:00+07:00" Muc_luong="9000000" Dien_thoai="0990833139" Mail="hntạo@spthcmcom" Dia_chi="Đổ thanh I Quận 9-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="12" Ho_ten="Lâm ngọc Tạo" ID_GIOI_TINH="2" CMND="052989778" Ngay_sinh="1990-12-27T00:00:00+07:00" Muc_luong="7200000" Dien_thoai="0917357210" Mail="lntạo@mdayahoovn" Dia_chi="Trần lý M Quận 11-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="13" Ho_ten="Bành hữu Hiền" ID_GIOI_TINH="2" CMND="072553516" Ngay_sinh="1969-12-14T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0974979011" Mail="bhhiền@mdavn" Dia_chi="Hoa bích N Quận 3-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="14" Ho_ten="Huỳnh lê Thục" ID_GIOI_TINH="2" CMND="087910196" Ngay_sinh="1991-03-08T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0927265087" Mail="hlthục@alphtkhcmvn" Dia_chi="Trầm ngọc I Quận 13-Đà nẳng" ID_DON_VI="1" />
+  <NHAN_VIEN ID="15" Ho_ten="Đặng văn Bình" ID_GIOI_TINH="2" CMND="096178091" Ngay_sinh="1974-10-21T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0992625803" Mail="đvbình@euhhnvn" Dia_chi="Bạch văn M Quận 9-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="16" Ho_ten="Trần lâm Lành" ID_GIOI_TINH="2" CMND="020393296" Ngay_sinh="1976-12-22T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0973202789" Mail="tllành@alphtkhcmcom" Dia_chi="Hoàng thị H Quận 7-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="17" Ho_ten="Đồng chiến Bình" ID_GIOI_TINH="1" CMND="033968658" Ngay_sinh="1975-09-10T00:00:00+07:00" Muc_luong="7500000" Dien_thoai="0947882502" Mail="đcbình@mdacom" Dia_chi="Lý thanh D Quận 8-Cần Thơ" ID_DON_VI="1" />
+  <NHAN_VIEN ID="18" Ho_ten="Trần thanh Hạnh" ID_GIOI_TINH="1" CMND="060915814" Ngay_sinh="1981-11-06T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0907745465" Mail="tthạnh@cscvn" Dia_chi="Châu thị H Quận 12-Vĩnh Long" ID_DON_VI="1" />
+  <NHAN_VIEN ID="19" Ho_ten="Lý lâm Thắng" ID_GIOI_TINH="2" CMND="022834438" Ngay_sinh="1983-08-31T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0980486924" Mail="llthắng@cschnvn" Dia_chi="Hồ duy U Quận 9-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="20" Ho_ten="Thái đắc Nguyệt" ID_GIOI_TINH="2" CMND="024417020" Ngay_sinh="1976-10-26T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0939323222" Mail="tđnguyệt@sptyahoovn" Dia_chi="Hà thị V Quận 12-Vĩnh Long" ID_DON_VI="1" />
+  <NHAN_VIEN ID="21" Ho_ten="Võ đình Quân" ID_GIOI_TINH="2" CMND="048934111" Ngay_sinh="1986-07-20T00:00:00+07:00" Muc_luong="7500000" Dien_thoai="0960443928" Mail="vđquân@cscvn" Dia_chi="Đồng tiến H Quận 9-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="22" Ho_ten="Lý ngọc đổ Quyên" ID_GIOI_TINH="1" CMND="045944870" Ngay_sinh="1975-10-29T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0944584532" Mail="lnđquyên@cscgmailvn" Dia_chi="Đặng triệu G Quận 8-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="23" Ho_ten="Hồ lý Châu" ID_GIOI_TINH="1" CMND="041585943" Ngay_sinh="1967-06-10T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0973787792" Mail="hlchâu@hnvn" Dia_chi="Trang thành O Quận 8-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="24" Ho_ten="Đặng sơn Bính" ID_GIOI_TINH="2" CMND="018942503" Ngay_sinh="1986-11-02T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0943065680" Mail="đsbính@euhcom" Dia_chi="Đổ thị X Quận 9-Đà nẳng" ID_DON_VI="1" />
+  <NHAN_VIEN ID="25" Ho_ten="Đặng quyết phi Lan" ID_GIOI_TINH="1" CMND="021893541" Ngay_sinh="1983-10-07T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0900148118" Mail="đqplan@gmailcom" Dia_chi="Lê thanh R Quận 1-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="26" Ho_ten="Hứa kim Tươi" ID_GIOI_TINH="1" CMND="003856754" Ngay_sinh="1987-03-16T00:00:00+07:00" Muc_luong="3000000" Dien_thoai="0918183547" Mail="hktươi@mdahnvn" Dia_chi="Nguyên thị M Quận 1-Tiền giang" ID_DON_VI="1" />
+  <NHAN_VIEN ID="27" Ho_ten="Hoa xuân Trưởng" ID_GIOI_TINH="1" CMND="080863443" Ngay_sinh="1984-06-03T00:00:00+07:00" Muc_luong="9900000" Dien_thoai="0955151478" Mail="hxtrưởng@sptyahoovn" Dia_chi="Lê đình W Quận 6-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="28" Ho_ten="Dương kiến Thúy" ID_GIOI_TINH="2" CMND="087285802" Ngay_sinh="1981-05-06T00:00:00+07:00" Muc_luong="7200000" Dien_thoai="0941998670" Mail="dkthúy@mrnyahoocom" Dia_chi="Ngô đình U Quận 14-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="29" Ho_ten="Hứa kỳ Khánh" ID_GIOI_TINH="1" CMND="015742398" Ngay_sinh="1987-10-31T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0977599457" Mail="hkkhánh@com" Dia_chi="Hứa phạm S Quận 11-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="30" Ho_ten="Bạch quỳnh Nguyên" ID_GIOI_TINH="1" CMND="019942444" Ngay_sinh="1968-07-21T00:00:00+07:00" Muc_luong="9600000" Dien_thoai="0952322097" Mail="bqnguyên@euhyahoovn" Dia_chi="Phạm kỳ X Quận 1-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="31" Ho_ten="Nguyễn sơn Viễn" ID_GIOI_TINH="1" CMND="007559521" Ngay_sinh="1975-10-09T00:00:00+07:00" Muc_luong="9000000" Dien_thoai="0998624527" Mail="nsviễn@mrnhncom" Dia_chi="Hà minh W Quận 2-Đà nẳng" ID_DON_VI="1" />
+  <NHAN_VIEN ID="32" Ho_ten="Hứa hà hồng Châu" ID_GIOI_TINH="2" CMND="001566135" Ngay_sinh="1968-03-25T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0983027515" Mail="hhhchâu@cscgmailvn" Dia_chi="Bạch thị G Quận 10-TP. HCM" ID_DON_VI="1" />
+  <NHAN_VIEN ID="33" Ho_ten="Hà lê Bình" ID_GIOI_TINH="2" CMND="003609956" Ngay_sinh="1974-05-07T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0970651767" Mail="hlbình@mrnvn" Dia_chi="Châu văn I Quận 14-Tiền giang" ID_DON_VI="1" />
+  <NHAN_VIEN ID="34" Ho_ten="Ngô an phi Sơn" ID_GIOI_TINH="1" CMND="026675101" Ngay_sinh="1972-10-05T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0981513153" Mail="napsơn@cscgmailcom" Dia_chi="Ôn lý H Quận 1-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="35" Ho_ten="Mai ngọc ngọc Mai" ID_GIOI_TINH="2" CMND="085240914" Ngay_sinh="1968-01-05T00:00:00+07:00" Muc_luong="3600000" Dien_thoai="0902486880" Mail="mnnmai@cscyahoocom" Dia_chi="Nhữ hồng M Quận 9-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="36" Ho_ten="Tô phúc Tươi" ID_GIOI_TINH="2" CMND="017308915" Ngay_sinh="1969-12-24T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0944788201" Mail="tptươi@sptgmailvn" Dia_chi="Hứa hửu F Quận 1-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="37" Ho_ten="Bạch hà Nam" ID_GIOI_TINH="1" CMND="048174608" Ngay_sinh="1991-06-16T00:00:00+07:00" Muc_luong="4200000" Dien_thoai="0904007744" Mail="bhnam@mdavn" Dia_chi="Hứa cao M Quận 7-Tiền giang" ID_DON_VI="2" />
+  <NHAN_VIEN ID="38" Ho_ten="Quách quyết Dung" ID_GIOI_TINH="2" CMND="000971731" Ngay_sinh="1985-10-13T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0915719002" Mail="qqdung@cscyahoovn" Dia_chi="Bàng thị X Quận 10-Đà nẳng" ID_DON_VI="2" />
+  <NHAN_VIEN ID="39" Ho_ten="Tô thiện chiến Thắng" ID_GIOI_TINH="2" CMND="030070365" Ngay_sinh="1991-05-13T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0967869000" Mail="ttcthắng@gmailcom" Dia_chi="Đặng quỳnh W Quận 1-Tiền giang" ID_DON_VI="2" />
+  <NHAN_VIEN ID="40" Ho_ten="Liên đình Huy" ID_GIOI_TINH="1" CMND="054092091" Ngay_sinh="1987-11-29T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0905175469" Mail="lđhuy@cscyahoovn" Dia_chi="Nguyễn minh K Quận 2-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="41" Ho_ten="Triệu thanh ngọc Liên" ID_GIOI_TINH="2" CMND="064329079" Ngay_sinh="1970-06-27T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0984638339" Mail="ttnliên@yahoovn" Dia_chi="Bạch hùng A Quận 13-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="42" Ho_ten="Bạch phước Tạo" ID_GIOI_TINH="2" CMND="065973255" Ngay_sinh="1968-07-22T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0929608796" Mail="bptạo@gmailcom" Dia_chi="Bàng kim X Quận 5-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="43" Ho_ten="Bàng hửu Nam" ID_GIOI_TINH="2" CMND="059804091" Ngay_sinh="1976-09-17T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0914414880" Mail="bhnam@sptgmailvn" Dia_chi="Đổ lý H Quận 5-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="44" Ho_ten="Hồ đắc Tần" ID_GIOI_TINH="1" CMND="095362728" Ngay_sinh="1987-03-11T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0902284295" Mail="hđtần@sptcom" Dia_chi="Lâm thị E Quận 13-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="45" Ho_ten="Phí phạm Nguyên" ID_GIOI_TINH="1" CMND="023497760" Ngay_sinh="1988-10-30T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0965380441" Mail="ppnguyên@yahoocom" Dia_chi="Hoàng đắc O Quận 5-Vĩnh Long" ID_DON_VI="2" />
+  <NHAN_VIEN ID="46" Ho_ten="Nguyễn như Toàn" ID_GIOI_TINH="2" CMND="080835418" Ngay_sinh="1977-01-18T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0906680429" Mail="nntoàn@spthncom" Dia_chi="Đổ lý I Quận 13-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="47" Ho_ten="Nhữ nam thục Mai" ID_GIOI_TINH="2" CMND="088472097" Ngay_sinh="1992-08-25T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0937986372" Mail="nntmai@cschcmcom" Dia_chi="Nguyễn tiến N Quận 14-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="48" Ho_ten="Trang phước Cương" ID_GIOI_TINH="2" CMND="035874211" Ngay_sinh="1966-01-14T00:00:00+07:00" Muc_luong="9600000" Dien_thoai="0993934092" Mail="tpcương@euhhcmvn" Dia_chi="Ngô hà V Quận 2-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="49" Ho_ten="Bạch bích Thiền" ID_GIOI_TINH="2" CMND="060330994" Ngay_sinh="1967-02-26T00:00:00+07:00" Muc_luong="9000000" Dien_thoai="0970145505" Mail="bbthiền@hcmcom" Dia_chi="Võ bùi E Quận 12-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="50" Ho_ten="Trần phạm phi Nhung" ID_GIOI_TINH="3" CMND="081699090" Ngay_sinh="1975-06-24T00:00:00+07:00" Muc_luong="9900000" Dien_thoai="0965477632" Mail="tppnhung@mrnvn" Dia_chi="Hứa văn O Quận 13-Cần Thơ" ID_DON_VI="2" />
+  <NHAN_VIEN ID="51" Ho_ten="Ngô ngọc Nhung" ID_GIOI_TINH="2" CMND="071975695" Ngay_sinh="1965-09-18T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0914571200" Mail="nnnhung@euhhcmvn" Dia_chi="Mai thế I Quận 2-Vĩnh Long" ID_DON_VI="2" />
+  <NHAN_VIEN ID="52" Ho_ten="Nguyễn phước thảo Nguyên" ID_GIOI_TINH="2" CMND="046678867" Ngay_sinh="1981-04-29T00:00:00+07:00" Muc_luong="12000000" Dien_thoai="0996124381" Mail="nptnguyên@alphtkhncom" Dia_chi="Nhữ bích L Quận 9-TP. HCM" ID_DON_VI="2" />
+  <NHAN_VIEN ID="53" Ho_ten="Hồ kỳ Thúy" ID_GIOI_TINH="1" CMND="044005412" Ngay_sinh="1982-05-07T00:00:00+07:00" Muc_luong="12000000" Dien_thoai="0990669822" Mail="hkthúy@hcmcom" Dia_chi="Đặng đình V Quận 13-Hà nội" ID_DON_VI="2" />
+  <NHAN_VIEN ID="54" Ho_ten="Hồ thanh ngọc Châu" ID_GIOI_TINH="2" CMND="026248390" Ngay_sinh="1973-06-24T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0967897561" Mail="htnchâu@sptgmailcom" Dia_chi="Chu ngọc F Quận 2-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="55" Ho_ten="Phùng triệu minh Tâm" ID_GIOI_TINH="3" CMND="020426837" Ngay_sinh="1984-08-09T00:00:00+07:00" Muc_luong="7500000" Dien_thoai="0951213148" Mail="ptmtâm@yahoovn" Dia_chi="Lý kỳ Q Quận 5-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="56" Ho_ten="Châu phước Thúy" ID_GIOI_TINH="1" CMND="036475497" Ngay_sinh="1987-06-11T00:00:00+07:00" Muc_luong="9600000" Dien_thoai="0992929901" Mail="cpthúy@spthncom" Dia_chi="Phùng hữu C Quận 3-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="57" Ho_ten="Trường quỳnh Thiết" ID_GIOI_TINH="2" CMND="021756560" Ngay_sinh="1990-12-31T00:00:00+07:00" Muc_luong="5700000" Dien_thoai="0957266093" Mail="tqthiết@alphtkhncom" Dia_chi="Châu sơn B Quận 2-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="58" Ho_ten="Nhữ lâm Lộc" ID_GIOI_TINH="1" CMND="002084424" Ngay_sinh="1980-03-16T00:00:00+07:00" Muc_luong="7200000" Dien_thoai="0914789508" Mail="nllộc@mrnyahoovn" Dia_chi="Hồ bùi Y Quận 7-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="59" Ho_ten="Nguyễn viết tuyết Mai" ID_GIOI_TINH="2" CMND="006696855" Ngay_sinh="1965-11-06T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0940122240" Mail="nvtmai@cscgmailcom" Dia_chi="Triệu đình G Quận 3-Đà nẳng" ID_DON_VI="3" />
+  <NHAN_VIEN ID="60" Ho_ten="Phạm thiện hảo Khiêm" ID_GIOI_TINH="2" CMND="053119913" Ngay_sinh="1966-12-14T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0953182318" Mail="pthkhiêm@mdavn" Dia_chi="Đặng lê G Quận 6-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="61" Ho_ten="Trầm thành hải Sơn" ID_GIOI_TINH="1" CMND="071581141" Ngay_sinh="1981-09-21T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0967890204" Mail="tthsơn@csccom" Dia_chi="Hứa kiên S Quận 4-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="62" Ho_ten="Phí văn ngọc Liên" ID_GIOI_TINH="2" CMND="011692420" Ngay_sinh="1976-06-23T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0957234473" Mail="pvnliên@sptyahoocom" Dia_chi="Trường lâm C Quận 5-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="63" Ho_ten="Hứa viết Nhung" ID_GIOI_TINH="2" CMND="071573196" Ngay_sinh="1970-12-03T00:00:00+07:00" Muc_luong="9600000" Dien_thoai="0977114842" Mail="hvnhung@spthnvn" Dia_chi="Ngô hữu E Quận 5-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="64" Ho_ten="Hứa thanh hải Liên" ID_GIOI_TINH="2" CMND="006008716" Ngay_sinh="1976-10-27T00:00:00+07:00" Muc_luong="10800000" Dien_thoai="0911209138" Mail="hthliên@mdacom" Dia_chi="Phạm đình N Quận 10-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="65" Ho_ten="Bàng sơn Lộc" ID_GIOI_TINH="2" CMND="015751407" Ngay_sinh="1966-08-18T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0953039354" Mail="bslộc@hnvn" Dia_chi="Hồ ngọc E Quận 13-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="66" Ho_ten="Lâm duy Trí" ID_GIOI_TINH="1" CMND="098062409" Ngay_sinh="1988-04-12T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0918234240" Mail="ldtrí@euhhncom" Dia_chi="Lâm an Q Quận 4-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="67" Ho_ten="Nhữ quỳnh Trúc" ID_GIOI_TINH="1" CMND="077313201" Ngay_sinh="1977-12-31T00:00:00+07:00" Muc_luong="4200000" Dien_thoai="0918249501" Mail="nqtrúc@mdayahoovn" Dia_chi="Phạm viết C Quận 9-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="68" Ho_ten="Hồ quỳnh Hiền" ID_GIOI_TINH="2" CMND="074149291" Ngay_sinh="1994-11-20T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0953643760" Mail="hqhiền@mrnhncom" Dia_chi="Ngô thanh N Quận 7-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="69" Ho_ten="Nhữ thiện Tấn" ID_GIOI_TINH="1" CMND="020182467" Ngay_sinh="1971-01-12T00:00:00+07:00" Muc_luong="9900000" Dien_thoai="0921694106" Mail="nttấn@hncom" Dia_chi="Trường thị N Quận 2-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="70" Ho_ten="Ngô thành kim Bảo" ID_GIOI_TINH="1" CMND="075163541" Ngay_sinh="1977-07-18T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0969929484" Mail="ntkbảo@mdavn" Dia_chi="Thái ngọc G Quận 9-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="71" Ho_ten="Phí gia Nhung" ID_GIOI_TINH="1" CMND="046408784" Ngay_sinh="1971-01-25T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0939255865" Mail="pgnhung@cscyahoovn" Dia_chi="Lý quyết F Quận 5-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="72" Ho_ten="Lê bích nguyên Tấn" ID_GIOI_TINH="2" CMND="084527861" Ngay_sinh="1980-09-02T00:00:00+07:00" Muc_luong="7500000" Dien_thoai="0995129098" Mail="lbntấn@mdahnvn" Dia_chi="Ôn lê G Quận 8-Vĩnh Long" ID_DON_VI="3" />
+  <NHAN_VIEN ID="73" Ho_ten="Nguyễn thành Quyên" ID_GIOI_TINH="1" CMND="081792089" Ngay_sinh="1987-03-04T00:00:00+07:00" Muc_luong="9900000" Dien_thoai="0951510897" Mail="ntquyên@hncom" Dia_chi="Nguyễn đắc I Quận 4-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="74" Ho_ten="Trầm đình Hướng" ID_GIOI_TINH="1" CMND="053211167" Ngay_sinh="1969-05-22T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0930510071" Mail="tđhướng@cscyahoocom" Dia_chi="Nguyễn xuân K Quận 2-TP. HCM" ID_DON_VI="3" />
+  <NHAN_VIEN ID="75" Ho_ten="Chu minh chiến Thắng" ID_GIOI_TINH="1" CMND="065198681" Ngay_sinh="1971-10-08T00:00:00+07:00" Muc_luong="9000000" Dien_thoai="0991971753" Mail="cmcthắng@spthcmvn" Dia_chi="Trần đình C Quận 12-Vĩnh Long" ID_DON_VI="4" />
+  <NHAN_VIEN ID="76" Ho_ten="Lâm lý Kiếm" ID_GIOI_TINH="2" CMND="069581859" Ngay_sinh="1971-10-08T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0993216580" Mail="llkiếm@alphtkhncom" Dia_chi="Phùng an P Quận 1-Vĩnh Long" ID_DON_VI="4" />
+  <NHAN_VIEN ID="77" Ho_ten="Lâm văn Long" ID_GIOI_TINH="1" CMND="012868349" Ngay_sinh="1985-03-12T00:00:00+07:00" Muc_luong="10500000" Dien_thoai="0900659082" Mail="lvlong@euhhncom" Dia_chi="Hứa đình R Quận 13-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="78" Ho_ten="Đổ bùi bảo Châu" ID_GIOI_TINH="1" CMND="061088906" Ngay_sinh="1993-03-13T00:00:00+07:00" Muc_luong="10800000" Dien_thoai="0904263577" Mail="đbbchâu@mrnhcmcom" Dia_chi="Phạm duy X Quận 13-Vĩnh Long" ID_DON_VI="4" />
+  <NHAN_VIEN ID="79" Ho_ten="Nguyễn an Tạo" ID_GIOI_TINH="1" CMND="063551281" Ngay_sinh="1982-12-07T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0901942453" Mail="natạo@cschnvn" Dia_chi="Nguyễn văn S Quận 2-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="80" Ho_ten="Hồ an Xuân" ID_GIOI_TINH="2" CMND="098627055" Ngay_sinh="1988-02-06T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0902479645" Mail="haxuân@mrnhnvn" Dia_chi="Trương ngọc X Quận 13-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="81" Ho_ten="Bàng an Kháng" ID_GIOI_TINH="1" CMND="044208965" Ngay_sinh="1988-08-02T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0918523391" Mail="bakháng@cscgmailcom" Dia_chi="Nguyễn thanh Q Quận 10-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="82" Ho_ten="Bàng đình Tài" ID_GIOI_TINH="1" CMND="049795974" Ngay_sinh="1992-03-12T00:00:00+07:00" Muc_luong="3900000" Dien_thoai="0912133650" Mail="bđtài@alphtkyahoocom" Dia_chi="Nguyễn quyết S Quận 6-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="83" Ho_ten="Liên thị Đài" ID_GIOI_TINH="2" CMND="019464389" Ngay_sinh="1976-05-08T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0956585337" Mail="ltđài@sptgmailvn" Dia_chi="Ôn thanh R Quận 7-Cần Thơ" ID_DON_VI="4" />
+  <NHAN_VIEN ID="84" Ho_ten="Lâm quỳnh Thiện" ID_GIOI_TINH="1" CMND="070186212" Ngay_sinh="1976-06-24T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0931815098" Mail="lqthiện@mdayahoovn" Dia_chi="Công bích N Quận 11-Đà nẳng" ID_DON_VI="4" />
+  <NHAN_VIEN ID="85" Ho_ten="Đặng thiện Thành" ID_GIOI_TINH="2" CMND="048745643" Ngay_sinh="1975-03-09T00:00:00+07:00" Muc_luong="8700000" Dien_thoai="0980568986" Mail="đtthành@mrnhncom" Dia_chi="Lý an R Quận 9-Cần Thơ" ID_DON_VI="4" />
+  <NHAN_VIEN ID="86" Ho_ten="Bành hửu Hà" ID_GIOI_TINH="1" CMND="073376324" Ngay_sinh="1991-07-04T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0985516581" Mail="bhhà@mrncom" Dia_chi="Liên thanh O Quận 2-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="87" Ho_ten="Công văn kim Bảo" ID_GIOI_TINH="1" CMND="071824213" Ngay_sinh="1978-06-26T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0916410982" Mail="cvkbảo@alphtkvn" Dia_chi="Trường ngọc L Quận 9-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="88" Ho_ten="Tô kiên hảo Khiêm" ID_GIOI_TINH="2" CMND="092733306" Ngay_sinh="1993-10-13T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0960201874" Mail="tkhkhiêm@alphtkgmailcom" Dia_chi="Hà bùi S Quận 14-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="89" Ho_ten="Nguyễn thanh Tạo" ID_GIOI_TINH="1" CMND="082614764" Ngay_sinh="1969-06-13T00:00:00+07:00" Muc_luong="10500000" Dien_thoai="0910212567" Mail="nttạo@euhgmailcom" Dia_chi="Châu ngọc B Quận 2-Đà nẳng" ID_DON_VI="4" />
+  <NHAN_VIEN ID="90" Ho_ten="Mai hà Quân" ID_GIOI_TINH="2" CMND="022939498" Ngay_sinh="1993-07-20T00:00:00+07:00" Muc_luong="5700000" Dien_thoai="0987048101" Mail="mhquân@csccom" Dia_chi="Đặng thành D Quận 9-Đà nẳng" ID_DON_VI="4" />
+  <NHAN_VIEN ID="91" Ho_ten="Hồ thế minh Lý" ID_GIOI_TINH="2" CMND="000822621" Ngay_sinh="1985-07-15T00:00:00+07:00" Muc_luong="8700000" Dien_thoai="0993305487" Mail="htmlý@euhyahoocom" Dia_chi="Lý đình S Quận 12-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="92" Ho_ten="Đặng đình khánh Ngọc" ID_GIOI_TINH="1" CMND="002949874" Ngay_sinh="1980-09-04T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0912572089" Mail="đđkngọc@cschncom" Dia_chi="Chu văn X Quận 10-Cần Thơ" ID_DON_VI="4" />
+  <NHAN_VIEN ID="93" Ho_ten="Thái thị Đông" ID_GIOI_TINH="2" CMND="042101499" Ngay_sinh="1989-04-01T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0959110472" Mail="ttđông@mrnyahoovn" Dia_chi="Phạm minh E Quận 1-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="94" Ho_ten="Phi thanh Bích" ID_GIOI_TINH="1" CMND="068051064" Ngay_sinh="1990-07-16T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0978494940" Mail="ptbích@hnvn" Dia_chi="Lý ngọc N Quận 11-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="95" Ho_ten="Triệu tiến Đại" ID_GIOI_TINH="2" CMND="032331436" Ngay_sinh="1982-02-26T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0951167139" Mail="ttđại@mdayahoocom" Dia_chi="Bàng hửu M Quận 10-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="96" Ho_ten="Hồ ngọc Tạo" ID_GIOI_TINH="2" CMND="035425179" Ngay_sinh="1985-06-26T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0938693128" Mail="hntạo@hcmcom" Dia_chi="Hồ sơn Y Quận 14-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="97" Ho_ten="Trần chiến minh Lan" ID_GIOI_TINH="2" CMND="032761551" Ngay_sinh="1970-10-27T00:00:00+07:00" Muc_luong="12000000" Dien_thoai="0951048626" Mail="tcmlan@mdayahoovn" Dia_chi="Hứa đình Y Quận 13-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="98" Ho_ten="Phạm thanh Nhung" ID_GIOI_TINH="1" CMND="071541697" Ngay_sinh="1974-04-02T00:00:00+07:00" Muc_luong="10800000" Dien_thoai="0946849500" Mail="ptnhung@alphtkvn" Dia_chi="Nguyễn kỳ C Quận 8-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="99" Ho_ten="Ôn thế Bắc" ID_GIOI_TINH="3" CMND="060388445" Ngay_sinh="1985-10-24T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0994801357" Mail="ôtbắc@cscgmailcom" Dia_chi="Hứa văn L Quận 4-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="100" Ho_ten="Nguyên ngọc thảo Trúc" ID_GIOI_TINH="1" CMND="004971065" Ngay_sinh="1981-03-14T00:00:00+07:00" Muc_luong="10800000" Dien_thoai="0930342474" Mail="nnttrúc@gmailvn" Dia_chi="Trần thị L Quận 12-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="101" Ho_ten="Hứa đình ngọc Châu" ID_GIOI_TINH="2" CMND="074431325" Ngay_sinh="1965-02-23T00:00:00+07:00" Muc_luong="4200000" Dien_thoai="0989810814" Mail="hđnchâu@mrngmailvn" Dia_chi="Nguyên thị S Quận 4-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="102" Ho_ten="Phạm ngọc Vàng" ID_GIOI_TINH="1" CMND="029399924" Ngay_sinh="1968-11-02T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0959425687" Mail="pnvàng@euhvn" Dia_chi="Hoàng bùi U Quận 1-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="103" Ho_ten="Lý thế Thúy" ID_GIOI_TINH="1" CMND="004798182" Ngay_sinh="1970-10-25T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0936352982" Mail="ltthúy@alphtkhcmvn" Dia_chi="Đổ triệu C Quận 12-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="104" Ho_ten="Hà xuân quyết Thắng" ID_GIOI_TINH="1" CMND="048805687" Ngay_sinh="1992-09-26T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0981744441" Mail="hxqthắng@csccom" Dia_chi="Dương chiến Y Quận 7-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="105" Ho_ten="Quách tiến Hải" ID_GIOI_TINH="2" CMND="023156142" Ngay_sinh="1976-05-14T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0971273314" Mail="qthải@cscgmailcom" Dia_chi="Phạm thị A Quận 4-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="106" Ho_ten="Nguyễn kỳ trang Đài" ID_GIOI_TINH="1" CMND="032943983" Ngay_sinh="1986-11-11T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0972746637" Mail="nktđài@euhhncom" Dia_chi="Trường thế G Quận 3-Hà nội" ID_DON_VI="4" />
+  <NHAN_VIEN ID="107" Ho_ten="Phí hữu Thiết" ID_GIOI_TINH="2" CMND="038088015" Ngay_sinh="1981-01-29T00:00:00+07:00" Muc_luong="10500000" Dien_thoai="0932928295" Mail="phthiết@mdagmailcom" Dia_chi="Bạch thanh P Quận 10-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="108" Ho_ten="Hoàng quỳnh Quyên" ID_GIOI_TINH="1" CMND="091466846" Ngay_sinh="1994-07-24T00:00:00+07:00" Muc_luong="5100000" Dien_thoai="0911201845" Mail="hqquyên@mrnhncom" Dia_chi="Trần thanh Q Quận 6-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="109" Ho_ten="Võ tắc hiền trúc" ID_GIOI_TINH="1" CMND="064288251" Ngay_sinh="1969-02-12T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0944523602" Mail="vthtrúc@euhhcmvn" Dia_chi="Phạm ngọc O Quận 11-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="110" Ho_ten="Đinh kim Khuê" ID_GIOI_TINH="2" CMND="083487301" Ngay_sinh="1992-12-07T00:00:00+07:00" Muc_luong="7500000" Dien_thoai="0985991104" Mail="đkkhuê@spthcmvn" Dia_chi="Phạm chiến M Quận 4-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="111" Ho_ten="Ngô lý Trúc" ID_GIOI_TINH="1" CMND="040618486" Ngay_sinh="1970-12-17T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0966366760" Mail="nltrúc@euhyahoovn" Dia_chi="Huỳnh đình Y Quận 12-TP. HCM" ID_DON_VI="4" />
+  <NHAN_VIEN ID="112" Ho_ten="Đổ tiến kiên Long" ID_GIOI_TINH="2" CMND="051930366" Ngay_sinh="1990-06-14T00:00:00+07:00" Muc_luong="7200000" Dien_thoai="0921915024" Mail="đtklong@mdavn" Dia_chi="Ngô xuân W Quận 9-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="113" Ho_ten="Bạch văn hải Bích" ID_GIOI_TINH="1" CMND="005757467" Ngay_sinh="1980-12-01T00:00:00+07:00" Muc_luong="8400000" Dien_thoai="0946789700" Mail="bvhbích@gmailvn" Dia_chi="Dương đình L Quận 12-Vĩnh Long" ID_DON_VI="5" />
+  <NHAN_VIEN ID="114" Ho_ten="Trần phước đắc Toàn" ID_GIOI_TINH="1" CMND="030330388" Ngay_sinh="1970-11-16T00:00:00+07:00" Muc_luong="8700000" Dien_thoai="0956617407" Mail="tpđtoàn@cscyahoocom" Dia_chi="Lê quỳnh P Quận 5-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="115" Ho_ten="Trần gia Thục" ID_GIOI_TINH="2" CMND="094385306" Ngay_sinh="1970-03-30T00:00:00+07:00" Muc_luong="8700000" Dien_thoai="0998481892" Mail="tgthục@alphtkvn" Dia_chi="Đồng văn Q Quận 6-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="116" Ho_ten="Quách tiến bảo Châu" ID_GIOI_TINH="2" CMND="098727886" Ngay_sinh="1984-10-27T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0911782458" Mail="qtbchâu@mrnhcmcom" Dia_chi="Tô hồng S Quận 14-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="117" Ho_ten="Nguyễn thị Tạo" ID_GIOI_TINH="1" CMND="060951911" Ngay_sinh="1978-09-12T00:00:00+07:00" Muc_luong="9900000" Dien_thoai="0940029555" Mail="nttạo@cschncom" Dia_chi="Nguyễn hùng G Quận 5-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="118" Ho_ten="Phạm nam Đài" ID_GIOI_TINH="1" CMND="001469636" Ngay_sinh="1985-08-27T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0910247789" Mail="pnđài@alphtkhcmvn" Dia_chi="Hứa phước I Quận 1-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="119" Ho_ten="Hứa bùi minh Châu" ID_GIOI_TINH="2" CMND="045087268" Ngay_sinh="1970-11-28T00:00:00+07:00" Muc_luong="3900000" Dien_thoai="0919190825" Mail="hbmchâu@euhgmailcom" Dia_chi="Cao thị T Quận 10-Long an" ID_DON_VI="5" />
+  <NHAN_VIEN ID="120" Ho_ten="Châu văn Dũng" ID_GIOI_TINH="2" CMND="066738962" Ngay_sinh="1978-07-02T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0991510638" Mail="cvdũng@hnvn" Dia_chi="Hồ tiến R Quận 5-Long an" ID_DON_VI="5" />
+  <NHAN_VIEN ID="121" Ho_ten="Triệu ngọc phi Nhung" ID_GIOI_TINH="1" CMND="004234465" Ngay_sinh="1972-01-03T00:00:00+07:00" Muc_luong="5100000" Dien_thoai="0909619660" Mail="tnpnhung@alphtkhncom" Dia_chi="Hứa phước W Quận 1-Long an" ID_DON_VI="5" />
+  <NHAN_VIEN ID="122" Ho_ten="Châu đình thảo Trúc" ID_GIOI_TINH="2" CMND="054673844" Ngay_sinh="1978-05-23T00:00:00+07:00" Muc_luong="12000000" Dien_thoai="0956760687" Mail="cđttrúc@alphtkhcmvn" Dia_chi="Trần thị N Quận 6-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="123" Ho_ten="Dương kiến Thúy" ID_GIOI_TINH="1" CMND="051172831" Ngay_sinh="1992-09-28T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0916322356" Mail="dkthúy@euhcom" Dia_chi="Trường đình M Quận 14-Đà nẳng" ID_DON_VI="5" />
+  <NHAN_VIEN ID="124" Ho_ten="Ngô thị Táo" ID_GIOI_TINH="2" CMND="031553304" Ngay_sinh="1971-03-11T00:00:00+07:00" Muc_luong="9000000" Dien_thoai="0909711002" Mail="nttáo@cscyahoovn" Dia_chi="Trầm hữu U Quận 9-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="125" Ho_ten="Hoàng minh Bắc" ID_GIOI_TINH="1" CMND="010006822" Ngay_sinh="1969-11-24T00:00:00+07:00" Muc_luong="9600000" Dien_thoai="0942361910" Mail="hmbắc@alphtkyahoovn" Dia_chi="Phí quyết S Quận 10-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="126" Ho_ten="Phi bảo Giang" ID_GIOI_TINH="1" CMND="038771131" Ngay_sinh="1966-06-19T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0914124051" Mail="pbgiang@alphtkyahoovn" Dia_chi="Lê lâm J Quận 8-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="127" Ho_ten="Đổ thiện Mai" ID_GIOI_TINH="2" CMND="059958480" Ngay_sinh="1986-05-12T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0928606438" Mail="đtmai@vn" Dia_chi="Triệu lê H Quận 1-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="128" Ho_ten="Đồng thị thụy Lan" ID_GIOI_TINH="1" CMND="054912911" Ngay_sinh="1974-03-25T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0951797569" Mail="đttlan@mrncom" Dia_chi="Đặng văn O Quận 12-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="129" Ho_ten="Thái thị Nam" ID_GIOI_TINH="1" CMND="098211414" Ngay_sinh="1986-05-23T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0979494056" Mail="ttnam@euhhncom" Dia_chi="Lý thành S Quận 1-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="130" Ho_ten="Trần văn Đài" ID_GIOI_TINH="2" CMND="001196642" Ngay_sinh="1990-05-09T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0937041814" Mail="tvđài@cschcmcom" Dia_chi="Dương bảo V Quận 3-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="131" Ho_ten="Huỳnh tiến Hoàng" ID_GIOI_TINH="2" CMND="005928539" Ngay_sinh="1970-07-14T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0995796515" Mail="hthoàng@spthncom" Dia_chi="Trương văn O Quận 9-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="132" Ho_ten="Lý ngọc Phước" ID_GIOI_TINH="1" CMND="023755895" Ngay_sinh="1966-08-16T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0949400285" Mail="lnphước@mrngmailvn" Dia_chi="Trần lý T Quận 1-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="133" Ho_ten="Bạch hữu hảo Tâm" ID_GIOI_TINH="1" CMND="076341103" Ngay_sinh="1981-10-01T00:00:00+07:00" Muc_luong="10800000" Dien_thoai="0990850525" Mail="bhhtâm@alphtkhnvn" Dia_chi="Nhữ kim F Quận 5-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="134" Ho_ten="Nguyễn bùi Thiều" ID_GIOI_TINH="2" CMND="049187606" Ngay_sinh="1979-10-13T00:00:00+07:00" Muc_luong="5100000" Dien_thoai="0992109521" Mail="nbthiều@euhyahoocom" Dia_chi="Nguyễn quyết E Quận 6-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="135" Ho_ten="Ngô sơn thảo Trúc" ID_GIOI_TINH="1" CMND="005932854" Ngay_sinh="1984-04-30T00:00:00+07:00" Muc_luong="7500000" Dien_thoai="0986011098" Mail="nsttrúc@vn" Dia_chi="Triệu triệu L Quận 14-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="136" Ho_ten="Hứa hữu Tần" ID_GIOI_TINH="2" CMND="081050102" Ngay_sinh="1985-07-01T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0929653991" Mail="hhtần@cscvn" Dia_chi="Triệu tắc C Quận 9-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="137" Ho_ten="Lâm lâm Thu" ID_GIOI_TINH="2" CMND="087780697" Ngay_sinh="1989-05-03T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0945798306" Mail="llthu@mrnhcmvn" Dia_chi="Chu đình W Quận 8-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="138" Ho_ten="Nguyên văn thụy Trang" ID_GIOI_TINH="1" CMND="026088592" Ngay_sinh="1971-11-20T00:00:00+07:00" Muc_luong="3000000" Dien_thoai="0923403560" Mail="nvttrang@cscgmailvn" Dia_chi="Phi bích I Quận 12-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="139" Ho_ten="Bùi ngọc Thắng" ID_GIOI_TINH="2" CMND="078219954" Ngay_sinh="1986-10-28T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0942364453" Mail="bnthắng@mdahcmvn" Dia_chi="Triệu thị J Quận 4-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="140" Ho_ten="Huỳnh văn Giang" ID_GIOI_TINH="2" CMND="006667266" Ngay_sinh="1978-11-21T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0980410138" Mail="hvgiang@mrngmailvn" Dia_chi="Đồng thanh E Quận 10-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="141" Ho_ten="Đặng thị Tân" ID_GIOI_TINH="1" CMND="085160872" Ngay_sinh="1984-08-27T00:00:00+07:00" Muc_luong="5700000" Dien_thoai="0932709179" Mail="đttân@mrngmailvn" Dia_chi="Huỳnh minh W Quận 9-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="142" Ho_ten="Phạm kỳ Dung" ID_GIOI_TINH="2" CMND="008289315" Ngay_sinh="1967-08-30T00:00:00+07:00" Muc_luong="5700000" Dien_thoai="0970884597" Mail="pkdung@spthncom" Dia_chi="Ôn văn S Quận 1-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="143" Ho_ten="Kiều kiên thục Hiền" ID_GIOI_TINH="1" CMND="032880138" Ngay_sinh="1967-01-17T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0983407039" Mail="kkthiền@mrncom" Dia_chi="Nguyễn kim A Quận 7-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="144" Ho_ten="Phí an Táo" ID_GIOI_TINH="1" CMND="056465795" Ngay_sinh="1966-07-22T00:00:00+07:00" Muc_luong="3600000" Dien_thoai="0984936235" Mail="patáo@spthnvn" Dia_chi="Huỳnh phạm J Quận 14-TP. HCM" ID_DON_VI="5" />
+  <NHAN_VIEN ID="145" Ho_ten="Bàng văn ngọc Mai" ID_GIOI_TINH="1" CMND="014775046" Ngay_sinh="1965-11-15T00:00:00+07:00" Muc_luong="3600000" Dien_thoai="0908180015" Mail="bvnmai@mdavn" Dia_chi="Liên lê M Quận 2-Long an" ID_DON_VI="5" />
+  <NHAN_VIEN ID="146" Ho_ten="Nguyễn gia đổ Quyên" ID_GIOI_TINH="2" CMND="035686218" Ngay_sinh="1991-04-15T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0906117209" Mail="ngđquyên@euhvn" Dia_chi="Hồ tiến G Quận 10-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="147" Ho_ten="Lâm thế Thanh" ID_GIOI_TINH="2" CMND="097444386" Ngay_sinh="1992-01-03T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0949459590" Mail="ltthanh@mrnyahoocom" Dia_chi="Nguyễn xuân N Quận 4-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="148" Ho_ten="Ngô kim đan Tân" ID_GIOI_TINH="2" CMND="020646287" Ngay_sinh="1966-11-02T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0928238148" Mail="nkđtân@mrnyahoocom" Dia_chi="Phí duy H Quận 6-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="149" Ho_ten="Đinh như Quyền" ID_GIOI_TINH="2" CMND="089638487" Ngay_sinh="1970-04-17T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0911442850" Mail="đnquyền@cschncom" Dia_chi="Hứa lâm O Quận 9-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="150" Ho_ten="Đổ thanh Hoa" ID_GIOI_TINH="2" CMND="078937420" Ngay_sinh="1965-05-11T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0918529963" Mail="đthoa@sptcom" Dia_chi="Bạch bảo P Quận 3-Vĩnh Long" ID_DON_VI="6" />
+  <NHAN_VIEN ID="151" Ho_ten="Thái bích xuân Trường" ID_GIOI_TINH="1" CMND="073559117" Ngay_sinh="1986-07-13T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0981993410" Mail="tbxtrường@cscyahoocom" Dia_chi="Nguyễn thiện H Quận 5-Long an" ID_DON_VI="6" />
+  <NHAN_VIEN ID="152" Ho_ten="Tô tiến Lan" ID_GIOI_TINH="1" CMND="048933713" Ngay_sinh="1974-01-20T00:00:00+07:00" Muc_luong="4200000" Dien_thoai="0986410401" Mail="ttlan@hnvn" Dia_chi="Ôn lý J Quận 4-Vĩnh Long" ID_DON_VI="6" />
+  <NHAN_VIEN ID="153" Ho_ten="Thái thị Mai" ID_GIOI_TINH="1" CMND="034130726" Ngay_sinh="1992-09-18T00:00:00+07:00" Muc_luong="5100000" Dien_thoai="0940680517" Mail="ttmai@spthcmcom" Dia_chi="Trần thành T Quận 9-Hà nội" ID_DON_VI="6" />
+  <NHAN_VIEN ID="154" Ho_ten="Lê quỳnh Khiêm" ID_GIOI_TINH="1" CMND="011691938" Ngay_sinh="1971-01-31T00:00:00+07:00" Muc_luong="3900000" Dien_thoai="0956363692" Mail="lqkhiêm@euhgmailvn" Dia_chi="Ngô thế T Quận 6-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="155" Ho_ten="Nguyên hồng Bắc" ID_GIOI_TINH="2" CMND="032473607" Ngay_sinh="1969-01-05T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0925112593" Mail="nhbắc@mrnhcmvn" Dia_chi="Nguyễn quyết C Quận 7-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="156" Ho_ten="Trầm bích Lành" ID_GIOI_TINH="2" CMND="016201522" Ngay_sinh="1971-08-08T00:00:00+07:00" Muc_luong="7500000" Dien_thoai="0933706243" Mail="tblành@mrnhnvn" Dia_chi="Bùi lâm S Quận 12-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="157" Ho_ten="Hứa thành Thủy" ID_GIOI_TINH="2" CMND="040458243" Ngay_sinh="1968-02-21T00:00:00+07:00" Muc_luong="6600000" Dien_thoai="0945203423" Mail="htthủy@mdahcmvn" Dia_chi="Tô phước V Quận 12-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="158" Ho_ten="Ngô hà Ngoạn" ID_GIOI_TINH="1" CMND="080966032" Ngay_sinh="1994-04-25T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0978825708" Mail="nhngoạn@euhhcmcom" Dia_chi="Nguyễn thanh S Quận 3-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="159" Ho_ten="Nguyễn đình Thủy" ID_GIOI_TINH="2" CMND="019711671" Ngay_sinh="1994-12-30T00:00:00+07:00" Muc_luong="8400000" Dien_thoai="0979800694" Mail="nđthủy@mrngmailvn" Dia_chi="Kiều đình U Quận 14-Cần Thơ" ID_DON_VI="6" />
+  <NHAN_VIEN ID="160" Ho_ten="Trần đình tuyết Mai" ID_GIOI_TINH="1" CMND="047943630" Ngay_sinh="1966-08-19T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0923181503" Mail="tđtmai@mrnhnvn" Dia_chi="Đặng tắc F Quận 14-Tiền giang" ID_DON_VI="6" />
+  <NHAN_VIEN ID="161" Ho_ten="Phạm bích đắc Toàn" ID_GIOI_TINH="1" CMND="064311683" Ngay_sinh="1979-11-25T00:00:00+07:00" Muc_luong="6900000" Dien_thoai="0984583343" Mail="pbđtoàn@mrnhcmvn" Dia_chi="Bành bảo C Quận 10-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="162" Ho_ten="Lý bích Thạch" ID_GIOI_TINH="1" CMND="089437487" Ngay_sinh="1988-07-26T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0994774357" Mail="lbthạch@alphtkgmailvn" Dia_chi="Bành thanh V Quận 13-Cần Thơ" ID_DON_VI="6" />
+  <NHAN_VIEN ID="163" Ho_ten="Lý minh Thúy" ID_GIOI_TINH="1" CMND="016539694" Ngay_sinh="1991-03-06T00:00:00+07:00" Muc_luong="10500000" Dien_thoai="0968139982" Mail="lmthúy@spthncom" Dia_chi="Trương văn V Quận 9-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="164" Ho_ten="Thái như Bính" ID_GIOI_TINH="2" CMND="072508951" Ngay_sinh="1975-01-07T00:00:00+07:00" Muc_luong="3600000" Dien_thoai="0959407947" Mail="tnbính@mrnhcmcom" Dia_chi="Châu quyết X Quận 10-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="165" Ho_ten="Hồ minh đổ Quyên" ID_GIOI_TINH="1" CMND="000097809" Ngay_sinh="1987-05-31T00:00:00+07:00" Muc_luong="5700000" Dien_thoai="0966604575" Mail="hmđquyên@sptyahoocom" Dia_chi="Nguyên thiện L Quận 11-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="166" Ho_ten="Lâm lê kiên Trường" ID_GIOI_TINH="1" CMND="078839716" Ngay_sinh="1986-10-10T00:00:00+07:00" Muc_luong="9900000" Dien_thoai="0903672631" Mail="llktrường@cscgmailvn" Dia_chi="Mai lê D Quận 2-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="167" Ho_ten="Ngô lý Khang" ID_GIOI_TINH="2" CMND="022971069" Ngay_sinh="1977-12-12T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0957857937" Mail="nlkhang@cschnvn" Dia_chi="Nguyễn nam T Quận 11-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="168" Ho_ten="Châu xuân hồng Thu" ID_GIOI_TINH="1" CMND="003048443" Ngay_sinh="1980-10-13T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0914332582" Mail="cxhthu@cschcmvn" Dia_chi="Hồ phước U Quận 4-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="169" Ho_ten="Hồ bích ngọc Liên" ID_GIOI_TINH="1" CMND="087543093" Ngay_sinh="1979-11-25T00:00:00+07:00" Muc_luong="6900000" Dien_thoai="0943434474" Mail="hbnliên@alphtkyahoocom" Dia_chi="Tô kim U Quận 4-Vĩnh Long" ID_DON_VI="6" />
+  <NHAN_VIEN ID="170" Ho_ten="Hoa hùng khánh Ngọc" ID_GIOI_TINH="1" CMND="075670418" Ngay_sinh="1975-07-20T00:00:00+07:00" Muc_luong="8700000" Dien_thoai="0930477590" Mail="hhkngọc@mdavn" Dia_chi="Đinh bùi M Quận 11-Hà nội" ID_DON_VI="6" />
+  <NHAN_VIEN ID="171" Ho_ten="Liên văn Kiếm" ID_GIOI_TINH="1" CMND="067787791" Ngay_sinh="1980-06-07T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0909874980" Mail="lvkiếm@sptyahoovn" Dia_chi="Nguyễn hồng L Quận 2-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="172" Ho_ten="Ôn tiến hảo Tâm" ID_GIOI_TINH="1" CMND="000800723" Ngay_sinh="1990-12-08T00:00:00+07:00" Muc_luong="10800000" Dien_thoai="0950159464" Mail="ôthtâm@sptvn" Dia_chi="Phạm văn X Quận 3-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="173" Ho_ten="Trần lâm Phán" ID_GIOI_TINH="1" CMND="003879491" Ngay_sinh="1991-05-04T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0945153503" Mail="tlphán@mrngmailcom" Dia_chi="Hà hửu C Quận 6-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="174" Ho_ten="Đặng đình Hoàng" ID_GIOI_TINH="1" CMND="054987142" Ngay_sinh="1979-08-18T00:00:00+07:00" Muc_luong="6900000" Dien_thoai="0932407601" Mail="đđhoàng@cscgmailvn" Dia_chi="Nguyên an E Quận 1-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="175" Ho_ten="Đổ thanh Thiên" ID_GIOI_TINH="1" CMND="082075578" Ngay_sinh="1990-06-03T00:00:00+07:00" Muc_luong="6600000" Dien_thoai="0994606312" Mail="đtthiên@mrnhncom" Dia_chi="Bành ngọc O Quận 3-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="176" Ho_ten="Lê nam thụy Lan" ID_GIOI_TINH="2" CMND="038329014" Ngay_sinh="1977-02-07T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0975985919" Mail="lntlan@mdayahoocom" Dia_chi="Hoàng kiến A Quận 1-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="177" Ho_ten="Trầm thanh hải Liên" ID_GIOI_TINH="1" CMND="076076340" Ngay_sinh="1968-05-21T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0946065327" Mail="tthliên@mdahnvn" Dia_chi="Nguyễn thanh G Quận 14-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="178" Ho_ten="Đồng quyết tuấn Khoa" ID_GIOI_TINH="2" CMND="083837737" Ngay_sinh="1980-09-25T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0923619492" Mail="đqtkhoa@sptcom" Dia_chi="Châu triệu K Quận 14-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="179" Ho_ten="Ôn bích Giảng" ID_GIOI_TINH="2" CMND="048877254" Ngay_sinh="1978-02-24T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0925036837" Mail="ôbgiảng@sptyahoocom" Dia_chi="Nguyễn thành N Quận 5-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="180" Ho_ten="Bàng đình quang Mỹ" ID_GIOI_TINH="1" CMND="024872166" Ngay_sinh="1984-02-11T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0957043519" Mail="bđqmỹ@mdagmailvn" Dia_chi="Lâm kiên T Quận 3-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="181" Ho_ten="Hồ bích Trúc" ID_GIOI_TINH="1" CMND="067255851" Ngay_sinh="1967-12-29T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0958095908" Mail="hbtrúc@csccom" Dia_chi="Lê lý V Quận 9-Long an" ID_DON_VI="6" />
+  <NHAN_VIEN ID="182" Ho_ten="Mai sơn Trang" ID_GIOI_TINH="1" CMND="010217034" Ngay_sinh="1988-06-23T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0958072742" Mail="mstrang@hnvn" Dia_chi="Trang thế Q Quận 6-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="183" Ho_ten="Công an Toàn" ID_GIOI_TINH="2" CMND="052992837" Ngay_sinh="1978-11-25T00:00:00+07:00" Muc_luong="8400000" Dien_thoai="0916506332" Mail="catoàn@euhcom" Dia_chi="Phạm thị O Quận 6-TP. HCM" ID_DON_VI="6" />
+  <NHAN_VIEN ID="184" Ho_ten="Bành tắc Tráng" ID_GIOI_TINH="1" CMND="032772469" Ngay_sinh="1973-02-23T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0983903308" Mail="bttráng@alphtkcom" Dia_chi="Nguyễn duy B Quận 6-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="185" Ho_ten="Nguyễn lê quang Viễn" ID_GIOI_TINH="1" CMND="081278607" Ngay_sinh="1982-06-25T00:00:00+07:00" Muc_luong="3600000" Dien_thoai="0947324534" Mail="nlqviễn@sptcom" Dia_chi="Đinh sơn W Quận 12-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="186" Ho_ten="Nguyễn tiến bình Minh" ID_GIOI_TINH="1" CMND="090488553" Ngay_sinh="1988-03-22T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0957066101" Mail="ntbminh@csccom" Dia_chi="Ngô thị P Quận 5-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="187" Ho_ten="Phạm lý Liên" ID_GIOI_TINH="1" CMND="063827677" Ngay_sinh="1993-10-08T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0940608202" Mail="plliên@cschcmcom" Dia_chi="Bàng phạm T Quận 13-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="188" Ho_ten="Thái phạm Nguyên" ID_GIOI_TINH="1" CMND="045067434" Ngay_sinh="1978-06-15T00:00:00+07:00" Muc_luong="3900000" Dien_thoai="0904719247" Mail="tpnguyên@com" Dia_chi="Hồ tiến F Quận 12-Đà nẳng" ID_DON_VI="7" />
+  <NHAN_VIEN ID="189" Ho_ten="Phi lý Huy" ID_GIOI_TINH="2" CMND="095191468" Ngay_sinh="1973-06-13T00:00:00+07:00" Muc_luong="4200000" Dien_thoai="0963007920" Mail="plhuy@mdayahoocom" Dia_chi="Lâm thanh G Quận 12-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="190" Ho_ten="Hồ đắc tuấn Khoa" ID_GIOI_TINH="1" CMND="053868232" Ngay_sinh="1978-08-24T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0922698069" Mail="hđtkhoa@mdavn" Dia_chi="Đinh thị B Quận 7-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="191" Ho_ten="Lý xuân Thùy" ID_GIOI_TINH="1" CMND="095772109" Ngay_sinh="1986-05-25T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0986585907" Mail="lxthùy@alphtkgmailvn" Dia_chi="Ngô phước I Quận 3-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="192" Ho_ten="Lý văn Trường" ID_GIOI_TINH="2" CMND="083311174" Ngay_sinh="1993-08-14T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0944354622" Mail="lvtrường@euhhnvn" Dia_chi="Triệu quyết V Quận 9-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="193" Ho_ten="Kiều phạm quang Mỹ" ID_GIOI_TINH="2" CMND="010724479" Ngay_sinh="1994-04-07T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0945540625" Mail="kpqmỹ@cschncom" Dia_chi="Tô thế W Quận 13-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="194" Ho_ten="Nguyễn thanh Thiện" ID_GIOI_TINH="1" CMND="017327217" Ngay_sinh="1979-11-06T00:00:00+07:00" Muc_luong="5700000" Dien_thoai="0993492149" Mail="ntthiện@euhgmailvn" Dia_chi="Lâm triệu L Quận 6-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="195" Ho_ten="Nguyễn đình Long" ID_GIOI_TINH="1" CMND="045381789" Ngay_sinh="1974-11-19T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0944734923" Mail="nđlong@alphtkhcmvn" Dia_chi="Mai thế G Quận 11-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="196" Ho_ten="Phi kiến kiên Long" ID_GIOI_TINH="2" CMND="092885497" Ngay_sinh="1965-07-30T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0913457043" Mail="pkklong@cschcmcom" Dia_chi="Lê quỳnh K Quận 13-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="197" Ho_ten="Phùng văn Khánh" ID_GIOI_TINH="1" CMND="094445483" Ngay_sinh="1982-11-14T00:00:00+07:00" Muc_luong="8700000" Dien_thoai="0978372184" Mail="pvkhánh@mrngmailvn" Dia_chi="Hồ thị P Quận 7-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="198" Ho_ten="Công bích hồng Châu" ID_GIOI_TINH="2" CMND="001502589" Ngay_sinh="1991-11-27T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0911866381" Mail="cbhchâu@mdahcmvn" Dia_chi="Nguyễn như D Quận 5-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="199" Ho_ten="Trần văn hảo Khiêm" ID_GIOI_TINH="2" CMND="064712182" Ngay_sinh="1980-11-17T00:00:00+07:00" Muc_luong="8700000" Dien_thoai="0957607831" Mail="tvhkhiêm@sptgmailcom" Dia_chi="Liên văn K Quận 3-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="200" Ho_ten="Hồ phước Thiện" ID_GIOI_TINH="1" CMND="064438506" Ngay_sinh="1975-04-12T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0918024201" Mail="hpthiện@euhhncom" Dia_chi="Đinh sơn H Quận 10-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="201" Ho_ten="Triệu kiến Châu" ID_GIOI_TINH="2" CMND="061125408" Ngay_sinh="1966-02-20T00:00:00+07:00" Muc_luong="10500000" Dien_thoai="0912294885" Mail="tkchâu@sptyahoovn" Dia_chi="Phạm quyết K Quận 9-Long an" ID_DON_VI="7" />
+  <NHAN_VIEN ID="202" Ho_ten="Dương bảo Sơn" ID_GIOI_TINH="2" CMND="082812661" Ngay_sinh="1978-05-04T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0910506909" Mail="dbsơn@mdahnvn" Dia_chi="Đinh thị R Quận 10-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="203" Ho_ten="Công thành Thiền" ID_GIOI_TINH="2" CMND="012375768" Ngay_sinh="1988-10-29T00:00:00+07:00" Muc_luong="4800000" Dien_thoai="0953330005" Mail="ctthiền@sptyahoovn" Dia_chi="Lê sơn Q Quận 11-Cần Thơ" ID_DON_VI="7" />
+  <NHAN_VIEN ID="204" Ho_ten="Cao ngọc sơn Tài" ID_GIOI_TINH="1" CMND="069379333" Ngay_sinh="1994-05-14T00:00:00+07:00" Muc_luong="4200000" Dien_thoai="0916033536" Mail="cnstài@hcmcom" Dia_chi="Quách lê O Quận 11-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="205" Ho_ten="Công hửu Lan" ID_GIOI_TINH="2" CMND="033747311" Ngay_sinh="1968-08-16T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0948507701" Mail="chlan@mdayahoocom" Dia_chi="Hồ thị N Quận 12-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="206" Ho_ten="Trường phúc kiên Long" ID_GIOI_TINH="1" CMND="025266979" Ngay_sinh="1982-04-24T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0965520726" Mail="tpklong@euhhncom" Dia_chi="Nguyễn đình Y Quận 14-Long an" ID_DON_VI="7" />
+  <NHAN_VIEN ID="207" Ho_ten="Ngô duy Thu" ID_GIOI_TINH="1" CMND="016070013" Ngay_sinh="1991-12-15T00:00:00+07:00" Muc_luong="9000000" Dien_thoai="0957895626" Mail="ndthu@euhhnvn" Dia_chi="Trang sơn K Quận 4-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="208" Ho_ten="Triệu tiến kim Bảo" ID_GIOI_TINH="1" CMND="069460925" Ngay_sinh="1966-05-31T00:00:00+07:00" Muc_luong="7500000" Dien_thoai="0999520103" Mail="ttkbảo@gmailcom" Dia_chi="Hoàng an Q Quận 14-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="209" Ho_ten="Thái kim Thiết" ID_GIOI_TINH="2" CMND="028195963" Ngay_sinh="1975-04-26T00:00:00+07:00" Muc_luong="9300000" Dien_thoai="0989679063" Mail="tkthiết@alphtkyahoovn" Dia_chi="Phạm kiến L Quận 10-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="210" Ho_ten="Nguyễn quyết Nhung" ID_GIOI_TINH="1" CMND="075660161" Ngay_sinh="1985-08-31T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0921230264" Mail="nqnhung@mrnyahoocom" Dia_chi="Lâm kỳ L Quận 14-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="211" Ho_ten="Đinh thành Dũng" ID_GIOI_TINH="2" CMND="066100204" Ngay_sinh="1985-02-24T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0966561374" Mail="đtdũng@cschnvn" Dia_chi="Ôn hà J Quận 10-Long an" ID_DON_VI="7" />
+  <NHAN_VIEN ID="212" Ho_ten="Đổ triệu Khiêm" ID_GIOI_TINH="1" CMND="095629134" Ngay_sinh="1967-12-07T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0937283489" Mail="đtkhiêm@cscyahoocom" Dia_chi="Đặng phúc V Quận 11-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="213" Ho_ten="Lâm bảo Châu" ID_GIOI_TINH="2" CMND="018615173" Ngay_sinh="1978-05-01T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0932464338" Mail="lbchâu@hnvn" Dia_chi="Huỳnh phước B Quận 9-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="214" Ho_ten="Công thế Bích" ID_GIOI_TINH="2" CMND="080642197" Ngay_sinh="1970-09-08T00:00:00+07:00" Muc_luong="6900000" Dien_thoai="0993464185" Mail="ctbích@euhhcmvn" Dia_chi="Phí thị B Quận 13-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="215" Ho_ten="Chu sơn phi Lan" ID_GIOI_TINH="1" CMND="077449012" Ngay_sinh="1992-01-07T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0986155942" Mail="csplan@cschcmcom" Dia_chi="Ngô thị C Quận 12-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="216" Ho_ten="Triệu văn Táo" ID_GIOI_TINH="1" CMND="033672018" Ngay_sinh="1978-07-09T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0980958396" Mail="tvtáo@euhgmailvn" Dia_chi="Nguyễn văn R Quận 9-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="217" Ho_ten="Nguyễn thanh đình Phước" ID_GIOI_TINH="2" CMND="037289863" Ngay_sinh="1967-08-02T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0926211261" Mail="ntđphước@mrnhnvn" Dia_chi="Nguyễn thanh B Quận 5-TP. HCM" ID_DON_VI="7" />
+  <NHAN_VIEN ID="218" Ho_ten="Huỳnh triệu Hoan" ID_GIOI_TINH="1" CMND="022712041" Ngay_sinh="1965-02-19T00:00:00+07:00" Muc_luong="11100000" Dien_thoai="0933034413" Mail="hthoan@cscyahoocom" Dia_chi="Phí thành R Quận 14-Cần Thơ" ID_DON_VI="7" />
+  <NHAN_VIEN ID="219" Ho_ten="Trường tiến minh Châu" ID_GIOI_TINH="1" CMND="033930067" Ngay_sinh="1980-01-16T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0912399468" Mail="ttmchâu@com" Dia_chi="Lê bảo S Quận 1-Tiền giang" ID_DON_VI="7" />
+  <NHAN_VIEN ID="220" Ho_ten="Nguyễn xuân Liên" ID_GIOI_TINH="1" CMND="079500206" Ngay_sinh="1977-01-11T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0934625517" Mail="nxliên@mdayahoocom" Dia_chi="Châu văn F Quận 6-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="221" Ho_ten="Quách ngọc Giang" ID_GIOI_TINH="2" CMND="026208578" Ngay_sinh="1993-12-02T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0967355799" Mail="qngiang@euhgmailcom" Dia_chi="Hồ đắc L Quận 2-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="222" Ho_ten="Nguyễn hửu Thiều" ID_GIOI_TINH="1" CMND="010209466" Ngay_sinh="1965-10-23T00:00:00+07:00" Muc_luong="3600000" Dien_thoai="0933608823" Mail="nhthiều@euhyahoovn" Dia_chi="Ngô viết L Quận 9-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="223" Ho_ten="Trường bảo Tần" ID_GIOI_TINH="2" CMND="094533474" Ngay_sinh="1974-08-04T00:00:00+07:00" Muc_luong="8100000" Dien_thoai="0959468048" Mail="tbtần@mdahncom" Dia_chi="Lê thị D Quận 11-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="224" Ho_ten="Dương ngọc ngọc Châu" ID_GIOI_TINH="2" CMND="042424558" Ngay_sinh="1980-12-07T00:00:00+07:00" Muc_luong="9900000" Dien_thoai="0994540999" Mail="dnnchâu@com" Dia_chi="Bành bích X Quận 4-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="225" Ho_ten="Trầm hồng Lan" ID_GIOI_TINH="2" CMND="089412669" Ngay_sinh="1975-03-30T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0939065375" Mail="thlan@euhgmailcom" Dia_chi="Phí đắc P Quận 13-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="226" Ho_ten="Phạm văn sơn Tài" ID_GIOI_TINH="2" CMND="087659873" Ngay_sinh="1974-03-30T00:00:00+07:00" Muc_luong="3900000" Dien_thoai="0963449582" Mail="pvstài@cscgmailvn" Dia_chi="Bàng tiến C Quận 14-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="227" Ho_ten="Bùi sơn Nguyên" ID_GIOI_TINH="1" CMND="034130049" Ngay_sinh="1988-04-05T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0928061453" Mail="bsnguyên@euhhcmvn" Dia_chi="Bùi thị K Quận 7-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="228" Ho_ten="Cao văn quang Viễn" ID_GIOI_TINH="2" CMND="002903558" Ngay_sinh="1989-12-20T00:00:00+07:00" Muc_luong="10800000" Dien_thoai="0976140278" Mail="cvqviễn@euhyahoovn" Dia_chi="Trần văn B Quận 14-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="229" Ho_ten="Đặng thị Châu" ID_GIOI_TINH="1" CMND="005877019" Ngay_sinh="1989-08-16T00:00:00+07:00" Muc_luong="5700000" Dien_thoai="0983573053" Mail="đtchâu@euhhcmcom" Dia_chi="Nguyễn văn R Quận 1-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="230" Ho_ten="Huỳnh thế minh Lý" ID_GIOI_TINH="1" CMND="049655257" Ngay_sinh="1985-01-30T00:00:00+07:00" Muc_luong="5100000" Dien_thoai="0941595138" Mail="htmlý@mdavn" Dia_chi="Phí đình O Quận 5-Long an" ID_DON_VI="8" />
+  <NHAN_VIEN ID="231" Ho_ten="Phạm đình phi Sơn" ID_GIOI_TINH="2" CMND="048617428" Ngay_sinh="1980-05-20T00:00:00+07:00" Muc_luong="3000000" Dien_thoai="0950011382" Mail="pđpsơn@mdavn" Dia_chi="Phạm đình U Quận 2-Cần Thơ" ID_DON_VI="8" />
+  <NHAN_VIEN ID="232" Ho_ten="Nhữ thanh hải Bích" ID_GIOI_TINH="2" CMND="030080537" Ngay_sinh="1970-08-06T00:00:00+07:00" Muc_luong="9000000" Dien_thoai="0965529540" Mail="nthbích@euhyahoocom" Dia_chi="Bàng ngọc E Quận 12-Long an" ID_DON_VI="8" />
+  <NHAN_VIEN ID="233" Ho_ten="Nguyễn quỳnh Hóa" ID_GIOI_TINH="2" CMND="027004865" Ngay_sinh="1979-05-07T00:00:00+07:00" Muc_luong="5400000" Dien_thoai="0960259402" Mail="nqhóa@mrnhncom" Dia_chi="Đinh phước X Quận 13-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="234" Ho_ten="Nguyễn ngọc Tráng" ID_GIOI_TINH="2" CMND="002584925" Ngay_sinh="1991-02-11T00:00:00+07:00" Muc_luong="3300000" Dien_thoai="0915155656" Mail="nntráng@csccom" Dia_chi="Phi hùng U Quận 3-Đà nẳng" ID_DON_VI="8" />
+  <NHAN_VIEN ID="235" Ho_ten="Ôn gia Quyên" ID_GIOI_TINH="1" CMND="011235534" Ngay_sinh="1977-04-21T00:00:00+07:00" Muc_luong="9900000" Dien_thoai="0917375538" Mail="ôgquyên@sptyahoocom" Dia_chi="Phi ngọc F Quận 11-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="236" Ho_ten="Bùi văn tuấn Khoa" ID_GIOI_TINH="2" CMND="098932290" Ngay_sinh="1979-09-24T00:00:00+07:00" Muc_luong="8400000" Dien_thoai="0951807472" Mail="bvtkhoa@alphtkyahoocom" Dia_chi="Lâm thị G Quận 1-Long an" ID_DON_VI="8" />
+  <NHAN_VIEN ID="237" Ho_ten="Đặng kim minh Lý" ID_GIOI_TINH="3" CMND="058472209" Ngay_sinh="1976-06-15T00:00:00+07:00" Muc_luong="10200000" Dien_thoai="0923037988" Mail="đkmlý@euhgmailvn" Dia_chi="Nguyễn đình A Quận 11-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="238" Ho_ten="Hứa tắc Lam" ID_GIOI_TINH="2" CMND="091312750" Ngay_sinh="1971-08-30T00:00:00+07:00" Muc_luong="6300000" Dien_thoai="0950580699" Mail="htlam@spthncom" Dia_chi="Trần hữu U Quận 11-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="239" Ho_ten="Nguyễn thiện Xuân" ID_GIOI_TINH="2" CMND="006489560" Ngay_sinh="1972-09-12T00:00:00+07:00" Muc_luong="4500000" Dien_thoai="0930194825" Mail="ntxuân@mrnvn" Dia_chi="Đặng hà X Quận 9-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="240" Ho_ten="Công văn bình Minh" ID_GIOI_TINH="2" CMND="050084173" Ngay_sinh="1973-10-26T00:00:00+07:00" Muc_luong="6600000" Dien_thoai="0966746701" Mail="cvbminh@mrngmailcom" Dia_chi="Phí lê D Quận 14-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="241" Ho_ten="Hứa văn Tạo" ID_GIOI_TINH="1" CMND="015519530" Ngay_sinh="1988-11-03T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0980202186" Mail="hvtạo@cscgmailcom" Dia_chi="Hoa nam T Quận 13-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="242" Ho_ten="Hà đình hảo Khiêm" ID_GIOI_TINH="1" CMND="019419584" Ngay_sinh="1988-12-18T00:00:00+07:00" Muc_luong="8700000" Dien_thoai="0974819820" Mail="hđhkhiêm@mrngmailcom" Dia_chi="Trần hà S Quận 9-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="243" Ho_ten="Đinh triệu thùy Trang" ID_GIOI_TINH="1" CMND="003926022" Ngay_sinh="1989-06-02T00:00:00+07:00" Muc_luong="6600000" Dien_thoai="0972759790" Mail="đtttrang@mrnhncom" Dia_chi="Bạch phước K Quận 4-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="244" Ho_ten="Chu bùi thảo Nguyên" ID_GIOI_TINH="2" CMND="052352721" Ngay_sinh="1990-05-20T00:00:00+07:00" Muc_luong="6000000" Dien_thoai="0965949084" Mail="cbtnguyên@mdahcmcom" Dia_chi="Trương bích F Quận 13-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="245" Ho_ten="Triệu kỳ Phước" ID_GIOI_TINH="2" CMND="064751352" Ngay_sinh="1987-06-15T00:00:00+07:00" Muc_luong="7800000" Dien_thoai="0904284775" Mail="tkphước@alphtkhncom" Dia_chi="Ngô sơn G Quận 7-Long an" ID_DON_VI="8" />
+  <NHAN_VIEN ID="246" Ho_ten="Trần sơn ngọc Dung" ID_GIOI_TINH="2" CMND="069563848" Ngay_sinh="1987-03-04T00:00:00+07:00" Muc_luong="11400000" Dien_thoai="0912309010" Mail="tsndung@mdahcmcom" Dia_chi="Lê tắc S Quận 8-TP. HCM" ID_DON_VI="8" />
+  <NHAN_VIEN ID="247" Ho_ten="Trần kiên Bình" ID_GIOI_TINH="2" CMND="095991378" Ngay_sinh="1965-10-07T00:00:00+07:00" Muc_luong="4200000" Dien_thoai="0914011666" Mail="tkbình@alphtkhcmcom" Dia_chi="Dương sơn H Quận 12-Đà nẳng" ID_DON_VI="8" />
+  <NHAN_VIEN ID="248" Ho_ten="Bành tiến Nguyệt" ID_GIOI_TINH="2" CMND="093400062" Ngay_sinh="1994-07-14T00:00:00+07:00" Muc_luong="11700000" Dien_thoai="0984249901" Mail="btnguyệt@cscvn" Dia_chi="Phùng minh V Quận 10-Tiền giang" ID_DON_VI="8" />
+  <NHAN_VIEN ID="249" Ho_ten="Quách cao Xuân" ID_GIOI_TINH="2" CMND="010766656" Ngay_sinh="1976-09-02T00:00:00+07:00" Muc_luong="12000000" Dien_thoai="0957856387" Mail="qcxuân@cscgmailcom" Dia_chi="Đổ thế V Quận 9-TP. HCM" ID_DON_VI="8" />
+</QLNV_1>

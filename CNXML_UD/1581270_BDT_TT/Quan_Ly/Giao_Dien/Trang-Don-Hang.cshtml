@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Trang Đơn Hàng - Quản Lý</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="DD_Chinh.css" type="text/css">
+<body>
+    @using System.Xml;
+    @{
+        var Du_Lieu = XL_DU_LIEU.Khoi_dong_Du_lieu();
+        var DS_DonHang_ChoPhanCong = Du_Lieu.DS_Phieu_Dat_ChoPhanCong();
+        var DS_DonHang_ChoGiao = Du_Lieu.DS_Phieu_Dat_ChoGiao();
+        var DS_DonHang_DaGiao = Du_Lieu.DS_Phieu_Dat_DaGiao();
+
+        var Chuoi_The_Hien_DS_DonHang_ChoPhanCong = new HtmlString("");
+        var Chuoi_The_Hien_DS_DonHang_ChoGiao = new HtmlString("");
+        var Chuoi_The_Hien_DS_DonHang_DaGiao = new HtmlString("");
+
+        if (DS_DonHang_ChoPhanCong != null)
+        {
+            var Chuoi_HTML_DonHang = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Don_Hang(DS_DonHang_ChoPhanCong);
+            Chuoi_The_Hien_DS_DonHang_ChoPhanCong = new HtmlString(Chuoi_HTML_DonHang);
+
+        }
+        if (DS_DonHang_ChoGiao != null)
+        {
+            var Chuoi_HTML_DonHang = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Don_Hang(DS_DonHang_ChoGiao);
+            Chuoi_The_Hien_DS_DonHang_ChoGiao = new HtmlString(Chuoi_HTML_DonHang);
+        }
+
+        if (DS_DonHang_DaGiao != null)
+        {
+            var Chuoi_HTML_DonHang = Du_Lieu.Tao_Chuoi_HTML_Danh_Sach_Don_Hang(DS_DonHang_DaGiao);
+            Chuoi_The_Hien_DS_DonHang_DaGiao = new HtmlString(Chuoi_HTML_DonHang);
+        }
+    }
+    <div class="container-fluid">
+        <header class="green">
+            <div class="container">
+                <div class="row valign-wrapper white-text mb-0">
+                    <div class="col s2"><a class="white-text" href="#"><img src="~/Giao_Dien/logo_for_mobile.png" class="logo" /></a></div>
+                    <div class="col s9 center-align"><h4>Quản Lý</h4></div>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <div class="nav-wrapper">
+                <div class="container">
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="left  hide-on-med-and-down">
+                        <li><a href="Trang-Chinh.cshtml">Đơn Giá</a></li>
+                        <li><a class="active" href="Trang-Don-Hang.cshtml">Đơn Hàng</a></li>
+                        <li><a href="Trang-Phan-Cong.cshtml">Phân Công</a></li>
+                        <li><a href="Trang-Bao-Cao-Thang.cshtml">Thống Kê Tháng</a></li>
+                        <li><a href="Trang-Bao-Cao-Nam.cshtml">Thống Kê Năm</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="Trang-Chinh.cshtml">Đơn Giá</a></li>
+                        <li><a class="active" href="Trang-Don-Hang.cshtml">Đơn Hàng</a></li>
+                        <li><a href="Trang-Phan-Cong.cshtml">Phân Công</a></li>
+                        <li><a href="Trang-Bao-Cao-Thang.cshtml">Thống Kê Tháng</a></li>
+                        <li><a href="Trang-Bao-Cao-Nam.cshtml">Thống Kê Năm</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="main_wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel">
+                            <div class="row">
+                                <div class="col s12"><h5>Chờ Phân Công</h5></div>
+                            </div>
+                            <div class="row">
+                                @Chuoi_The_Hien_DS_DonHang_ChoPhanCong
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel">
+                            <div class="row">
+                                <div class="col s12"><h5>Chờ Giao</h5></div>
+                            </div>
+                            <div class="row">
+                                @Chuoi_The_Hien_DS_DonHang_ChoGiao
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="card-panel">
+                            <div class="row">
+                                <div class="col s12"><h5>Đã Giao</h5></div>
+                            </div>
+                            <div class="row">
+                                @Chuoi_The_Hien_DS_DonHang_DaGiao
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="green darken-3">
+            <div class="center-align white-text">
+                <h5>Đồ án cuối kì - Công nghệ XML và ứng dụng</h5><h6>
+                    Nguyễn Đức Trung -
+                    1581270
+                </h6>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>

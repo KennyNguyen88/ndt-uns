@@ -1,0 +1,10 @@
+﻿<DIEN_THOAI   Ten="iphone 7" Ma_so="IPHONE_7" Don_gia_Ban="1320000">
+  <NHOM_DIEN_THOAI Ten="iphone" Ma_so="IPHONE" />
+  <PHIEU_DAT Trang_thai="CHO_PHAN_CONG" Ngay="2017-08-03T00:00:00+07:00" So_luong="1" Don_gia="1320000" Tien="1320000" So_ngay_Du_kien="1" So_ngay_Thuc_te="3">
+    <Khach_hang Ho_ten="Ôn an Thạch" Dien_thoai="0958825418" Dia_chi="336 Hứa bích Thanh,Phường 8,Quận 6, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_GIAO" Ngay="2017-08-03T00:00:00+07:00" So_luong="1" Don_gia="1320000" Tien="1320000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Trầm lê Dũng" Dien_thoai="0929866693" Dia_chi="333 Thái thị Thiền,Phường 9,Quận 11, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Nguyên đình Vàng" Ma_so="NV_2" />
+  </PHIEU_DAT>
+</DIEN_THOAI>

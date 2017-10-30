@@ -1,0 +1,29 @@
+﻿<DIEN_THOAI   Ten="iphone 6" Ma_so="IPHONE_6" Don_gia_Ban="5160000">
+  <NHOM_DIEN_THOAI Ten="iphone" Ma_so="IPHONE" />
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-02T00:00:00+07:00" So_luong="1" Don_gia="5160000" Tien="5160000" So_ngay_Du_kien="1" So_ngay_Thuc_te="3">
+    <Khach_hang Ho_ten="Nguyên như Lành" Dien_thoai="0439346372" Dia_chi="267 Lâm tiến Tấn,Phường 9,Quận 12, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Nguyên đình Vàng" Ma_so="NV_2" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-02T00:00:00+07:00" So_luong="1" Don_gia="5160000" Tien="5160000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Trường lý ngọc Châu" Dien_thoai="0278836769" Dia_chi="184 Phùng phúc Hùng,Phường 3,Quận 3, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Tô thị Giảng" Ma_so="NV_1" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_PHAN_CONG" Ngay="2017-08-02T00:00:00+07:00" So_luong="1" Don_gia="5160000" Tien="5160000" So_ngay_Du_kien="1" So_ngay_Thuc_te="3">
+    <Khach_hang Ho_ten="Trang phạm Tài" Dien_thoai="0736599545" Dia_chi="175 Phạm quyết sơn Tài,Phường 9,Quận 5, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_GIAO" Ngay="2017-08-02T00:00:00+07:00" So_luong="1" Don_gia="5160000" Tien="5160000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Nguyễn sơn Trinh" Dien_thoai="0734237389" Dia_chi="192 Trần như ngọc Châu,Phường 3,Quận Bình thạnh, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Nguyên đình Vàng" Ma_so="NV_2" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="DA_GIAO" Ngay="2017-08-04T00:00:00+07:00" So_luong="1" Don_gia="5160000" Tien="5160000" So_ngay_Du_kien="1" So_ngay_Thuc_te="2">
+    <Khach_hang Ho_ten="Nguyễn thanh Phán" Dien_thoai="0175268925" Dia_chi="571 Quách an xuân Dung,Phường 9,Quận 5, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Hứa ngọc thảo Nguyên" Ma_so="NV_3" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_PHAN_CONG" Ngay="2017-08-04T00:00:00+07:00" So_luong="1" Don_gia="5160000" Tien="5160000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Bùi như Châu" Dien_thoai="0242789474" Dia_chi="439 Trần bùi Thúy,Phường 2,Quận 6, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+  </PHIEU_DAT>
+  <PHIEU_DAT Trang_thai="CHO_GIAO" Ngay="2017-08-04T00:00:00+07:00" So_luong="2" Don_gia="5160000" Tien="10320000" So_ngay_Du_kien="1" So_ngay_Thuc_te="1">
+    <Khach_hang Ho_ten="Phùng bích Hùng" Dien_thoai="0314414536" Dia_chi="377 Nhữ đình Quyên,Phường 2,Quận Tân bình, Ho Chi Minh City, Ho Chi Minh, Vietnam" />
+    <Nhan_vien Ho_ten="Nguyên đình Vàng" Ma_so="NV_2" />
+  </PHIEU_DAT>
+</DIEN_THOAI>

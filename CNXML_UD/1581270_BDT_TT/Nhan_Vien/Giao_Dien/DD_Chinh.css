@@ -1,0 +1,66 @@
+﻿.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mr-1 {
+    margin-right: 1rem !important;
+}
+
+footer {
+    padding: 1rem 0;
+}
+
+.status {
+    padding: 1rem;
+    text-align: center !important;
+}
+
+.ten-dien-thoai {
+    font-size: 1.6rem;
+}
+
+.ngay {
+    font-size: 1rem;
+    font-style: italic;
+}
+
+.tien, .don-gia, .tong-tien, input#don-gia {
+    font-size: 1.5rem;
+}
+
+.don-gia {
+    color: #4CAF50 !important;
+}
+
+.tong-tien {
+    color: #f44336 !important;
+}
+
+.so-luong {
+    font-size: 1.2rem !important;
+}
+
+.btn {
+    background-color: #ffab40;
+}
+
+.thong-ke {
+    font-size: 1.5rem;
+}
+
+span.text-red {
+    color: #f44336 !important;
+}
+
+.card-action a {
+    justify-content: center;
+}
+.logo {
+    width: 100px;
+    height: auto;
+}
+@media only screen and (max-width: 567px) {
+    .logo {
+        width: 50px;
+    }
+}

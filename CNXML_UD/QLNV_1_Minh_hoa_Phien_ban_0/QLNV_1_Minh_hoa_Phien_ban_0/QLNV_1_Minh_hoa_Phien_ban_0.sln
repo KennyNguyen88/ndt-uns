@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Ung_dung_QLCN_DeskTop", "Ung_dung_QLCN_DeskTop\Ung_dung_QLCN_DeskTop.vbproj", "{07C69A6B-FE01-4A48-8CBE-865A61DCCF88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{641F3889-9822-486A-BA03-512ACF534EF4} = {641F3889-9822-486A-BA03-512ACF534EF4}
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Dich_vu_Du_lieu", "Dich_vu_Du_lieu\Dich_vu_Du_lieu.vbproj", "{641F3889-9822-486A-BA03-512ACF534EF4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07C69A6B-FE01-4A48-8CBE-865A61DCCF88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C69A6B-FE01-4A48-8CBE-865A61DCCF88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C69A6B-FE01-4A48-8CBE-865A61DCCF88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C69A6B-FE01-4A48-8CBE-865A61DCCF88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{641F3889-9822-486A-BA03-512ACF534EF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{641F3889-9822-486A-BA03-512ACF534EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{641F3889-9822-486A-BA03-512ACF534EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{641F3889-9822-486A-BA03-512ACF534EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
