@@ -67,7 +67,7 @@ namespace DoAn
                 String Email = Console.ReadLine();
                 Console.Write("Dia Chi: ");
                 String DiaChi = Console.ReadLine();
-                if (validate())
+                if (validate(NgaySinh, GioiTinh))
                 {
                     this.HoTen = HoTen;
                     this.CMND = CMND;
@@ -79,7 +79,7 @@ namespace DoAn
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }            
@@ -147,7 +147,7 @@ namespace DoAn
                     nNgayHet = calculateNgayHet(nNgayLap);
                 }                
 
-                if (validate())
+                if (validate(nNgaySinh, nGioiTinh))
                 {
                     this.HoTen = nHoTen;
                     this.CMND = nCMND;
@@ -161,14 +161,16 @@ namespace DoAn
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return false;
             }
         }
-        public bool validate()
+        public bool validate(String ngaysinh, String gioitinh)
         {
-            return true;
+            if (UTIL.formatStringToDate(ngaysinh) != DateTime.MinValue && (gioitinh.ToUpper().Equals("NAM") || gioitinh.ToUpper().Equals("NU")))
+                return true;
+            return false;
         }
         //Ghi ra file
         public bool write()
@@ -189,7 +191,7 @@ namespace DoAn
                 file.WriteLine(this.NgayHet);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -203,7 +205,7 @@ namespace DoAn
                 File.Delete(fileName);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

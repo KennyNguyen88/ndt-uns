@@ -72,7 +72,7 @@ namespace DoAn
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }                        
@@ -144,13 +144,13 @@ namespace DoAn
                     this.NXB = nNXB;
                     this.NamXB = nNamXB;
                     this.TheLoai = nTheLoai;
-                    this.Gia = Gia;
-                    this.SoQuyen = SoQuyen;                    
+                    this.Gia = nGia;
+                    this.SoQuyen = nSoQuyen;                    
                     return true;
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }                                    
@@ -178,7 +178,7 @@ namespace DoAn
                 file.WriteLine(this.SoQuyen);
                 return true;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return false;
             }            
@@ -192,7 +192,7 @@ namespace DoAn
                 File.Delete(fileName);
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }            

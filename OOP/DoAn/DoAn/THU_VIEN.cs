@@ -152,7 +152,7 @@ namespace DoAn
                     Console.WriteLine("Vui long nhap 1 hoac 2");                    
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("Vui long nhap 1 hoac 2");
                 
@@ -316,7 +316,7 @@ namespace DoAn
                     Console.WriteLine("Vui long nhap 1 hoac 2");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("Vui long nhap 1 hoac 2");
 
@@ -406,7 +406,7 @@ namespace DoAn
                 }
                 return phieu.write();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return false;
             }
@@ -493,6 +493,7 @@ namespace DoAn
                     SACH sach = getSachISBN(isbn);
                     tienmat += sach.Gia * 2;
                 }
+                Console.WriteLine("So tien den bu sach mat: " + tienmat);
             }
             tong = tientrehan + tienmat;
             Console.WriteLine("Tong tien thanh toan: " + tong);
@@ -542,7 +543,7 @@ namespace DoAn
                 result.Add(TheLoai);
                 result.Add(SLTheLoai);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return null;
             }            
@@ -557,8 +558,8 @@ namespace DoAn
         public ArrayList thongKeDocGiaTheoGioiTinh()
         {
             ArrayList result = new ArrayList();
-            result[0] = 0;//Nam
-            result[1] = 0;//Nu
+            result.Add(0);//Nam
+            result.Add(0);//Nu
             try
             {
                 foreach (DOC_GIA docgia in this._listDocGia)
@@ -573,7 +574,7 @@ namespace DoAn
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

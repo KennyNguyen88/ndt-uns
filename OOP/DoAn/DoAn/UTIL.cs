@@ -55,7 +55,7 @@ namespace DoAn
                 sach.SoQuyen = int.Parse(lines[7]);
                 return sach;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return null;
             }                        
@@ -95,7 +95,7 @@ namespace DoAn
                 docgia.NgayHet = lines[8];
                 return docgia;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -135,7 +135,7 @@ namespace DoAn
                 }                
                 return phieu;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -151,12 +151,20 @@ namespace DoAn
         }
         public static DateTime formatStringToDate(String dt)
         {
-            DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
-            int year = int.Parse(dt.Substring(0, 4));
-            int month = int.Parse(dt.Substring(4, 2));
-            int day = int.Parse(dt.Substring(6, 2));
-            DateTime result = new DateTime(year,month,day);            
-            return result;
+            try
+            {
+                DateTimeFormatInfo dtfi = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
+                int year = int.Parse(dt.Substring(0, 4));
+                int month = int.Parse(dt.Substring(4, 2));
+                int day = int.Parse(dt.Substring(6, 2));
+                DateTime result = new DateTime(year, month, day);
+                return result;
+            }
+            catch (Exception)
+            {
+                return DateTime.MinValue;
+            }
+            
         }
 
 
