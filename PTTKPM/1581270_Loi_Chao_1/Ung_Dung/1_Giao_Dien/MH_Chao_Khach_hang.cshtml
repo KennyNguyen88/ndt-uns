@@ -1,0 +1,60 @@
+﻿  
+@{  var Danh_sach_Nhom_hang = XL_LUU_TRU.Doc_Danh_sach_Nhom_hang();
+    var Danh_sach_Mat_hang = XL_LUU_TRU.Doc_Danh_sach_Mat_hang();
+    var Ho_ten = ""; // Biến Nhập liệu
+    var Khach_hang = new XL_KHACH_HANG(); // Biến Kêt quả
+    if (Request["Th_Ho_ten"]!=null) // Xử lý Biến cố     
+    {   Ho_ten = Request["Th_Ho_ten"];// Nhập liệu
+        Khach_hang.Ho_ten = Ho_ten;
+    }
+    // Xử lý Thể hiện  
+    var Chuoi_HTML_Khach_hang = "";
+    var Chuoi_HTML_Thong_bao = "";
+    var Chuoi_HTML_Danh_Sach_Nhom_Hang = "";
+
+    if (Ho_ten == "") // Người dùng chưa nhập liệu 
+    {  Chuoi_HTML_Thong_bao = "<div>Xin vui lòng Nhập Họ tên khác trống"+
+            "<br />Click Đồng ý=>Nếu hợp lệ Ứng dụng sẽ chào anh/chị"+ "</div>";
+    }
+    else if (Khach_hang.Ho_ten =="") // Người dùng đã nhập liệu - Không Hợp lệ
+    {  // Không có trường hợp này : Tại sao ???
+    }
+    else if (Khach_hang.Ho_ten != "") // Người dùng đã nhập liệu - Hợp lệ 
+    {
+        Chuoi_HTML_Khach_hang = XL_THE_HIEN.Tao_Chuoi_HTML_Khach_hang_Khi_Chao(Khach_hang);
+        Chuoi_HTML_Thong_bao = "<h4>Chúng tôi hiện có " + Danh_sach_Nhom_hang.Count + " Nhóm hàng" +
+                                                      " với " + Danh_sach_Mat_hang.Count + " Mặt hàng </h4>";
+        Chuoi_HTML_Danh_Sach_Nhom_Hang = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Nhom_hang_New(Danh_sach_Nhom_hang, Danh_sach_Mat_hang);
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
+
+</head>
+
+<body style="font-family:Arial">
+    <form method="post" action="MH_Chao_Khach_hang.cshtml">
+        <div class="container-fluid">
+            <div>
+                <input name="Th_Ho_ten" placeholder="Họ tên Khách hàng" required="required"
+                       spellcheck="false" autocomplete="off" value="@Ho_ten" />
+                <button class="btn btn-danger" type="submit">Đồng ý</button>
+            </div>
+
+            @Html.Raw(Chuoi_HTML_Khach_hang)
+            @Html.Raw(Chuoi_HTML_Thong_bao)
+            @Html.Raw(Chuoi_HTML_Danh_Sach_Nhom_Hang)
+        </div>
+    </form>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+ 
