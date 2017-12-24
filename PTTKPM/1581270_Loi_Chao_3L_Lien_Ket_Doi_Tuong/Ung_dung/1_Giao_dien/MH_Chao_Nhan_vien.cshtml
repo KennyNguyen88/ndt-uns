@@ -1,0 +1,70 @@
+﻿ 
+@{  var Danh_sach_Nhan_vien = XL_LUU_TRU.Doc_Danh_sach_Nhan_vien();var Danh_sach_Tat_ca_Nhom_hang = XL_LUU_TRU.Doc_Danh_sach_Nhom_hang();
+    var Danh_sach_Mat_hang = XL_LUU_TRU.Doc_Danh_sach_Mat_hang();
+    var Ten_dang_nhap = ""; var Mat_khau = "";// Biến Nhập liệu
+    var Nhan_vien = new XL_NHAN_VIEN();  // Biến  Kết quả
+    if (Request["Th_Ten_dang_nhap"] != null) // Xử lý Biến cố
+    {   Ten_dang_nhap = Request["Th_Ten_dang_nhap"]; Mat_khau = Request["Th_Mat_khau"];
+        var Hop_le = Danh_sach_Nhan_vien.Any(x => x.Ten_dang_nhap == Ten_dang_nhap && x.Mat_khau == Mat_khau);
+        if (Hop_le)
+        {  Nhan_vien = Danh_sach_Nhan_vien.FirstOrDefault(x => x.Ten_dang_nhap == Ten_dang_nhap && x.Mat_khau == Mat_khau);
+           Nhan_vien.Danh_sach_Dang_nhap.Add(DateTime.Now); XL_LUU_TRU.Ghi_Nhan_vien(Nhan_vien);}}
+    var Chuoi_HTML_Nhan_vien = "";// Xử lý Thể hiện : Tạo Chuỗi HTML
+    var Chuoi_HTML_Thong_bao = ""; var Chuoi_HTML_Danh_sach_Nhom_hang = "";
+    var Chuoi_HTML_Danh_sach_Mat_hang = "";
+    if (Ten_dang_nhap == "") // Người dùng chưa nhập liệu
+    { Chuoi_HTML_Thong_bao ="<div>Xin vui lòng Nhập Tên đăng nhập và Mật khẩu" + "<br />Click Đồng ý=>Nếu hợp lệ Ứng dụng sẽ chào anh/chị"+ "</div>";}
+    else if (Nhan_vien.Ma_so == "") // Người dùng đã nhập liệu - Không Hợp lệ
+    { Chuoi_HTML_Thong_bao = "<div>Đăng nhập không hợp lệ"+ "<br />Xin vui lòng Nhập <b>lại</b> Tên đăng nhập và Mật khẩu" + "</div>";}
+    else if (Nhan_vien.Ma_so != "") // Người dùng đã nhập liệu - Hợp lệ
+    {   var Danh_sach_Nhom_hang_cua_Nhan_vien = XL_NGHIEP_VU.Tao_Danh_sach_Nhom_hang_cua_Nhan_vien(
+                        Nhan_vien, Danh_sach_Tat_ca_Nhom_hang);
+        var Danh_sach_Mat_hang_cua_Nhan_vien = XL_NGHIEP_VU.Tao_Danh_sach_Mat_hang_cua_Nhan_vien(
+                Nhan_vien,Danh_sach_Mat_hang);
+        Chuoi_HTML_Nhan_vien = XL_THE_HIEN.Tao_Chuoi_HTML_Nhan_vien_Khi_Chao(Nhan_vien);
+        Chuoi_HTML_Thong_bao = "<br />Anh/chị được phân công " + Danh_sach_Nhom_hang_cua_Nhan_vien.Count + " Nhóm hàng" +
+                                 " với " + Danh_sach_Mat_hang_cua_Nhan_vien.Count + " Mặt hàng ";
+        Chuoi_HTML_Danh_sach_Nhom_hang = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Nhom_hang(
+            Danh_sach_Nhom_hang_cua_Nhan_vien,Danh_sach_Mat_hang);
+        Chuoi_HTML_Danh_sach_Mat_hang = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Mat_hang_cua_Nhan_vien);
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
+</head>
+<body>
+    <form method="post" action="MH_Chao_Nhan_vien.cshtml">
+        <div class="container-fluid">
+            <div>
+                <div class="alert" style="height:10px">
+                    Đăng nhập Nhân viên
+                </div>
+                <div class="alert" style="height:30px">
+                    <input name="Th_Ten_dang_nhap" required="required"
+                           spellcheck="false" autocomplete="off" value="@Ten_dang_nhap" />
+                </div>
+                <div class="alert" style="height:30px">
+                    <input name="Th_Mat_khau" type="password" required="required"
+                           spellcheck="false" autocomplete="off" value="@Mat_khau" />
+                </div>
+                <div class="alert" style="height:40px">
+                    <button class="btn btn-danger" type="submit">Đồng ý</button>
+                </div>
+            </div>
+            @Html.Raw(Chuoi_HTML_Nhan_vien)
+            @Html.Raw(Chuoi_HTML_Thong_bao)
+            @Html.Raw(Chuoi_HTML_Danh_sach_Nhom_hang)
+            @Html.Raw(Chuoi_HTML_Danh_sach_Mat_hang)
+        </div>
+    </form>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+ 

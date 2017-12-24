@@ -1,0 +1,37 @@
+﻿@{  
+    //var Danh_sach_Nhom_hang = XL_LUU_TRU.Doc_Danh_sach_Nhom_hang();
+    var Cong_Ty = XL_LUU_TRU.Tao_Cong_Ty();
+    var Danh_sach_Mat_hang = XL_LUU_TRU.Doc_Danh_sach_Mat_hang();
+    var Khach_Tham_quan = new XL_KHACH_THAM_QUAN();// Biến  ( Kêt quả )
+                                                   // Xử lý Thể hiện  : Tạo Chuỗi HTML
+
+    var Chuoi_HTML_Khach_Tham_quan = XL_THE_HIEN.Tao_Chuoi_HTML_Khach_Tham_quan_Khi_Chao(
+                      Khach_Tham_quan);
+    var Chuoi_HTML_Thong_bao = "<br />Chúng tôi hiện có " +
+                       Cong_Ty.Danh_sach_Nhom_hang.Count + " Nhóm hàng" +
+                       " với " + Danh_sach_Mat_hang.Count + " Mặt hàng";
+    var Chuoi_HTML_Danh_sach_Nhom_hang = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Nhom_hang(
+        Cong_Ty.Danh_sach_Nhom_hang, Danh_sach_Mat_hang);
+    var Chuoi_HTML_Danh_sach_Mat_hang = XL_THE_HIEN.Tao_Chuoi_HTML_Danh_sach_Mat_hang(Danh_sach_Mat_hang);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous" />
+</head>
+<body style="font-family:Arial;">
+    <div class="container-fluid">
+        @Html.Raw(Chuoi_HTML_Khach_Tham_quan)
+        @Html.Raw(Chuoi_HTML_Thong_bao)
+        @Html.Raw(Chuoi_HTML_Danh_sach_Nhom_hang)
+        @Html.Raw(Chuoi_HTML_Danh_sach_Mat_hang)
+    </div>
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
