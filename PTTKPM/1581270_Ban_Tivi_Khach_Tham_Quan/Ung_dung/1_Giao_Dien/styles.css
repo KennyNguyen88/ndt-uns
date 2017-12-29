@@ -1,0 +1,42 @@
+﻿body {
+    font-family: Arial;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0px;    
+    padding: 0px;
+    overflow-x: hidden;
+}
+.CUA_SO_PET {
+    background-color: aliceblue;
+    margin: 10px;
+}
+.btn PET {
+    margin-left: 0px;
+}
+.btn TOM_TAT {
+    color: blue;
+}
+img.logo {
+    width: 40px;
+    height: 30px;
+}
+img.SAN_PHAM {
+    width: 150px;
+    height: 150px;
+}
+.THONG_TIN_SAN_PHAM {
+    text-align: left
+}
+.CUA_SO_CHUC_NANG {
+    background-color: gray;
+    margin: 10px
+}
+.CUA_SO_KET_QUA {
+    background-color: white;
+    margin: 10px
+}
+.box{
+    margin-bottom: 10px;
+    display: flex;
+    align-items:center;
+}
