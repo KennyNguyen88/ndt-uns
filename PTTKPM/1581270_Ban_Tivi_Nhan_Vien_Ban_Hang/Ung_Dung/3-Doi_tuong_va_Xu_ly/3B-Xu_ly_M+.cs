@@ -35,6 +35,7 @@ public partial class XL_DU_LIEU
                              "style='width:90px;height:90px;' />";
             
             var Chuoi_Thong_tin = $"<div class='btn' style='text-align:left'> " +
+                          $"{Tivi.Ma_so}<br />" +
                           $"{Tivi.Ten}" +
                           $"<br />Đơn giá Bán { Tivi.Don_gia_Ban.ToString("n0", Dinh_dang_VN) }" +
                            $"<br />Số lượng Tồn { So_luong_Ton.ToString("n0", Dinh_dang_VN)}" +
@@ -165,7 +166,7 @@ public partial class XL_DU_LIEU
 public partial class XL_DU_LIEU
 {
     static string Dia_chi_Dich_vu = "http://localhost:50900";
-    static string Dia_chi_Dich_vu_Khach_Tham_quan = $"{Dia_chi_Dich_vu}/1-Dich_vu_Giao_tiep/DV_Chinh.cshtml";
+    static string Dia_chi_Dich_vu_Du_lieu = $"{Dia_chi_Dich_vu}/1-Dich_vu_Giao_tiep/DV_Chinh.cshtml";
 
     static XL_DU_LIEU Doc_Du_lieu()
     {
@@ -173,11 +174,35 @@ public partial class XL_DU_LIEU
         var Xu_ly = new WebClient();
         Xu_ly.Encoding = System.Text.Encoding.UTF8;
         var Tham_so = "Ma_so_Xu_ly=DOC_DU_LIEU";
-        var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Khach_Tham_quan}?{Tham_so}";
+        var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Du_lieu}?{Tham_so}";
         var Chuoi_JSON = Xu_ly.DownloadString(Dia_chi_Xu_ly);
         var Du_lieu = Json.Decode<XL_DU_LIEU>(Chuoi_JSON);
         return Du_lieu;
     }
-   
+    public string Ghi_Ban_hang_Moi(XL_TIVI Tivi, XL_BAN_HANG Ban_Hang)
+    {
+        var Kq = "";
+        var Xu_ly = new WebClient();
+        Xu_ly.Encoding = System.Text.Encoding.UTF8;
+        var Tham_so = $"Ma_so_Xu_ly=GHI_BAN_HANG_MOI&Ma_so_Tivi={Tivi.Ma_so}";
+        var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Du_lieu}?{Tham_so}";
+        var Chuoi_JSON = Json.Encode(Ban_Hang);
+        try
+        {
+            Kq = Xu_ly.UploadString(Dia_chi_Xu_ly, Chuoi_JSON).Trim();
+        }
+        catch (Exception Loi)
+        {
+            Kq = Loi.Message;
+        }
+        if (Kq == "OK")
+        {
+            Tivi.Danh_sach_Ban_hang.Add(Ban_Hang);
+
+        }
+        return Kq;
+
+    }
+
 
 }

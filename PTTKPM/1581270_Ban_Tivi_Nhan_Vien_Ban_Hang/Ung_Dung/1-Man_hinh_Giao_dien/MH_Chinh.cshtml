@@ -1,4 +1,5 @@
 ﻿@{
+
     //****************** Xử lý Bảo mật  **********
     var NhanVien = (XL_NHAN_VIEN)Session["Nhan_vien_Dang_nhap"];
     if (NhanVien == null)
@@ -14,8 +15,14 @@
     var Danh_Sach_Nhan_Vien = Du_lieu.Cua_hang.Danh_sach_Nhan_vien;
 
     //******************* Khai báo Biến  ********************
+    var Chuoi_HTML_Thong_bao = "";
+    //####### Chức năng Tra cứu : 
     var Chuoi_Tra_cuu = "";// Biến Nhập
     var Danh_sach_Tivi_Xem = Danh_sach_Tivi; // Biến Kết quả
+    //####### Chức năng bán Tivi :   
+    var Ma_so_Tivi = "";// Biến Nhập 
+    var So_luong = 1;// Biến Nhập
+    var Ban_Hang = new XL_BAN_HANG(); // Biến Kết quả 
 
     //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
     if (Request["Th_Chuoi_Tra_cuu"] != null)
@@ -25,6 +32,30 @@
         Danh_sach_Tivi_Xem = Danh_sach_Tivi_Xem.OrderBy(Tivi => Tivi.Don_gia_Ban).ToList();
     }
 
+    if (Request["Th_Ma_so_Tivi"] != null)
+    {
+        Ma_so_Tivi = Request["Th_Ma_so_Tivi"];
+        So_luong = int.Parse(Request["Th_So_luong"]);
+        var Tivi = Danh_sach_Tivi.FirstOrDefault(x => x.Ma_so == Ma_so_Tivi);
+        //Có tivi, số lượng bán > 0, số lượng bán <= số lượng tồn, loại tivi phải nằm trong quyền bán của nhân viên
+        var Hop_le = (Tivi != null) && So_luong >= 1 && So_luong <= Du_lieu.Tinh_So_luong_Ton_Tivi(Tivi) && NhanVien.Danh_sach_Nhom_Tivi.Any(x => x.Ma_so == Tivi.Nhom_Tivi.Ma_so);
+        if (Hop_le)
+        {            
+            Ban_Hang.So_luong = So_luong;
+            Ban_Hang.Don_gia = Tivi.Don_gia_Nhap;
+            Ban_Hang.Ngay = DateTime.Today;
+            Ban_Hang.Tien = So_luong * Tivi.Don_gia_Nhap;
+            var Kq_Ghi = Du_lieu.Ghi_Ban_hang_Moi(Tivi, Ban_Hang);
+            // Lưu ý : Chưa xét trường hợp của Kq_Ghi 
+            Chuoi_HTML_Thong_bao = "<div class='alert alert-success'>Tổng tiền phải trả " + So_luong
+                                        + " " + Tivi.Ten + " là "
+                                 + Ban_Hang.Tien.ToString("n0", Du_lieu.Dinh_dang_VN) + "</div>";
+        }
+        else
+        {
+            Chuoi_HTML_Thong_bao = "<div class='alert alert-warning'>Dữ liệu Nhập không hợp lệ</div>";
+        }
+    }
     //******************* Kết xuất  **********
     var Chuoi_HTML_Danh_sach_Tivi = Du_lieu.Tao_Chuoi_HTML_Danh_sach_Tivi(Danh_sach_Tivi_Xem);
     var Chuoi_HTML_Doanh_Thu = Du_lieu.Tao_Chuoi_HTML_Doanh_Thu_Nhan_Vien(Danh_sach_Tivi, NhanVien);
@@ -53,13 +84,24 @@
         <div class="CUA_SO_CHUC_NANG" style="background-color:gray;margin:10px">
             <div class="DANH_SACH_CHUC_NANG">
                 <div class="btn  CHUC_NANG">
-                    <input name="Th_Chuoi_Tra_cuu" style="height:30px"
-                           spellcheck="false" autocomplete="off" value="@Chuoi_Tra_cuu" />
+                    <form method="post">
+                        <input name="Th_Chuoi_Tra_cuu" style="height:30px"
+                               spellcheck="false" autocomplete="off" value="@Chuoi_Tra_cuu" />
+                    </form>
                 </div>
-
+                <div class="btn  CHUC_NANG">
+                    <form method="post">
+                        <input name="Th_Ma_so_Tivi" style="height:30px;width:100px" placeholder="Mã số Tivi" required="required"
+                               spellcheck="false" autocomplete="off" value="@Ma_so_Tivi" />
+                        <input name="Th_So_luong" style="height:30px;width:60px" required="required" type="number" min="1"
+                               spellcheck="false" autocomplete="off" value="@So_luong" />
+                        <button class="btn btn-danger" type="submit">Đồng ý</button>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
+            @Html.Raw(Chuoi_HTML_Thong_bao)
             <h2>Thông tin cho nhân viên</h2>
             @Html.Raw(Chuoi_HTML_Doanh_Thu)
             <h2>Danh sách Tivi</h2>
