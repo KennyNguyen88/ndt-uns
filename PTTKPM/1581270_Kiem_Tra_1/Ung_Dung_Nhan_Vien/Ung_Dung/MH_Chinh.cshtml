@@ -1,0 +1,90 @@
+﻿@{
+    //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
+    var MaNV = "NV_1"; //for Test
+
+    var Du_lieu = XL_DU_LIEU.Khoi_dong_Du_lieu_Ung_dung(MaNV);
+    //var NhanVien = Du_lieu.Nhan_vien;
+
+    //begin for Test
+    var NhanVien = new XL_NHAN_VIEN();
+    NhanVien.Ho_ten = "Đồng hửu Bắc";
+    XL_DON_VI dv = new XL_DON_VI();
+    XL_CHI_NHANH cn = new XL_CHI_NHANH();
+    XL_Y_KIEN yk = new XL_Y_KIEN();
+    XL_DON_XIN_NGHI dxn = new XL_DON_XIN_NGHI();
+
+    yk.Ngay = DateTime.Now;
+    yk.Da_co_Y_kien = true;
+    yk.Noi_dung = "Đồng ý cho nghỉ";
+
+    dxn.Ngay_Nop_don = DateTime.Now;
+    dxn.Ngay_Bat_dau = DateTime.Now;
+    dxn.So_ngay = 2;
+    dxn.Ly_do = "Việc riêng";
+    dxn.Y_kien = yk;
+
+    cn.Ten = "Chi nhánh A";
+    cn.Ma_so = "CHI_NHANH_A";
+    dv.Ten = "Đơn vị A.1";
+    dv.Ma_so = "DON_VI_A.1";
+    dv.Chi_nhanh = cn;
+
+    NhanVien.Don_vi = dv;
+    NhanVien.Danh_sach_Don_xin_nghi.Add(dxn);  
+    //end for test
+
+    //******************* Kết xuất  **********    
+    var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML(NhanVien);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body style="font-family:Arial;width:100%;box-sizing:border-box;
+              margin:0px;;padding:0px;overflow-x:hidden" class="container-fluid">
+    <form method="post">
+        <div class="CUA_SO_PET" style="background-color:aliceblue;margin:10px">
+            <div class="btn PET" style="margin-left:0px">
+                <img src="@Du_lieu.Dia_chi_Media/PET.png"
+                     style="width:40px;height:30px;" />
+                <div class="btn TOM_TAT" style="color:blue;text-align:center">
+                    Mô hình - Công nghệ - Kỹ thuật
+                    <br /><b><i>Đơn giản</i></b>
+                </div>
+            </div>
+            <div class="btn btn-outline-primary" style="background-color:white;color:blue">
+                Phân tích & Thiết kế Phần mềm
+                <br /> Ứng dụng Giảng dạy - Tháng 1/2018
+            </div>
+            @*<div class="btn btn-outline-primary" style="background-color:white;color:saddlebrown">
+                @Cua_hang.Ten
+                <br />Phân hệ Khách tham quan
+            </div>*@
+        </div>
+        <div class="CUA_SO_CHUC_NANG" style="background-color:gray;margin:10px">
+            <div class="DANH_SACH_CHUC_NANG">
+                @*<div class="btn  CHUC_NANG">
+                    <input name="Th_Chuoi_Tra_cuu" style="height:30px"
+                           spellcheck="false" autocomplete="off" value="@Chuoi_Tra_cuu" />
+                </div>*@
+
+            </div>
+        </div>
+        <div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
+            @Html.Raw(Chuoi_HTML)
+       </div>
+    </form>
+
+
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
