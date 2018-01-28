@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A9F627D0-6B68-463A-9086-87EA56964575}</ProjectGuid>
+    <ProjectGuid>{F2C4AC2E-5741-4402-86B0-E4C5AA3D6A9F}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -87,8 +87,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="1_Man_Hinh_Giao_Dien\MH_Dang_Nhap.cshtml" />
     <Content Include="1_Man_Hinh_Giao_Dien\MH_Chinh.cshtml" />
-    <Content Include="1_Man_Hinh_Giao_Dien\MH_DangNhap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -118,9 +118,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51772</DevelopmentServerPort>
+          <DevelopmentServerPort>54668</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51772/</IISUrl>
+          <IISUrl>http://localhost:54668/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

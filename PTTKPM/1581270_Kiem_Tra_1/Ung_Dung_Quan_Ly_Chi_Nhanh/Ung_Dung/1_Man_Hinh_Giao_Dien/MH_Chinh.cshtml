@@ -1,40 +1,43 @@
 ﻿@{
-    //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
-    var MaNV = "NV_1"; //for Test
+    //****************** Xử lý Bảo mật  **********
+    var QuanLy = (XL_QUAN_LY)Session["Nhan_vien_Dang_nhap"];
+    if (QuanLy == null)
+    {
+        Response.Write("Người dùng chưa Đăng nhập");
+        Response.End();
+    }
+    var Du_lieu = XL_DU_LIEU.Khoi_dong_Du_lieu_Ung_dung();
+    var dsNV = Du_lieu.Loc_DS_Nhan_Vien(QuanLy);
+    //Chức năng ghi y kien
+    var Chuoi_HTML_Thong_bao = "";
 
-    var Du_lieu = XL_DU_LIEU.Khoi_dong_Du_lieu_Ung_dung(MaNV);
-    //var NhanVien = Du_lieu.Nhan_vien;
+    //******************* Nhập liệu cho Biến Nhập nếu có - Tính Biến kết quả nếu Hợp lệ   *****************
+    if (Request["TH_Ma_Nhan_Vien"] != null) // Xử lý Biến cố
+    {
+        var MaNhanVien = Request["TH_Ma_Nhan_Vien"];
+        var YKien = Request["TH_Y_Kien"];
+        var NgayNopDon = Request["TH_NgayNopDon"];
+        var NgayBatDau = Request["TH_NgayBatDauNghi"];
 
-    //begin for Test
-    var NhanVien = new XL_NHAN_VIEN();
-    NhanVien.Ho_ten = "Đồng hửu Bắc";
-    XL_DON_VI dv = new XL_DON_VI();
-    XL_CHI_NHANH cn = new XL_CHI_NHANH();
-    XL_Y_KIEN yk = new XL_Y_KIEN();
-    XL_DON_XIN_NGHI dxn = new XL_DON_XIN_NGHI();
+        //validate input
+        var Hop_le = true;
 
-    yk.Ngay = DateTime.Now;
-    yk.Da_co_Y_kien = true;
-    yk.Noi_dung = "Đồng ý cho nghỉ";
+        if (Hop_le)
+        {
+            var KetQua = Du_lieu.Ghi_Y_Kien(MaNhanVien, YKien, NgayNopDon, NgayBatDau);
+            if (KetQua == "OK")
+            {
+                Chuoi_HTML_Thong_bao += "Cho ý kiến thành công";
+            }
+            else
+            {
+                Chuoi_HTML_Thong_bao += "Cho ý kiến không thành công";
+            }
+        }
+    }
 
-    dxn.Ngay_Nop_don = DateTime.Now;
-    dxn.Ngay_Bat_dau = DateTime.Now;
-    dxn.So_ngay = 2;
-    dxn.Ly_do = "Việc riêng";
-    dxn.Y_kien = yk;
-
-    cn.Ten = "Chi nhánh A";
-    cn.Ma_so = "CHI_NHANH_A";
-    dv.Ten = "Đơn vị A.1";
-    dv.Ma_so = "DON_VI_A.1";
-    dv.Chi_nhanh = cn;
-
-    NhanVien.Don_vi = dv;
-    NhanVien.Danh_sach_Don_xin_nghi.Add(dxn);  
-    //end for test
-
-    //******************* Kết xuất  **********    
-    var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML(NhanVien);
+    //******************* Kết xuất  **********
+    var Chuoi_HTML = Du_lieu.Tao_Chuoi_HTML(dsNV);
 }
 <!DOCTYPE html>
 <html>
@@ -46,8 +49,8 @@
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 <body style="font-family:Arial;width:100%;box-sizing:border-box;
-              margin:0px;;padding:0px;overflow-x:hidden" class="container-fluid">
-    <form method="post">
+              margin:0px;padding:0px;overflow-x:hidden" class="container-fluid">
+    
         <div class="CUA_SO_PET" style="background-color:aliceblue;margin:10px">
             <div class="btn PET" style="margin-left:0px">
                 <img src="@Du_lieu.Dia_chi_Media/PET.png"
@@ -59,26 +62,22 @@
             </div>
             <div class="btn btn-outline-primary" style="background-color:white;color:blue">
                 Phân tích & Thiết kế Phần mềm
-                <br /> Ứng dụng Giảng dạy - Tháng 1/2018
+                <br /> Kiểm tra trực tuyến lần 1
             </div>
-            @*<div class="btn btn-outline-primary" style="background-color:white;color:saddlebrown">
-                @Cua_hang.Ten
-                <br />Phân hệ Khách tham quan
-            </div>*@
+            <div class="btn btn-outline-primary" style="background-color:white;color:saddlebrown">
+                Phân hệ Nhân Viên Quản Lý Chi Nhánh
+            </div>
         </div>
-        <div class="CUA_SO_CHUC_NANG" style="background-color:gray;margin:10px">
+        <div class="CUA_SO_CHUC_NANG" style="background-color:#ccc;margin:10px">
             <div class="DANH_SACH_CHUC_NANG">
-                @*<div class="btn  CHUC_NANG">
-                    <input name="Th_Chuoi_Tra_cuu" style="height:30px"
-                           spellcheck="false" autocomplete="off" value="@Chuoi_Tra_cuu" />
-                </div>*@
 
             </div>
         </div>
         <div class="CUA_SO_KET_QUA" style="background-color:white;margin:10px">
+            @Html.Raw(Chuoi_HTML_Thong_bao)
             @Html.Raw(Chuoi_HTML)
-       </div>
-    </form>
+        </div>
+    
 
 
 

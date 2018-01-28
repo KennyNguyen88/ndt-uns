@@ -4,11 +4,10 @@ using System.Linq;
 using System.Web;
 public partial class XL_DU_LIEU
 {
-    //Properties
+    //Properties 
     public XL_CONG_TY Cong_ty = new XL_CONG_TY();
     public List<XL_NHAN_VIEN> Danh_sach_Nhan_vien = new List<XL_NHAN_VIEN>();
 }
-
 public class XL_CONG_TY
 {
     public string Ten, Ma_so, Dien_thoai, Mail, Dia_chi;
