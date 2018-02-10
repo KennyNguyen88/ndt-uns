@@ -36,6 +36,7 @@ public partial class XL_DU_LIEU
     public string Tao_Chuoi_HTML_Nhan_Vien(XL_NHAN_VIEN NhanVien)
     {
         String HoTen = NhanVien.Ho_ten;
+        String MaNV = NhanVien.Ma_so;
 
         String TenDonVi = NhanVien.Don_vi.Ten;
         String TenChiNhanh = NhanVien.Don_vi.Chi_nhanh.Ten;
@@ -44,6 +45,7 @@ public partial class XL_DU_LIEU
         var Chuoi_HTML_Hinh = $"<img src='{Dia_chi_Media}/{NhanVien.Ma_so}.png' " +
                              "style='width:90px;height:90px;' />";
         var Chuoi_HTML_Ho_Ten = "<p> Họ tên: " + HoTen + "</p>";
+        var Chuoi_HTML_MaNV = "<p> Mã Nhân Viên: " + MaNV + "</p>";
         var Chuoi_HTML_Ten_Don_Vi = "<p> Tên Đơn Vị: " + TenDonVi + "</p>";
         var Chuoi_HTML_Ten_Chi_Nhanh = "<p> Tên Chi Nhánh: " + TenChiNhanh + "</p>";
 
@@ -53,6 +55,7 @@ public partial class XL_DU_LIEU
         Chuoi_HTML_Ket_Qua += "</div>";
         Chuoi_HTML_Ket_Qua += "<div class='col'>";
         Chuoi_HTML_Ket_Qua += Chuoi_HTML_Ho_Ten;
+        Chuoi_HTML_Ket_Qua += Chuoi_HTML_MaNV;
         Chuoi_HTML_Ket_Qua += Chuoi_HTML_Ten_Don_Vi;
         Chuoi_HTML_Ket_Qua += Chuoi_HTML_Ten_Chi_Nhanh;
         Chuoi_HTML_Ket_Qua += "</div>";
@@ -123,8 +126,9 @@ public partial class XL_DU_LIEU
         Xu_ly.Encoding = System.Text.Encoding.UTF8;
         var Tham_so = "Ma_so_Xu_ly=KHOI_DONG_DU_LIEU_QUAN_LY_CHI_NHANH";
         var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Du_lieu}?{Tham_so}";
-        var Chuoi_JSON = Xu_ly.DownloadString(Dia_chi_Xu_ly);
-        var Du_lieu = Json.Decode<XL_DU_LIEU>(Chuoi_JSON);
+        var Chuoi_JSON = Xu_ly.DownloadString(Dia_chi_Xu_ly);        
+        //var Du_lieu = Json.Decode<XL_DU_LIEU>(Chuoi_JSON);
+        var Du_lieu = Newtonsoft.Json.JsonConvert.DeserializeObject<XL_DU_LIEU>(Chuoi_JSON);
         return Du_lieu;
     }
 
@@ -161,10 +165,10 @@ public partial class XL_DU_LIEU
         XL_DON_XIN_NGHI dxn = NhanVien.Danh_sach_Don_xin_nghi.FirstOrDefault(don => (don.Ngay_Bat_dau.ToShortDateString() == NgayBatDau && don.Ngay_Nop_don.ToShortDateString() == NgayNopDon));
         var Xu_ly = new WebClient();
         Xu_ly.Encoding = System.Text.Encoding.UTF8;
-        var Tham_so = $"Ma_so_Xu_ly=GHI_Y_KIEN&MaNhanVien=" + MaNhanVien + "&Y_kien=" + Y_Kien;
+        var Tham_so = $"Ma_so_Xu_ly=GHI_Y_KIEN&Ma_so_Nhan_vien=" + MaNhanVien + "&Y_kien=" + Y_Kien;
         var Dia_chi_Xu_ly = $"{Dia_chi_Dich_vu_Du_lieu}?{Tham_so}";
         
-        var Chuoi_JSON = Json.Encode(dxn);
+        var Chuoi_JSON = Newtonsoft.Json.JsonConvert.SerializeObject(dxn, Newtonsoft.Json.Formatting.Indented);
         try
         {
             Kq = Xu_ly.UploadString(Dia_chi_Xu_ly, Chuoi_JSON).Trim();
