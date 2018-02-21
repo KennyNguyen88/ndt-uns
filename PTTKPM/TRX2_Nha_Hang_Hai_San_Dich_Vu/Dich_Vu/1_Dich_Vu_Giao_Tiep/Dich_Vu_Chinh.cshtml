@@ -1,0 +1,58 @@
+﻿@{
+    // *********Khởi động Dữ liệu nguồn/nội bộ ********
+    var Du_lieu = XL_DU_LIEU.Khoi_dong_Du_lieu_Ung_dung();
+
+    //*********Khai báo Biến/Đối tượng :Nhận & Kết quả *********
+    var Ma_so_Xu_ly = ""; // Biến Nhận
+    var Chuoi_Kq = ""; // Biến Kêt quả
+
+    //*********Xử lý Nhập liệu Nếu có + Tạo Kết quả Nếu Hợp lệ  *********
+    if (Request["Ma_so_Xu_ly"] != null)
+    {
+        Ma_so_Xu_ly = Request["Ma_so_Xu_ly"];// Nhận Tham số
+        var Bo_doc = new StreamReader(Request.InputStream);
+        var Chuoi_Nhan = Bo_doc.ReadToEnd(); // Nhận Đối tượng
+        if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_KHACH_THAM_QUAN")
+        {
+            var Du_lieu_Kq = Du_lieu.Tao_Du_lieu_Phan_he_Khach_Tham_quan();
+            Chuoi_Kq = Json.Encode(Du_lieu_Kq);
+        }
+        else if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_NHAN_VIEN_NHAP_HANG")
+        {
+            var Du_lieu_Kq = Du_lieu.Tao_Du_lieu_Phan_he_Nhan_vien_Nhap_hang();
+            Chuoi_Kq = Json.Encode(Du_lieu_Kq);
+        }
+        else if (Ma_so_Xu_ly == "GHI_NHAP_HANG_MOI")
+        {
+            var Ma_so_Tivi = Request["Ma_so_Tivi"];
+            var Tivi = Du_lieu.Danh_sach_Tivi.FirstOrDefault(x => x.Ma_so == Ma_so_Tivi);
+            var Nhap_hang = Json.Decode<XL_NHAP_HANG>(Chuoi_Nhan);
+            Chuoi_Kq = Du_lieu.Ghi_Nhap_hang_Moi(Tivi, Nhap_hang);
+        }
+        else if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_NHAN_VIEN_BAN_HANG")
+        {
+            var Du_lieu_Kq = Du_lieu.Tao_Du_lieu_Phan_he_Nhan_vien_Ban_hang();
+            Chuoi_Kq = Json.Encode(Du_lieu_Kq);
+        }
+        else if (Ma_so_Xu_ly == "GHI_BAN_HANG_MOI")
+        {
+            var Ma_so_Tivi = Request["Ma_so_Tivi"];
+            var Tivi = Du_lieu.Danh_sach_Tivi.FirstOrDefault(x => x.Ma_so == Ma_so_Tivi);
+            var Ban_hang = Json.Decode<XL_BAN_HANG>(Chuoi_Nhan);
+            Chuoi_Kq = Du_lieu.Ghi_Ban_hang_Moi(Tivi, Ban_hang);
+        }
+        else if (Ma_so_Xu_ly == "CAP_NHAT_DON_GIA_NHAP")
+        {
+            var Ma_so_Tivi = Request["Ma_so_Tivi"];
+            var Tivi = Du_lieu.Danh_sach_Tivi.FirstOrDefault(x => x.Ma_so == Ma_so_Tivi);
+            var Ban_hang = Json.Decode<XL_BAN_HANG>(Chuoi_Nhan);
+            Chuoi_Kq = Du_lieu.Ghi_Ban_hang_Moi(Tivi, Ban_hang);
+        }
+    }
+
+    // Xử lý trả Kết quả
+    Response.ContentType = "text/json";
+    Response.Write(Chuoi_Kq);
+}
+
+
