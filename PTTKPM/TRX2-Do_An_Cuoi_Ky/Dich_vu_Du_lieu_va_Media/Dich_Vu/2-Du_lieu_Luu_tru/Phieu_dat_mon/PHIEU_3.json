@@ -1,0 +1,19 @@
+{
+	"Ma_so": "PHIEU_3",
+	"Ban" : "2",
+	"Thoi_gian_dat" : "",
+	"Ma_Nhan_vien_Phuc_vu" : "NV_2",
+	"Trang_thai" : "CHUA_THANH_TOAN",	
+	"Danh_sach_Mon_an" : [
+		{
+			"Ma_so_Mon_an" : "MONAN_1",
+			"So_luong" : "1"
+		},
+		{
+			"Ma_so_Mon_an" : "MONAN_2",
+			"So_luong" : "1"
+		}
+	],
+	"Thanh_tien" : "89000",
+	"Thoi_gian_dong": ""
+}

@@ -1,0 +1,124 @@
+﻿@{
+    //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+    var Nguoi_dung = (XL_NGUOI_DUNG)Session["Nguoi_dung_Dang_Nhap"];
+    if (Nguoi_dung == null) { Response.Write("Người dùng không hợp lệ"); Response.End(); }
+    //******************* Khai báo và Khởi động giá trị đầu cho Biến  ********************
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    if (Ma_so_Chuc_nang == null) { Ma_so_Chuc_nang = Nguoi_dung.Chuc_nang_Khoi_dong_MH_Chinh.Ma_so; };
+
+    var Chuoi_HTML_Danh_sach_Thuc_Don = Ung_dung.Khoi_dong_Danh_sach_Thuc_don();
+
+    var Chuoi_HTML_Ket_qua = "";
+
+    if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Khoi_dong_MH_Chinh.Ma_so)
+    {
+        Chuoi_HTML_Ket_qua = Ung_dung.Khoi_dong_Man_hinh_Chinh();
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Tra_cuu.Ma_so)
+    {
+        var Chuoi_tra_cuu = Request["Th_Chuoi_Tra_cuu"]; ;
+        Chuoi_HTML_Ket_qua = Ung_dung.Tra_cuu(Chuoi_tra_cuu);
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Chon_Thuc_don.Ma_so)
+    {
+        var Ma_so_Thuc_don = Request["Th_Ma_so_Thuc_don"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Chon_Thuc_don(Ma_so_Thuc_don);
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Sua_Phieu_dat.Ma_so)
+    {
+        var Ma_so_Phieu_dat = Request["Th_Ma_so_Phieu_dat"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Sua_Phieu_dat(Ma_so_Phieu_dat);
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Cap_nhat_Phieu_dat.Ma_so)
+    {
+        var So_ban = Request["Th_So_ban"];
+
+        Chuoi_HTML_Ket_qua = Ung_dung.Cap_nhat_Phieu_dat(So_ban);
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Them_Mon_an_Phieu_dat.Ma_so)
+    {
+        var Ma_so_Mon_an = Request["TH_Ma_Mon_an"];
+
+        Chuoi_HTML_Ket_qua = Ung_dung.Them_Mon_an_Phieu_dat(Ma_so_Mon_an);
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Xoa_Mon_an_Phieu_dat.Ma_so)
+    {
+        var Ma_so_Mon_an = Request["TH_Ma_Mon_an"];
+
+        Chuoi_HTML_Ket_qua = Ung_dung.Xoa_Mon_an_Phieu_dat(Ma_so_Mon_an);
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Chon_Mon_an.Ma_so || Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Them_Mon_an.Ma_so)
+    {
+        var Ma_so_Mon_an = Request["TH_Ma_Mon_an"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Khoi_dong_Them_Phieu_dat(Ma_so_Mon_an);
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Them_Phieu_dat.Ma_so)
+    {
+        var So_ban = Request["Th_So_ban"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Them_Phieu_dat(So_ban);
+    }
+    else if (Ma_so_Chuc_nang == Nguoi_dung.Chuc_nang_Xoa_Mon_an.Ma_so)
+    {
+        var Ma_so_Mon_an = Request["TH_Ma_Mon_an"];
+        Chuoi_HTML_Ket_qua = Ung_dung.Xoa_Mon_an_Da_chon(Ma_so_Mon_an);
+    }
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="styles.css" />    
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"> Nhà hàng hải sản Ông Mập</a>            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                
+                @Html.Raw(Chuoi_HTML_Danh_sach_Thuc_Don)
+
+            </div>
+            <ul style="display: flex; margin: 0;">
+                <li style="list-style-type: none; margin-right: 1rem;"><a style="color: white;" href='MH_Chinh.cshtml'>Phiếu đặt món</a></li>                
+            </ul>
+        </nav>
+        <div class="container-fluid">
+
+            @Html.Raw(Chuoi_HTML_Ket_qua)
+            
+        </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            let $soban = $('#Th_So_ban');
+            let $btn_Them_phieu_dat = $('#btn_Them_phieu_dat');
+            $soban.on('change', function (e) {
+
+                let selectedValue = $(this).val();
+                
+                if (selectedValue != "") {
+                    $btn_Them_phieu_dat.removeClass('disabled');
+                }
+                else {
+                    $btn_Them_phieu_dat.addClass('disabled');
+                }
+
+            });
+
+        })
+    </script>
+</body>
+</html>

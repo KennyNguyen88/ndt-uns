@@ -1,0 +1,270 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B6B91DA3-66F8-491C-8C45-0B9C245C266D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ung_Dung</RootNamespace>
+    <AssemblyName>Ung_Dung</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1-Man_hinh_Giao_dien\css\AjaxLoader.html" />
+    <Content Include="1-Man_hinh_Giao_dien\css\animate.min.css" />
+    <Content Include="1-Man_hinh_Giao_dien\css\bootstrap.min.css" />
+    <Content Include="1-Man_hinh_Giao_dien\css\flaticon.css" />
+    <Content Include="1-Man_hinh_Giao_dien\css\flexslider.css" />
+    <Content Include="1-Man_hinh_Giao_dien\css\fonts\flexslider-icon-2.html" />
+    <Content Include="1-Man_hinh_Giao_dien\css\fonts\flexslider-icon-3.html" />
+    <Content Include="1-Man_hinh_Giao_dien\css\fonts\flexslider-icon-4.html" />
+    <Content Include="1-Man_hinh_Giao_dien\css\fonts\flexslider-icon.html" />
+    <Content Include="1-Man_hinh_Giao_dien\css\fonts\flexslider-icond41d.html" />
+    <Content Include="1-Man_hinh_Giao_dien\css\grabbing.html" />
+    <Content Include="1-Man_hinh_Giao_dien\css\portfolio.css" />
+    <Content Include="1-Man_hinh_Giao_dien\css\prettyPhoto.css" />
+    <Content Include="1-Man_hinh_Giao_dien\css\responsive.css" />
+    <Content Include="1-Man_hinh_Giao_dien\css\style.css" />
+    <Content Include="1-Man_hinh_Giao_dien\css\tweet-carousel.css" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\flaticon.svg" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\arrow-left.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\arrow-right.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\body-bg.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\book-now-bg.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\border-bg.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\client\1.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\client\2.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\client\3.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\client\4.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\client\5.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\client\6.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\client\7.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\client\client-bg.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\expertise\expertise-bg.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\features-bg.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\food-btn.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\footer\logo.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\gallery\1.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\gallery\2.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\gallery\3.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\gallery\4.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\gallery\5.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\gallery\6.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\gallery\7.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\gallery\8.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\home2-bg.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\home3-bg.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\loader.gif" />
+    <Content Include="1-Man_hinh_Giao_dien\images\logo.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_rounded\btnNext.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_rounded\btnPrevious.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_rounded\contentPattern.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_rounded\loader.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_rounded\sprite.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_square\btnNext.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_square\btnPrevious.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_square\loader.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\dark_square\sprite.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\btnNext.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\btnPrevious.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\contentPatternBottom.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\contentPatternLeft.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\contentPatternRight.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\contentPatternTop.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\default_thumbnail.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\loader.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\facebook\sprite.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\light_rounded\btnNext.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\light_rounded\btnPrevious.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\light_rounded\loader.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\nav\prettyPhoto\light_rounded\sprite.html" />
+    <Content Include="1-Man_hinh_Giao_dien\images\opening-hours-bg.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\default\loader.gif" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\default\sprite.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\pricing\1.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\pricing\2.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\pricing\3.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\pricing\4.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\1.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\2.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\3.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\4.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\5.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\6.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\s1.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\s2.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\s3.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\s4.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\s5.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\special-package\s6.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\images\testimonials\1.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\testimonials\2.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\testimonials\3.png" />
+    <Content Include="1-Man_hinh_Giao_dien\images\twitter-bg.jpg" />
+    <Content Include="1-Man_hinh_Giao_dien\js\bootstrap.min.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\bootstrapValidator.min.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\custom.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery-1.11.1.min.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.appear.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.easing.1.3.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.flexisel.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.flexslider-min.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.isotope.min.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.prettyPhoto.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.scrollTo.min.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.sticky.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\jquery.superslides.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\overlay\modernizr.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\tweet\carousel.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\tweet\scripts.js" />
+    <Content Include="1-Man_hinh_Giao_dien\js\tweet\tweetie.min.js" />
+    <Content Include="packages.config" />
+    <Content Include="1-Man_hinh_Giao_dien\Man_Hinh_Chinh.cshtml" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\flaticon.eot" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\flaticon.ttf" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\flaticon.woff" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="1-Man_hinh_Giao_dien\fonts\glyphicons-halflings-regulard41d.eot" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="3-Doi_tuong_va_Xu_ly\3A-Mo_hinh_Doi_tuong.cs" />
+    <Compile Include="3-Doi_tuong_va_Xu_ly\3B-Xu_ly_M+.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53446</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:53446/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

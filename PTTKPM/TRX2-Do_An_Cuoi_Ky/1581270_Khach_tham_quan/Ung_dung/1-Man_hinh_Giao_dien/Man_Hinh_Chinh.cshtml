@@ -1,0 +1,251 @@
+﻿@using System.Xml;
+@{
+    //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+    //******************* Khai báo và Khởi động giá trị đầu cho Biến  ********************
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    if (Ma_so_Chuc_nang == null) { Ma_so_Chuc_nang = "KHOI_DONG"; };
+
+    var Chuoi_HTML_Danh_sach_Mon_an = "";
+    var Chuoi_HTML_Danh_sach_Thuc_Don = "";
+    var Chuoi_HTML_Lien_he = "";
+    if (Ma_so_Chuc_nang == "KHOI_DONG")
+    {
+        Chuoi_HTML_Danh_sach_Thuc_Don = Ung_dung.Khoi_dong_Danh_sach_Thuc_don();
+        Chuoi_HTML_Danh_sach_Mon_an = Ung_dung.Khoi_dong_Danh_sach_Mon_an();
+        Chuoi_HTML_Lien_he = Ung_dung.Khoi_dong_Thong_tin_Lien_he();
+    }
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Title and Meta Tags Begins -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+    <title>Nhà hàng hải sản Ông Mập</title>
+    <!-- Title and Meta Tags Ends -->
+    <!-- Google Font Begins -->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!-- Google Font Ends -->
+    <!-- CSS Begins-->
+    <link href='../../../../netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' rel='stylesheet' type='text/css' />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/flaticon.css" rel="stylesheet" type="text/css" />
+    <link href="css/portfolio.css" rel="stylesheet" type="text/css" />
+    <link href="css/prettyPhoto.css" rel="stylesheet" type="text/css" />
+    <link href="css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/flexslider.css" rel="stylesheet" type="text/css" />
+    <link href="css/tweet-carousel.css" rel="stylesheet" type="text/css" />
+    <!-- Main Style -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/responsive.css" rel="stylesheet" type="text/css" />
+    <!-- CSS Ends -->
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="pageloader">
+        <div class="loader-item fa fa-spin colored-border"></div>
+    </div>
+
+    <!-- Header Begins -->
+    <div id="header" class="header-section">
+        <!-- Background Slider Begins -->
+        <div id="slides" class="home-slider relative">
+            <!-- Slides -->
+            <div class="slides-container">
+                <!-- Slider Images -->
+                <div class="slide-item">
+                    <img src="images/home3-bg.jpg" width="1400" height="700" alt="Slider" />
+                </div>
+                <!-- Top Section Begins -->
+                <div id="sticky-section" class="sticky-navigation">
+                    <div id="top-section" class="container-fluid">
+                        <div class="row">
+                            <div class="nav-collapse">
+                                <!-- Navigation Menu Begins -->
+                                <div id="navigation" class="no-padding navbar top-navbar">
+                                    <div class="toggle-logo">
+                                        <img src="images/footer/logo_map.png" width="20" height="20" alt="" />
+                                    </div>
+                                    <!-- Mobile Nav Toggle Begins -->
+                                    <div class="navbar-header nav-respons">
+                                        <button data-target=".bs-navbar-collapse" data-toggle="collapse" type="button" class="navbar-toggle">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <!-- Mobile Nav Toggle Ends -->
+                                    <!-- Menu Begins -->
+                                    <nav id="topnav" role="navigation" class="collapse navbar-collapse bs-navbar-collapse no-padding">
+                                        <div class="col-md-12 top-menu">
+                                            <!-- Menu Container Begins -->
+                                            <div class="container menu-container">
+                                                <!-- Navbar Menu Begins -->
+                                                <ul class="nav navbar-nav" style="width: 100%">
+                                                    <li>
+                                                        <a href="#header" class="scroll">Trang chủ</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#feature" class="scroll">Nổi bật</a>
+                                                    </li>
+                                                    <li class="logo-img">
+                                                        <a title="Logo" class="logo" href="#">
+                                                            <img src="images/logo_map.png" width="165" height="170" alt="">
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#opening-hours" class="scroll">Giờ hoạt động</a>
+                                                    </li>
+                                                    <li class="logo-after">
+                                                        <a href="#food-gallery" class="scroll">Thực đơn</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- Navbar Menu Ends -->
+                                            </div>
+                                            <!-- Menu Container Ends -->
+                                        </div>
+                                    </nav>
+                                    <!-- Menu Ends -->
+                                </div>
+                                <!-- Navigation Menu Ends -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Top Section Ends -->
+                <!-- Slide Text Begins -->
+                <div class="text-slider-section absolute container">
+                    <div class="text-slider">
+                        <ul class="slide-text slides">
+                            <li class="capitalize">Thực phẩm ngon, chất lượng</li>
+                            <li class="capitalize">Đầu bếp uy tín</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Slide Text Ends -->
+            </div>
+            <!-- Slides Ends -->
+        </div>
+        <!-- Background Slider Ends -->
+    </div>
+    <!-- Header Ends -->
+    <!-- Features Section Begins -->
+    <section id="feature" class="feature">
+        <div class="container section-inner">
+            <!-- Title & Description -->
+            <div class="row">
+                <h2 class="title">Điểm nổi bật</h2>
+            </div>
+            <div class="row">
+                <!-- Feature Box 1 -->
+                <div class="col-sm-6 animated" data-animation="fadeInLeft" data-animation-delay="600">
+                    <div class="feature-box white-bg">
+                        <!-- Icon -->
+                        <div class="feature-icon center">
+                            <i class="flaticon-restaurant26"></i>
+                        </div>
+                        <!-- Title -->
+                        <h4 class="text-center white bold uppercase">Thực phẩm ngon, chất lượng</h4>
+                        <!-- Description -->
+                        <p class="text-center">Nguyên liệu được chọn lựa kĩ càng, tốt cho sức khỏe</p>
+                    </div>
+                </div>
+                <!-- Feature Box 2 -->
+                <div class="col-sm-6 animated" data-animation="fadeInUp" data-animation-delay="700">
+                    <div class="feature-box">
+                        <!-- Icon -->
+                        <div class="feature-icon center">
+                            <i class="flaticon-chef10"></i>
+                        </div>
+                        <!-- Title -->
+                        <h4 class="text-center white bold uppercase">Đầu bếp uy tín</h4>
+                        <!-- Description -->
+                        <p class="text-center">Nhiều đầu bếp đã tham gia các cuộc thi lớn</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Row Ends -->
+        </div>
+        <!-- Container Ends -->
+    </section>
+    <!-- Feature Section Ends -->
+    <!-- Opening Hours Begins -->
+    <div id="opening-hours" class="opening-hours">
+        <div class="container">
+            <!-- Title & Description -->
+            <div class="row">
+                <h2 class="title">Mở cửa suốt <span>7</span> Ngày Trong Tuần</h2>
+            </div>
+        </div>
+    </div>
+    <!-- Opening Hours Ends -->
+    <!-- Food Gallery Begins -->
+    <div id="food-gallery" class="food-gallery">
+        <div class="container section-inner">
+            <!-- Title & Description -->
+            <div class="row">
+                <h2 class="title">Thực đơn</h2>
+                <p class="title-description">Đa dạng các món ăn chế biến từ hải sản</p>
+            </div>
+            <!-- Filters -->
+            <div id="filters" class="filter-menu fullwidth animated" data-animation="fadeInUp" data-animation-delay="500">               
+                @Html.Raw(Chuoi_HTML_Danh_sach_Thuc_Don)
+            </div>
+            <!-- Portfolio Inner Begins -->
+            <div class="row">
+                <!-- Gallery Container Begins -->                
+                @Html.Raw(Chuoi_HTML_Danh_sach_Mon_an)
+                <!-- Gallery Container Ends -->
+            </div>
+            <!-- Portfolio Inner Ends -->
+        </div>
+        <!-- Container Ends -->
+    </div>
+    <!-- Food Gallery Ends -->
+    <!--footer begins-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.Raw(Chuoi_HTML_Lien_he)
+                    <div class="copyright">
+                        &copy; 2014,All Rights Researved One Touch Inc
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--footer ends-->
+    <!-- Script Begins -->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+    <!-- Slider -->
+    <script type="text/javascript" src="js/jquery.sticky.js"></script>
+    <script type="text/javascript" src="js/jquery.superslides.js"></script>
+    <script type="text/javascript" src="js/jquery.flexslider-min.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+    <!-- Portfolio -->
+    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/jquery.appear.js"></script>
+    <!-- Overlay -->
+    <script type="text/javascript" src="js/overlay/modernizr.js"></script>
+    <!-- Client -->
+    <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+    <!-- Twitter -->
+    <script type="text/javascript" src="js/tweet/carousel.js"></script>
+    <script type="text/javascript" src="js/tweet/scripts.js"></script>
+    <script type="text/javascript" src="js/tweet/tweetie.min.js"></script>
+    <!-- Custom -->
+    <script type="text/javascript" src="js/custom.js"></script>
+    <!-- Script Ends -->
+</body>
+</html>

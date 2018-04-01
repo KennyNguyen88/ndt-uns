@@ -1,0 +1,65 @@
+{
+  "Ten": "Nhà Hàng Ông Mập",
+  "Ma_so": "TRX2",
+  "Dien_thoai": "(08).355.65683",
+  "Dia_chi": "1019A Bình Quới - P. 28 - Q. Bình Thạnh - TP.HCM",
+  "Mail": "ongmap@gmail.com",
+  "Danh_sach_Thuc_don": [
+    {
+      "Ten": "Món Khai Vị",
+      "Ma_so": "MONKHAIVI"
+    },
+    {
+      "Ten": "Món Tôm",
+      "Ma_so": "MONTOM"
+    },
+    {
+      "Ten": "Món Mực",
+      "Ma_so": "MONMUC"
+    },
+    {
+      "Ten": "Món Ốc",
+      "Ma_so": "MONOC"
+    },
+	{
+      "Ten": "Món Cháo",
+      "Ma_so": "MONCHAO"
+    },
+	{
+      "Ten": "Món Cơm",
+      "Ma_so": "MONCOM"
+    },
+	{
+      "Ten": "Món Miếng",
+      "Ma_so": "MONMIENG"
+    },
+	{
+      "Ten": "Món Mì",
+      "Ma_so": "MONMI"
+    },
+	{
+      "Ten": "Món Bò",
+      "Ma_so": "MONBO"
+    },
+	{
+      "Ten": "Món Cá",
+      "Ma_so": "MONCA"
+    },
+	{
+      "Ten": "Món Lẩu",
+      "Ma_so": "MONLAU"
+    },
+	{
+      "Ten": "Món Heo",
+      "Ma_so": "MONHEO"
+    },
+	{
+      "Ten": "Món Gà",
+      "Ma_so": "MONGA"
+    },
+	{
+      "Ten": "Món Xào",
+      "Ma_so": "MONXAO"
+    }	
+  ]
+}

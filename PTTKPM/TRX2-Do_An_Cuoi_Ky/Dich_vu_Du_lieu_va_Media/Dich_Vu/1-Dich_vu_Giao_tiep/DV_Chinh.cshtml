@@ -1,0 +1,85 @@
+﻿@{
+    // *********Khởi động Dữ liệu nguồn/nội bộ ********
+    var Dich_vu = XL_DICH_VU.Khoi_dong_Dich_vu();
+
+    //*********Khai báo Biến/Đối tượng :Nhận & Kết quả *********
+    var Ma_so_Xu_ly = Request["Ma_so_Xu_ly"]; // Biến Nhận
+    var Bo_doc = new StreamReader(Request.InputStream);
+    var Chuoi_Nhan = Bo_doc.ReadToEnd(); // Nhận Đối tượng
+
+    var Chuoi_JSON_Ket_qua = ""; // Biến Kêt quả    
+
+    if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_KHACH_THAM_QUAN")
+    {
+        var Du_lieu_Kq = Dich_vu.Tao_Du_lieu_Phan_he_Khach_Tham_quan();
+        Chuoi_JSON_Ket_qua = Json.Encode(Du_lieu_Kq);
+    }
+    else if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_NHAN_VIEN_PHUC_VU")
+    {
+        var Du_lieu_Kq = Dich_vu.Tao_Du_lieu_Phan_he_Nhan_vien_Phuc_vu();
+        Chuoi_JSON_Ket_qua = Json.Encode(Du_lieu_Kq);
+    }
+    else if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_NHAN_VIEN_THU_NGAN")
+    {
+        var Du_lieu_Kq = Dich_vu.Tao_Du_lieu_Phan_he_Nhan_vien_Thu_ngan();
+        Chuoi_JSON_Ket_qua = Json.Encode(Du_lieu_Kq);
+    }
+    else if (Ma_so_Xu_ly == "KHOI_DONG_DU_LIEU_QUAN_LY")
+    {
+        var Du_lieu_Kq = Dich_vu.Tao_Du_lieu_Phan_he_Quan_ly();
+        Chuoi_JSON_Ket_qua = Json.Encode(Du_lieu_Kq);
+    }
+    else if (Ma_so_Xu_ly == "CAP_NHAT_NGUOI_DUNG")
+    {
+        var Ho_ten = Request["Ho_ten"];
+        var mat_khau = Request["mat_khau"];
+        var Nguoi_dung = Json.Decode<XL_NGUOI_DUNG>(Chuoi_Nhan);
+        Chuoi_JSON_Ket_qua = Dich_vu.Cap_nhat_Nguoi_dung(Nguoi_dung, Ho_ten, mat_khau);
+    }
+    else if (Ma_so_Xu_ly == "CAP_NHAT_THONG_TIN_MON_AN")
+    {
+        var Ten = Request["Ten"];
+        var Trang_thai = Request["Trang_thai"];
+        var Don_gia_Nhap = long.Parse(Request["Don_gia_Nhap"]);
+        var Don_gia_Ban = long.Parse(Request["Don_gia_Ban"]);
+        var Mon_an = Json.Decode<XL_MONAN>(Chuoi_Nhan);
+        Chuoi_JSON_Ket_qua = Dich_vu.Cap_nhat_Mon_An(Mon_an, Don_gia_Nhap, Don_gia_Ban, Ten, Trang_thai);
+    }
+    else if (Ma_so_Xu_ly == "GHI_PHIEU_DAT_MOI")
+    {
+
+        var Phieu_dat = Json.Decode<XL_PHIEU_DAT>(Chuoi_Nhan);
+        Chuoi_JSON_Ket_qua = Dich_vu.Them_Phieu_Dat_Moi(Phieu_dat);
+
+    }
+    else if (Ma_so_Xu_ly == "CAP_NHAT_PHIEU_DAT")
+    {
+
+        var Phieu_dat = Json.Decode<XL_PHIEU_DAT>(Chuoi_Nhan);
+        Chuoi_JSON_Ket_qua = Dich_vu.Cap_nhat_Phieu_dat(Phieu_dat);
+
+    }
+    else if (Ma_so_Xu_ly == "THEM_MOI_MON_AN")
+    {
+        var Mon_an = Json.Decode<XL_MONAN>(Chuoi_Nhan);
+        Chuoi_JSON_Ket_qua = Dich_vu.THEM_MON_AN(Mon_an);
+    }
+    else if (Ma_so_Xu_ly == "UPLOAD_IMAGE")
+    {
+        string Ma_so = Request["Ma_so"];
+        string imgType = Request["imgType"];
+
+        byte[] imgByte = null;
+        Stream stream = Request.InputStream;  //initialise new stream
+        using (var memoryStream = new MemoryStream())
+        {
+            stream.Position = 0;
+            stream.CopyTo(memoryStream);
+            imgByte = memoryStream.ToArray();
+        }
+        Dich_vu.Ghi_IMAGE(Ma_so, imgByte, imgType);
+    }
+    // Xử lý trả Kết quả
+    Response.ContentType = "text/json";
+    Response.Write(Chuoi_JSON_Ket_qua);
+}

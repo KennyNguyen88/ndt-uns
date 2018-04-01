@@ -1,0 +1,133 @@
+﻿@using System.Xml;
+@using System.Drawing.Imaging;
+
+@{
+    //****************** Khởi động Dữ liệu Nguồn-Nội bộ **********
+    var Ung_dung = XL_UNG_DUNG.Khoi_dong_Ung_dung();
+    var Nguoi_dung = (XL_NGUOI_DUNG)Session["Nguoi_dung_Dang_Nhap"];
+    if (Nguoi_dung == null) { Response.Write("Người dùng không hợp lệ"); Response.End(); }
+    //******************* Khai báo và Khởi động giá trị đầu cho Biến  ********************
+    var Ma_so_Chuc_nang = Request["Th_Ma_so_Chuc_nang"]; // Biến Nhập
+    var Mon_an = (XL_MONAN)Session["Mon_an_Chon"];
+    var submitvalue_Chuc_nang = Request.Form["btnSaveChanges"];
+
+    var imagePath = "";
+    var r = new Random(); var randomNumber = r.Next();
+    imagePath = Ung_dung.Tao_Chuoi_HTML_Image(Mon_an.Ma_so, "jpg") + '?' + randomNumber.ToString();
+
+    if (submitvalue_Chuc_nang != null &&  submitvalue_Chuc_nang == "SAVE_CHANGES")
+    {
+        var Ten = Request["txtTen"]; // Biến Nhập
+        var Don_gia_Nhap = long.Parse(Request["txtDgn"]); // Biến Nhập
+        var Don_gia_Ban = long.Parse(Request["txtDgb"]); // Biến Nhập
+        var Img_Base64String = Request["UrlAvatar"];
+
+        var Trang_thai = ""; // Biến Nhập
+        Ung_dung.Cap_nhat_Thong_tin_Mon_an(Don_gia_Nhap, Don_gia_Ban, Ten, Trang_thai, Img_Base64String);
+
+        Response.Redirect(Request.RawUrl);
+
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#upImgage').change(function () {
+                var tmppath = URL.createObjectURL(this.files[0]);
+                var ext = this.files[0].name.substring(this.files[0].name.lastIndexOf('.') + 1).toLowerCase();
+                if (this.files && this.files[0] && (ext == "jpeg" || ext == "jpg")) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#imgAvatar').attr('src', e.target.result);
+
+                        }
+                        reader.readAsDataURL(this.files[0]);
+                        reader.onloadend = function () {
+                            //var base64data = reader.result;
+                            var base64data = reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
+                            $('#UrlAvatar').attr('value', base64data);
+                        }
+                        
+                    }
+                    else {
+                        $('#imgAvatar').attr('src', '@imagePath');
+                        $('#UrlAvatar').attr('value', null);
+                        alert("Vui lòng chỉ chọn hình có đuôi mở rộng là jpg");
+                    }
+                });
+            });
+    </script>
+</head>
+<body style="font-family:Arial;width:100%;box-sizing:border-box;
+              margin:0px;padding:0px;overflow-x:hidden" class="container-fluid">
+    <br />
+    <form method='post' enctype="multipart/form-data">
+        <h2>Chức năng cập nhật thông tin Món Ăn</h2>
+        <!-- Thông tin  Món Ăn -->
+        <div class="form-group">
+            @*<br />*@
+            @*<label class="col-md-4 control-label" for="HoTen"><b>Mã số Nhân viên:</b> <b>@Nguoi_dung.Ma_so</b></label>*@
+            <br />
+            <label class="col-md-4 control-label" for="HoTen"><b>Tên Món ăn:</b> </label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input id="txtTen" name="txtTen" type="text" placeholder="Tên Món ăn" class="form-control input-md" value="@Mon_an.Ten">
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="txtDgn"><b>Đơn giá nhập:</b> </label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input id="txtDgn" name="txtDgn" type="number" min="0" placeholder="Đơn giá nhập" class="form-control input-md" value="@Mon_an.Don_gia_Nhap">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="txtDgb"><b>Đơn giá bán:</b> </label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input id="txtDgb" name="txtDgb" type="number" min="0" placeholder="Đơn giá bán" class="form-control input-md" value="@Mon_an.Don_gia_Ban">
+                </div>
+            </div>
+        </div>
+        <!-- Avatar -->
+        <div class="form-group">
+            <div style="padding:10px;">
+                @if (imagePath != "")
+                {
+                    <input type="image" src="@imagePath" id="imgAvatar" name ="imgAvatar" alt="Sample Image" width="100" height="100" />
+                    <input id="UrlAvatar" name='UrlAvatar' type='hidden' value='' />
+                }
+             </div>
+            <label class="col-md-4 control-label" for="Upload photo">Upload avatar</label>
+            <div class="col-md-4">
+                <input id="upImgage" name="upImgage" class="input-file" type="file"/>
+            </div>
+        </div>
+
+        <!-- button -->
+        <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+                <button type="submit" name="btnSaveChanges" class="btn btn-primary" value="SAVE_CHANGES">Save Changes</button>
+                <button type="reset" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
